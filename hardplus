@@ -1,0 +1,19 @@
+dialhost.com.br
+
+public_html/_Sincronizacao/imp_allnatons.php  no
+public_html/_Sincronizacao/imp_allnatons_prod.php  no
+public_html/_Sincronizacao/imp_allnatons_sinc.php  no
+public_html/_Sincronizacao/SincAllnationsVirtual.php?codigo=1  yes
+
+ftp -p
+open hardplus.com.br
+cd public_html
+
+data_base.hardplu1_loja
+	table.produtos_vtabela
+		relação de ítens a ser buscado nos revendedores
+
+
+ordem
+SincAllnationsVirtual.php
+	->

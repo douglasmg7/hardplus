@@ -1,0 +1,737 @@
+Field	Type	Null	Key	Default	Extra
+id	int(11)	NO	PRI	NULL	auto_increment
+codigo	varchar(50)	YES	MUL	0	
+produto	varchar(50)	YES		0	
+loja	int(11)	YES		0	
+lojaNome	varchar(100)	YES		NULL	
+titulo	varchar(100)	YES		0	
+imagem	varchar(255)	YES		0	
+url	varchar(255)	YES		0	
+descricao	text	YES		NULL	
+estado	varchar(2)	YES		0	
+precoloja	varchar(10)	YES		0	
+precomarkup	varchar(10)	YES		0	
+precovenda	varchar(10)	YES		0	
+precodesconto	varchar(10)	YES		0	
+estoque	int(11)	NO		0	
+status	int(11)	YES		0	
+virtual	int(11)	YES		0	
+status_data	datetime	YES		0000-00-00 00:00:00	
+count(*)
+715
+id	codigo	produto	loja	lojaNome	titulo	imagem	url	descricao	estado	precoloja	precomarkup	precovenda	precodesconto	estoque	status	virtual	status_data
+2	29910	CW9060019W	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 21:48:56
+5	0047728	CI54440B	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047728	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047728-01	NULL	SC	799,35	15	920,00	874,00	1	1	0	2016-08-09 17:12:45
+11	0042998	CR768AAC4	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0042998	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0042998-01	NULL	SC	1.004,95	15	1.156,00	1.099,00	1	1	0	2016-08-09 17:12:46
+12	0035578	I74790KB	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0035578	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0035578-01	NULL	RJ	1.627,57	15	1.872,00	1.779,00	1	0	0	2016-08-16 11:05:17
+13	0036353	G1X85AAC4	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0036001	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0036001-01	NULL	RJ	882,61	15	1.016,00	966,00	0	1	0	2016-07-03 07:42:12
+14	0060054	CW9060015W	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060054	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060054-01	NULL	SC	487,97	15	562,00	534,00	0	0	0	2016-08-16 11:05:17
+15	29900	CP9020076W	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 21:49:05
+22	30844	I56500TT	2	Aldo	0	0	0	NULL	0	0	25	0	0	0	0	0	2016-07-04 21:49:17
+28	0041694	RLN12X24PK	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0041694	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0041694-01	NULL	RJ	456,64	15	526,00	500,00	0	0	0	2016-08-16 11:05:17
+35	0046822	80662I3632	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046822	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046822-01	NULL	RJ	640,10	15	737,00	701,00	1	1	0	2016-07-04 06:10:50
+42	27826	2GP43751KR	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 21:49:47
+45	24059	2650V3	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 21:49:54
+47	22117	KVR21R15S4	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 21:49:58
+48	22116	KVR21R15D4	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 21:50:00
+49	13823	ST20VN000	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 21:50:03
+53	0043699	CAPH240W1	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0043699	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0043699-01	NULL	RJ	441,06	15	508,00	483,00	0	0	0	2016-08-16 11:05:18
+54	0029576	17P1102W	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0029576	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0029576-01	NULL	RJ	1.000,88	15	1.152,00	1.095,00	1	0	0	2016-08-16 11:05:18
+55	23415	17P1102W	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 21:50:12
+59	0044819	B4A22A696	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0044819	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0044819-01	NULL	RJ	2.232,27	15	2.568,00	2.440,00	1	1	0	2016-07-03 07:27:13
+67	28440	Z97GAMING3	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 21:50:30
+68	268	I75930KB	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 21:50:33
+69	15422	2000NM0033	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 21:50:35
+70	28054	E31220V3B	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 21:50:37
+72	28059	Z97MGAMING	2	Aldo	0	0	0	NULL	0	0	35	0	0	0	0	0	2016-07-04 21:50:42
+74	25852	Z97GD65GAM	2	Aldo	0	0	0	NULL	0	0	35	0	0	0	0	0	2016-07-04 21:50:46
+75	26293	MSIZ97IAC	2	Aldo	0	0	0	NULL	0	0	35	0	0	0	0	0	2016-07-04 21:50:48
+76	0047731	I54690KB	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0035577	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0035577-01	NULL	RJ	1.141,37	15	1.313,00	1.248,00	0	1	0	2016-07-04 06:08:00
+77	0046816	BX80662I36	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046816	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046816-01	NULL	RJ	538,00	15	619,00	589,00	1	1	0	2016-07-04 06:20:10
+78	0060843	GAH110MH	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047273	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047273-01	NULL	RJ	387,47	15	446,00	424,00	0	1	0	2016-07-10 11:45:47
+79	0047676	662I56500	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047676	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047676-01	NULL	RJ	940,71	15	1.082,00	1.028,00	0	0	0	2016-08-09 17:14:37
+80	0047220	04GP41962	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047220	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047220-01	NULL	RJ	1.205,73	15	1.387,00	1.318,00	0	0	0	2016-08-16 11:05:18
+81	0049138	4GP41970KT	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049138	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049138-01	NULL	SC	1.280,75	15	1.473,00	1.400,00	0	0	0	2016-08-16 11:05:18
+86	0046679	90601-10L	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046679	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046679-01	NULL	RJ	882,12	15	1.015,00	965,00	0	0	0	2016-08-16 11:05:19
+88	0046000	4GBD5PPDHE	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046000	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046000-01	NULL	RJ	1.117,39	15	1.285,00	1.221,00	0	0	0	2016-07-10 12:02:56
+90	0043524	CZ165A	0	All Nations	0	0	0	NULL	0	0	25	0	0	0	0	0	2016-07-04 21:51:08
+91	0043408	B3Q11A	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0043408	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0043408-01	NULL	RJ	3.612,72	15	4.155,00	3.948,00	1	1	0	2016-07-03 07:23:50
+93	0043502	FX6300BEB	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0043502	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0043502-01	NULL	RJ	449,49	15	517,00	492,00	1	1	0	2016-08-09 17:12:44
+94	0041712	FX8350B	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0041712	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0041712-01	NULL	RJ	726,26	15	836,00	795,00	0	0	0	2016-08-16 11:05:19
+101	0045294	FX8320EBOX	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0045294	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0045294-01	NULL	RJ	556,11	15	640,00	608,00	1	1	0	2016-07-04 10:30:34
+117	0036500	CZ172A696	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0036500	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0036500-01	NULL	RJ	1.291,60	15	1.486,00	1.412,00	1	1	0	2016-07-03 07:33:35
+120	0044822	B4A22A696	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0044822	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0044822-01	NULL	SC	2.232,27	15	2.568,00	2.440,00	1	1	0	2016-07-03 07:27:27
+123	0047974	GT802	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047974	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047974-01	NULL	RJ	21.846,68	15	25.124,00	23.868,00	1	1	0	2016-07-04 08:06:28
+131	0048181	90601-10L	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0048181	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0048181-01	NULL	SC	764,48	15	880,00	836,00	1	1	0	2016-07-06 02:12:21
+139	0044161	223G5LHSB	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0044161	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0044161-01	NULL	RJ	632,48	30	823,00	782,00	1	0	0	2016-08-16 11:05:19
+140	0044977	193V5LHSB2	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0044977	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0044977-01	NULL	RJ	341,84	30	445,00	423,00	0	0	0	2016-08-16 11:05:20
+141	0044165	203V5LHSB2	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0044165	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0044165-01	NULL	ES	403,43	30	525,00	499,00	0	0	0	2016-08-16 11:05:20
+143	0047014	243V5QHABA	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047014	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047014-01	NULL	RJ	705,66	30	918,00	873,00	1	1	0	2016-08-09 17:12:44
+148	0043683	CAH440WM4	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0043683	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0043683-01	NULL	RJ	729,37	15	839,00	798,00	0	0	0	2016-08-16 11:05:20
+149	0035313	I54460BOX	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0035313	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0035313-01	NULL	RJ	847,83	15	976,00	928,00	0	0	0	2016-08-16 11:05:20
+150	0034768	CE651A696	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0028454	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0028454-01	NULL	RJ	929,25	15	1.069,00	1.016,00	0	1	0	2016-07-03 07:39:23
+152	0035311	I74790BOX	1	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0035311	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0035311-01	NULL	RJ	1.468,36	15	1.689,00	1.605,00	1	0	0	2016-08-16 11:05:21
+155	0043121	I34170BOX	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0043121	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0043121-01	NULL	RJ	544,34	15	626,00	595,00	0	0	0	2016-07-04 21:52:18
+165	0046141	SHSS37A120	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046141	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046141-01	NULL	RJ	373,74	15	430,00	409,00	0	0	0	2016-08-16 11:05:21
+166	0043764	658I55675C	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0043764	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0043764-01	NULL	RJ	1.173,00	25	1.467,00	1.394,00	0	0	0	2016-08-16 11:05:21
+167	0043768	658I75775C	1	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0043768	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0043768-01	NULL	RJ	1.420,72	15	1.634,00	1.553,00	1	0	0	2016-08-16 11:05:21
+168	0045464	B5L25A696	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0045464	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0045464-01	NULL	RJ	5.918,12	15	6.806,00	6.466,00	1	1	0	2016-08-09 17:12:47
+175	0060823	4GP42974KR	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060823	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060823-01	NULL	SC	1.430,99	15	1.646,00	1.564,00	1	0	0	2016-08-16 11:05:22
+176	0047900	04GP41962	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047900	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047900-01	NULL	SC	1.073,87	15	1.235,00	1.174,00	0	0	0	2016-08-16 11:05:22
+183	0043385	220P21000	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0043385	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0043385-01	NULL	RJ	1.133,31	25	1.474,00	1.401,00	0	0	0	2016-08-16 11:05:22
+194	0038394	E2270SWN	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0038394	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0038394-01	NULL	RJ	521,66	15	600,00	570,00	0	0	0	2016-08-16 11:05:22
+197	0033757	E2023PWD	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0033757	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0033757-01	NULL	RJ	571,84	30	744,00	707,00	0	0	0	2016-08-09 17:14:41
+198	0022542	AOCHA22B	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0022542	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0022542-01	NULL	RJ	87,22	30	114,00	109,00	0	0	0	2016-08-16 11:05:23
+201	0041724	FD4300MHKB	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0041724	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0041724-01	NULL	RJ	362,63	15	418,00	398,00	1	1	0	2016-08-09 17:12:44
+205	0049111	2GP43753KR	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049111	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049111-01	NULL	RJ	576,27	15	663,00	630,00	0	0	0	2016-08-16 11:05:23
+208	0046005	RC912KKN1	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046005	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046005-01	NULL	RJ	392,53	15	452,00	430,00	1	0	0	2016-08-16 11:05:23
+210	0046009	GC1000KWN1	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046009	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046009-01	NULL	RJ	446,76	15	514,00	489,00	1	1	0	2016-08-09 17:12:44
+213	0041053	SGC5000W	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0041053	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0041053-01	NULL	RJ	956,32	15	1.100,00	1.045,00	0	0	0	2016-08-16 11:05:24
+222	0041055	CMS693KWN1	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0041055	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0041055-01	NULL	RJ	628,04	15	723,00	687,00	0	0	0	2016-08-16 11:05:24
+227	0045509	MCX0005KKN	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0045509	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0045509-01	NULL	RJ	549,53	15	632,00	601,00	1	1	0	2016-08-09 17:12:44
+231	0047698	GP622QE	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047698	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047698-01	NULL	RJ	6.370,29	15	7.326,00	6.960,00	1	1	0	2016-08-09 17:12:47
+240	0045087	I76700KB	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0045087	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0045087-01	NULL	RJ	1.654,90	15	1.904,00	1.809,00	0	1	0	2016-07-04 06:03:43
+252	0045086	I7-6700	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0045086	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0045086-01	NULL	RJ	1.414,61	15	1.627,00	1.546,00	0	0	0	2016-08-16 11:05:25
+254	0047992	R73602GPC	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047992	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047992-01	NULL	RJ	503,93	15	580,00	551,00	1	1	0	2016-07-10 11:56:10
+255	0049160	4GBD5PPDHE	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049160	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049160-01	NULL	RJ	1.022,23	15	1.176,00	1.118,00	1	1	0	2016-07-10 12:03:22
+257	0047913	R7370PPDHE	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047913	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047913-01	NULL	RJ	738,38	15	850,00	808,00	1	1	0	2016-08-09 17:12:44
+259	0047908	4GP41970KR	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047908	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047908-01	NULL	SC	1.559,80	15	1.794,00	1.705,00	1	0	0	2016-08-16 11:05:26
+260	0046801	2GP43753KR	1	Aldo	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046801	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046801-01	NULL	RJ	622,26	15	716,00	681,00	1	0	0	2016-08-16 11:05:26
+264	0049092	970DC2OC4G	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0048029	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0048029-01	NULL	RJ	1.490,40	15	1.714,00	1.629,00	0	1	0	2016-07-09 15:29:41
+265	0047940	M2470SWD	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047940	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047940-01	NULL	RJ	668,95	15	770,00	732,00	1	1	0	2016-07-10 12:43:12
+270	0047702	R9NANO-4G	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047702	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047702-01	NULL	RJ	3.062,10	15	3.522,00	3.346,00	1	1	0	2016-08-09 17:12:47
+271	0047011	E970PWHEN	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047011	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047011-01	NULL	RJ	517,47	15	596,00	567,00	1	1	0	2016-08-09 17:12:44
+273	0046422	PA249Q	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046422	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046422-01	NULL	RJ	3.446,25	15	3.964,00	3.766,00	1	0	0	2016-07-10 12:55:16
+275	0048252	LE24D1461	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0048252	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0048252-01	NULL	ES	786,87	25	984,00	935,00	1	1	0	2016-08-09 17:12:45
+276	0048285	N3700-ITX	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0048285	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0048285-01	NULL	RJ	769,46	15	885,00	841,00	1	1	0	2016-08-09 17:12:44
+281	0049110	R9380STRIX	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049110	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049110-01	NULL	RJ	1.188,57	15	1.367,00	1.299,00	1	1	0	2016-08-09 17:12:46
+284	0041043	RC912PKKN1	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0041043	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0041043-01	NULL	RJ	456,75	15	526,00	500,00	1	1	0	2016-08-09 17:12:44
+288	0035584	SGC5000KWN	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0035584	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0035584-01	NULL	ES	793,82	15	913,00	868,00	0	0	0	2016-08-16 11:05:27
+289	0060137	PSU750CXV2	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060137	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060137-01	NULL	RJ	414,59	15	477,00	454,00	0	0	0	2016-08-16 11:05:27
+292	0045852	SBW06D2XUB	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0045852	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0045852-01	NULL	RJ	508,39	15	585,00	556,00	0	0	0	2016-08-16 11:05:27
+293	0025761	CC9011011	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0025761	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0025761-01	NULL	RJ	563,80	15	649,00	617,00	0	0	0	2016-08-16 11:05:28
+304	0036369	CC9011060	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0036369	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0036369-01	NULL	RJ	625,19	15	719,00	684,00	0	0	0	2016-08-16 11:05:28
+305	0048407	CW9060017W	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0048407	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0048407-01	NULL	ES	577,32	15	664,00	631,00	0	0	0	2016-08-16 11:05:28
+307	0041807	CP9020057	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0041807	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0041807-01	NULL	RJ	1.686,50	20	2.024,00	1.923,00	0	0	0	2016-08-16 11:05:28
+308	0041860	CC9011061	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0041860	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0041860-01	NULL	RJ	592,35	25	741,00	704,00	0	0	0	2016-08-16 11:05:28
+311	0041673	CMS693GWN1	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0041673	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0041673-01	NULL	RJ	563,80	15	649,00	617,00	1	1	0	2016-08-09 17:12:44
+312	0041057	RC1200KKN1	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0041057	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0041057-01	NULL	RJ	2.141,02	15	2.463,00	2.340,00	1	1	0	2016-08-09 17:12:47
+313	0046010	GC2100KWN3	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046010	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046010-01	NULL	RJ	521,84	15	601,00	571,00	0	0	0	2016-08-16 11:05:29
+314	0040090	CC-9011071	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0040090	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0040090-01	NULL	RJ	586,31	15	675,00	642,00	1	0	0	2016-08-16 11:05:29
+321	0045648	DES121028P	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0045648	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0045648-01	NULL	RJ	1.734,21	15	1.995,00	1.896,00	0	0	0	2016-08-16 11:05:30
+322	0048015	DES121052	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0048015	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0048015-01	NULL	RJ	1.806,65	15	2.078,00	1.975,00	1	1	0	2016-08-09 17:12:46
+326	0046886	DGS1024D	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046886	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046886-01	NULL	RJ	618,58	15	712,00	677,00	0	0	0	2016-08-16 11:05:30
+330	0049134	2GP43751KR	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049134	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049134-01	NULL	RJ	551,19	15	634,00	603,00	1	0	0	2016-08-16 11:05:30
+331	0047107	DDIR850L	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047107	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047107-01	NULL	SC	413,43	15	476,00	453,00	1	1	0	2016-08-09 17:12:44
+332	0048295	4GP42983KR	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0048295	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0048295-01	NULL	RJ	2.204,71	15	2.536,00	2.410,00	1	1	0	2016-08-09 17:12:47
+336	0049121	04GP41962	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049121	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049121-01	NULL	RJ	1.000,25	15	1.151,00	1.094,00	1	1	0	2016-08-09 17:12:45
+337	0049128	2GP42962KR	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049128	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049128-01	NULL	RJ	906,38	15	1.043,00	991,00	1	0	0	2016-08-16 11:05:31
+339	0048134	DIR-859	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0048134	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0048134-01	NULL	RJ	636,75	15	733,00	697,00	1	1	0	2016-08-09 17:12:44
+340	0049387	DSR-500	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049387	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049387-01	NULL	ES	1.050,00	15	1.208,00	1.148,00	1	1	0	2016-08-09 17:12:46
+341	0045790	DIR-868L	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0045790	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0045790-01	NULL	SC	910,20	15	1.047,00	995,00	0	0	0	2016-08-16 11:05:31
+342	0047525	DGS121028	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047525	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047525-01	NULL	RJ	1.032,97	15	1.188,00	1.129,00	0	0	0	2016-08-16 11:05:32
+343	0044787	DNR-322L	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0044787	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0044787-01	NULL	RJ	712,04	15	819,00	779,00	1	1	0	2016-08-09 17:12:44
+344	0041336	DCS-2130	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0041336	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0041336-01	NULL	RJ	662,24	15	762,00	724,00	1	1	0	2016-08-09 17:12:44
+348	0048417	6GP44993KR	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0048417	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0048417-01	NULL	SC	2.640,60	15	3.037,00	2.886,00	0	0	0	2016-08-16 11:05:32
+349	0049113	4GP41972KT	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049113	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049113-01	NULL	RJ	1.292,78	15	1.487,00	1.413,00	1	0	0	2016-08-16 11:05:32
+350	0047847	6GP44995KR	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047847	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047847-01	NULL	RJ	2.778,47	15	3.196,00	3.037,00	1	0	0	2016-08-16 11:05:32
+351	0049112	4GP43967KR	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049112	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049112-01	NULL	RJ	1.079,53	15	1.242,00	1.180,00	1	1	0	2016-08-09 17:12:46
+353	0049445	2GP41950KR	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049445	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049445-01	NULL	ES	722,91	15	832,00	791,00	0	0	0	2016-08-16 11:05:33
+356	0060389	97NPH6DT8R	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0045660	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0045660-01	NULL	RJ	1.559,80	15	1.794,00	1.705,00	0	1	0	2016-07-03 07:07:24
+365	0047981	I56600TT	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0045084	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0045084-01	NULL	RJ	1.059,56	15	1.219,00	1.159,00	0	1	0	2016-07-04 06:09:03
+367	0047979	I5-6400	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047675	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047675-01	NULL	RJ	848,26	15	976,00	928,00	0	1	0	2016-07-04 06:10:23
+368	0047846	SSD240535	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047846	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047846-01	NULL	RJ	445,94	15	513,00	488,00	1	1	0	2016-07-04 06:21:27
+370	0047647	KVR16LE118	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047647	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047647-01	NULL	RJ	485,35	15	559,00	532,00	1	1	0	2016-07-10 12:29:36
+373	0046645	SHSS37A120	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046645	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046645-01	NULL	RJ	388,42	15	447,00	425,00	1	1	0	2016-07-07 12:55:44
+393	0047313	GA-H170-G3	1	All Nations	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-08-16 11:05:33
+395	29268	DBS2600CW2	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 21:54:28
+396	0046650	4GBHBM-DH	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046650	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046650-01	NULL	SC	2.572,17	15	2.958,00	2.811,00	1	1	0	2016-08-09 17:12:47
+398	0048089	R9FURYX4G	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0048089	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0048089-01	NULL	SC	3.479,54	15	4.002,00	3.802,00	1	1	0	2016-07-04 08:14:34
+402	0047240	90601-10L	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047240	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047240-01	NULL	ES	683,56	15	787,00	748,00	1	1	0	2016-07-06 02:12:10
+403	0046227	4GBHBM-DH	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046227	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046227-01	NULL	RJ	3.466,65	15	3.987,00	3.788,00	1	1	0	2016-08-09 17:12:47
+412	0034799	WD20EZRX	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0034799	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0034799-01	NULL	RJ	426,94	15	491,00	467,00	1	1	0	2016-07-06 02:02:05
+419	0049169		1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049169	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049169-01	NULL	RJ	1.019,50	15	1.173,00	1.115,00	1	1	0	2016-08-09 17:12:46
+423	0049186	VCQK1200DP	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049186	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049186-01	NULL	RJ	1.487,81	15	1.711,00	1.626,00	1	0	0	2016-07-10 11:39:52
+424	0049187	VCNVS510DV	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049187	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049187-01	NULL	RJ	1.905,41	15	2.192,00	2.083,00	1	0	0	2016-08-16 11:05:34
+425	0049172	VCGGTX9704	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049172	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049172-01	NULL	RJ	1.280,75	15	1.473,00	1.400,00	1	1	0	2016-08-09 17:12:46
+429	29898	CP9020048WW	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 21:54:34
+430	29895	CP9020046W	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 22:03:07
+431	29930	CC9011050W	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 22:03:09
+436	29927	CC9011056W	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 22:03:18
+439	30720	SDC10G216G	2	Aldo	0	0	0	NULL	0	0	40	0	0	0	0	0	2016-07-04 22:03:26
+440	21515	HX316LS9IB	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 22:03:28
+443	25573	DT100G316	2	Aldo	0	0	0	NULL	0	0	40	0	0	0	0	0	2016-07-04 21:54:56
+444	29907	CW9060015W	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 22:03:35
+445	28232	X318C10FR4	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 22:03:37
+446	29703	DTMC3-32GB	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 22:03:39
+447	0045927	GAB85MD3PH	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0045927	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0045927-01	NULL	RJ	383,93	25	480,00	456,00	1	1	0	2016-08-09 17:12:44
+448	27986	GAB85MD3PH	2	Aldo	0	0	0	NULL	0	0	25	0	0	0	0	0	2016-07-04 22:03:41
+449	30819	VCGGTX9704	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 22:03:44
+450	15879	GTX9604XPB	2	Aldo	0	0	0	NULL	0	0	25	0	0	0	0	0	2016-07-04 22:03:46
+451	31391	KVR21N15D8	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 22:03:48
+452	30921	CP9020057	2	Aldo	0	0	0	NULL	0	0	30	0	0	0	0	0	2016-07-04 22:03:50
+453	010101	THFantini	1	AllNations	0	0	0	NULL	0	0	10	0	0	0	0	0	2016-08-16 11:05:34
+454	0045085	I56600K	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0045085	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0045085-01	NULL	RJ	1.146,98	15	1.320,00	1.254,00	1	1	0	2016-07-04 06:07:22
+455	0049248	R7370DC2OC	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049248	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049248-01	NULL	RJ	840,34	15	967,00	919,00	0	0	0	2016-08-16 11:05:35
+457	0045143	S24E310HL	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0045143	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0045143-01	NULL	SC	724,37	15	834,00	793,00	1	1	0	2016-08-09 17:12:44
+458	0045136	S22E310HY	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0045136	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0045136-01	NULL	RJ	588,57	20	707,00	672,00	0	0	0	2016-08-16 11:05:35
+459	0034831	E2270SWN	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0034831	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0034831-01	NULL	ES	525,51	15	605,00	575,00	1	1	0	2016-07-10 12:44:07
+461	0032798	CR768AAC4	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0032798	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0032798-01	NULL	RJ	1.004,95	15	1.156,00	1.099,00	1	1	0	2016-08-09 17:12:45
+464	0048625	ZT9050110P	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0048625	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0048625-01	NULL	SC	2.731,76	15	3.142,00	2.985,00	1	1	0	2016-08-09 17:12:47
+465	0046652	ZT9010610P	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046652	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046652-01	NULL	RJ	1.692,61	15	1.947,00	1.850,00	1	1	0	2016-07-06 02:09:23
+466	0049196	ZT9030810M	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049196	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049196-01	NULL	RJ	1.057,52	15	1.217,00	1.157,00	1	1	0	2016-07-06 02:11:36
+467	0046812	ZT9030910M	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046655	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046655-01	NULL	RJ	1.079,87	15	1.242,00	1.180,00	1	1	0	2016-07-06 02:10:45
+469	0046278	ZT9060310M	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0046278	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0046278-01	NULL	RJ	839,91	15	966,00	918,00	1	1	0	2016-07-06 02:13:23
+470	0047287	ZOGTX9502G	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047287	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047287-01	NULL	RJ	752,71	15	866,00	823,00	1	1	0	2016-07-06 02:05:18
+471	0047286	6302GD3H64	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047286	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047286-01	NULL	RJ	558,75	15	643,00	611,00	1	1	0	2016-07-06 02:05:44
+474	0060264	WD30PURX	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0044812	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0044812-01	NULL	RJ	689,58	15	794,00	755,00	0	1	0	2016-07-06 02:00:00
+476	0061018	WD40PURX	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0044869	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0044869-01	NULL	RJ	1.020,33	15	1.174,00	1.116,00	0	1	0	2016-07-06 01:59:21
+477	0049215	WD80PUZX	0	All Nations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049215	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049215-01	NULL	RJ	2.050,49	15	2.359,00	2.242,00	1	1	0	2016-07-06 01:52:40
+480	0049410	4GP41961KR	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049410	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049410-01	NULL	RJ	1.036,18	15	1.192,00	1.133,00	1	1	0	2016-08-09 17:12:46
+481	0060861	FX8370	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060861	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060861-01	NULL	RJ	850,00	15	978,00	930,00	0	0	0	2016-08-16 11:05:36
+482	0060159	AD786KYBJC	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060159	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060159-01	NULL	RJ	449,49	15	517,00	492,00	1	1	0	2016-08-09 17:12:44
+485	0049103	GTX750TIPH	1	Aldo	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049103	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049103-01	NULL	RJ	593,92	15	684,00	650,00	0	0	0	2016-08-16 11:05:36
+486	0049064	MAXXG3102	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049064	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049064-01	NULL	RJ	1.136,91	15	1.308,00	1.243,00	0	0	0	2016-08-16 11:05:36
+487	0049063	MAXXG3100	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049063	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049063-01	NULL	RJ	1.000,97	15	1.152,00	1.095,00	1	1	0	2016-08-09 17:12:45
+488	0049062	MAXXG2100	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049062	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049062-01	NULL	RJ	926,84	15	1.066,00	1.013,00	1	0	0	2016-08-16 11:05:37
+489	0049061	MAXXG1100	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049061	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049061-01	NULL	RJ	712,38	15	820,00	779,00	0	0	0	2016-08-16 11:05:37
+490	0048309	MCYKWN00	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0048309	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0048309-01	NULL	RJ	770,76	15	887,00	843,00	1	1	0	2016-08-09 17:12:45
+491	0041080	RS750AMAB1	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0041080	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0041080-01	NULL	RJ	432,99	15	498,00	474,00	1	1	0	2016-08-09 17:12:44
+492	0049402	C9011059WW	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049402	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049402-01	NULL	SC	1.177,57	15	1.355,00	1.288,00	0	0	0	2016-08-16 11:05:38
+493	0049407	CW9060019W	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049407	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049407-01	NULL	SC	782,83	15	901,00	856,00	0	0	0	2016-08-16 11:05:38
+494	0048213	C9011079WW	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0048213	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0048213-01	NULL	RJ	770,76	15	887,00	843,00	0	0	0	2016-08-16 11:05:38
+495	0049401	C9011048WW	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049401	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049401-01	NULL	SC	763,64	15	879,00	836,00	0	0	0	2016-08-16 11:05:38
+496	0059403	C9011080WW	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0059403	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0059403-01	NULL	SC	756,49	15	870,00	827,00	1	1	0	2016-08-09 17:12:44
+497	0059401	A9011130AP	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0059401	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0059401-01	NULL	SC	677,97	15	780,00	741,00	1	1	0	2016-08-09 17:12:44
+498	0048053	CW9060013W	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0048053	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0048053-01	NULL	SC	547,97	15	631,00	600,00	1	1	0	2016-08-09 17:12:44
+499	0060121	CC9011051W	1	AllNations	GABINETE CORSAIR CARBIDE (SPEC 02) (RED LED) - CC-9011051-WW	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060121	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060121-01	<br>Robusto e flexível, com alto fluxo de ar para montagens de sistemas de alto desempenho.<br><br>O Carbide Series SPEC-02 é um gabinete para jogos de PC arrojado com o resfriamento com ar superior que você precisa se estiver rodando GPUs de alto desempenho. O projetado de forma inteligente permite que a ventoinha de entrada frontal iluminada por LED incluída leve ar resfriado diretamente para suas placas gráficas e há espaço para até seis ventoinhas para um enorme potencial de resfriamento.<br><br>Há uma grande janela de painel lateral que permite que você admire seus componentes e o sistema de roteamento de cabos e filtros de pó ajudam você a montar um sistema limpo e a mantê-lo limpo também. Instalação sem necessidade de ferramentas de até três unidades de disco rígido de 3,5 pol. e duas unidades de estado sólido facilitam a adição e a atualização de armazenamento. E é fácil viver com ele também? os conectores USB 3.0 duplos do painel frontal permitem que você se beneficie dos mais recentes dispositivos de armazenamento de alta velocidade.<br><br>A aparência arrojada do SPEC-02 faz com que ele pareça ótimo do lado de fora, mas também há beleza do lado de dentro de um sistema bem montado. A janela grande do painel lateral permite que você exiba sua montagem.<br><br>A ventoinha de entrada frontal de 120 mm é banhada em uma luz de LED suave e é orientada para levar o ar resfriado diretamente para suas placas gráficas. E se você quiser ainda mais ventilação, você pode adicionar uma segunda ventoinha de 120 mm ou até mesmo ventoinhas duplas de 140 mm.<br><br>Como todos os gabinetes da Corsair, o SPEC-02 foi projetado para resfriamento, portanto você está preparado se estiver fazendo overclocking, executando vários GPUs ou se apenas quiser mais fluxo de ar. Há pontos de montagem para até seis ventoinhas, incluindo ventoinhas duplas frontais de 140 mm ou 120 mm, ventoinhas duplas de 120 mm na parte superior, uma ventoinha de 120 mm montada na parte inferior e uma ventoinha traseira de 120 mm.<br><br>Além das duas baias de unidade óptica de 5,25 pol. padrão, há três baias de unidade de disco rígido de 3,5 pol. e duas baias de unidade de estado sólido de 2,5 pol.<br><br>Montagens devem ser fáceis, não importa o seu orçamento. A instalação da unidade não precisa de ferramentas e há orifícios para passagem de cabos para montagens mais organizadas e melhor fluxo de ar. E há uma abertura da CPU para permitir atualizações de resfriamento sem remover a placa-mãe. Os filtros da ventoinha de entrada frontal ajudam a manter poeira do lado de fora e o painel frontal tem portas USB 3.0 duplas para desempenho mais rápido de unidades flash USB e unidades de disco rígido portáteis.<br><br>CONTEÚDO DA EMBALAGEM:<br>Gabinete para jogos mid-tower Carbide Series SPEC-02<br>A caixa de acessórios com parafusos, braçadeiras e outros itens de montagem<br>Garantia e informações de suporte<br><br>COMPATIBILIDADE:<br>Placas-mãe Mini ITX, Micro ATX e ATX<br><br>ESPECIFICAÇÕES TÉCNICAS:<br><br>Várias montagens de ventoinhas:<br>Frontal ? 2 x 140/120 mm (1 x 120 mm LED incluída)<br>Topo ? 2 x 120 mm<br>Traseira ? 120 mm (incluída)<br>Inferior ? 120 mm<br>Duas portas USB 3.0 frontais com conector interno<br>Grande janela de painel lateral<br>Seções para passagem de cabos e placa-mãe por trás da placa do cooler da CPU<br>Sete slots PCIe com espaço para placas gráficas compridas até 426mm de comprimento<br>Instale até três unidades de 3,5 pol. e duas de 2,5 pol. simultaneamente ? e sem ferramentas<br>Filtros de poeira para entrada frontal e para a unidade de suprimento de energia (PSU)<br><br>Peso 5kg<br>Cor Black<br>Fator forma do gabinete Mid-Tower<br>Dimensões 493mm x 215mm x 426mm<br>Suporte da placa-mãe do gabinete Mini-ITX, MicroATX, ATX<br>Comprimento máximo da GPU 420mm<br>Altura máxima da ventoinha da CPU 157mm<br>Comprimento máximo da PSU 288mm<br>Slots de expansão do gabinete 7<br>Compartimentos da unidade do gabinete (x2) 5.25in<br>(x3) 3.5in<br>(x2) 2.5in<br>Material do gabinete Steel<br>Fonte de alimentação do gabinete ATX (not included)<br>Conexões externas (x2) USB 3.0 <br>(x1) Headphone Port <br>(x1) Microphone Port<br>Pontos de montagem da ventoinha Front: (x2) 120/140mm <br>Top: (x2) 120mm<br>Rear: (x1) 120mm<br>Bottom: (x1) 120mm<br>Ventoinhas incluídas Front: (x1) 120mm <br>Rear: (x1) 120mm<br>Pontos de montagem do radiador Rear: 120mm<br>Coolers líquidos da Corsair compatíveis H55, H60, H75, H80i	RJ	358,27	15	413,00	393,00	1	1	1	2016-08-09 17:12:44
+500	0049405	CW9060010	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049405	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049405-01	NULL	SC	360,10	15	415,00	395,00	1	1	0	2016-08-09 17:12:44
+501	0042156	C9011042WW	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0042156	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0042156-01	NULL	ES	373,10	15	430,00	409,00	0	0	0	2016-08-16 11:05:39
+502	0060053	9060007W	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060053	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060053-01	NULL	SC	374,45	15	431,00	410,00	0	0	0	2016-08-16 11:05:40
+503	0060138	CP9020061W	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060138	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060138-01	NULL	RJ	465,47	15	536,00	510,00	0	0	0	2016-08-16 11:05:40
+504	0045888	9020059NA	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0045888	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0045888-01	NULL	SC	492,52	15	567,00	539,00	0	0	0	2016-08-16 11:05:40
+505	0059402	9011131-AP	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0059402	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0059402-01	NULL	SC	482,12	15	555,00	528,00	1	1	0	2016-08-09 17:12:44
+506	0059406	9011070WW	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0059406	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0059406-01	NULL	SC	528,11	15	608,00	578,00	0	0	0	2016-08-16 11:05:40
+507	0060270	DGS151028	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060270	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060270-01	NULL	RJ	1.689,16	15	1.943,00	1.846,00	1	0	0	2016-08-16 11:05:41
+508	0060613	DGS110026	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060613	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060613-01	NULL	RJ	1.049,77	15	1.208,00	1.148,00	0	0	0	2016-08-16 11:05:41
+509	0049501	DCS7010L	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049501	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049501-01	NULL	RJ	662,24	15	762,00	724,00	0	0	0	2016-08-16 11:05:41
+510	0047521	DAP2360	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047521	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047521-01	NULL	SC	605,66	15	697,00	663,00	0	0	0	2016-08-16 11:05:41
+511	0049262	6GP45998KR	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049262	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049262-01	NULL	SC	4.118,82	15	4.737,00	4.501,00	1	1	0	2016-08-09 17:12:47
+512	0060545		1	Aldo	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060545	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060545-01	NULL	RJ	3.746,59	15	4.309,00	4.094,00	0	0	0	2016-08-16 11:05:42
+513	0049206	4GP42981KR	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049206	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049206-01	NULL	SC	2.041,28	15	2.348,00	2.231,00	1	1	0	2016-08-09 17:12:47
+514	0049255	4GP43975KR	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049255	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049255-01	NULL	SC	1.685,66	15	1.939,00	1.843,00	0	0	0	2016-08-16 11:05:42
+515	0049520	02GP42951	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0049520	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0049520-01	NULL	RJ	739,92	15	851,00	809,00	0	0	0	2016-08-16 11:05:42
+516	SHSS37A/960G	SHSS37A960G	3	Mercado Digital	0	0	0	NULL	0	1427.13	15	1.642,00	1.356,00	0	0	0	2016-07-01 18:29:57
+517	SDA512GB	SDA512GB	3	Mercado Digital	0	0	0	NULL	0	963.06	15	1.108,00	915,00	0	0	0	2016-07-22 18:57:33
+518	HX426C13PB	HX426C13PB	3	Mercado Digital	0	0	0	NULL	0	923.37	15	1.062,00	878,00	0	0	0	2016-07-22 18:57:33
+519	SHPM2280P2H/240G	SHPM2280P2	3	Mercado Digital	0	0	0	NULL	0	833.72	15	959,00	793,00	0	0	0	2016-07-01 18:29:57
+520	HX421C13PBK4/32	HX421C132	3	Mercado Digital	0	0	0	NULL	0	824.52	15	949,00	784,00	0	0	0	2016-07-01 18:29:57
+521	HX426C15SB	HX426C15SB	3	Mercado Digital	0	0	0	NULL	0	760.2	15	875,00	723,00	0	0	0	2016-07-22 18:57:33
+522	SHFS37A480	SHFS37A480	3	Mercado Digital	0	0	0	NULL	0	606.22	15	698,00	576,00	0	0	0	2016-07-22 18:57:32
+523	SKC400512	SKC400512	3	Mercado Digital	0	0	0	NULL	0	686.7	15	790,00	653,00	0	0	0	2016-07-22 18:57:32
+524	SM2280S3G2/240G	SM2280240G	3	Mercado Digital	0	0	0	NULL	0	763.35	15	878,00	726,00	0	0	0	2016-07-01 18:29:57
+525	HX426C15FBK4/32	HX426C1532	3	Mercado Digital	0	0	0	NULL	0	748.5	15	861,00	712,00	0	0	0	2016-07-01 18:29:57
+526	SHSS37A/480G	SHSS37A480	3	Mercado Digital	0	0	0	NULL	0	724.59	15	834,00	689,00	0	0	0	2016-07-01 18:29:57
+527	HX318C9SRK4/32	HX318C9SK	3	Mercado Digital	0	0	0	NULL	0	677.36	15	779,00	644,00	0	0	0	2016-07-01 18:29:57
+528	S3N7A480	S3N7A480	3	Mercado Digital	0	0	0	NULL	0	643.45	15	740,00	612,00	0	0	0	2016-07-22 18:57:32
+529	HX421C14FBK4/32	C14FBK432	3	Mercado Digital	0	0	0	NULL	0	659.4	15	759,00	627,00	0	0	0	2016-07-01 18:29:57
+530	SKC300S37A/240G	SKC300A240	3	Mercado Digital	0	0	0	NULL	0	553.18	15	637,00	526,00	0	0	0	2016-07-01 18:29:57
+531	HXS3/256GB	HXS3256GB	3	Mercado Digital	0	0	0	NULL	0	531.89	15	612,00	506,00	0	0	0	2016-07-01 18:29:57
+532	SHSS3B7A/240G	SS3B7A240	3	Mercado Digital	0	0	0	NULL	0	516.39	15	594,00	491,00	0	0	0	2016-07-01 18:29:57
+533	SV300S37A/480G	SV30037A48	3	Mercado Digital	0	0	0	NULL	0	550.5	15	634,00	523,00	0	0	0	2016-07-01 18:29:57
+534	KTH-PL316LV/16G	PL316LV16G	3	Mercado Digital	0	0	0	NULL	0	515.85	15	594,00	491,00	0	0	0	2016-07-01 18:29:57
+535	C11PB3K216	C11PB3K216	3	Mercado Digital	0	0	0	NULL	0	464.73	15	535,00	442,00	0	0	0	2016-07-22 18:57:32
+536	SUV300S37A/480G	SUV30048	3	Mercado Digital	0	0	0	NULL	0	510.9	15	588,00	486,00	0	0	0	2016-07-01 18:29:57
+537	C11PB3K216	C11PB3K216	3	Mercado Digital	0	0	0	NULL	0	455.91	15	525,00	434,00	0	0	0	2016-07-22 18:57:32
+538	SDA10/256GB	SDA10256GB	3	Mercado Digital	0	0	0	NULL	0	499.02	15	574,00	475,00	0	0	0	2016-07-01 18:29:57
+539	HX324C11SRK2/16	324C11SK2	3	Mercado Digital	0	0	0	NULL	0	476.25	15	548,00	453,00	0	0	0	2016-07-01 18:29:57
+540	SMS200S3/240G	MS200S3240	3	Mercado Digital	0	0	0	NULL	0	447.41	15	515,00	426,00	0	0	0	2016-07-01 18:29:58
+541	SKC400S37/256GB	SKC400256	3	Mercado Digital	0	0	0	NULL	0	468.18	15	539,00	445,00	0	0	0	2016-07-01 18:29:58
+542	KHXHSCPGM	KHXHSCPGM	3	Mercado Digital	0	0	0	NULL	0	420.63	15	484,00	400,00	0	0	0	2016-07-22 18:57:32
+543	KHXHSCPD	KHXHSCPD	3	Mercado Digital	0	0	0	NULL	0	420.63	15	484,00	400,00	0	0	0	2016-07-22 18:57:32
+544	KHXH3CL	KHXH3CL	3	Mercado Digital	0	0	0	NULL	0	385.35	15	444,00	367,00	0	0	0	2016-07-22 18:57:32
+545	KHXH3CLW	KHXH3CLW	3	Mercado Digital	0	0	0	NULL	0	385.35	15	444,00	367,00	0	0	0	2016-07-22 18:57:32
+546	HFS37A240G	HFS37A240G	3	Mercado Digital	0	0	0	NULL	0	341.25	15	393,00	325,00	0	0	0	2016-07-22 18:57:32
+547	HX316C9SRK2/16	16C9SK216	3	Mercado Digital	0	0	0	NULL	0	362.4	15	417,00	345,00	0	0	0	2016-07-01 18:29:58
+548	DTLPG364GB	DTLPG364GB	3	Mercado Digital	0	0	0	NULL	0	321.85	15	371,00	306,00	0	0	0	2016-07-22 18:57:32
+549	SHSS37A/120G	SHSS37A120	3	Mercado Digital	0	0	0	NULL	0	352.5	15	406,00	335,00	0	0	0	2016-07-01 18:29:58
+550	HXS3/128GB	HXS3128GB	3	Mercado Digital	0	0	0	NULL	0	332.7	15	383,00	317,00	0	0	0	2016-07-01 18:29:59
+551	30062	N960GBXTB	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 21:12:12
+552	31288	F960GBLEB	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:03:59
+553	30014	CMD16G42816	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:02
+554	30061	N480GBXTB	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:04
+555	31443	CC600TWM	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:06
+556	31287	F480GBLEB	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 21:12:25
+557	31616	9020092WW	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:10
+558	30905	C9011079WW	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:13
+559	30907	C9011080WW	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:15
+560	31433	9060026WW	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 21:12:34
+561	31615	CW9060019W	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:19
+562	31614	9020090WW	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:21
+563	29936	CC9011060	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 21:12:41
+564	31432	9060025WW	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:26
+565	30033	CY162133C1	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:29
+566	30034	CY162133C1	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:31
+567	30017	M4A2400C14	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:33
+568	29921	CC9011071	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:35
+569	30016	M4A2133C15	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:38
+570	31431	9060024WW	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:40
+571	30903	9011130NA	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:42
+572	31444	9011139NA	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:44
+573	30032	Y161866C9B	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:47
+574	30031	CY161866C9	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:49
+575	29932	9011069WW	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 21:13:08
+576	30021	2A1600C10B	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:04:55
+577	30035	CMY162240A	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:05:00
+578	30036	CMY162240	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:05:04
+579	30028	3M2A1600C9	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:05:08
+580	30029	CMY162A16A	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:05:16
+581	30030	CMY162160B	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:05:19
+582	31286	F240GBLEB	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:05:21
+583	30912	9000091NA	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-04 22:05:23
+584	0060934	GAH170MD3H	0	All Nations	0	0	0	NULL	0	0	General	0	0	0	1	0	2016-07-10 11:30:38
+585	0034980	CF547A696	0		0	0	0	NULL	0	0	15	0	0	0	0	0	0000-00-00 00:00:00
+586	0035199	HPM127FN	0		0	0	0	NULL	0	0	15	0	0	0	0	0	0000-00-00 00:00:00
+587			0	All Nations	0	0	0	NULL	0	0	General	0	0	0	0	0	2016-07-03 07:49:43
+590	0049212	750IA12048	0		0	0	0	NULL	0	0	15	0	0	0	0	0	0000-00-00 00:00:00
+591	0060651	WD20EZRX	0		0	0	0	NULL	0	0	15	0	0	0	0	0	0000-00-00 00:00:00
+592	0046596	WD40PURX	0		0	0	0	NULL	0	0	15	0	0	0	0	0	0000-00-00 00:00:00
+593	31281	SKC4001000	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+594	25589	SE50S37480	0	S	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+595	23438	SE50S37240	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+596	31280	SKC400512	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+597	22188	S3N7A480	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+598	22189	SV3S3D7480	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+599	32367	UV400480	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+600	32371	400S37480	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+601	31816	SUV300480	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+602	30068	SDA10256GB	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+603	29953	KTMSX4216	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+604	10499	1813D416G	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+605	31871	KTLTS4216G	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+606	24326	KTLTS316LV	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+607	31279	SKC400256	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+608	27780	16L11D416	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+609	25009	S3N7A240	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+610	32366	UV400S3B7A	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+611	27776	DTLPG364GB	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+612	26542	SKC300A120	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+613	31278	SKC400128	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+614	32370	V400S37240	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+615	30724	SDA3128GB	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+616	22206	MS200S3120	2	Aldo	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 02:27:44
+617	60376	F5S61A	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:09:44
+618	60370	D9L18A	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+619	46388	L8L91A	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+620	47478	F1H98A	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+621	45047	M0F56A	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+622	47880	F5S45A	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+623	0036503	I75820KB	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	1	0	2016-07-10 20:58:12
+624	47835	SSD120535	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+625	49266	KHXHSCPPK	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+626	49287	KHXHSCPD	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+627	47647	KV18E13	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+628	49240	KV16S11K2	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+630	47642	300S3N7A12	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+631	47991	GT72S6QE	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+632	0047695		1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047695	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047695-01	NULL	RJ	15.826,46	15	18.201,00	17.291,00	1	1	0	2016-08-09 17:12:47
+633	48290	GT72DAGON	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+634	60015	GS72STEALT	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+635	47698	GP622QE	1	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-08-16 11:05:43
+636	48089	9FUYX4G	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+637	49150	MSIGTX97G4	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+638	0049178	912V314011	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	1	0	2016-07-10 12:24:40
+639	49144	9604GD5TOC	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+640	49139	3802GD5TOC	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+641	0049146	912V305030	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	1	0	2016-07-10 12:24:58
+642	47097	3702GD5TOC	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+643	49153	73602GD5	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+644	49143	72502GMSI	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+645	49101	CAH442WA	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+646	49091	CAH442WW1	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+647	43683	CAH440WM1	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+648	60106	CAS340WA	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+649	49098	CASO530M1	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+650	49096	CAPH410B2	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+651	60103	CAPH410G1	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+652	49094	PHT410PTO	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+653	49095	CAPH4101	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+654	0060102	PHT410BCO	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	1	0	2016-07-10 12:23:59
+655	43693	S340MB	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+656	49093	CAPH240B7	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+657	60104	CAS340MBG	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+658	0060105	CAS340WW1	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	1	0	2016-07-10 11:37:38
+659	60107	CAG921B1	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+660	43691	CAS340WB1	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+661	49080	NP1BM0700A	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:03
+662	46046	CAS220WB4	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:04
+663	0046082	247E6QDAW	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	1	0	2016-07-10 11:42:00
+664	47013	243V5QHABA	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:04
+665	44711	227E6EDSD	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:04
+666	44163	223G5LHSB	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:04
+667	49212	750IA12048	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:04
+668	46227	4GBHBMDH	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:04
+669	60340	WD60PUX	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:04
+670	60314	WD30EZZ	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:04
+671	60261	WD10PUX	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:04
+672	0060543		1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060543	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060543-01	NULL	RJ	3.493,21	15	4.018,00	3.818,00	1	0	0	2016-08-16 11:05:43
+675	49198	7060310M	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-06 18:11:04
+676	SHSS3B7A/960G	SS3B7A960	3	Mercado Digital	0	0	0	NULL	0	1528.17	15	1.758,00	1.452,00	0	0	0	2016-07-07 12:51:23
+677	MS200S3480	MS200S3480	3	Mercado Digital	0	0	0	NULL	0	1377.6	15	1.585,00	1.309,00	0	0	0	2016-07-22 18:57:33
+678	1C14FBK416	C14FBK432	3	Mercado Digital	0	0	0	NULL	0	720.51	15	829,00	685,00	0	0	0	2016-07-22 18:57:32
+679	KTD-PE313Q8LV/16G	E313Q8LV16	3	Mercado Digital	0	0	0	NULL	0	456.6	15	526,00	434,00	0	0	0	2016-07-07 12:51:23
+680	PSD24G8002	PSD24G8002	3	Mercado Digital	0	0	0	NULL	0	322.29	15	371,00	353,00	8	1	0	2016-07-25 11:53:35
+681	0059400	CA9011128	0		0	0	0	NULL	0	0	15	0	0	0	0	0	0000-00-00 00:00:00
+682	0049287	KHX-HSCP-RD	0		0	0	0	NULL	0	0	15	0	0	0	0	0	0000-00-00 00:00:00
+683	0060119	CC-9011059-WW	0		0	0	0	NULL	0	0	15	0	0	0	0	0	0000-00-00 00:00:00
+684	0049068	STRIX9604G	0		0	0	0	NULL	0	0	15	0	0	0	0	0	0000-00-00 00:00:00
+685	0049102	STRIXGTX96	0		0	0	0	NULL	0	0	15	0	0	0	0	0	0000-00-00 00:00:00
+686	0048315	B85M-E	0		0	0	0	NULL	0	0	15	0	0	0	0	0	0000-00-00 00:00:00
+687	0035687	RL2240HE	0		0	0	0	NULL	0	0	15	0	0	0	0	0	2016-07-10 12:38:27
+688	0035688	RL2455HM	0	All Nations	0	0	0	NULL	0	0	15	0	0	0	1	0	2016-07-10 12:59:07
+689	0049239	CR768AAC4	0		0	0	0	NULL	0	0	15	0	0	0	0	0	0000-00-00 00:00:00
+690	31261	I7-6700	2		0	0	0	NULL	0	0	15	0	0	0	0	0	0000-00-00 00:00:00
+691	30409	I76700KB	2		0	0	0	NULL	0	0	15	0	0	0	0	0	0000-00-00 00:00:00
+692	SHFS37A120	SHFS37A120	3	Mercado Digital	0	0	0	NULL	0	222.39	15	256,00	212,00	0	0	0	2016-07-22 18:57:32
+693	KHXHSCCBK	KHXHSCCBK	3	Mercado Digital	0	0	0	NULL	0	283.92	15	327,00	270,00	0	0	0	2016-07-22 18:57:32
+694	HX318C1W16	HX318C1W16	3	Mercado Digital	0	0	0	NULL	0	323.61	15	373,00	308,00	0	0	0	2016-07-22 18:57:32
+695	HX318FK216	HX318FK216	3	Mercado Digital	0	0	0	NULL	0	323.61	15	373,00	308,00	0	0	0	2016-07-22 18:57:32
+696	6C10FK216	6C10FK216	3	Mercado Digital	0	0	0	NULL	0	323.61	15	373,00	308,00	0	0	0	2016-07-22 18:57:32
+697	16C10FK216	16C10FK216	3	Mercado Digital	0	0	0	NULL	0	323.61	15	373,00	308,00	0	0	0	2016-07-22 18:57:32
+698	6C10FBK216	6C10FBK216	3	Mercado Digital	0	0	0	NULL	0	323.61	15	373,00	308,00	0	0	0	2016-07-22 18:57:32
+699	0047991	GT72S6QEPG	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0047991	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0047991-01	NULL	RJ	19.289,55	15	22.183,00	21.074,00	1	1	0	2016-08-09 17:12:47
+700	0048290	GT726QDRAG	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0048290	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0048290-01	NULL	RJ	15.826,46	15	18.201,00	17.291,00	1	1	0	2016-08-09 17:12:47
+701	0060015	GS726QESP	1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060015	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060015-01	NULL	RJ	13.847,97	15	15.926,00	15.130,00	1	1	0	2016-08-09 17:12:47
+702	0060830		1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060830	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060830-01	NULL	RJ	3.974,73	15	4.571,00	4.343,00	0	0	0	2016-08-16 11:05:44
+703	0060906		1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060906	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060906-01	NULL	RJ	2.389,65	15	2.749,00	2.612,00	0	0	0	2016-08-16 11:05:44
+704	0060750		1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0060750	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0060750-01	NULL	SC	3.746,59	15	4.309,00	4.094,00	1	0	0	2016-08-16 11:05:44
+705	0032049		1	AllNations	0	http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0032049	http://www.allnations.com.br/ProdutosDetalhes.aspx?CodProd=YTD6UPROD_0032049-01	NULL	RJ	620,00	15	713,00	678,00	1	1	0	2016-08-09 17:12:44
+706	47974	GT802	1	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-08-16 11:05:44
+707	0047695-01	GT726QDG	1	All Nations	0	0	0	NULL	0	0	15	0,00	0,00	0	0	0	2016-07-18 09:42:14
+708	60830	MSI1080GX8	1	All Nations	0	0	0	NULL	0	0	15	0	0	0	0	0	2016-08-16 11:05:48
+709	STEA3000400	STEA300040	4	Up	0	0	0	NULL	0	671,01	20	806,00	766,00	2	1	0	2016-08-10 11:25:50
+710	STEB4000100	STEB4000100	4	Up	0	0	0	NULL	0	General	General	0,00	0,00	0	1	0	2016-07-29 16:41:21
+711	ST4000DM000	ST4000DM00	4	Up	0	0	0	NULL	0	586,16	20	704,00	669,00	2	1	0	2016-08-10 11:25:50
+712	ST3000DM001	ST3000DM	4	Up	0	0	0	NULL	0	416,76	20	500,00	475,00	2	1	0	2016-08-10 11:25:50
+713	ST2000DM001	T2000DM001	4	Up	0	0	0	NULL	0	332,32	20	399,00	380,00	2	1	0	2016-08-10 11:25:50
+714	SUV300S37A/240G.	SUV300240	4	Up	0	0	0	NULL	0	General	General	0,00	0,00	0	1	0	2016-07-25 21:03:02
+715	HXM101TCB-G	HXM101TCB	4	Up	0	0	0	NULL	0	General	General	0,00	0,00	0	1	0	2016-07-25 21:03:02
+716	ST1000LM035	1000LM035	4	Up	0	0	0	NULL	0	286,46	20	344,00	327,00	2	1	0	2016-08-10 11:25:50
+717	0J22413	H0J22413	4	Up	0	0	0	NULL	0	General	General	0,00	0,00	0	1	0	2016-07-25 21:03:02
+718	STEA1000400	STEA1000	4	Up	0	0	0	NULL	0	259,19	20	311,00	296,00	2	1	0	2016-08-10 11:25:50
+719	HX3241128	HX3241128	3	Mercado Digital	0	0	0	NULL	0	229.63	15	265,00	219,00	0	0	0	2016-07-22 18:57:32
+720	8C14SB2K28	8C14SB2K28	3	Mercado Digital	0	0	0	NULL	0	259.67	15	299,00	247,00	0	0	0	2016-07-22 18:57:32
+721	C11PB3K216	C11PB3K216	3	Mercado Digital	0	0	0	NULL	0	266.28	15	307,00	253,00	0	0	0	2016-07-22 18:57:32
+722	C11PB3K216	C11PB3K216	3	Mercado Digital	0	0	0	NULL	0	279.51	15	322,00	266,00	0	0	0	2016-07-22 18:57:32
+723	18C10T2K28	18C10T2K28	3	Mercado Digital	0	0	0	NULL	0	288.33	15	332,00	274,00	0	0	0	2016-07-22 18:57:32
+724	16S11K216	16S11K216	3	Mercado Digital	0	0	0	NULL	0	297.15	15	342,00	283,00	0	0	0	2016-07-22 18:57:32
+725	PSD24G6672	PSD24G6672	3	Mercado Digital	0	0	0	NULL	0	307,97	20	369,00	351,00	10	1	0	2016-08-09 14:48:12
+726	X318C9SK2	X318C9SK2	3	Mercado Digital	0	0	0	NULL	0	363.3	15	418,00	346,00	0	0	0	2016-07-22 18:57:32
+727	KV2115D4	KV2115D4	3	Mercado Digital	0	0	0	NULL	0	389.76	15	449,00	371,00	0	0	0	2016-07-22 18:57:32
+728	PL313LV16	PL313LV16	3	Mercado Digital	0	0	0	NULL	0	429.45	15	494,00	408,00	0	0	0	2016-07-22 18:57:32
+729	SHFS37A/120G	SHFS37A120	3	Mercado Digital	0	0	0	NULL	0	233	20	280,00	266,00	194	1	0	2016-08-09 14:48:12
+730	HX324C11SR/8	HX3241128	3	Mercado Digital	0	0	0	NULL	0	229.63	15	265,00	252,00	9	1	0	2016-07-25 11:53:35
+731	HX428C14SB2K2/8	8C14SB2K28	3	Mercado Digital	0	0	0	NULL	0	277,1	20	333,00	317,00	2	1	0	2016-08-09 14:48:12
+732	HX321C11PB3K2/8	C11PB3K216	3	Mercado Digital	0	0	0	NULL	0	266.28	15	307,00	292,00	4	1	0	2016-07-25 11:53:35
+733	HX324C11PB3K2/8	C11PB3K216	3	Mercado Digital	0	0	0	NULL	0	279.51	15	322,00	306,00	3	1	0	2016-07-25 11:53:35
+734	KHX-HSCC-BK-LR	KHXHSCCBK	3	Mercado Digital	0	0	0	NULL	0	285,92	20	342,00	325,00	54	1	0	2016-08-09 14:48:12
+735	KHX18C10T2K2/8	18C10T2K28	3	Mercado Digital	0	0	0	NULL	0	290,33	20	348,00	331,00	2	1	0	2016-08-09 14:48:12
+736	KVR16S11K2/16	16S11K216	3	Mercado Digital	0	0	0	NULL	0	297.15	15	342,00	325,00	8	1	0	2016-07-25 11:53:35
+737	DTLPG3/64GB	DTLPG364GB	3	Mercado Digital	0	0	0	NULL	0	323,85	20	388,00	369,00	2	1	0	2016-08-09 14:48:12
+738	HX316C10FBK2/16	6C10FBK216	3	Mercado Digital	0	0	0	NULL	0	338,84	20	406,00	386,00	3	1	0	2016-08-09 14:48:12
+739	HX316C10FK2/16	16C10FK216	3	Mercado Digital	0	0	0	NULL	0	338,84	20	406,00	386,00	10	1	0	2016-08-09 14:48:12
+740	HX316C10FRK2/16	6C10FK216	3	Mercado Digital	0	0	0	NULL	0	338,84	20	406,00	386,00	4	1	0	2016-08-09 14:48:12
+741	HX318C10FK2/16	HX318FK216	3	Mercado Digital	0	0	0	NULL	0	338,84	20	406,00	386,00	5	1	0	2016-08-09 14:48:12
+742	HX318C10FWK2/16	HX318C1W16	3	Mercado Digital	0	0	0	NULL	0	338,84	20	406,00	386,00	20	1	0	2016-08-09 14:48:12
+743	SHFS37A/240G	HFS37A240G	3	Mercado Digital	0	0	0	NULL	0	341.25	15	393,00	374,00	62	1	0	2016-07-25 11:53:35
+744	HX318C9SRK2/16	X318C9SK2	3	Mercado Digital	0	0	0	NULL	0	382,94	20	459,00	437,00	3	1	0	2016-08-09 14:48:11
+745	KHX-H3CL/WR	KHXH3CL	3	Mercado Digital	0	0	0	NULL	0	387,35	20	465,00	442,00	47	1	0	2016-08-09 14:48:11
+746	KHX-H3CLW	KHXH3CLW	3	Mercado Digital	0	0	0	NULL	0	387,35	20	465,00	442,00	45	1	0	2016-08-09 14:48:11
+747	KVR21R15D4/16	KV2115D4	3	Mercado Digital	0	0	0	NULL	0	389.76	15	449,00	427,00	12	1	0	2016-07-25 11:53:35
+748	KHX-HSCP-GM	KHXHSCPGM	3	Mercado Digital	0	0	0	NULL	0	422,63	20	507,00	482,00	20	1	0	2016-08-09 14:48:11
+749	KHX-HSCP-RD	KHXHSCPD	3	Mercado Digital	0	0	0	NULL	0	422,63	20	507,00	482,00	25	1	0	2016-08-09 14:48:11
+750	KTH-PL313LV/16G	PL313LV16	3	Mercado Digital	0	0	0	NULL	0	444,68	20	533,00	507,00	2	1	0	2016-08-09 14:48:11
+751	HX321C11PB3K2/16	C11PB3K216	3	Mercado Digital	0	0	0	NULL	0	488,78	20	586,00	557,00	4	1	0	2016-08-09 14:48:11
+752	HX324C11PB3K2/16	C11PB3K216	3	Mercado Digital	0	0	0	NULL	0	488,78	20	586,00	557,00	3	1	0	2016-08-09 14:48:11
+753	SHFS37A/480G	SHFS37A480	3	Mercado Digital	0	0	0	NULL	0	606.22	15	698,00	664,00	30	1	0	2016-07-25 11:53:35
+754	SV300S3N7A/480G	S3N7A480	3	Mercado Digital	0	0	0	NULL	0	643.45	15	740,00	703,00	2	1	0	2016-07-25 11:53:35
+755	SKC400S37/512GB	SKC400512	3	Mercado Digital	0	0	0	NULL	0	731,33	20	878,00	835,00	10	1	0	2016-08-09 14:48:11
+756	HX421C14FBK4/16	1C14FBK416	3	Mercado Digital	0	0	0	NULL	0	748,97	20	898,00	854,00	2	1	0	2016-08-09 14:48:11
+757	HX426C15SBK2/32	HX426C15SB	3	Mercado Digital	0	0	0	NULL	0	760.2	15	875,00	832,00	1	1	0	2016-07-25 11:53:35
+758	HX426C13PBK4/32	HX426C13PB	3	Mercado Digital	0	0	0	NULL	0	960,65	20	1.152,00	1.095,00	4	1	0	2016-08-09 14:48:11
+759	SDA10/512GB	SDA512GB	3	Mercado Digital	0	0	0	NULL	0	963.06	15	1.108,00	1.053,00	1	1	0	2016-07-25 11:53:36
+760	SMS200S3/480G	MS200S3480	3	Mercado Digital	0	0	0	NULL	0	1377.6	15	1.585,00	1.506,00	1	1	0	2016-07-25 11:53:36
+761	R9NANO4SF6	9NANO4SF6	7	InfoCWB	0	0	0	NULL	0	2513.53	20	3.017,00	2.867,00	3	1	0	2016-08-01 12:56:12
+762	MAXVIIIEX	MAXVIIIEX	7	InfoCWB	0	0	0	NULL	0	2342.21	20	2.811,00	2.671,00	10	1	0	2016-08-01 12:56:12
+763	R9390X8DB6	9390X8DB6	7	InfoCWB	0	0	0	NULL	0	1877.65	20	2.254,00	2.142,00	4	1	0	2016-08-01 12:56:13
+764	R9390X8DF6	9390X8DF6	7	InfoCWB	0	0	0	NULL	0	1703.81	20	2.045,00	1.943,00	4	1	0	2016-07-28 10:32:48
+765	CL10Q32GBXL	CL10Q32GBXL	7	InfoCWB	0	0	0	NULL	0	1674.19	20	2.010,00	1.910,00	8	1	0	2016-08-01 12:56:13
+766	N970XTRE4G	N970XTE4G	7	InfoCWB	0	0	0	NULL	0	1576.95	20	1.893,00	1.799,00	74	1	0	2016-08-01 12:56:13
+767	X9704GD5SC	X9704GD5SC	7	InfoCWB	0	0	0	NULL	0	1283.17	20	1.540,00	1.463,00	4	1	0	2016-08-01 12:56:13
+768	970DC20C4G	970DC20C4G	7	InfoCWB	0	0	0	NULL	0	1285.3	20	1.543,00	1.466,00	233	1	0	2016-08-01 12:56:13
+769	4GP41970KT	4GP41970KT	7	InfoCWB	0	0	0	NULL	0	1210.68	20	1.453,00	1.381,00	60	1	0	2016-08-01 12:56:13
+770	4GP41972KT	4GP41972KT	7	InfoCWB	0	0	0	NULL	0	1210.24	20	1.453,00	1.381,00	40	1	0	2016-08-01 12:56:13
+771	R9390P8DF6	9390P8DF6	7	InfoCWB	0	0	0	NULL	0	1176.81	20	1.413,00	1.343,00	30	1	0	2016-07-28 10:32:48
+772	970IXOC4GD	970IXOC4GD	7	InfoCWB	0	0	0	NULL	0	1176.85	20	1.413,00	1.343,00	25	1	0	2016-08-01 12:56:13
+773	4GP41970KR	4GP41970K	7	InfoCWB	0	0	0	NULL	0	1172.21	20	1.407,00	1.337,00	3	1	0	2016-08-01 12:56:13
+774	TLER5120	TLE5120	7	InfoCWB	0	0	0	NULL	0	1167.27	20	1.401,00	1.331,00	19	1	0	2016-08-01 12:56:13
+775	GVN970IX4G	GVN970IX4G	7	InfoCWB	0	0	0	NULL	0	1146.57	20	1.376,00	1.308,00	70	1	0	2016-07-28 10:32:48
+776	R9380X4DF5	9380X4DF5	7	InfoCWB	0	0	0	NULL	0	939.62	20	1.128,00	1.072,00	8	1	0	2016-07-28 10:32:48
+777	SABT990FX2	SABT990FX2	7	InfoCWB	0	0	0	NULL	0	950.54	20	1.141,00	1.084,00	8	1	0	2016-08-01 12:56:13
+778	F32133C916	F32133C916	7	InfoCWB	0	0	0	NULL	0	931.48	20	1.118,00	1.063,00	10	1	0	2016-08-01 12:56:13
+779	N960WF24GD	N960WF24GD	7	InfoCWB	0	0	0	NULL	0	893.02	20	1.072,00	1.019,00	101	1	0	2016-08-01 12:56:13
+780	FX9370BEB	FX9370BEB	7	InfoCWB	0	0	0	NULL	0	902.62	20	1.084,00	1.030,00	4	1	0	2016-08-01 12:56:13
+781	4GP41961KR	4GP41961K	7	InfoCWB	0	0	0	NULL	0	856.49	20	1.028,00	977,00	129	1	0	2016-08-01 12:56:13
+782	R9380P4DF5	9380P4DF5	7	InfoCWB	0	0	0	NULL	0	836.48	20	1.004,00	954,00	4	1	0	2016-07-28 10:32:48
+783	16C10D16G	16C10D16G	7	InfoCWB	0	0	0	NULL	0	838.52	20	1.007,00	957,00	15	1	0	2016-08-01 12:56:13
+784	FX8370	FX8370	7	InfoCWB	0	0	0	NULL	0	816.53	20	980,00	931,00	15	1	0	2016-08-01 12:56:13
+785	02GP42961	02GP42961	7	InfoCWB	0	0	0	NULL	0	807.89	20	970,00	922,00	100	1	0	2016-08-01 12:56:13
+786	P11050BEFX	P11050BEFX	7	InfoCWB	0	0	0	NULL	0	736.9	20	885,00	841,00	6	1	0	2016-07-28 10:32:48
+787	112400420G	112400420G	7	InfoCWB	0	0	0	NULL	0	737.83	20	886,00	842,00	33	1	0	2016-08-01 12:56:13
+788	R7370P4DF5	7370P4DF5	7	InfoCWB	0	0	0	NULL	0	731.42	20	878,00	835,00	98	1	0	2016-08-01 12:56:14
+789	FX8350B	FX8350B	7	InfoCWB	0	0	0	NULL	0	731.28	20	878,00	835,00	8	1	0	2016-08-01 12:56:14
+790	Z170PD3	Z170PD3	7	InfoCWB	0	0	0	NULL	0	569.29	20	684,00	650,00	28	1	0	2016-08-01 12:56:14
+791	FM2A88XEX6	FM2A88XEX6	7	InfoCWB	0	0	0	NULL	0	555.65	20	667,00	634,00	3	1	0	2016-08-01 12:56:14
+792	FX8320EBOX	FX8320EBOX	7	InfoCWB	0	0	0	NULL	0	546.24	20	656,00	624,00	88	1	0	2016-08-01 12:56:14
+793	HDTB220XK3CA	HDTB220XK3CA	7	InfoCWB	0	0	0	NULL	0	533.87	20	641,00	609,00	4	1	0	2016-07-28 10:32:48
+794	1GP42751KR	1GP42751K	7	InfoCWB	0	0	0	NULL	0	483.67	20	581,00	552,00	19	1	0	2016-08-01 12:56:14
+795	VN75TOC2GL	VN75TOC2GL	7	InfoCWB	0	0	0	NULL	0	475.59	20	571,00	543,00	191	1	0	2016-08-01 12:56:14
+796	ASB85PLUS	ASB85PLUS	7	InfoCWB	0	0	0	NULL	0	458.78	20	551,00	524,00	69	1	0	2016-08-01 12:56:14
+797	TYPE1B3000	TYPE1B3000	7	InfoCWB	0	0	0	NULL	0	457.79	20	550,00	523,00	15	1	0	2016-08-01 12:56:14
+798	FX6300BEB	FX6300BEB	7	InfoCWB	0	0	0	NULL	0	454.29	20	546,00	519,00	80	1	0	2016-08-01 12:56:14
+799	FM2A88XET4	FM2A88XET4	7	InfoCWB	0	0	0	NULL	0	447.72	20	538,00	512,00	24	1	0	2016-08-01 12:56:14
+800	GVR7360OC2	GV7360OC2	7	InfoCWB	0	0	0	NULL	0	425.83	20	511,00	486,00	10	1	0	2016-08-01 12:56:14
+801	BFCCLI30KK	BFCCLI30KK	7	InfoCWB	0	0	0	NULL	0	403.72	20	485,00	461,00	8	1	0	2016-08-01 12:56:14
+802	F31600C11S8	F31600C11S8	7	InfoCWB	0	0	0	NULL	0	403.61	20	485,00	461,00	72	1	0	2016-08-01 12:56:14
+803	R7360P2SF5	7360P2SF5	7	InfoCWB	0	0	0	NULL	0	396.14	20	476,00	453,00	464	1	0	2016-08-01 12:56:14
+804	TLSG1016	TLSG1016	7	InfoCWB	0	0	0	NULL	0	392.97	20	472,00	449,00	26	1	0	2016-08-01 12:56:14
+805	ARCHERC5	ACHEC5	7	InfoCWB	0	0	0	NULL	0	377.89	20	454,00	432,00	5	1	0	2016-08-01 12:56:14
+806	FD4300MHKB	FD4300MHKB	7	InfoCWB	0	0	0	NULL	0	371.62	20	446,00	424,00	35	1	0	2016-08-01 12:56:14
+807	FM2A88MHD	FM2A88MHD	7	InfoCWB	0	0	0	NULL	0	361.12	20	434,00	413,00	13	1	0	2016-08-01 12:56:14
+808	BFCRON300K	BFCON300K	7	InfoCWB	0	0	0	NULL	0	359.15	20	431,00	410,00	8	1	0	2016-08-01 12:56:14
+809	BFX30BBWKB	BFX30BBWKB	7	InfoCWB	0	0	0	NULL	0	357.12	20	429,00	408,00	5	1	0	2016-08-01 12:56:15
+810	BFCPRM300B	BFCPM300B	7	InfoCWB	0	0	0	NULL	0	355.97	20	428,00	407,00	5	1	0	2016-08-01 12:56:15
+811	ASROCKB85M	ASOCKB85M	7	InfoCWB	0	0	0	NULL	0	354.04	20	425,00	404,00	6	1	0	2016-08-01 12:56:15
+812	49247	ST93802G	1	All Nations	0	0	0	NULL	0		15	0,00	0,00	0	0	0	2016-08-16 11:05:48
+813	61002	Z170MPLUS	1	All Nations	0	0	0	NULL	0		15	0,00	0,00	0	0	0	2016-08-16 11:05:48
+814	STEB5000100	STEB50000	4	UP	0	0	0	NULL	0	681,71	20	818,00	778,00	2	1	0	2016-08-10 11:25:50
+815	V400S37480	V400S37480	4	UP	0	0	0	NULL	0	General	General	0,00	0,00	0	1	0	2016-07-29 16:41:21
+816	STEA2000400	STEA200040	4	UP	0	0	0	NULL	0	395,9	20	474,00	451,00	2	1	0	2016-08-10 11:25:50
+817	SUV400S37/240G	V400S37240	4	UP	0	0	0	NULL	0	306,06	20	368,00	350,00	2	1	0	2016-08-10 11:25:50
+818	1000LM035	1000LM035	4	UP	0	0	0	NULL	0	General	General	0,00	0,00	0	1	0	2016-07-29 16:41:21
+819	AS980TIPPN	AS980TIPPN	7	InfoCWB	0	0	0	NULL	0	2588.11	20	3.106,00	2.951,00	2	1	0	2016-08-01 12:56:12
+820	310043241R	310043241	7	InfoCWB	0	0	0	NULL	0	1983.64	20	2.381,00	2.262,00	8	1	0	2016-08-01 12:56:12
+821	90YV07D0	90YV07D0	7	InfoCWB	0	0	0	NULL	0	1910.87	20	2.294,00	2.180,00	5	1	0	2016-08-01 12:56:12
+822	ASZ97DLX31	ASZ97DLX31	7	InfoCWB	0	0	0	NULL	0	1901.6	20	2.282,00	2.168,00	2	1	0	2016-08-01 12:56:12
+823	0J30M0EAY0	0J30M0EAY0	7	InfoCWB	0	0	0	NULL	0	1518.52	20	1.823,00	1.732,00	10	1	0	2016-08-01 12:56:13
+824	N970XC4GD	N970XC4GD	7	InfoCWB	0	0	0	NULL	0	1453.57	20	1.745,00	1.658,00	23	1	0	2016-08-01 12:56:13
+825	M0EAY0		7	Aldo	0	0	0	NULL	0	135213	20	162.256,00	154.144,00	1	1	0	2016-08-09 07:49:30
+826	90YV07C2	90YV07C2	7	InfoCWB	0	0	0	NULL	0	1261.82	20	1.515,00	1.440,00	45	1	0	2016-08-01 12:56:13
+827	GVN970	GVN970	7	InfoCWB	0	0	0	NULL	0	1161.52	20	1.394,00	1.325,00	64	1	0	2016-08-01 12:56:13
+828	N960XTR4GD	N960XT4GD	7	InfoCWB	0	0	0	NULL	0	1053.29	20	1.264,00	1.201,00	38	1	0	2016-08-01 12:56:13
+829	Z9604GD5SC	Z9604GD5SC	7	InfoCWB	0	0	0	NULL	0	1031.76	20	1.239,00	1.178,00	5	1	0	2016-08-01 12:56:13
+830	90YV07Q0M0	90YV07Q0M0	7	InfoCWB	0	0	0	NULL	0	1006.89	20	1.209,00	1.149,00	336	1	0	2016-08-01 12:56:13
+831	FX9590	FX9590	7	InfoCWB	0	0	0	NULL	0	974.98	20	1.170,00	1.112,00	4	1	0	2016-08-01 12:56:13
+832	R9380STRIX	9380STIX	7	InfoCWB	0	0	0	NULL	0	934.11	20	1.121,00	1.065,00	24	1	0	2016-08-01 12:56:13
+833	R938WF24GD	938WF24GD	7	InfoCWB	0	0	0	NULL	0	929.08	20	1.115,00	1.060,00	4	1	0	2016-08-01 12:56:13
+834	112421320G	112421320G	7	InfoCWB	0	0	0	NULL	0	926.84	20	1.113,00	1.058,00	24	1	0	2016-08-01 12:56:13
+835	P11250BEFX	P11250BEFX	7	InfoCWB	0	0	0	NULL	0	917.05	20	1.101,00	1.046,00	14	1	0	2016-08-01 12:56:13
+836	90YV08D0	90YV08D0	7	InfoCWB	0	0	0	NULL	0	880.69	20	1.057,00	1.005,00	5	1	0	2016-08-01 12:56:13
+837	90YV07N0	90YV07N0	7	InfoCWB	0	0	0	NULL	0	860.06	20	1.033,00	982,00	114	1	0	2016-08-01 12:56:13
+838	N960IXOC4GD	N960IXOC4GD	7	InfoCWB	0	0	0	NULL	0	847.25	20	1.017,00	967,00	236	1	0	2016-08-01 12:56:13
+839	112420020G	112420020G	7	InfoCWB	0	0	0	NULL	0	836.43	20	1.004,00	954,00	45	1	0	2016-08-01 12:56:13
+840	90IG00C0	90IG00C0	7	InfoCWB	0	0	0	NULL	0	815.28	20	979,00	931,00	38	1	0	2016-08-01 12:56:13
+841	R7370DC2OC	7370DC2OC	7	InfoCWB	0	0	0	NULL	0	767.2	20	921,00	875,00	87	1	0	2016-08-01 12:56:13
+842	N950XTR2GD	N950XT2GD	7	InfoCWB	0	0	0	NULL	0	764.47	20	918,00	873,00	3	1	0	2016-08-01 12:56:13
+843	R9380P2DF5	9380P2DF5	7	InfoCWB	0	0	0	NULL	0	762.84	20	916,00	871,00	65	1	0	2016-08-01 12:56:13
+844	90MB0PF0	90MB0PF0	7	InfoCWB	0	0	0	NULL	0	705.14	20	847,00	805,00	17	1	0	2016-08-01 12:56:14
+845	90MB0H80	90MB0H80	7	InfoCWB	0	0	0	NULL	0	695.35	20	835,00	794,00	10	1	0	2016-08-01 12:56:14
+846	N950XC2GD	N950XC2GD	7	InfoCWB	0	0	0	NULL	0	689.99	20	828,00	787,00	102	1	0	2016-08-01 12:56:14
+847	500KKW1RP	500KKW1P	7	InfoCWB	0	0	0	NULL	0	655.14	20	787,00	748,00	7	1	0	2016-08-01 12:56:14
+848	90YV07Z1	90YV07Z1	7	InfoCWB	0	0	0	NULL	0	645.55	20	775,00	737,00	20	1	0	2016-08-01 12:56:14
+849	R7370P2DF5	7370P2DF5	7	InfoCWB	0	0	0	NULL	0	637.98	20	766,00	728,00	90	1	0	2016-08-01 12:56:14
+850	37WF2OC2GD	37WF2OC2GD	7	InfoCWB	0	0	0	NULL	0	621.3	20	746,00	709,00	127	1	0	2016-08-01 12:56:14
+851	R7370	7370	7	InfoCWB	0	0	0	NULL	0	606.76	20	729,00	693,00	142	1	0	2016-08-01 12:56:14
+852	90YH0084	90YH0084	7	InfoCWB	0	0	0	NULL	0	605.01	20	727,00	691,00	9	1	0	2016-08-01 12:56:14
+853	90MB0MN0	90MB0MN0	7	InfoCWB	0	0	0	NULL	0	579.16	20	695,00	661,00	32	1	0	2016-08-01 12:56:14
+854	110B20850	110B20850	7	InfoCWB	0	0	0	NULL	0	573.64	20	689,00	655,00	2	1	0	2016-08-01 12:56:14
+855	R7370P2SF5	7370P2SF5	7	InfoCWB	0	0	0	NULL	0	570.41	20	685,00	651,00	25	1	0	2016-08-01 12:56:14
+856	TB220XK3CA	TB220XK3CA	7	InfoCWB	0	0	0	NULL	0	538.81	20	647,00	615,00	4	1	0	2016-08-01 12:56:14
+857	B85KILLER	B85KILLE	7	InfoCWB	0	0	0	NULL	0	521.12	20	626,00	595,00	9	1	0	2016-08-01 12:56:14
+858	0650MPCGBZ	0650MPCGBZ	7	InfoCWB	0	0	0	NULL	0	509.84	20	612,00	582,00	18	1	0	2016-08-01 12:56:14
+859	TLSG1024D	TLSG1024D	7	InfoCWB	0	0	0	NULL	0	466.07	20	560,00	532,00	20	1	0	2016-08-01 12:56:14
+860	R7360OC2G5	7360OC2G5	7	InfoCWB	0	0	0	NULL	0	411.44	20	494,00	470,00	24	1	0	2016-08-01 12:56:14
+861	GHO300KKN1	GHO300KKN1	7	InfoCWB	0	0	0	NULL	0	389.39	20	468,00	445,00	15	1	0	2016-08-01 12:56:14
+862	RDR300KKN1	D300KKN1	7	InfoCWB	0	0	0	NULL	0	361.13	20	434,00	413,00	24	1	0	2016-08-01 12:56:14
+863	PHE300WWXK	PHE300WWXK	7	InfoCWB	0	0	0	NULL	0	358.44	20	431,00	410,00	2	1	0	2016-08-01 12:56:14
+864	HX421C14FBK2/16	14FBK216	3	Mercado Digital	0	0	0	NULL	0	343,25	20	412,00	392,00	35	1	0	2016-08-09 14:48:11
+865	HX313C9FRK2/16	313C9FK2	3	Mercado Digital	0	0	0	NULL	0	338,84	20	406,00	386,00	2	1	0	2016-08-09 14:48:12
+866	24002082	N960XT4GD	7	InfoCWB	0	0	0	NULL	0	1034,95	20	1.241,00	1.179,00	9	1	0	2016-08-11 13:09:04
+867	24001956	GVN970IX4G	7	InfoCWB	0	0	0	NULL	0	1050,6	20	1.260,00	1.197,00	10	1	0	2016-08-11 13:09:04
+868	24001909	970IXOC4GD	7	InfoCWB	0	0	0	NULL	0	1059,51	20	1.271,00	1.208,00	53	1	0	2016-08-11 13:09:04
+869	29000245	MBCSH5F	7	InfoCWB	0	0	0	NULL	0	1070,17	20	1.284,00	1.220,00	13	1	0	2016-08-11 13:09:04
+870	24002026	970DC20C4G	7	InfoCWB	0	0	0	NULL	0	1165,35	20	1.398,00	1.329,00	300	1	0	2016-08-11 13:09:04
+871	24001905	X9704GD5SC	7	InfoCWB	0	0	0	NULL	0	1169,61	20	1.403,00	1.333,00	5	1	0	2016-08-11 13:09:04
+872	24001973	9390P8DF6	7	InfoCWB	0	0	0	NULL	0	1170,99	20	1.404,00	1.334,00	8	1	0	2016-08-11 13:09:04
+873	24001999	N970TTOC4G	7	InfoCWB	0	0	0	NULL	0	1188,38	20	1.426,00	1.355,00	26	1	0	2016-08-11 13:09:04
+874	24001885	970WF3OC4G	7	InfoCWB	0	0	0	NULL	0	1198,07	20	1.438,00	1.367,00	10	1	0	2016-08-11 13:09:04
+875	29000228	SBTOZ97MK1	7	InfoCWB	0	0	0	NULL	0	1210,44	20	1.452,00	1.380,00	2	1	0	2016-08-11 13:09:04
+876	29000220	M0EAY0	7	InfoCWB	0	0	0	NULL	0	1294,25	20	1.553,00	1.476,00	11	1	0	2016-08-11 13:09:04
+877	24002073	N970XC4GD	7	InfoCWB	0	0	0	NULL	0	1330,64	20	1.596,00	1.517,00	8	1	0	2016-08-11 13:09:04
+878	29000261	ASZ97DLX31	7	InfoCWB	0	0	0	NULL	0	1353,89	20	1.624,00	1.543,00	17	1	0	2016-08-11 13:09:04
+879	29000210	0J30M0EAY0	7	InfoCWB	0	0	0	NULL	0	1491,72	20	1.790,00	1.701,00	4	1	0	2016-08-11 13:09:05
+880	24002099	N970XTE4G	7	InfoCWB	0	0	0	NULL	0	1597,76	20	1.917,00	1.822,00	40	1	0	2016-08-11 13:09:05
+881	24001478	310043241	7	InfoCWB	0	0	0	NULL	0	1940,89	20	2.328,00	2.212,00	15	1	0	2016-08-11 13:09:05
+882	29000285	MAXVIIIEX	7	InfoCWB	0	0	0	NULL	0	2192,24	20	2.631,00	2.500,00	8	1	0	2016-08-11 13:09:05
+883	24002015	9NANO4SF6	7	InfoCWB	0	0	0	NULL	0	2507,91	20	3.009,00	2.859,00	2	1	0	2016-08-11 13:09:05
+884	24002058	AS980TIPPN	7	InfoCWB	0	0	0	NULL	0	2543,06	20	3.052,00	2.900,00	2	1	0	2016-08-11 13:09:05
+885	10000254	ANTGBP100	7	InfoCWB	0	0	0	NULL	0	344,41	20	413,00	393,00	72	1	0	2016-08-11 13:09:05
+886	10000236	BFCPM300W	7	InfoCWB	0	0	0	NULL	0	345,38	20	414,00	394,00	2	1	0	2016-08-11 13:09:05
+887	10000235	BFCPM300B	7	InfoCWB	0	0	0	NULL	0	345,38	20	414,00	394,00	9	1	0	2016-08-11 13:09:05
+888	10000239	D300KKN1	7	InfoCWB	0	0	0	NULL	0	350,41	20	420,00	399,00	16	1	0	2016-08-11 13:09:05
+889	29000176	FM2A88MHD	7	InfoCWB	0	0	0	NULL	0	354,53	20	425,00	404,00	6	1	0	2016-08-11 13:09:05
+890	29000174	ASOCKB85M	7	InfoCWB	0	0	0	NULL	0	360,92	20	432,00	411,00	22	1	0	2016-08-11 13:09:05
+891	30000112	FD4300MHKB	7	InfoCWB	0	0	0	NULL	0	365,06	20	438,00	417,00	10	1	0	2016-08-11 13:09:05
+892	10000225	BFCCLI30KK	7	InfoCWB	0	0	0	NULL	0	395,22	20	474,00	451,00	5	1	0	2016-08-11 13:09:05
+893	24002013	7360P2SF5	7	InfoCWB	0	0	0	NULL	0	401,28	20	482,00	458,00	687	1	0	2016-08-11 13:09:05
+894	14000162	ACHEC5	7	InfoCWB	0	0	0	NULL	0	416,42	20	500,00	475,00	11	1	0	2016-08-11 13:09:05
+895	24002067	GV7360OC2	7	InfoCWB	0	0	0	NULL	0	416,82	20	500,00	475,00	40	1	0	2016-08-11 13:09:05
+896	29000194	FM2A88XET4	7	InfoCWB	0	0	0	NULL	0	437,06	20	525,00	499,00	16	1	0	2016-08-11 13:09:05
+897	30000105	FX6300BEB	7	InfoCWB	0	0	0	NULL	0	446,26	20	536,00	510,00	17	1	0	2016-08-11 13:09:05
+898	29000244	ASB85PLUS	7	InfoCWB	0	0	0	NULL	0	450,69	20	540,00	513,00	30	1	0	2016-08-11 13:09:05
+899	10000183	TYPE1B3000	7	InfoCWB	0	0	0	NULL	0	458,36	20	550,00	523,00	29	1	0	2016-08-11 13:09:05
+900	16000024	TLSG1016	7	InfoCWB	0	0	0	NULL	0	464,29	20	557,00	530,00	7	1	0	2016-08-11 13:09:05
+901	24001949	VN75TOC2GL	7	InfoCWB	0	0	0	NULL	0	470,36	20	564,00	536,00	214	1	0	2016-08-11 13:09:05
+902	24001738	1GP42751K	7	InfoCWB	0	0	0	NULL	0	474,17	20	569,00	541,00	20	1	0	2016-08-11 13:09:05
+903	9000234	0650MPCGBZ	7	InfoCWB	0	0	0	NULL	0	489,58	20	587,00	558,00	23	1	0	2016-08-11 13:09:05
+904	29000167	B85KILLE	7	InfoCWB	0	0	0	NULL	0	511,92	20	614,00	584,00	18	1	0	2016-08-11 13:09:05
+905	38000041	TB220XK3CA	7	InfoCWB	0	0	0	NULL	0	529,3	20	635,00	604,00	30	1	0	2016-08-11 13:09:05
+906	10000120	VN700M1W2N	7	InfoCWB	0	0	0	NULL	0	531,21	20	638,00	607,00	4	1	0	2016-08-11 13:09:05
+907	30000106	FX8320EBOX	7	InfoCWB	0	0	0	NULL	0	536,6	20	644,00	612,00	25	1	0	2016-08-11 13:09:05
+908	29000163	FM2A88XEX6	7	InfoCWB	0	0	0	NULL	0	544,2	20	653,00	621,00	5	1	0	2016-08-11 13:09:05
+909	29000273	Z170PD3	7	InfoCWB	0	0	0	NULL	0	559,28	20	671,00	638,00	88	1	0	2016-08-11 13:09:05
+910	29000284	90MB0MN0	7	InfoCWB	0	0	0	NULL	0	568,94	20	682,00	648,00	6	1	0	2016-08-11 13:09:05
+911	24001988	37WF2OC2GD	7	InfoCWB	0	0	0	NULL	0	622,54	20	747,00	710,00	75	1	0	2016-08-11 13:09:05
+912	24001977	7370P2SF5	7	InfoCWB	0	0	0	NULL	0	630,27	20	756,00	719,00	29	1	0	2016-08-11 13:09:05
+913	24002101	90YV07Z1	7	InfoCWB	0	0	0	NULL	0	634,16	20	761,00	723,00	14	1	0	2016-08-11 13:09:05
+914	10000243	500KKW1P	7	InfoCWB	0	0	0	NULL	0	635,7	20	762,00	724,00	2	1	0	2016-08-11 13:09:05
+915	24001968	7370P2DF5	7	InfoCWB	0	0	0	NULL	0	636,27	20	764,00	726,00	91	1	0	2016-08-11 13:09:05
+916	29000320	90MB0H80	7	InfoCWB	0	0	0	NULL	0	683,08	20	820,00	779,00	10	1	0	2016-08-11 13:09:05
+917	24001993	N950WF20C	7	InfoCWB	0	0	0	NULL	0	687,63	20	825,00	784,00	45	1	0	2016-08-11 13:09:05
+918	10000112	VN300M1W2N	7	InfoCWB	0	0	0	NULL	0	691,58	20	830,00	789,00	18	1	0	2016-08-11 13:09:05
+919	24001970	7370P4DF5	7	InfoCWB	0	0	0	NULL	0	700,79	20	840,00	798,00	62	1	0	2016-08-11 13:09:05
+920	30000107	FX8350B	7	InfoCWB	0	0	0	NULL	0	717,31	20	861,00	818,00	9	1	0	2016-08-11 13:09:05
+921	24001963	112400420G	7	InfoCWB	0	0	0	NULL	0	723,09	20	868,00	825,00	51	1	0	2016-08-11 13:09:05
+922	24002059	7370DC2OC	7	InfoCWB	0	0	0	NULL	0	787,31	20	945,00	898,00	178	1	0	2016-08-11 13:09:05
+923	24001971	9380P2DF5	7	InfoCWB	0	0	0	NULL	0	790,62	20	948,00	901,00	140	1	0	2016-08-11 13:09:05
+924	24001936	02GP42961	7	InfoCWB	0	0	0	NULL	0	793,63	20	952,00	905,00	14	1	0	2016-08-11 13:09:05
+925	24002017	N950XT2GD	7	InfoCWB	0	0	0	NULL	0	799,04	20	959,00	912,00	2	1	0	2016-08-11 13:09:06
+926	30000108	FX8370	7	InfoCWB	0	0	0	NULL	0	799,16	20	959,00	912,00	11	1	0	2016-08-11 13:09:06
+927	14000170	90IG00C0	7	InfoCWB	0	0	0	NULL	0	800,89	20	960,00	912,00	24	1	0	2016-08-11 13:09:06
+928	24001985	112420020G	7	InfoCWB	0	0	0	NULL	0	821,94	20	986,00	937,00	90	1	0	2016-08-11 13:09:06
+929	24001995	04GP41962	7	InfoCWB	0	0	0	NULL	0	836,12	20	1.004,00	954,00	4	1	0	2016-08-11 13:09:06
+930	24002074	N960IXOC4GD	7	InfoCWB	0	0	0	NULL	0	837,82	20	1.005,00	955,00	163	1	0	2016-08-11 13:09:06
+931	24002080	STIXGTX96	7	InfoCWB	0	0	0	NULL	0	844,73	20	1.013,00	963,00	55	1	0	2016-08-11 13:09:06
+932	24002021	4GP41961K	7	InfoCWB	0	0	0	NULL	0	847,29	20	1.017,00	967,00	106	1	0	2016-08-11 13:09:06
+933	24002102	90YV08D0	7	InfoCWB	0	0	0	NULL	0	862,84	20	1.035,00	984,00	64	1	0	2016-08-11 13:09:06
+934	29000230	SABT990FX2	7	InfoCWB	0	0	0	NULL	0	865,14	20	1.038,00	987,00	35	1	0	2016-08-11 13:09:06
+935	30000109	FX9370BEB	7	InfoCWB	0	0	0	NULL	0	872,18	20	1.047,00	995,00	5	1	0	2016-08-11 13:09:06
+936	24002069	N960WF24GD	7	InfoCWB	0	0	0	NULL	0	877,95	20	1.053,00	1.001,00	89	1	0	2016-08-11 13:09:06
+937	24001946	N960WF24GD	7	InfoCWB	0	0	0	NULL	0	881,54	20	1.058,00	1.006,00	48	1	0	2016-08-11 10:27:48
+938	24002025	112421320G	7	InfoCWB	0	0	0	NULL	0	908,52	20	1.090,00	1.036,00	45	1	0	2016-08-11 13:09:06
+939	24002029	938WF24GD	7	InfoCWB	0	0	0	NULL	0	912,68	20	1.095,00	1.041,00	18	1	0	2016-08-11 13:09:06
+940	29000212	MAX7ANGE	7	InfoCWB	0	0	0	NULL	0	933,26	20	1.120,00	1.064,00	8	1	0	2016-08-11 13:09:06
+941	30000110	FX9590	7	InfoCWB	0	0	0	NULL	0	957,77	20	1.149,00	1.092,00	5	1	0	2016-08-11 13:09:06
+942	24002046	STIX9604G	7	InfoCWB	0	0	0	NULL	0	989,48	20	1.187,00	1.128,00	273	1	0	2016-08-11 13:09:06
+943	STEB3000100	STEB300010	4	Up	0	0	0	NULL	0	572,42	20	687,00	653,00	2	1	0	2016-08-10 11:25:50
+944	ST1000DM003	T1000DM003	4	Up	0	0	0	NULL	0	235,55	20	282,00	268,00	2	1	0	2016-08-10 11:25:50
+945	224002082		7	InfoCWB	0	0	0	NULL	0	1021,38	20	1.226,00	1.165,00	2	1	0	2016-08-16 11:04:04
+946	224001909		7	InfoCWB	0	0	0	NULL	0	1045,17	20	1.254,00	1.192,00	2	1	0	2016-08-16 11:04:04
+947	229000251		7	InfoCWB	0	0	0	NULL	0	1077,27	20	1.293,00	1.229,00	2	1	0	2016-08-16 11:04:04
+948	224001905		7	InfoCWB	0	0	0	NULL	0	1158,78	20	1.390,00	1.321,00	2	1	0	2016-08-16 11:04:04
+949	229000217		7	InfoCWB	0	0	0	NULL	0	1170,31	20	1.404,00	1.334,00	2	1	0	2016-08-16 11:04:04
+950	224002073		7	InfoCWB	0	0	0	NULL	0	1313,51	20	1.576,00	1.498,00	2	1	0	2016-08-16 11:04:04
+951	229000216		7	InfoCWB	0	0	0	NULL	0	1335,02	20	1.602,00	1.522,00	2	1	0	2016-08-16 11:04:04
+952	229000220		7	InfoCWB	0	0	0	NULL	0	1338,34	20	1.606,00	1.526,00	2	1	0	2016-08-16 11:04:05
+953	229000312		7	InfoCWB	0	0	0	NULL	0	1426,89	20	1.712,00	1.627,00	2	1	0	2016-08-16 11:04:05
+954	224002037		7	InfoCWB	0	0	0	NULL	0	1428,31	20	1.714,00	1.629,00	2	1	0	2016-08-16 11:04:05
+955	224002099		7	InfoCWB	0	0	0	NULL	0	1433,15	20	1.720,00	1.634,00	2	1	0	2016-08-16 11:04:05
+956	224001976		7	InfoCWB	0	0	0	NULL	0	1820,97	20	2.184,00	2.075,00	2	1	0	2016-08-16 11:04:05
+957	224002096		7	InfoCWB	0	0	0	NULL	0	1852,98	20	2.223,00	2.112,00	2	1	0	2016-08-16 11:04:05
+958	229000275		7	InfoCWB	0	0	0	NULL	0	1881,02	20	2.258,00	2.146,00	2	1	0	2016-08-16 11:04:05
+959	224001478		7	InfoCWB	0	0	0	NULL	0	1924,17	20	2.309,00	2.194,00	2	1	0	2016-08-16 11:04:05
+960	224002015		7	InfoCWB	0	0	0	NULL	0	2437,65	20	2.925,00	2.779,00	2	1	0	2016-08-16 11:04:05
+961	229000192		7	InfoCWB	0	0	0	NULL	0	254,57	20	305,00	290,00	2	1	0	2016-08-16 11:04:05
+962	224002103		7	InfoCWB	0	0	0	NULL	0	3085,05	20	3.702,00	3.517,00	2	1	0	2016-08-16 11:04:05
+963	209000238		7	InfoCWB	0	0	0	NULL	0	318,17	20	382,00	363,00	2	1	0	2016-08-16 11:04:05
+964	210000167		7	InfoCWB	0	0	0	NULL	0	319,15	20	383,00	364,00	2	1	0	2016-08-16 11:04:05
+965	210000254		7	InfoCWB	0	0	0	NULL	0	340,16	20	408,00	388,00	2	1	0	2016-08-16 11:04:05
+966	229000174		7	InfoCWB	0	0	0	NULL	0	343,34	20	412,00	392,00	2	1	0	2016-08-16 11:04:05
+967	210000235		7	InfoCWB	0	0	0	NULL	0	345,37	20	414,00	394,00	2	1	0	2016-08-16 11:04:05
+968	210000234		7	InfoCWB	0	0	0	NULL	0	346,49	20	416,00	396,00	2	1	0	2016-08-16 11:04:05
+969	210000231		7	InfoCWB	0	0	0	NULL	0	347,77	20	417,00	397,00	2	1	0	2016-08-16 11:04:05
+970	210000240		7	InfoCWB	0	0	0	NULL	0	348,45	20	418,00	398,00	2	1	0	2016-08-16 11:04:05
+971	229000176		7	InfoCWB	0	0	0	NULL	0	350,2	20	420,00	399,00	2	1	0	2016-08-16 11:04:05
+972	210000239		7	InfoCWB	0	0	0	NULL	0	350,38	20	420,00	399,00	2	1	0	2016-08-16 11:04:05
+973	230000112		7	InfoCWB	0	0	0	NULL	0	360,24	20	432,00	411,00	2	1	0	2016-08-16 11:04:05
+974	208000006		7	InfoCWB	0	0	0	NULL	0	361,09	20	434,00	413,00	2	1	0	2016-08-16 11:04:05
+975	210000227		7	InfoCWB	0	0	0	NULL	0	377,79	20	453,00	431,00	2	1	0	2016-08-16 11:04:05
+976	224002013		7	InfoCWB	0	0	0	NULL	0	384,18	20	461,00	438,00	2	1	0	2016-08-16 11:04:05
+977	229000256		7	InfoCWB	0	0	0	NULL	0	388,32	20	466,00	443,00	2	1	0	2016-08-16 11:04:05
+978	210000225		7	InfoCWB	0	0	0	NULL	0	391,7	20	470,00	447,00	2	1	0	2016-08-16 11:04:05
+979	204000041		7	InfoCWB	0	0	0	NULL	0	399,76	20	479,00	456,00	2	1	0	2016-08-16 11:04:05
+980	211000139		7	InfoCWB	0	0	0	NULL	0	402,47	20	483,00	459,00	2	1	0	2016-08-16 11:04:05
+981	224002067		7	InfoCWB	0	0	0	NULL	0	412,97	20	495,00	471,00	2	1	0	2016-08-16 11:04:05
+982	229000159		7	InfoCWB	0	0	0	NULL	0	416,63	20	500,00	475,00	2	1	0	2016-08-16 11:04:05
+983	210000275		7	InfoCWB	0	0	0	NULL	0	432,9	20	519,00	494,00	2	1	0	2016-08-16 11:04:05
+984	229000194		7	InfoCWB	0	0	0	NULL	0	434,18	20	521,00	495,00	2	1	0	2016-08-16 11:04:05
+985	205000019		7	InfoCWB	0	0	0	NULL	0	44,26	20	53,00	51,00	2	1	0	2016-08-16 11:04:05
+986	230000105		7	InfoCWB	0	0	0	NULL	0	440,38	20	528,00	502,00	2	1	0	2016-08-16 11:04:05
+987	210000183		7	InfoCWB	0	0	0	NULL	0	444,16	20	533,00	507,00	2	1	0	2016-08-16 11:04:05
+988	229000244		7	InfoCWB	0	0	0	NULL	0	444,91	20	533,00	507,00	2	1	0	2016-08-16 11:04:05
+989	210000255		7	InfoCWB	0	0	0	NULL	0	453,54	20	544,00	517,00	2	1	0	2016-08-16 11:04:05
+990	209000234		7	InfoCWB	0	0	0	NULL	0	494,45	20	593,00	564,00	2	1	0	2016-08-16 11:04:05
+991	229000167		7	InfoCWB	0	0	0	NULL	0	505,36	20	606,00	576,00	2	1	0	2016-08-16 11:04:05
+992	230000106		7	InfoCWB	0	0	0	NULL	0	529,51	20	635,00	604,00	2	1	0	2016-08-16 11:04:05
+993	210000270		7	InfoCWB	0	0	0	NULL	0	536,95	20	644,00	612,00	2	1	0	2016-08-16 11:04:05
+994	229000163		7	InfoCWB	0	0	0	NULL	0	538,84	20	646,00	614,00	2	1	0	2016-08-16 11:04:05
+995	210000140		7	InfoCWB	0	0	0	NULL	0	545,09	20	654,00	622,00	2	1	0	2016-08-16 11:04:05
+996	229000273		7	InfoCWB	0	0	0	NULL	0	552,07	20	663,00	630,00	2	1	0	2016-08-16 11:04:05
+997	229000284		7	InfoCWB	0	0	0	NULL	0	561,64	20	674,00	641,00	2	1	0	2016-08-16 11:04:06
+998	217000100		7	InfoCWB	0	0	0	NULL	0	586,72	20	704,00	669,00	2	1	0	2016-08-16 11:04:06
+999	229000331		7	InfoCWB	0	0	0	NULL	0	587,53	20	705,00	670,00	2	1	0	2016-08-16 11:04:06
+1000	224001969		7	InfoCWB	0	0	0	NULL	0	588,44	20	706,00	671,00	2	1	0	2016-08-16 11:04:06
+1001	224001988		7	InfoCWB	0	0	0	NULL	0	602,55	20	723,00	687,00	2	1	0	2016-08-16 11:04:06
+1002	224001968		7	InfoCWB	0	0	0	NULL	0	618,72	20	742,00	705,00	2	1	0	2016-08-16 11:04:06
+1003	210000191		7	InfoCWB	0	0	0	NULL	0	618,82	20	742,00	705,00	2	1	0	2016-08-16 11:04:06
+1004	224002101		7	InfoCWB	0	0	0	NULL	0	626,06	20	752,00	715,00	2	1	0	2016-08-16 11:04:06
+1005	210000243		7	InfoCWB	0	0	0	NULL	0	635,63	20	762,00	724,00	2	1	0	2016-08-16 11:04:06
+1006	224002033		7	InfoCWB	0	0	0	NULL	0	647,17	20	777,00	739,00	2	1	0	2016-08-16 11:04:06
+1007	229000320		7	InfoCWB	0	0	0	NULL	0	655,08	20	786,00	747,00	2	1	0	2016-08-16 11:04:06
+1008	224002066		7	InfoCWB	0	0	0	NULL	0	669,09	20	803,00	763,00	2	1	0	2016-08-16 11:04:06
+1009	229000304		7	InfoCWB	0	0	0	NULL	0	670,49	20	804,00	764,00	2	1	0	2016-08-16 11:04:06
+1010	229000164		7	InfoCWB	0	0	0	NULL	0	673,75	20	808,00	768,00	2	1	0	2016-08-16 11:04:06
+1011	230000107		7	InfoCWB	0	0	0	NULL	0	708,88	20	850,00	808,00	2	1	0	2016-08-16 11:04:06
+1012	224001970		7	InfoCWB	0	0	0	NULL	0	709,34	20	851,00	809,00	2	1	0	2016-08-16 11:04:06
+1013	224001963		7	InfoCWB	0	0	0	NULL	0	715,56	20	858,00	816,00	2	1	0	2016-08-16 11:04:06
+1014	229000170		7	InfoCWB	0	0	0	NULL	0	731,57	20	878,00	835,00	2	1	0	2016-08-16 11:04:06
+1015	210000286		7	InfoCWB	0	0	0	NULL	0	733,58	20	880,00	836,00	2	1	0	2016-08-16 11:04:06
+1016	210000141		7	InfoCWB	0	0	0	NULL	0	739,51	20	887,00	843,00	2	1	0	2016-08-16 11:04:06
+1017	224001971		7	InfoCWB	0	0	0	NULL	0	739,81	20	887,00	843,00	2	1	0	2016-08-16 11:04:06
+1018	224002017		7	InfoCWB	0	0	0	NULL	0	741,31	20	890,00	846,00	2	1	0	2016-08-16 11:04:06
+1019	224002059		7	InfoCWB	0	0	0	NULL	0	744,04	20	893,00	849,00	2	1	0	2016-08-16 11:04:06
+1020	224001936		7	InfoCWB	0	0	0	NULL	0	783,41	20	940,00	893,00	2	1	0	2016-08-16 11:04:06
+1021	230000108		7	InfoCWB	0	0	0	NULL	0	791,52	20	950,00	903,00	2	1	0	2016-08-16 11:04:06
+1022	224001985		7	InfoCWB	0	0	0	NULL	0	811,18	20	974,00	926,00	2	1	0	2016-08-16 11:04:06
+1023	224002074		7	InfoCWB	0	0	0	NULL	0	821,58	20	986,00	937,00	2	1	0	2016-08-16 11:04:06
+1024	224002021		7	InfoCWB	0	0	0	NULL	0	830,54	20	996,00	947,00	2	1	0	2016-08-16 11:04:06
+1025	224002102		7	InfoCWB	0	0	0	NULL	0	854,11	20	1.025,00	974,00	2	1	0	2016-08-16 11:04:06
+1026	224002069		7	InfoCWB	0	0	0	NULL	0	865,96	20	1.038,00	987,00	2	1	0	2016-08-16 11:04:06
+1027	230000109		7	InfoCWB	0	0	0	NULL	0	874,97	20	1.049,00	997,00	2	1	0	2016-08-16 11:04:06
+1028	209000246		7	InfoCWB	0	0	0	NULL	0	889,32	20	1.067,00	1.014,00	2	1	0	2016-08-16 11:04:06
+1029	224001946		7	InfoCWB	0	0	0	NULL	0	891,57	20	1.070,00	1.017,00	2	1	0	2016-08-16 11:04:06
+1030	224002025		7	InfoCWB	0	0	0	NULL	0	898,86	20	1.078,00	1.025,00	2	1	0	2016-08-16 11:04:06
+1031	229000212		7	InfoCWB	0	0	0	NULL	0	939,16	20	1.127,00	1.071,00	2	1	0	2016-08-16 11:04:06
+1032	224001896		7	InfoCWB	0	0	0	NULL	0	941,28	20	1.130,00	1.074,00	2	1	0	2016-08-16 11:04:06
+1033	230000110		7	InfoCWB	0	0	0	NULL	0	945,11	20	1.134,00	1.078,00	2	1	0	2016-08-16 11:04:06
+1034	224002046		7	InfoCWB	0	0	0	NULL	0	976,39	20	1.172,00	1.114,00	2	1	0	2016-08-16 11:04:06

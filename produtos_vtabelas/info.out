@@ -1,0 +1,22 @@
++---------------+--------------+------+-----+---------------------+----------------+
+| Field         | Type         | Null | Key | Default             | Extra          |
++---------------+--------------+------+-----+---------------------+----------------+
+| id            | int(11)      | NO   | PRI | NULL                | auto_increment |
+| codigo        | varchar(50)  | YES  | MUL | 0                   |                |
+| produto       | varchar(50)  | YES  |     | 0                   |                |
+| loja          | int(11)      | YES  |     | 0                   |                |
+| lojaNome      | varchar(100) | YES  |     | NULL                |                |
+| titulo        | varchar(100) | YES  |     | 0                   |                |
+| imagem        | varchar(255) | YES  |     | 0                   |                |
+| url           | varchar(255) | YES  |     | 0                   |                |
+| descricao     | text         | YES  |     | NULL                |                |
+| estado        | varchar(2)   | YES  |     | 0                   |                |
+| precoloja     | varchar(10)  | YES  |     | 0                   |                |
+| precomarkup   | varchar(10)  | YES  |     | 0                   |                |
+| precovenda    | varchar(10)  | YES  |     | 0                   |                |
+| precodesconto | varchar(10)  | YES  |     | 0                   |                |
+| estoque       | int(11)      | NO   |     | 0                   |                |
+| status        | int(11)      | YES  |     | 0                   |                |
+| virtual       | int(11)      | YES  |     | 0                   |                |
+| status_data   | datetime     | YES  |     | 0000-00-00 00:00:00 |                |
++---------------+--------------+------+-----+---------------------+----------------+
