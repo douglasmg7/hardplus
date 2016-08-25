@@ -1,0 +1,24 @@
+{
+  "name": "hardpuls",
+  "version": "1.0.0",
+  "description": "Hardplus system",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/douglasmg7/hardplus.git"
+  },
+  "author": "Douglas Gomes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/douglasmg7/hardplus/issues"
+  },
+  "homepage": "https://github.com/douglasmg7/hardplus#readme",
+  "dependencies": {
+    "pixl-xml": "^1.0.7",
+    "request": "^2.74.0",
+    "xml2js": "^0.4.17"
+  }
+}
