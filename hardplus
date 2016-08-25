@@ -17,3 +17,18 @@ data_base.hardplu1_loja
 ordem
 SincAllnationsVirtual.php
 	->
+
+cod_client 	0014770
+password		728626
+cod_prod		0044819	
+GET /wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/ConsultarDisponibilidadeProduto?CodigoCliente=string&Senha=string&CodigoProduto=string HTTP/1.1
+Host: wspub.allnations.com.br
+
+
+functionou
+curl -v -H "Content-Type: application/x-www-form-urlencoded" -X POST -d "CodigoCliente=0014770&Senha=728626&CodigoProduto=0044819" http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/ConsultarDisponibilidadeProduto
+curl -H "Content-Type: application/x-www-form-urlencoded" -X POST -d "CodigoCliente=0014770&Senha=728626&CodigoProduto=0044819" http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/ConsultarDisponibilidadeProduto
+
+functionou
+curl -v -X GET 'http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/ConsultarDisponibilidadeProduto?CodigoCliente=0014770&Senha=728626&CodigoProduto=0044819'
+curl -X GET 'http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/ConsultarDisponibilidadeProduto?CodigoCliente=0014770&Senha=728626&CodigoProduto=0044819'

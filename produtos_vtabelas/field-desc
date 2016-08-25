@@ -1,0 +1,65 @@
++---------------+--------------+------+-----+---------------------+----------------+
+| Field         | Type         | Null | Key | Default             | Extra          |
++---------------+--------------+------+-----+---------------------+----------------+
+| id            | int(11)      | NO   | PRI | NULL                | auto_increment |
+| codigo        | varchar(50)  | YES  | MUL | 0                   |                |
+| produto       | varchar(50)  | YES  |     | 0                   |                |
+| loja          | int(11)      | YES  |     | 0                   |                |
+| lojaNome      | varchar(100) | YES  |     | NULL                |                |
+| titulo        | varchar(100) | YES  |     | 0                   |                |
+| imagem        | varchar(255) | YES  |     | 0                   |                |
+| url           | varchar(255) | YES  |     | 0                   |                |
+| descricao     | text         | YES  |     | NULL                |                |
+| estado        | varchar(2)   | YES  |     | 0                   |                |
+| precoloja     | varchar(10)  | YES  |     | 0                   |                |
+| precomarkup   | varchar(10)  | YES  |     | 0                   |                |
+| precovenda    | varchar(10)  | YES  |     | 0                   |                |
+| precodesconto | varchar(10)  | YES  |     | 0                   |                |
+| estoque       | int(11)      | NO   |     | 0                   |                |
+| status        | int(11)      | YES  |     | 0                   |                |
+| virtual       | int(11)      | YES  |     | 0                   |                |
+| status_data   | datetime     | YES  |     | 0000-00-00 00:00:00 |                |
++---------------+--------------+------+-----+---------------------+----------------+
+
+produtos_vtabela (relação de produtos a serem vendidos)
+
+id - auto incremento - chave primária
+
+codigo - código do produto no revendedor
+
+produto - código do produto na loja
+
+loja - id do revendedor (0 - 4)
+lojaNome - nome do revendedor (sincronizado com o campo loja)
+	id=lojaNome
+	 0=All Nations
+	 1=AllNations
+	 2=Aldo
+	 3=Mercado Digital
+	 4=Up
+
+titulo - não usado (encontrado apenas um registro diferente de "")    
+
+imagem - imagem do produto no site do fornecedor
+
+url - descrição do produto no site do fornecedor
+
+descricao - não usado
+
+estado - qual a localização do fornecedor
+
+precoloja - preço no revendedor   
+
+precomarkup - lucro
+
+precovenda - precoloja + precomarkup
+
+precodesconto - ?
+
+estoque - quantidade do produto no estoque
+
+status - (0 - 1) ?
+
+virtual - (0 - 1) ?      
+
+status_data  - data de atualização?
