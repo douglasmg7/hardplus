@@ -5,10 +5,10 @@
 let assert = require('assert');
 let cheerio = require('cheerio');
 let fs = require('fs');
-let util = require('util');	
+let util = require('util');
 // mongodb configuration
 let mongo = require('mongodb').MongoClient;
-let mongoUrl = 'mongodb://localhost:27017/mammoth';
+let mongoUrl = 'mongodb://localhost:27017/store';
 
 mongo.connect(mongoUrl, (err, db)=>{
 	assert.equal(null, err);
@@ -26,47 +26,54 @@ mongo.connect(mongoUrl, (err, db)=>{
 	db.close();
 });
 
-
 // create db from xml
 function xml2db(data, db) {
 	let $ = cheerio.load(data, {xmlMode: true});
-	let grass = '';
+	let strProducts = '';
 
+	console.time('mountObject');
+
+	let products = [];
 	$('Produtos').each(function(i, el) {
+		let product = {};
 
-		grass = `{\
-ts: ${($(el).find('TIMESTAMP').text()).trim()},
-department: ${($(el).find('DEPARTAMENTO').text()).trim()},
-category: ${($(el).find('CATEGORIA').text()).trim()},
-subCategory: ${($(el).find('SUBCATEGORIA').text()).trim()},
-manufacturer: ${($(el).find('FABRICANTE').text()).trim()},
-code: ${($(el).find('CODIGO').text()).trim()},
-desc: ${($(el).find('DESCRICAO').text()).trim()},
-tecDesc: ${($(el).find('DESCRTEC').text()).trim()},
-partNum: ${($(el).find('PARTNUMBER').text()).trim()},
-ean: ${($(el).find('EAN').text()).trim()},
-warranty: ${($(el).find('GARANTIA').text()).trim()},
-weight: ${($(el).find('PESOKG').text()).trim()},
-price: ${($(el).find('PRECOREVENDA').text()).trim()},
-available: ${($(el).find('DISPONIVEL').text()).trim()},
-urlImg: ${($(el).find('URLFOTOPRODUTO').text()).trim()},
-stockLocation: ${($(el).find('ESTOQUE').text()).trim()},
-ncm: ${($(el).find('NCM').text()).trim()},
-width: ${($(el).find('LARGURA').text()).trim()},
-height: ${($(el).find('ALTURA').text()).trim()},
-deep: ${($(el).find('PROFUNDIDADE').text()).trim()},
-acive: ${($(el).find('ATIVO').text()).trim()},
-taxReplace: ${($(el).find('SUBSTTRIBUTARIA').text()).trim()},
-origin: ${($(el).find('ORIGEMPRODUTO').text()).trim()}\
-}`;
+		product.ts = ($(el).find('TIMESTAMP').text()).trim();
+		product.department = ($(el).find('DEPARTAMENTO').text()).trim();
+		product.category = ($(el).find('CATEGORIA').text()).trim();
+		product.subCategory = ($(el).find('SUBCATEGORIA').text()).trim();
+		product.manufacturer = ($(el).find('FABRICANTE').text()).trim();
+		product.code = ($(el).find('CODIGO').text()).trim();
+		product.desc = ($(el).find('DESCRICAO').text()).trim();
+		product.tecDesc = ($(el).find('DESCRTEC').text()).trim();
+		product.partNum = ($(el).find('PARTNUMBER').text()).trim();
+		product.ean = ($(el).find('EAN').text()).trim();
+		product.warranty = ($(el).find('GARANTIA').text()).trim();
+		product.weight = ($(el).find('PESOKG').text()).trim();
+		product.price = ($(el).find('PRECOREVENDA').text()).trim();
+		product.available = ($(el).find('DISPONIVEL').text()).trim();
+		product.urlImg = ($(el).find('URLFOTOPRODUTO').text()).trim();
+		product.stockLocation = ($(el).find('ESTOQUE').text()).trim();
+		product.ncm = ($(el).find('NCM').text()).trim();
+		product.width = ($(el).find('LARGURA').text()).trim();
+		product.height = ($(el).find('ALTURA').text()).trim();
+		product.deep = ($(el).find('PROFUNDIDADE').text()).trim();
+		product.acive = ($(el).find('ATIVO').text()).trim();
+		product.taxReplace = ($(el).find('SUBSTTRIBUTARIA').text()).trim();
+		product.origin = ($(el).find('ORIGEMPRODUTO').text()).trim();
 
-		console.log(grass);
+		products.push(product);
 
-		// db.collection('dealerProducts').insertOne(grass);
-
-		return false;
+		// if (i == 50) {
+		// 	return false;
+		// }
 
 	});
+	console.timeEnd('mountObject');
+	console.log(products[0].code);
+	console.log(products[0].price);
+	console.log("product count: " + products.length);
+
+	// db.collection('dealerProducts').insertOne(strProducts);
 }
 		// console.log('ts: ' + $(el).find('TIMESTAMP').text());
 		// console.log('department: ' + $(el).find('DEPARTAMENTO').text());
@@ -98,11 +105,11 @@ origin: ${($(el).find('ORIGEMPRODUTO').text()).trim()}\
 	// 	// console.log($(this).text());
 
 
-	// 	// db.collection('dealerProducts').insertOne(grass);
+	// 	// db.collection('dealerProducts').insertOne(strProducts);
 	// }
 
 	// console.log($('Produtos').get(0).text());
-	
+
 	// console.log($('Produtos').find('CODIGO').text());
 	// console.log($('Produtos').length);
 	// console.log($('Produtos').text());
