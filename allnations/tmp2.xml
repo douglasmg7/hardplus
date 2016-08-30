@@ -1,0 +1,3210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataSet xmlns="http://allnations/wsintegracao/">
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Produtos">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="TIMESTAMP" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="DEPARTAMENTO" type="xs:string" minOccurs="0" />
+                <xs:element name="CATEGORIA" type="xs:string" minOccurs="0" />
+                <xs:element name="SUBCATEGORIA" type="xs:string" minOccurs="0" />
+                <xs:element name="FABRICANTE" type="xs:string" minOccurs="0" />
+                <xs:element name="CODIGO" type="xs:string" minOccurs="0" />
+                <xs:element name="DESCRICAO" type="xs:string" minOccurs="0" />
+                <xs:element name="DESCRTEC" type="xs:string" minOccurs="0" />
+                <xs:element name="PARTNUMBER" type="xs:string" minOccurs="0" />
+                <xs:element name="EAN" type="xs:string" minOccurs="0" />
+                <xs:element name="GARANTIA" type="xs:int" minOccurs="0" />
+                <xs:element name="PESOKG" type="xs:decimal" minOccurs="0" />
+                <xs:element name="PRECOREVENDA" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DISPONIVEL" type="xs:int" minOccurs="0" />
+                <xs:element name="URLFOTOPRODUTO" type="xs:string" minOccurs="0" />
+                <xs:element name="ESTOQUE" type="xs:string" minOccurs="0" />
+                <xs:element name="NCM" type="xs:string" minOccurs="0" />
+                <xs:element name="LARGURA" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ALTURA" type="xs:decimal" minOccurs="0" />
+                <xs:element name="PROFUNDIDADE" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ATIVO" type="xs:int" minOccurs="0" />
+                <xs:element name="SUBSTTRIBUTARIA" type="xs:int" minOccurs="0" />
+                <xs:element name="ORIGEMPRODUTO" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+    <NewDataSet xmlns="">
+      <Produtos diffgr:id="Produtos1" msdata:rowOrder="0">
+        <TIMESTAMP>2016-08-30T09:00:09-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ARMAZENAMENTO                                     </DEPARTAMENTO>
+        <CATEGORIA>HD                                                </CATEGORIA>
+        <SUBCATEGORIA>HD EXTERNO                                        </SUBCATEGORIA>
+        <FABRICANTE>WD</FABRICANTE>
+        <CODIGO>0060657</CODIGO>
+        <DESCRICAO>HDD EXTERNO PORTATIL NACIONAL WD MY PASSPORT ULTRA 1 TB PRETO - WDBZFP0010BBK-NEBZ</DESCRICAO>
+        <DESCRTEC>
+Ultracompacto com backup automático e na nuvem.
+
+Backup na unidade local ou na nuvem
+O software de backup automático WD SmartWare Pro permite escolher onde e quando fazer o backup dos seus arquivos. 
+- Escolha o backup programado para fazer o backup de arquivos em uma data apropriada para você. 
+- Se achar melhor, escolha o backup de arquivos ou pastas. 
+- Use sua conta Dropbox para fazer o backup dos seus arquivos na nuvem. 
+* Necessário ter conta Dropbox para o backup na nuvem. Os serviços na nuvem podem ser alterados, rescindidos ou interrompidos em qualquer momento e podem variar por país.
+
+Taxas de transferência ultrarrápidas
+Quando conectado a uma porta USB 3.0, o My Passport Ultra acessa e salva arquivos com toda a rapidez. Reduza o tempo de transferência em até 3 vezes, quando comparado às taxas de transferência da USB 2.0.*
+*O desempenho pode variar, pois depende do sistema e da configuração do hardware do usuário.
+
+Funciona perfeitamente com o Windows  8
+O aplicativo WD Windows 8 encontra facilmente as mídias digitais armazenadas no seu My Passport Ultra através do Windows 8. Seu conteúdo é exibido e organizado automaticamente para que você possa localizar e curtir todas as suas fotos, vídeos e músicas.
+
+Compatível com USB 3.0 e USB 2.0
+Com essa única unidade, a compatibilidade é garantida com os mais recentes dispositivos em USB 3.0 e também com os antigos dispositivos em USB 2.0.
+
+Proteja seus arquivos
+O utilitário WD Security protege sua unidade por senha e por criptografia de hardware, para manter seus dados sempre privados.
+
+WD Drive Utilities 
+Registre sua unidade, configure o timer, execute diagnósticos e muito mais usando o WD Drive Utilities.
+
+Acionado por USB
+Alimentada diretamente a partir da porta USB existente no PC. Não é necessária nenhuma fonte de alimentação separada.
+
+Um estojo resistente protege a unidade interna
+Nós sabemos como os seus dados são importantes para você. Então, nós projetamos uma unidade interna para os nossos requisitos mais exigentes de durabilidade, tolerância ao choque e confiabilidade a longo prazo. Também protegemos a unidade com um estojo resistente e bonito, além de 3 anos de garantia limitada, para você ficar tranquilo.
+
+Especificações
+
+Interface: USB 3.0 e USB 2.0 
+Suporte Criptografia de Dados: Sim 
+
+Especificações de desempenho  
+Taxa de transferência serial 
+USB 3.0 
+Taxa de transferência de barramento serial (USB 3.0): 5 Gb/s (máx.) 
+
+Especificações físicas  
+Capacidade: 1 TB 
+
+Dimensões físicas (métrica)
+Altura: 15,4 mm 
+Profundidade: 110,5 mm 
+Largura: 82,0 mm 
+Peso: 0,16 kg 
+
+Especificações ambientais
+Temperatura (métrica) 
+Em operação: 5° C a 35° C 
+Fora de operação: -20° C to 65° C 
+
+Compatibilidade  
+Sistema operacional: Windows/Mac 
+
+
+Site do fabricante: http://www.wdc.com/pt
+Suporte Fabricante: 0800-8917630</DESCRTEC>
+        <PARTNUMBER>WDBZFP0010BBK-NEBZ</PARTNUMBER>
+        <EAN>718037821153</EAN>
+        <GARANTIA>36</GARANTIA>
+        <PESOKG>0.3000</PESOKG>
+        <PRECOREVENDA>273.4700</PRECOREVENDA>
+        <DISPONIVEL>1</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0060657</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84717012            </NCM>
+        <LARGURA>0.1300</LARGURA>
+        <ALTURA>0.1700</ALTURA>
+        <PROFUNDIDADE>0.0500</PROFUNDIDADE>
+        <ATIVO>1</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>4 - NACIONAL - CONF. PROCESSO PRODUTIVO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos2" msdata:rowOrder="1">
+        <TIMESTAMP>2016-08-30T09:08:14-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>PROCESSADORES                                     </CATEGORIA>
+        <SUBCATEGORIA>PROCESSADORES                                     </SUBCATEGORIA>
+        <FABRICANTE>INTEL</FABRICANTE>
+        <CODIGO>0047676</CODIGO>
+        <DESCRICAO>PROCESSADOR INTEL 6500 CORE I5 (1151) 3.20 GHZ BOX - BX80662I56500 - 6ª GER</DESCRICAO>
+        <DESCRTEC>OBS: 6ª GERAÇÃO - SKYLAKE!!
+
+Modelo: I5 6500
+Part Number: BX80662I56500
+Soquete: LGA 1151
+Acompanha Cooler: Sim
+Clock (GHz): 3.20 GHz
+Cache: 6M
+FSB - Front Side Bus: n/a
+Arquitetura:  14nm
+Nº de núcleos: 4
+Nº de threads: 4
+Gráficos do processador: Intel HD Graphics 530
+Frequência da base gráfica: 350 MHz
+Tecnologia Hyper-Threading Intel: não
+Tecnologia de virtualização Intel (VT-x): sim
+
+Site do fabricante: http://ark.intel.com
+Suporte do Fabricante: 0800-891-32-01
+
+Obs: Favor conferir a compatibilidade do produto com a placa mãe adequada, juntamente ao fabricante.</DESCRTEC>
+        <PARTNUMBER>BX80662I56500</PARTNUMBER>
+        <EAN>5032037076500</EAN>
+        <GARANTIA>36</GARANTIA>
+        <PESOKG>0.3000</PESOKG>
+        <PRECOREVENDA>829.3900</PRECOREVENDA>
+        <DISPONIVEL>1</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0047676</URLFOTOPRODUTO>
+        <ESTOQUE>RJ</ESTOQUE>
+        <NCM>85423190            </NCM>
+        <LARGURA>0.1200</LARGURA>
+        <ALTURA>0.1100</ALTURA>
+        <PROFUNDIDADE>0.0900</PROFUNDIDADE>
+        <ATIVO>1</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>6 - ESTRANGEIRA - IMP. DIRETA - LISTA CAMEX</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos3" msdata:rowOrder="2">
+        <TIMESTAMP>2016-08-30T09:14:05-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>PLACAS                                            </CATEGORIA>
+        <SUBCATEGORIA>PLACAS DE VÍDEO                                   </SUBCATEGORIA>
+        <FABRICANTE>ASUS</FABRICANTE>
+        <CODIGO>0060045</CODIGO>
+        <DESCRICAO>PLACA DE VIDEO ASUS GEFORCE GTX 960 2G DDR5 128 BITS - TURBO-GTX960-OC-2GD5</DESCRICAO>
+        <DESCRTEC>
+ASUS Turbo GeForce  GTX 960 ilustrações entregar o ponto ideal de desempenho
+
+     1253 relógio motor MHz para melhor desempenho e experiência de jogo excelente.
+
+     Projeto ventilador-entrada dupla com área de dissipação de 10% maior, oferecendo 10% mais frio e desempenho muito mais tranqüila.
+
+     Fã rolamento duplo-bola corre mais suave, reduzindo o atrito, melhorando ainda mais 4X mais tempo de vida cartão e eficiência de refrigeração.
+
+     Super Alloy Potência aumenta o desempenho, reduzindo a perda de energia, aumentando a durabilidade, e alcançar operação mais fria.
+
+     Tweak GPU com XSplit Gamecaster fornece em tempo real e intuitiva impulso relógio GPU, e live-stream de seu jogo instantaneamente.
+
+     ASUS Turbo GTX 960 é uma placa de vídeo de edição especial com coloração branca distintiva. Com um design dual-ventilador ingestão moderna e inovadora área de dissipação de calor 10% maior, ASUS Turbo GTX 960 oferece desempenho 10% mais frio e configurações SLI superiores. Ele também vem equipado com uma ventoinha dual-rolamento de esferas para uma vida útil mais longa 4X cartão e exclusivos componentes Super Alloy Potência para a estabilidade superior.
+
+     Com licença livre prémio de 1 ano de personalização Tweak ASUS GPU e utilidade XSplitGamecaster, ASUS Turbo GTX 960 permite que você espremer cada última gota de desempenho e permite transmitir ou gravar o seu jogo instantaneamente. O mais recente em uma longa linha de inovações da indústria, a ASUS Turbo GTX 960 representa mais um ponto alto em busca da placa de vídeo perfeito.
+
+4X vida útil mais longa
+
+      Sem o problema do óleo secante comum nos fãs de rolamento manga, o dual-rolamento de esferas de fãs no ASUS Turbo GTX 960 4X dura mais tempo. Com atrito reduzido, também corre mais suave, melhorando ainda mais a vida útil do cartão e eficiência de refrigeração.
+
+ESPECIFICAÇÕES
+
+ - Graphics Engine - NVIDIA GeForce GTX 960
+ - Bus padrão - PCI Express 3.0
+ - OpenGL - OpenGL 4.4
+ - Memória de vídeo - GDDR5 de 2GB
+ - Engine Clock
+GPU Boost Relógio: 1253 MHz
+GPU Clock Base: 1.190 MHz
+ - CUDA núcleo - 1024
+ - Clock de Memória - 7010 MHz (GDDR5)
+ - Interface de memória - 128 bits
+ - Resolução - Digital Resolução máxima: 4096x2160
+ - Interface
+Saída DVI: Sim x 1 (Nativo) (DVI-I)
+Saída HDMI: Sim x 1 (Nativo) (HDMI 2.0)
+Display Port: Sim x 3 (Nativo) (Ordinário DP)
+Suporte HDCP: Sim
+ - Consumo De Energia - até 150W1 energia adicional PCIe de 6 pinos necessário
+ - Programas - ASUS GPU Tweak e Driver
+ - Dimensões
+10.4 "x 4.76" x 1.46 "polegadas
+26.4 x 12.1 x3.7 Centímetro</DESCRTEC>
+        <PARTNUMBER>TURBO-GTX960-OC-2GD5</PARTNUMBER>
+        <EAN>4712900061598</EAN>
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>0.3000</PESOKG>
+        <PRECOREVENDA>837.2300</PRECOREVENDA>
+        <DISPONIVEL>1</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0060045</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84733043            </NCM>
+        <LARGURA>0.1400</LARGURA>
+        <ALTURA>0.1700</ALTURA>
+        <PROFUNDIDADE>0.0500</PROFUNDIDADE>
+        <ATIVO>1</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>6 - ESTRANGEIRA - IMP. DIRETA - LISTA CAMEX</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos4" msdata:rowOrder="3">
+        <TIMESTAMP>2016-08-30T09:15:12-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>PLACAS                                            </CATEGORIA>
+        <SUBCATEGORIA>PLACAS DE VÍDEO                                   </SUBCATEGORIA>
+        <FABRICANTE>ASUS</FABRICANTE>
+        <CODIGO>0060067</CODIGO>
+        <DESCRICAO>PLACA DE VIDEO ASUS GEFORCE GTX 960 4GB DDR5 128BITS - TURBO-GTX960-OC-4GD5</DESCRICAO>
+        <DESCRTEC>
+A ASUS Turbo GeForce  GTX 960 proporciona-lhe a perfeição em performance
+
+- Velocidade de 1253 MHz para uma melhor performance e uma extraordinária experiência nos jogos.
+- Design com Duas entradas de Ar com uma área de dissipação 10% mais ampla, que proporciona uma refrigeração 10% superior e uma performance muito mais silenciosa.
+- Ventoinha com rolamentos funciona de forma mais suave, reduzindo o atrito, e aumentado até 4X o tempo de vida da placa e a eficiência de resfriamento.
+- Super Alloy Power aumentam a performance sem perder o seu poder e capacidade, aumentando a durabilidade, e alcançando uma performance mais alta muito mais resfriada.
+- GPU Tweak com XSplit Gamecaster proporciona um aumento de velocidade do GPU intuitivo e em tempo real, com capacidade de transmitir a sua gameplay ao vivo.
+
+Processador Gráfico:
+NVIDIA GeForce GTX 960
+
+Barramento:
+PCI Express 3.0
+
+OpenGL:
+OpenGL 4.4
+
+Memória de Vídeo:
+GDDR5 4GB
+
+Clock do processador:
+Clock da GPU aumentado : 1253 MHz
+Clock da GPU padrão : 1190 MHz
+
+CUDA Core:
+1024
+
+Clock de memória:
+7010 MHz
+
+Interface de memória:
+128-bits
+
+Resolução:
+Digital Max Resolution:4096x2160
+
+Interface: 
+Saída de DVI : Sim x 1 (DVI-I)
+Saída para HDMI : Sim x 1 (HDMI 2.0)
+Porta de Display : Sim x 3 (DP Regular)
+Suporta HDCP : Sim
+
+Consumo de Energia:
+Até 150W 1 não requer energia adicional
+
+Software:
+ASUS GPU Tweak II &amp; Driver
+
+Dimensões:
+10.3 " x 4.71 " x 1.45 " polegadas
+26.4 x 12.1 x3.7 centímetros</DESCRTEC>
+        <PARTNUMBER>TURBO-GTX960-OC-4GD5</PARTNUMBER>
+        <EAN>4712900193091</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>1.2200</PESOKG>
+        <PRECOREVENDA>895.4600</PRECOREVENDA>
+        <DISPONIVEL>1</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0060067</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84733043            </NCM>
+        <LARGURA>0.3700</LARGURA>
+        <ALTURA>0.2200</ALTURA>
+        <PROFUNDIDADE>0.0700</PROFUNDIDADE>
+        <ATIVO>1</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>6 - ESTRANGEIRA - IMP. DIRETA - LISTA CAMEX</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos5" msdata:rowOrder="4">
+        <TIMESTAMP>2016-08-30T09:13:45-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPUTADORES                                      </DEPARTAMENTO>
+        <CATEGORIA>NOTEBOOKS                                         </CATEGORIA>
+        <SUBCATEGORIA>NOTEBOOK PADRÃO                                   </SUBCATEGORIA>
+        <FABRICANTE>LENOVO</FABRICANTE>
+        <CODIGO>0048505</CODIGO>
+        <DESCRICAO>NOTEBOOK LENOVO B4070 I7-4510U/4GB/1TB/DVDRW/WIN8.1 PRO/14" - 80F3001DBR</DESCRICAO>
+        <DESCRTEC>Modelo	
+B40-70
+
+Tela	
+14" LED HD Antirreflexo
+
+Processador	
+Intel Core i7-4510U
+
+Memória	
+4GB (1x4GB) (PC3-12800 1600MHz DDR3)
+
+Unidade de Disco (capacidade)	
+1TB (5400rpm)
+
+Tipo de Disco	
+SATA HDD
+
+Camera	
+HD (720p)
+
+Bateria (tipo)	
+Lithium-Ion 4 Células
+
+Bateria (duração aprox.)	
+até 6.0 hrs*
+
+Porta(s) USB	
+2x USB 3.0 + 1x USB 2.0
+
+Saída de Vídeo	
+VGA
+
+Saída HDMI	
+Sim
+
+Sistema Operacional	
+Windows 8.1 Professional 64 bits
+
+Peso Kg	2,15
+
+Dimensões (L x P x A)	
+340mm x 247mm x 24.5mm
+
+Garantia 
+1 ano mail-in</DESCRTEC>
+        <PARTNUMBER>80F3001DBR</PARTNUMBER>
+        <EAN>889955314451</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>2.8200</PESOKG>
+        <PRECOREVENDA>3489.5800</PRECOREVENDA>
+        <DISPONIVEL>1</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0048505</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84713012            </NCM>
+        <LARGURA>0.4500</LARGURA>
+        <ALTURA>0.1100</ALTURA>
+        <PROFUNDIDADE>0.3200</PROFUNDIDADE>
+        <ATIVO>1</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>4 - NACIONAL - CONF. PROCESSO PRODUTIVO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos6" msdata:rowOrder="5">
+        <TIMESTAMP>2016-08-29T14:56:34-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ACESSÓRIOS COMPUTADORES                           </DEPARTAMENTO>
+        <CATEGORIA>MOUSES                                            </CATEGORIA>
+        <SUBCATEGORIA>MOUSES COM FIO                                    </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0041088</CODIGO>
+        <DESCRICAO>MOUSE PCTOP PS2 BLISTER OPTICO 800 DPI PRETO - MOPR01-PS2</DESCRICAO>
+        <DESCRTEC>
+Ideal para usuários de desktops e notebooks.
+Sensor ótico de alta resolução.
+Ótima transmissão, garantindo movimentos precisos.
+Design ergonômico
+
+Especificações:
+Embalagem: blister
+Resolução: 800dpi
+Conexão: PS2
+Cor: preto
+Sensor: Ótico
+Botões: 2 +1 wheel.
+Compatível: Window 9X/Me/2000/XP/Vista
+Dimensão do produto (LxAxP): 5 x 3 x 9 cm</DESCRTEC>
+        <PARTNUMBER>MOPR01-PS2</PARTNUMBER>
+        <EAN>7898951027145</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>0.1000</PESOKG>
+        <PRECOREVENDA>6.1000</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0041088</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84716053            </NCM>
+        <LARGURA>0.1300</LARGURA>
+        <ALTURA>0.1900</ALTURA>
+        <PROFUNDIDADE>0.0400</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos7" msdata:rowOrder="6">
+        <TIMESTAMP>2016-08-29T14:02:06-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ACESSÓRIOS COMPUTADORES                           </DEPARTAMENTO>
+        <CATEGORIA>MOUSES                                            </CATEGORIA>
+        <SUBCATEGORIA>MOUSES COM FIO                                    </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0028002</CODIGO>
+        <DESCRICAO>MOUSE PCTOP USB BLISTER OPTICO 800 DPI PRETO - MOPR01-USB</DESCRICAO>
+        <DESCRTEC>
+Ideal para usuários de desktops e notebooks.
+Sensor ótico de alta resolução.
+Ótima transmissão, garantindo movimentos precisos.
+Design ergonômico
+
+Especificações:
+Embalagem: blister
+Resolução: 800dpi
+Conexão: USB
+Cor: preto
+Sensor: Ótico
+Botões: 2 + 1 wheel
+Compatível: Window 9X/Me/2000/XP/Vista
+Dimensão do produto (LxAxP): 5 x 3 x 9 cm
+
+</DESCRTEC>
+        <PARTNUMBER>MOPR01-USB</PARTNUMBER>
+        <EAN>7898951027152</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>0.1000</PESOKG>
+        <PRECOREVENDA>6.3200</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0028002</URLFOTOPRODUTO>
+        <ESTOQUE>RJ</ESTOQUE>
+        <NCM>84716053            </NCM>
+        <LARGURA>0.0400</LARGURA>
+        <ALTURA>0.1200</ALTURA>
+        <PROFUNDIDADE>0.0800</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos8" msdata:rowOrder="7">
+        <TIMESTAMP>2016-08-29T10:49:06-03:00</TIMESTAMP>
+        <DEPARTAMENTO>IMPRESSÃO E SUPRIMENTOS                           </DEPARTAMENTO>
+        <CATEGORIA>SUPRIMENTOS                                       </CATEGORIA>
+        <SUBCATEGORIA>CARTUCHOS                                         </SUBCATEGORIA>
+        <FABRICANTE>EPSON</FABRICANTE>
+        <CODIGO>0014111</CODIGO>
+        <DESCRICAO>FITA EPSON PARA MATRICIAL LX-300+  - 8750-DP</DESCRICAO>
+        <DESCRTEC>FITA PARA MATRICIAL LX-300 / LX300+ / LX300+II / FX80 / 80+ / 85 / 86 / 86e / 850 / 870 / MX80 / RX80
+
+MODELO: 8750-DP
+
+COMPRIMENTO DA FITA: 17,70M
+RENDIMENTO APROXIMADO (EM CARACTERES): 3,000,000
+
+- Agulhas e Colunas: 9 agulhas, 80 colunas
+- Cor: Preto</DESCRTEC>
+        <PARTNUMBER>8750-DP</PARTNUMBER>
+        <EAN>010343856455</EAN>
+        <GARANTIA>1</GARANTIA>
+        <PESOKG>0.2000</PESOKG>
+        <PRECOREVENDA>10.2200</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0014111</URLFOTOPRODUTO>
+        <ESTOQUE>RJ</ESTOQUE>
+        <NCM>96121019            </NCM>
+        <LARGURA>0.0700</LARGURA>
+        <ALTURA>0.0700</ALTURA>
+        <PROFUNDIDADE>0.3300</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>2 - ESTRANGEIRA - ADIQ. MERC. INTERNO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos9" msdata:rowOrder="8">
+        <TIMESTAMP>2016-08-29T13:59:45-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ENERGIA                                           </DEPARTAMENTO>
+        <CATEGORIA>FILTROS DE LINHA                                  </CATEGORIA>
+        <SUBCATEGORIA>FILTROS DE LINHA                                  </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0047352</CODIGO>
+        <DESCRICAO>FILTRO DE LINHA PCTOP 3 TOMADAS FLP-03</DESCRICAO>
+        <DESCRTEC>
+PRODUTO:
+Filtro de linha PCTOP 3 tomadas (2p+t)
+
+MODELO: 
+FLP-03
+
+VOLTAGEM:
+110v / 220v
+10a
+
+CABO: 
+1,5m
+
+ESPECIFICAÇÕES:
+Chave liga/desliga
+Fusível protetor</DESCRTEC>
+        <PARTNUMBER>FLP-03</PARTNUMBER>
+        <EAN>7898951027602</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>0.3000</PESOKG>
+        <PRECOREVENDA>11.3100</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0047352</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>85363000            </NCM>
+        <LARGURA>0.1000</LARGURA>
+        <ALTURA>0.2000</ALTURA>
+        <PROFUNDIDADE>0.0400</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos10" msdata:rowOrder="9">
+        <TIMESTAMP>2016-08-29T13:58:58-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ACESSÓRIOS COMPUTADORES                           </DEPARTAMENTO>
+        <CATEGORIA>WEBCAM                                            </CATEGORIA>
+        <SUBCATEGORIA>WEBCAM                                            </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0039770</CODIGO>
+        <DESCRICAO>WEBCAM PCTOP BLISTER PRETO E PRATA - WCPP02</DESCRICAO>
+        <DESCRTEC>
+Especificações:
+Resolução pixel: 480*680 pixel
+Tamanho de captura: 640*480 Pixels
+Sensor de imagem: 1/4 in. CMOS SXGA
+Taxa de transmissão: 30fps/VGA
+Foco: 5 cm a infinito 
+Balanceamento do branco: Automático
+Controle de exposição: Automático
+Base:360 graus, própria para mesa
+Conexão: USB 2.0 e 1.1
+Conexão de áudio: P2
+Controle automático de luz
+Com microfone embutido e controle de volume
+Dimensão do produto (LxAxP): 5 x 7 x 5 cm
+Compatível:Windows 9X/2000/Me/XP/Vista/Win7/Mac OS
+
+</DESCRTEC>
+        <PARTNUMBER>WCPP02</PARTNUMBER>
+        <EAN>7898951027282</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>1.0000</PESOKG>
+        <PRECOREVENDA>11.8800</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0039770</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>85258019            </NCM>
+        <LARGURA>0.1000</LARGURA>
+        <ALTURA>0.1000</ALTURA>
+        <PROFUNDIDADE>0.1000</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos11" msdata:rowOrder="10">
+        <TIMESTAMP>2016-08-29T14:03:28-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ACESSÓRIOS COMPUTADORES                           </DEPARTAMENTO>
+        <CATEGORIA>WEBCAM                                            </CATEGORIA>
+        <SUBCATEGORIA>WEBCAM                                            </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0028011</CODIGO>
+        <DESCRICAO>WEBCAM PCTOP BLISTER PRETO - WCPR01</DESCRICAO>
+        <DESCRTEC>
+Especificações:
+Resolução pixel: 480*680 pixel
+Tamanho de captura: 640*480 pixel
+Sensor de imagem: 1/4 in. CMOS SXGA
+Taxa de transmissão: 30fps/VGA
+Foco: 5 cm a infinito 
+Balanceamento do branco: Automático
+Controle de exposição: Automático
+Base: clipe de fixação
+Conexão: USB 2.0 e aúdio
+Conexão de áudio: P2
+Com microfone embutido e controle de volume
+Compatível:Windows 9X/2000/Me/XP/Vista/Win7/Mac OS/Windows 8.1
+Dimensão do produto (LxAxP): 3 x 8,5 x 5 cm
+
+Garantia: 6 meses
+Tel de Contato: (21) 3523-8011</DESCRTEC>
+        <PARTNUMBER>WCPR01</PARTNUMBER>
+        <EAN>7898951027275</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>0.1500</PESOKG>
+        <PRECOREVENDA>13.5600</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0028011</URLFOTOPRODUTO>
+        <ESTOQUE>RJ</ESTOQUE>
+        <NCM>85258019            </NCM>
+        <LARGURA>0.1600</LARGURA>
+        <ALTURA>0.1900</ALTURA>
+        <PROFUNDIDADE>0.0400</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos12" msdata:rowOrder="11">
+        <TIMESTAMP>2016-08-29T14:57:41-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ACESSÓRIOS COMPUTADORES                           </DEPARTAMENTO>
+        <CATEGORIA>WEBCAM                                            </CATEGORIA>
+        <SUBCATEGORIA>WEBCAM                                            </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0039771</CODIGO>
+        <DESCRICAO>WEBCAM PCTOP PRETO E PRATA - WCPR01</DESCRICAO>
+        <DESCRTEC>
+Especificações:
+Resolução pixel: 480*680 pixel
+Tamanho de captura: 640*480 pixel
+Sensor de imagem: 1/4 in. CMOS SXGA
+Taxa de transmissão: 30fps/VGA
+Foco: 5 cm a infinito 
+Balanceamento do branco: Automático
+Controle de exposição: Automático
+Base: clipe de fixação
+Conexão: USB 2.0 e aúdio
+Conexão de áudio: P2
+Com microfone embutido e controle de volume
+Compatível:Windows 9X/2000/Me/XP/Vista/Win7/Mac OS/Windows 8.1
+Dimensão do produto (LxAxP): 3 x 8,5 x 5 cm</DESCRTEC>
+        <PARTNUMBER>WCPR01</PARTNUMBER>
+        <EAN>7898951027275</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>0.1500</PESOKG>
+        <PRECOREVENDA>13.5600</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0039771</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>85258019            </NCM>
+        <LARGURA>0.1600</LARGURA>
+        <ALTURA>0.1900</ALTURA>
+        <PROFUNDIDADE>0.0400</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos13" msdata:rowOrder="12">
+        <TIMESTAMP>2016-08-29T14:00:04-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ENERGIA                                           </DEPARTAMENTO>
+        <CATEGORIA>FILTROS DE LINHA                                  </CATEGORIA>
+        <SUBCATEGORIA>FILTROS DE LINHA                                  </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0046861</CODIGO>
+        <DESCRICAO>FILTRO DE LINHA PCTOP 2X3 TOMADAS FLP-02</DESCRICAO>
+        <DESCRTEC>Filtro de linha PCTOP 6 tomadas (2 x 2p+t)
+Modelo: flp-02
+Duas linhas de 3 tomadas
+110v / 220v
+10a
+Cabo: 1,5m
+Chave liga/desliga
+Fusível protetor</DESCRTEC>
+        <PARTNUMBER>FLP-02</PARTNUMBER>
+        <EAN>7898951027596</EAN>
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>0.3000</PESOKG>
+        <PRECOREVENDA>13.7800</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0046861</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>85363000            </NCM>
+        <LARGURA>0.1300</LARGURA>
+        <ALTURA>0.2100</ALTURA>
+        <PROFUNDIDADE>0.0400</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos14" msdata:rowOrder="13">
+        <TIMESTAMP>2016-08-29T14:56:20-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ACESSÓRIOS COMPUTADORES                           </DEPARTAMENTO>
+        <CATEGORIA>ACESSÓRIOS DIVERSOS                               </CATEGORIA>
+        <SUBCATEGORIA>OUTROS                                            </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0059929</CODIGO>
+        <DESCRICAO>WEBCAM PCTOP BLISTER PRETO  WCPR01 [017397-1]</DESCRICAO>
+        <DESCRTEC>WEBCAM PCTOP BLISTER PRETO  WCPR01</DESCRTEC>
+        <PARTNUMBER>017397-1</PARTNUMBER>
+        <EAN>7898951027275</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>0.1500</PESOKG>
+        <PRECOREVENDA>14.4800</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0059929</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>85258019            </NCM>
+        <LARGURA>0.1600</LARGURA>
+        <ALTURA>0.1900</ALTURA>
+        <PROFUNDIDADE>0.0400</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>2 - ESTRANGEIRA - ADIQ. MERC. INTERNO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos15" msdata:rowOrder="14">
+        <TIMESTAMP>2016-08-29T14:04:49-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ACESSÓRIOS COMPUTADORES                           </DEPARTAMENTO>
+        <CATEGORIA>TECLADOS                                          </CATEGORIA>
+        <SUBCATEGORIA>TECLADOS COM FIO                                  </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0060229</CODIGO>
+        <DESCRICAO>TECLADO PCTOP PS2 MULTIMIDIA PRETO - TCMP05-PS2</DESCRICAO>
+        <DESCRTEC>Confeccionado com material de alta qualidade e desempenho
+Durabilidade de 8 milhões de toques.
+
+Especificações:
+Padrão: ABNT2
+Conexão PS2
+Cor: preto
+Teclas: 107 + 9 multimídia
+
+Teclas Multimídia:
+1. Home 2. E-mail 3. Play/pause 4. Stop 5. Anterior 6. Próximo 7. volume - 8. volume + 9. Mudo 
+
+Elasticidade das teclas: 55±10gf
+Material: plástico
+Comprimento do cabo: 1,50 m +/-5%
+Compatível: 98/2000/NT/ME/XP/Vista/Win7
+Dimensão do produto (LxAxP): 45,3 x 2,0 x 16,5 cm
+  </DESCRTEC>
+        <PARTNUMBER>TCMP05-PS2</PARTNUMBER>
+        <EAN>7898951027411</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>0.4000</PESOKG>
+        <PRECOREVENDA>14.6200</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0060229</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84716052            </NCM>
+        <LARGURA>0.2500</LARGURA>
+        <ALTURA>0.3400</ALTURA>
+        <PROFUNDIDADE>0.4200</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos16" msdata:rowOrder="15">
+        <TIMESTAMP>2016-08-29T14:54:50-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ACESSÓRIOS COMPUTADORES                           </DEPARTAMENTO>
+        <CATEGORIA>TECLADOS                                          </CATEGORIA>
+        <SUBCATEGORIA>TECLADOS COM FIO                                  </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0042087</CODIGO>
+        <DESCRICAO>TECLADO PCTOP USB PADRAO PRETO - TCPR03-USB</DESCRICAO>
+        <DESCRTEC>
+Confeccionado com material de alta qualidade e desempenho
+Durabilidade de 8 milhões de toques.
+
+Especificações:
+Padrão: ABNT2
+Conexão USB
+Cor: preto
+Teclas: 107
+Elasticidade das teclas: 55±10gf
+Material: plástico
+Comprimento do cabo: 1,50 m
+Compatível: Windows 98/2000/NT/ME/XP/Vista/Win7
+Dimensão do produto (LxAxP): 39,8*12,5*2,1cm</DESCRTEC>
+        <PARTNUMBER>TCPR03-USB</PARTNUMBER>
+        <EAN>7898951027473</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>0.4000</PESOKG>
+        <PRECOREVENDA>14.7300</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0042087</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84716052            </NCM>
+        <LARGURA>0.1400</LARGURA>
+        <ALTURA>0.4100</ALTURA>
+        <PROFUNDIDADE>0.0200</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos17" msdata:rowOrder="16">
+        <TIMESTAMP>2016-08-29T14:56:54-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ACESSÓRIOS COMPUTADORES                           </DEPARTAMENTO>
+        <CATEGORIA>TECLADOS                                          </CATEGORIA>
+        <SUBCATEGORIA>TECLADOS COM FIO                                  </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0040535</CODIGO>
+        <DESCRICAO>TECLADO PCTOP PS2 PADRAO PRETO - TCPR03-PS2</DESCRICAO>
+        <DESCRTEC>
+Confeccionado com material de alta qualidade e desempenho
+Durabilidade de 8 milhões de toques.
+
+Especificações:
+Padrão: ABNT2
+Conexão PS2
+Cor: preto
+Teclas: 107
+Elasticidade das teclas: 55±10gf
+Material: plástico
+Comprimento do cabo: 1,50 m
+Compatível: Windows 98/2000/NT/ME/XP/Vista/Win7
+Dimensão do produto (LxAxP): 39,8*12,5*2,1cm
+  </DESCRTEC>
+        <PARTNUMBER>TCPR03-PS2</PARTNUMBER>
+        <EAN>7898951027466</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>0.4000</PESOKG>
+        <PRECOREVENDA>17.5800</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0040535</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84716052            </NCM>
+        <LARGURA>0.1000</LARGURA>
+        <ALTURA>1.0000</ALTURA>
+        <PROFUNDIDADE>0.1000</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos18" msdata:rowOrder="17">
+        <TIMESTAMP>2016-08-29T13:59:23-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ENERGIA                                           </DEPARTAMENTO>
+        <CATEGORIA>FILTROS DE LINHA                                  </CATEGORIA>
+        <SUBCATEGORIA>FILTROS DE LINHA                                  </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0041757</CODIGO>
+        <DESCRICAO>FILTRO DE LINHA PCTOP 6 TOMADAS FLP-01</DESCRICAO>
+        <DESCRTEC>
+QUALIDADE E PRATICIDADE EM UM ÚNICO PRODUTO!
+
+6 tomadas
+Cabo certificado pelo Inmetro</DESCRTEC>
+        <PARTNUMBER>FLP-01</PARTNUMBER>
+        <EAN>7898951027589</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>0.3000</PESOKG>
+        <PRECOREVENDA>21.1400</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0041757</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>85363000            </NCM>
+        <LARGURA>0.0900</LARGURA>
+        <ALTURA>0.2800</ALTURA>
+        <PROFUNDIDADE>0.0400</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos19" msdata:rowOrder="18">
+        <TIMESTAMP>2016-08-29T14:01:02-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>FONTES                                            </CATEGORIA>
+        <SUBCATEGORIA>FONTES DESKTOPS                                   </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0048027</CODIGO>
+        <DESCRICAO>FONTE PCTOP ATX 200W (C/ CABO DE FORCA E C/ CAIXA INDIV.) - FAPT200</DESCRICAO>
+        <DESCRTEC>Fonte de Alimentação: 200W (REAL)
+Chave Seletora 110V/220V: Sim 
+Bi-volt Automático: Não 
+Possui - Cabo de força Incluso (nova norma brasileira NBR 14136:2002
+Pinagem: 20+4 Pinos, 2x SATA, CPU 4 pinos x 2x IDE
+Fan Cooler: 1 Ventilador de 8 Cm - Silencioso 
+Fonte ATX
+Embalagem de plastico a vácuo para proteção contra agua.
+Caixa Individual</DESCRTEC>
+        <PARTNUMBER>FAPT200</PARTNUMBER>
+        <EAN>7898951027046</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>0.7000</PESOKG>
+        <PRECOREVENDA>32.0500</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0048027</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>85044021            </NCM>
+        <LARGURA>0.1700</LARGURA>
+        <ALTURA>0.1600</ALTURA>
+        <PROFUNDIDADE>0.0900</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos20" msdata:rowOrder="19">
+        <TIMESTAMP>2016-08-29T09:20:09-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ACESSÓRIOS COMPUTADORES                           </DEPARTAMENTO>
+        <CATEGORIA>AUDIO                                             </CATEGORIA>
+        <SUBCATEGORIA>CAIXAS DE SOM                                     </SUBCATEGORIA>
+        <FABRICANTE>GENIUS</FABRICANTE>
+        <CODIGO>0049277</CODIGO>
+        <DESCRICAO>CAIXA DE SOM GENIUS CH SP-U115 VERMELHO 2.0 USB/AUDIO P2 -31731006101</DESCRICAO>
+        <DESCRTEC>
+•Não se deixe limitar por um adaptador de energia, a Genius lança o SP-U115, alto-falante estéreo cuja energia é fornecida através de uma porta USB de um PC/notebook. Eles utilizam drives de alto-falantes de 50mm para uma performance de som alto e claro em um total de 1.5 watts RMS. Quatro coberturas dianteiras lustrosas para você escolher: shiny black, sapphire blue, ruby red, ou grass white. Possui um prático botão lateral para ajustar o volume. Basta conectar o plugue USB num PC/notebook para energia e o plugue de áudio de 3.5mm nos aparelhos de música, como PC, notebook, MP3 ou CD player e curtir música com o SP-U115.
+ Para mais informações, contate seu representante de vendas.
+
+• As caixas de som SP-U115 tem alimentação através de porta USB, possuem alto-falantes de 50 mm para um desempenho de som alto e claro, totalizando 1,5 watts RMS.
+• Saída de RMS total: 1,5 watts
+• Alto falantes de 50x50 mm - 8 ohm
+• Cabo de alimentação: USB plug
+• Áudio: plugue de 3,5 mm
+• Painel frontal brilhante
+• Controle de volume
+• Resposta de freqüência: 200 Hz ~ 18K Hz
+• Relação sinal-ruído: 80dB</DESCRTEC>
+        <PARTNUMBER>31731006101</PARTNUMBER>
+        <EAN>4710268238478</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>0.5000</PESOKG>
+        <PRECOREVENDA>44.6900</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0049277</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>85182100            </NCM>
+        <LARGURA>0.1700</LARGURA>
+        <ALTURA>0.1300</ALTURA>
+        <PROFUNDIDADE>0.0900</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>2 - ESTRANGEIRA - ADIQ. MERC. INTERNO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos21" msdata:rowOrder="20">
+        <TIMESTAMP>2016-08-29T16:38:23-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ACESSÓRIOS COMPUTADORES                           </DEPARTAMENTO>
+        <CATEGORIA>TECLADOS                                          </CATEGORIA>
+        <SUBCATEGORIA>TECLADOS COM FIO                                  </SUBCATEGORIA>
+        <FABRICANTE>GENIUS</FABRICANTE>
+        <CODIGO>0061133</CODIGO>
+        <DESCRICAO>TECLADO GENIUS NUMERICO NUMPAD I120 USB PRETO - 31300727100</DESCRICAO>
+        <DESCRTEC>--</DESCRTEC>
+        <PARTNUMBER>31300727100</PARTNUMBER>
+        <EAN>4710268252610</EAN>
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>0.1100</PESOKG>
+        <PRECOREVENDA>47.4600</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0061133</URLFOTOPRODUTO>
+        <ESTOQUE>RJ</ESTOQUE>
+        <NCM>84716052            </NCM>
+        <LARGURA>0.1500</LARGURA>
+        <ALTURA>0.2300</ALTURA>
+        <PROFUNDIDADE>0.1000</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>2 - ESTRANGEIRA - ADIQ. MERC. INTERNO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos22" msdata:rowOrder="21">
+        <TIMESTAMP>2016-08-29T16:39:27-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ACESSÓRIOS COMPUTADORES                           </DEPARTAMENTO>
+        <CATEGORIA>WEBCAM                                            </CATEGORIA>
+        <SUBCATEGORIA>WEBCAM                                            </SUBCATEGORIA>
+        <FABRICANTE>GENIUS</FABRICANTE>
+        <CODIGO>0061130</CODIGO>
+        <DESCRICAO>WEBCAM GENIUS FACECAM 1000X V2 - 32200223101</DESCRICAO>
+        <DESCRTEC>Genius apresenta sua nova WebCam HD 720P plug and play, 
+FaceCam 1000X, ideal para usar em PC ou Notebook em conversas por video. Com qualidade de imagem HD 720P e 3X de zoom digital a FaceCam 1000X oferece uma experiência de imagem maior e mais clara. Além disso ela possui microfone embutido para captar sua voz com nitidez e clareza. A FaceCam 1000X conta ainda com o software Arcsoft MiVE com recursos de rastreamento de face e efeitos divertidos para seus videos. 
+- Resolução: HD 720p
+- 3 X Zoom Digital
+- Interface:USB 2.0 
+- Clip universal para LCD e Notebook
+- Foco manual
+- Formato de Arquivo MJPEG/WMV
+- Microfone Sim 
+- Resolução 1MP, 1280 x 720, 640 x 480 pixels
+- Video resolução CIF/VGA: Up to 30fps 720P HD: Up to 30fps 
+- UVC (Plug E Play) - Sim
+- IPM (Image Protection Mechanism) Sim 
+Requisistos do Sistema:
+Requisitos do Sistema:
+Desktop:
+Intel 1.8GHz ou AMD equivalente
+1GBRAM ou mais
+VGA 512MB ou mais
+Espaço no HD 200MB
+Conexão com Internet
+Porta USB 2.0
+Windows 8/7/Vista/XP SP2, Mac 10.4.6 ou acima / Linux 2.6.21acima.
+Recomendado:
+Processador Intel?Core?i5
+2GB RAM ou mais
+HD 320GB ou mais
+Internet 1Mbps upload ou mais
+Porta USB 2.0</DESCRTEC>
+        <PARTNUMBER>32200223101</PARTNUMBER>
+        <EAN>4710268246435</EAN>
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>0.9000</PESOKG>
+        <PRECOREVENDA>68.7500</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0061130</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>85258029            </NCM>
+        <LARGURA>0.5000</LARGURA>
+        <ALTURA>0.2000</ALTURA>
+        <PROFUNDIDADE>0.1000</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>2 - ESTRANGEIRA - ADIQ. MERC. INTERNO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos23" msdata:rowOrder="22">
+        <TIMESTAMP>2016-08-29T10:48:57-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>COOLERS GAMER                                     </CATEGORIA>
+        <SUBCATEGORIA>FAN COOLERS                                       </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0044001</CODIGO>
+        <DESCRICAO>FAN COOLER CORSAIR AF120 AIRFLOW PERFORMANCE EDITION PACK C/ 2 UNIDADES (TWIN PACK) - CO-9050004-WW</DESCRICAO>
+        <DESCRTEC>Série Air AF120 Desempenho Edição alta Airflow 120 milímetros Fan Twin Pack
+
+***PACK C/ 2 UNIDADES (TWIN PACK)***
+
+Alto fluxo de ar para resfriamento eficiente Grande-Volume
+Ar Série AF caso fãs têm melhor desempenho em espaços sem restrições com pelo menos 3 cm (1,2 ") de apuramento, e eles são ideais para a montagem na parte traseira ou na parte superior do seu caso PC como exaustores para placa-mãe e CPU do seu PC, aceleradores gráficos , e outros componentes que enchem o caso com calor. Eles funcionam igualmente bem como os fãs de admissão sem restrições para áreas como painéis laterais ou entradas de fundo.
+
+Para áreas de restrição, como gaiolas de disco rígido ou em outros espaços apertados onde há menos volume de ar, veja nossos modelos Air Série SP de altas fãs de pressão estática.
+
+Conteúdo do pacote:
+- AF120 Fan Desempenho Edição
+- Três anéis coloridos em vermelho, azul, e branco
+- Parafusos de montagem
+- Adaptador step-down tensão para operação de velocidade menor
+
+Requerimentos do sistema:
+- Placa-mãe com um conector padrão aberto ventilador de 3 pinos
+
+Especificações Técnicas:
+- Fan Tamanho: 120 milímetros x 25 milímetros
+- Tipo Fan: Desempenho Edição
+- Fluxo Tipo: Fluxo de ar
+- Tensão operacional: 7V - 12V
+- Fluxo de ar: 63,47 CFM
+- Pressão estática: 1.1 mmH20
+- Nível de som: 30 dBA
+- Rapidez: 1650 RPM
+- Consumo de energia: 0.13 A</DESCRTEC>
+        <PARTNUMBER>CO-9050004-WW</PARTNUMBER>
+        <EAN>843591014182</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>0.6000</PESOKG>
+        <PRECOREVENDA>84.4300</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0044001</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84145990            </NCM>
+        <LARGURA>0.2700</LARGURA>
+        <ALTURA>0.0500</ALTURA>
+        <PROFUNDIDADE>0.1900</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos24" msdata:rowOrder="23">
+        <TIMESTAMP>2016-08-29T10:52:34-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>COOLERS GAMER                                     </CATEGORIA>
+        <SUBCATEGORIA>FAN COOLERS                                       </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0044015</CODIGO>
+        <DESCRICAO>FAN COOLER CORSAIR SP120 ALTA PERFORMANCE PACK C/ 2 UNIDADES (TWIN PACK) - CO-9050008-WW</DESCRICAO>
+        <DESCRTEC>***PACK C/ 2 UNIDADES (TWIN PACK)***
+
+Alta pressão estática para radiador eficiente ou resfriamento do dissipador de calor
+Arrefecimento PCs de alto desempenho de hoje é uma tarefa complexa, e um único projeto do fã não pode atender a todas as necessidades. O fã que você usa para puxar o ar quente para fora do seu caso pode não ser o melhor ventilador para montar flush contra um dissipador de calor ou radiador.
+
+Pressão estática é a medida de quão bem um fã pode empurrar o ar neste tipo de ambiente altamente restritivo, e é aí que o SP120 destaca. É uma solução ideal para o radiador e utilização dissipador de calor, bem como a baía de carro entradas, e outros locais onde você está montagem um fã diretamente adjacente a uma fonte de calor.
+
+Para refrigeração em ambientes menos restritivos de alto volume, como a ingestão de escape caso ou secundários, vá para a série AF de fãs de alto volume.
+
+Conteúdo do pacote:
+- Dois SP120 Alta Performance Edição Fans
+- Três anéis coloridos em vermelho, azul, e branco
+- Parafusos de montagem
+- Adaptador step-down tensão para operação de velocidade menor
+
+Requerimentos do sistema:
+- Placa-mãe com um conector padrão aberto ventilador de 3 pinos
+
+Especificações Técnicas:
+- Fan Tamanho: 120 milímetros x 25 milímetros
+- Tipo Fan: Desempenho Edição
+- Fluxo Tipo: Pressão estática
+- Tensão operacional: 7V - 12V
+- Fluxo de ar: 62,74 CFM
+- Pressão estática: 3.1 mmH20
+- Nível de som: 35 dBA
+- Velocidade: 2350 RPM
+- Consumo de energia: 0.18 A</DESCRTEC>
+        <PARTNUMBER>CO-9050008-WW</PARTNUMBER>
+        <EAN>843591014281</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>0.6000</PESOKG>
+        <PRECOREVENDA>84.4300</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0044015</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84145990            </NCM>
+        <LARGURA>0.2800</LARGURA>
+        <ALTURA>0.0500</ALTURA>
+        <PROFUNDIDADE>0.2000</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos25" msdata:rowOrder="24">
+        <TIMESTAMP>2016-08-29T14:04:27-03:00</TIMESTAMP>
+        <DEPARTAMENTO>AUTOMAÇÃO COMERCIAL                               </DEPARTAMENTO>
+        <CATEGORIA>ACESSÓRIOS                                        </CATEGORIA>
+        <SUBCATEGORIA>LEITOR DE CÓDIGOS DE BARRA                        </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0042075</CODIGO>
+        <DESCRICAO>LEITOR DE CODIGO DE BARRAS LASER PCTOP LCBPR-01 LASER C/ SUPORTE</DESCRICAO>
+        <DESCRTEC>LEITOR DE CÓDIGO DE BARRAS PCTOP - praticidade para o seu negócio!!
+Acompanha suporte
+
+• Instalação simples, interface de teclado (keyboard wedge), serial, emulação do lápis
+óptico (wand), etc
+• Interface de teclado wedge superior compatível com NOVELL, detector automático
+de Caps Lock, garante que os dados apareçam no computador da maneira que está
+codificado no código de barras
+• Mais de 180 opções de configurações
+• Auto detecção de computadores (PC, XT, AT, PS/2 e terminais XWindow compatíveis
+com interface de teclado)
+• Pode ser usado com ou sem teclado
+• Suporta mais de 20 tipos de layouts diferentes
+• Mapeia dados do código de barras para qualquer teclado
+• Indicadores de leitura/não-leitura (ruído e led)
+• Performance de leitura superior utilizando avançados decodificadores de algoritmos
+• Baixo consumo de energia
+
+Fonte de luz: Laser visível 650nm
+Taxa de erro: 1/5,000,000
+Tipod e códigos: Código de barras 1D como UPC-A, UPC-E, EAN-13, EAN-8, ISBN/ISSN, código 39, Codabar, Interleaved 2 de 5m Industrial 2 de 5, Matrix 2 de 5, Código 128, Código 93, Código 11, MSI/PIESSEY, UK/PLESSEY, UCC/EAN128, etc.
+Interfaces compatíveis: Padrão 2.0 USB
+
+Tamanho do cabo: 1,9 m
+Frequência de operação: 50 ~ 60 MHz
+Suporta português brasileiro
+Tecnologia utilizada: Metrologic</DESCRTEC>
+        <PARTNUMBER>LCBPR-01</PARTNUMBER>
+        <EAN>7898951027572</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>0.4000</PESOKG>
+        <PRECOREVENDA>95.7100</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0042075</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84719012            </NCM>
+        <LARGURA>0.1900</LARGURA>
+        <ALTURA>0.0900</ALTURA>
+        <PROFUNDIDADE>0.1200</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos26" msdata:rowOrder="25">
+        <TIMESTAMP>2016-08-29T17:29:04-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>MEMÓRIAS                                          </CATEGORIA>
+        <SUBCATEGORIA>MEMÓRIAS NOTEBOOK                                 </SUBCATEGORIA>
+        <FABRICANTE>KINGSTON</FABRICANTE>
+        <CODIGO>0060867</CODIGO>
+        <DESCRICAO>MEMORIA KINGSTON 4GB DDR3 1600MHZ SODIMM LOW VOLTAGE KCP3L16SS8/4</DESCRICAO>
+        <DESCRTEC>
+•As Memórias KCP da Kingston são projetadas para garantir 100% de compatibilidade com sistemas especificos. Além disso são produzidas somente com componentes da mais alta qualidade e todos os módulos são testados antes de sair da fábrica, o que garante o máximo de desempenho com a reconhecida confiabilidade da Kingston, reforçada pela garantia vitalícia.
+
+•DDR3L
+•Tensão 1,35V
+•VDDQ = 1.35V (1.28V ~ 1.45V) e 1.5V (1.425V ~ 1.575V)
+•800MHz fCK para 1600Mb/sec/pin
+•8 bancos internos independentes
+•Latência CAS Programável: 11, 10, 9, 8, 7, 6
+•Latência programável adicional: 0, CL - 2, ou CL - 1 clock
+•8-bit pre-fetch
+•Burst Length: 8, 4 com tCCD = 4
+•Bi-directional Differential Data Strobe
+•Internal(self) calibration : Internal self-calibration through ZQ
+•pin (RZQ : 240 ohm ± 1%)
+•On Die Termination using ODT pin
+•Período médio de atualização 7.8us a uma temperatura menor que (TCASE) 85°C, 3.9us em 85°C &lt; TCASE &lt; 95°C
+•Reset assíncrono
+•PCB: Altura 1.180” (30mm), componentes em ambos os lados
+•CL(IDD) 11 ciclos
+•Row Cycle Time (tRCmin) 48.125ns (mín.)
+•Refresh to Active/Refresh Command Time (tRFCmin) 260ns (min.)
+•Row Active Time (tRASmin) 35ns (min.)
+•Consumo máximo de energia (1.35V)= 2.376 W*
+•UL Rating 94 V - 0
+•Temperatura de Operação 0oC a 85oC
+•Temperatura de Armazenamento -55oC a +100oC
+*O consumo de energia irá variar de acordo com a memória RAM em uso.
+
+Para consultar compatibilidade com seu sistema consulte o configurador de memória: http://www.kingston.com/br/memory/search/options/</DESCRTEC>
+        <PARTNUMBER>KCP3L16SS8/4</PARTNUMBER>
+        <EAN>740617253740</EAN>
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>0.0300</PESOKG>
+        <PRECOREVENDA>98.9900</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0060867</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84733042            </NCM>
+        <LARGURA>0.0500</LARGURA>
+        <ALTURA>0.0100</ALTURA>
+        <PROFUNDIDADE>0.0800</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>2 - ESTRANGEIRA - ADIQ. MERC. INTERNO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos27" msdata:rowOrder="26">
+        <TIMESTAMP>2016-08-29T11:19:28-03:00</TIMESTAMP>
+        <DEPARTAMENTO>IMPRESSÃO E SUPRIMENTOS                           </DEPARTAMENTO>
+        <CATEGORIA>SUPRIMENTOS                                       </CATEGORIA>
+        <SUBCATEGORIA>CARTUCHOS                                         </SUBCATEGORIA>
+        <FABRICANTE>HP</FABRICANTE>
+        <CODIGO>0038527</CODIGO>
+        <DESCRICAO>CARTUCHO HP 122XL JATO DE TINTA TRICOLOR 7,5ML - CH564HB</DESCRICAO>
+        <DESCRTEC>CARTUCHO DE TINTA COLORIDO HP 122XL - CH564HB
+
+Características do produto: 
+
+- Cor: tricolor
+
+- Nº do Cartucho: 122
+
+- Volume: 7,5ml 
+
+- Rendimento aproximado: 330 páginas 
+
+- Compatibilidade: Deskjet 1000/ 2000 Multifuncional HP Deskjet 2050/ 3050
+
+- Dimensões (L x P x A): 114 x 36 x 103mm
+
+- Peso: 0,05kg</DESCRTEC>
+        <PARTNUMBER>CH564HB</PARTNUMBER>
+        <EAN>885631033616</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>0.1000</PESOKG>
+        <PRECOREVENDA>101.6100</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0038527</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84439923            </NCM>
+        <LARGURA>0.1200</LARGURA>
+        <ALTURA>0.1200</ALTURA>
+        <PROFUNDIDADE>0.0400</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>4 - NACIONAL - CONF. PROCESSO PRODUTIVO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos28" msdata:rowOrder="27">
+        <TIMESTAMP>2016-08-29T14:52:45-03:00</TIMESTAMP>
+        <DEPARTAMENTO>AUTOMAÇÃO COMERCIAL                               </DEPARTAMENTO>
+        <CATEGORIA>ACESSÓRIOS                                        </CATEGORIA>
+        <SUBCATEGORIA>LEITOR DE CÓDIGOS DE BARRA                        </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0049232</CODIGO>
+        <DESCRICAO>LEITOR DE CODIGO DE BARRAS LASER PCTOP LCBPR-01 LASER C/ SUPORTE</DESCRICAO>
+        <DESCRTEC>
+LEITOR DE CÓDIGO DE BARRAS PCTOP - praticidade para o seu negócio!!
+Acompanha suporte
+
+• Instalação simples, interface de teclado (keyboard wedge), serial, emulação do lápis
+óptico (wand), etc
+• Interface de teclado wedge superior compatível com NOVELL, detector automático
+de Caps Lock, garante que os dados apareçam no computador da maneira que está
+codificado no código de barras
+• Mais de 180 opções de configurações
+• Auto detecção de computadores (PC, XT, AT, PS/2 e terminais XWindow compatíveis
+com interface de teclado)
+• Pode ser usado com ou sem teclado
+• Suporta mais de 20 tipos de layouts diferentes
+• Mapeia dados do código de barras para qualquer teclado
+• Indicadores de leitura/não-leitura (ruído e led)
+• Performance de leitura superior utilizando avançados decodificadores de algoritmos
+• Baixo consumo de energia
+
+Fonte de luz: Laser visível 650nm
+Taxa de erro: 1/5,000,000
+Tipod e códigos: Código de barras 1D como UPC-A, UPC-E, EAN-13, EAN-8, ISBN/ISSN, código 39, Codabar, Interleaved 2 de 5m Industrial 2 de 5, Matrix 2 de 5, Código 128, Código 93, Código 11, MSI/PIESSEY, UK/PLESSEY, UCC/EAN128, etc.
+Interfaces compatíveis: Padrão 2.0 USB
+
+Tamanho do cabo: 1,9 m
+Frequência de operação: 50 ~ 60 MHz
+Suporta português brasileiro
+Tecnologia utilizada: Metrologic</DESCRTEC>
+        <PARTNUMBER>LCBPR-01</PARTNUMBER>
+        <EAN>7898951027572</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>0.4000</PESOKG>
+        <PRECOREVENDA>105.6800</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0049232</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84719012            </NCM>
+        <LARGURA>0.1900</LARGURA>
+        <ALTURA>0.0900</ALTURA>
+        <PROFUNDIDADE>0.1200</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos29" msdata:rowOrder="28">
+        <TIMESTAMP>2016-08-29T14:52:17-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>GABINETES                                         </CATEGORIA>
+        <SUBCATEGORIA>GABINETES                                         </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0048672</CODIGO>
+        <DESCRICAO>GABINETE PCTOP 2323G C/FONTE ALIM PRETO</DESCRICAO>
+        <DESCRTEC>Marca: PCTOP
+
+Baias: 
+
+- 4 Baias 5/4 externas
+- 1 Baia 3/2 externa
+
+2 portas Usb frontal 
+Audio Frontal
+Tampa retratil para gravador DVD
+
+Fonte ATX 200wts
+2 coctores SATA
+1 Conector para floppy
+20 + 4 pinos
+Conector P4</DESCRTEC>
+        <PARTNUMBER>2323G</PARTNUMBER>
+        <EAN>7898951027053</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>4.0000</PESOKG>
+        <PRECOREVENDA>108.6900</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0048672</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84733011            </NCM>
+        <LARGURA>0.2300</LARGURA>
+        <ALTURA>0.4400</ALTURA>
+        <PROFUNDIDADE>0.4600</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos30" msdata:rowOrder="29">
+        <TIMESTAMP>2016-08-29T14:05:51-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>GABINETES                                         </CATEGORIA>
+        <SUBCATEGORIA>GABINETES                                         </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0049339</CODIGO>
+        <DESCRICAO>GABINETE PCTOP 2323G C/FONTE ALIM PRETO</DESCRICAO>
+        <DESCRTEC>Marca: PCTOP
+
+Baias: 
+
+- 4 Baias 5/4 externas
+- 1 Baia 3/2 externa
+
+2 portas Usb frontal 
+Audio Frontal
+Tampa retratil para gravador DVD
+
+Fonte ATX 200wts
+2 coctores SATA
+1 Conector para floppy
+20 + 4 pinos
+Conector P4</DESCRTEC>
+        <PARTNUMBER>2323G</PARTNUMBER>
+        <EAN>7898951027053</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>4.0000</PESOKG>
+        <PRECOREVENDA>108.8100</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0049339</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84733011            </NCM>
+        <LARGURA>0.4600</LARGURA>
+        <ALTURA>0.2200</ALTURA>
+        <PROFUNDIDADE>0.2300</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos31" msdata:rowOrder="30">
+        <TIMESTAMP>2016-08-29T13:43:13-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>FONTES                                            </CATEGORIA>
+        <SUBCATEGORIA>FONTES DESKTOPS                                   </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0047101</CODIGO>
+        <DESCRICAO>FONTE PCTOP ATX 600W C/ CABO DE FORCA C/ CAIXA INDIV. -  FAPT600V2</DESCRICAO>
+        <DESCRTEC>
+Fonte de Alimentação nominal: 600W
+Part number: FAPT600V2
+Chave Seletora 110V/220V: Sim 
+Bi-volt manual: Sim 
+Possui - Cabo de força Incluso (nova norma brasileira NBR 14136:2002)
+Pinagem: 20+4 Pinos, 1x SATA, 1 X HDD + 1 FDD, 1 X HDD + 1 X SATA, 1x PCI Express 6 pinos x 2 x CPU 4 pinos 12V
+Embalagem de plastico a vácuo para proteção contra agua.
+Fan Cooler: 1 Ventilador de 12 Cm - Silencioso 
+Caixa Individual
+Tamanho do Cabo: 1,20cm
+</DESCRTEC>
+        <PARTNUMBER>FAPT600V2</PARTNUMBER>
+        <EAN>7898951027046</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>1.4000</PESOKG>
+        <PRECOREVENDA>109.3800</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0047101</URLFOTOPRODUTO>
+        <ESTOQUE>RJ</ESTOQUE>
+        <NCM>85044021            </NCM>
+        <LARGURA>0.2300</LARGURA>
+        <ALTURA>0.1800</ALTURA>
+        <PROFUNDIDADE>0.1000</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos32" msdata:rowOrder="31">
+        <TIMESTAMP>2016-08-29T14:56:02-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>GABINETES                                         </CATEGORIA>
+        <SUBCATEGORIA>GABINETES                                         </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0048673</CODIGO>
+        <DESCRICAO>GABINETE PCTOP 2323S C/FONTE ALIM PRETO</DESCRICAO>
+        <DESCRTEC>Marca: PCTOP
+
+Baias: 
+
+- 4 Baias 5/4 externas
+- 1 Baia 3/2 externa
+
+2 portas Usb frontal 
+Audio Frontal
+Tampa retratil para gravador DVD
+
+Fonte ATX 200wts
+2 coctores SATA
+1 Conector para floppy
+20 + 4 pinos
+Conector P4</DESCRTEC>
+        <PARTNUMBER>2323S</PARTNUMBER>
+        <EAN>7898951027060</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>4.0000</PESOKG>
+        <PRECOREVENDA>109.6100</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0048673</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84733011            </NCM>
+        <LARGURA>0.2300</LARGURA>
+        <ALTURA>0.4400</ALTURA>
+        <PROFUNDIDADE>0.4600</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos33" msdata:rowOrder="32">
+        <TIMESTAMP>2016-08-29T14:01:37-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>GABINETES                                         </CATEGORIA>
+        <SUBCATEGORIA>GABINETES                                         </SUBCATEGORIA>
+        <FABRICANTE>PCTOP</FABRICANTE>
+        <CODIGO>0045809</CODIGO>
+        <DESCRICAO>GABINETE PCTOP 2323G C/FONTE ALIM PRETO</DESCRICAO>
+        <DESCRTEC>Marca: PCTOP
+
+Baias: 
+
+- 4 Baias 5/4 externas
+- 1 Baia 3/2 externa
+
+2 portas Usb frontal 
+Audio Frontal
+Tampa retratil para gravador DVD
+
+Fonte ATX 200wts
+2 coctores SATA
+1 Conector para floppy
+2 IDE
+20 + 4 pinos
+Conector P4
+
+Não acompanha cabo de força</DESCRTEC>
+        <PARTNUMBER>2323G</PARTNUMBER>
+        <EAN>7898951027053</EAN>
+        <GARANTIA>6</GARANTIA>
+        <PESOKG>3.7000</PESOKG>
+        <PRECOREVENDA>111.4800</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0045809</URLFOTOPRODUTO>
+        <ESTOQUE>RJ</ESTOQUE>
+        <NCM>84733011            </NCM>
+        <LARGURA>0.2100</LARGURA>
+        <ALTURA>0.4500</ALTURA>
+        <PROFUNDIDADE>0.4700</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos34" msdata:rowOrder="33">
+        <TIMESTAMP>2016-08-29T17:27:39-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ARMAZENAMENTO                                     </DEPARTAMENTO>
+        <CATEGORIA>HD                                                </CATEGORIA>
+        <SUBCATEGORIA>HD INTERNO                                        </SUBCATEGORIA>
+        <FABRICANTE>HDD - ESPECIAL                </FABRICANTE>
+        <CODIGO>0047226</CODIGO>
+        <DESCRICAO>HDD WESTERN DIGITAL AV-GP 250GB SATA - WD2500AVVS</DESCRICAO>
+        <DESCRTEC>...</DESCRTEC>
+        <PARTNUMBER>WD2500AVVS</PARTNUMBER>
+        <EAN />
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>0.6000</PESOKG>
+        <PRECOREVENDA>128.3600</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0047226</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84717012            </NCM>
+        <LARGURA>0.0200</LARGURA>
+        <ALTURA>0.1400</ALTURA>
+        <PROFUNDIDADE>0.1000</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos35" msdata:rowOrder="34">
+        <TIMESTAMP>2016-08-29T10:49:43-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>ACESSÓRIOS GAMER                                  </CATEGORIA>
+        <SUBCATEGORIA>MOUSES GAMER                                      </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0044071</CODIGO>
+        <DESCRICAO>MOUSE GAMER CORSAIR RAPTOR M30 - CH-9000042-NA</DESCRICAO>
+        <DESCRTEC>Product Number: CH-9000042-NA
+
+O Corsair Raptor M30 foi projetado para o desempenho de FPS(First Person Shooter), com um sensor óptico para jogos 4000 DPI otimizado para FPS(First Person Shooter), almofadas deslizantes de PTFE extra-grandes e tempo de resposta rápido para obter controle superior e uma precisão fatal.
+
+Características Principais
+
+-Com seis botões, você pode configurar o acesso com um clique às funções importantes de jogos e a comutação de DPI imediata com um indicador de LED de DPI que permite mudar instantaneamente de uma resolução menor do sensor para a maior precisão da arma de longo alcance.
+-Sensor para jogos otimizado com FPS, o sensor óptico de DPI Avago ADNS-3090 4000 proporciona uma precisão excepcional.
+-Tempo de resposta 1000 Hz, com a capacidade de responder ao menor movimento da mão mil vezes por segundo, o M30 pode acompanhar até os jogadores mais rápidos.
+-Almofadas deslizantes de PTFE extra-grandes, baixo atrito com mais área de superfície de contato fica melhor e proporciona melhor controle.
+-Comutação de DPI instantânea com indicador de LED, ajusta rapidamente a resolução do sensor quando você alterna entre aplicativos e jogos, e seleciona a sensibilidade ideal para cada arma.
+-Confortável para horas jogando, o design destro tem um acabamento de toque suave, um botão do polegar emborrachado e um cabo entrelaçado de baixo atrito.
+
+Especificações
+
+DPI: 4000
+Report Rate: 1000Hz
+
+Requisitos do sistema 
+Windows  7, Windows  8, Windows Vista  ou Windows XP
+Computador com porta USB
+
+Conteúdo do pacote
+Mouse para jogos Raptor M30</DESCRTEC>
+        <PARTNUMBER>CH-9000042-NA</PARTNUMBER>
+        <EAN>843591038843</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>0.4000</PESOKG>
+        <PRECOREVENDA>130.4100</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0044071</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84716053            </NCM>
+        <LARGURA>0.2000</LARGURA>
+        <ALTURA>0.2000</ALTURA>
+        <PROFUNDIDADE>0.0700</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos36" msdata:rowOrder="35">
+        <TIMESTAMP>2016-08-29T08:52:00-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>PLACAS                                            </CATEGORIA>
+        <SUBCATEGORIA>PLACAS DE VÍDEO                                   </SUBCATEGORIA>
+        <FABRICANTE>EVGA</FABRICANTE>
+        <CODIGO>0049119</CODIGO>
+        <DESCRICAO>PLACA DE VIDEO EVGA GEFORCE GT 210 1GB DDR3 64BITS - 01G-P3-1313-KR - ESP</DESCRICAO>
+        <DESCRTEC>
+Performance:
+NVIDIA GF 210
+16 núcleos de processamento
+520 MHz GPU
+1238 MHz Shader Relógio
+
+Memória:
+1024 MB, DDR3 de 64 bits
+1200 MHz (efetivos)
+9,6 GB / s de largura de banda de memória
+
+Resfriamento:
+HS
+Logo LED: N / A
+
+Interface:
+PCI-E 2.0 x16
+DVI-I, HDMI, VGA
+
+Resolução:
+240Hz Max Refresh Rate
+Max Analógico: 2048x1536
+Max Digital: 2560x1600 (Dual Link DVI Only)
+
+Dimensões:
+Altura: 4.376in - 111,15 milímetros
+Duração: 6.19in - 157,22 milímetros
+
+Suporte do sistema operacional:
+Windows 7 32 / 64bit
+Windows Vista 32 / 64bit
+Windows XP 32 / 64bit
+
+Requisitos:
+Mínima de uma fonte de alimentação de 300 Watt.
+(Mínimo recomendado de alimentação com 12 Volt classificação atual de 18 Amps.)</DESCRTEC>
+        <PARTNUMBER>01G-P3-1313-KR</PARTNUMBER>
+        <EAN>4250223633134</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>0.3000</PESOKG>
+        <PRECOREVENDA>138.1000</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0049119</URLFOTOPRODUTO>
+        <ESTOQUE>RJ</ESTOQUE>
+        <NCM>84733043            </NCM>
+        <LARGURA>0.2900</LARGURA>
+        <ALTURA>0.2000</ALTURA>
+        <PROFUNDIDADE>0.0500</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>6 - ESTRANGEIRA - IMP. DIRETA - LISTA CAMEX</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos37" msdata:rowOrder="36">
+        <TIMESTAMP>2016-08-29T17:04:44-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>ACESSÓRIOS GAMER                                  </CATEGORIA>
+        <SUBCATEGORIA>HEADSETS GAMER                                    </SUBCATEGORIA>
+        <FABRICANTE>COOLER MASTER</FABRICANTE>
+        <CODIGO>0041677</CODIGO>
+        <DESCRICAO>HEADSET GAMER COOLER MASTER CERES 300 - SGH-2000-KWTA1</DESCRICAO>
+        <DESCRTEC>
+Especificações: 
+
+Headphones:
+- Driver: 40mm
+- Impedância: 32 O
+- Sensibilidade: 112dB ± 4dB
+- Conector: 3.5mm jack
+- Tamanho do Cabo: 2.5m 
+
+Microfone:
+- Tipo: Omni-Directional
+- Frequência de Resposta: 100 Hz – 10,000 Hz
+- Sensibilidade: -54 ± 3dB
+- Microfone removível
+- Controle de volume
+- Microfone on / off</DESCRTEC>
+        <PARTNUMBER>SGH-2000-KWTA1</PARTNUMBER>
+        <EAN>4719512045770</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>0.6000</PESOKG>
+        <PRECOREVENDA>153.6600</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0041677</URLFOTOPRODUTO>
+        <ESTOQUE>RJ</ESTOQUE>
+        <NCM>85183000            </NCM>
+        <LARGURA>0.2000</LARGURA>
+        <ALTURA>0.2600</ALTURA>
+        <PROFUNDIDADE>0.1000</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos38" msdata:rowOrder="37">
+        <TIMESTAMP>2016-08-29T09:07:49-03:00</TIMESTAMP>
+        <DEPARTAMENTO>IMPRESSÃO E SUPRIMENTOS                           </DEPARTAMENTO>
+        <CATEGORIA>SUPRIMENTOS                                       </CATEGORIA>
+        <SUBCATEGORIA>CARTUCHOS                                         </SUBCATEGORIA>
+        <FABRICANTE>HP</FABRICANTE>
+        <CODIGO>0061360</CODIGO>
+        <DESCRICAO>CARTUCHO HP 60XL JATO DE TINTA TRICOLOR 15,5ML - CC644WB</DESCRICAO>
+        <DESCRTEC>CARTUCHO DE TINTA HP 60XL COLORIDO CC644WB
+
+Características do produto:
+
+- Cor: tricolor
+
+- Nº do Cartucho: 60xl 
+
+- Volume: 15,5ml 
+
+- Cor(es) dos cartuchos de impressão: Tricolor
+ 
+- Gota de tinta: 1,3 pl, 4,7 pl
+ 
+- Tipos de tinta compatíveis: Com corantes
+ 
+- Rendimento por página (cores): 440 páginas
+ 
+- Compatibilidade: Deskjet D1660/ D2530/ D2545/ D2560/ F4280/ F4480/ F4580 - photosmart C4680/ C4780
+
+- Dimensões (L x P x A): 116 x 37 x 116mm
+
+- Peso: 0,07kg</DESCRTEC>
+        <PARTNUMBER>CC644WB</PARTNUMBER>
+        <EAN>884420987475</EAN>
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>0.0600</PESOKG>
+        <PRECOREVENDA>161.7100</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0061360</URLFOTOPRODUTO>
+        <ESTOQUE>RJ</ESTOQUE>
+        <NCM>84439923            </NCM>
+        <LARGURA>0.1200</LARGURA>
+        <ALTURA>0.1000</ALTURA>
+        <PROFUNDIDADE>0.0500</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>4 - NACIONAL - CONF. PROCESSO PRODUTIVO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos39" msdata:rowOrder="38">
+        <TIMESTAMP>2016-08-29T16:39:13-03:00</TIMESTAMP>
+        <DEPARTAMENTO>ACESSÓRIOS COMPUTADORES                           </DEPARTAMENTO>
+        <CATEGORIA>WEBCAM                                            </CATEGORIA>
+        <SUBCATEGORIA>WEBCAM                                            </SUBCATEGORIA>
+        <FABRICANTE>GENIUS</FABRICANTE>
+        <CODIGO>0061120</CODIGO>
+        <DESCRICAO>WEBCAM GENIUS WIDECAM F100 12MP 1080P CMOS 30FPS USB2.0 FULL HD - 32200213101</DESCRICAO>
+        <DESCRTEC>Manufacturer Details
+presents a new Full HD webcam to enhance your chatting and video conference experience now with Time Lapse feature. This webcam has an ultra wide angle lens up to 120 degrees which lets you see at a wider angle so theres no need to crowd around in front of a regular webcam. For video conferences WideCam F100 has a built-in stereo microphone to let you talk freely with crystal clear voice quality. Plus the glass lens provides a better image quality for chatting. The F100 also include an USB extension cable which can increase the distance up to three meters.
+Key Features
+Genius Widecam F100 Webcam - Usb 2.0 - 12 Megapixel Interpolated - 1920 X 1080 Video - Cmos Sensor - Manual Focus - Microphone</DESCRTEC>
+        <PARTNUMBER>32200213101</PARTNUMBER>
+        <EAN>4710268246299</EAN>
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>0.1500</PESOKG>
+        <PRECOREVENDA>187.5000</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0061120</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>85258029            </NCM>
+        <LARGURA>0.1500</LARGURA>
+        <ALTURA>0.2200</ALTURA>
+        <PROFUNDIDADE>0.7000</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>2 - ESTRANGEIRA - ADIQ. MERC. INTERNO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos40" msdata:rowOrder="39">
+        <TIMESTAMP>2016-08-29T10:50:58-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>ACESSÓRIOS GAMER                                  </CATEGORIA>
+        <SUBCATEGORIA>HEADSETS GAMER                                    </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0044067</CODIGO>
+        <DESCRICAO>HEADSET CORSAIR RAPTOR HS30 ANALOGICO GAMING - CA-9011121-NA-Y</DESCRICAO>
+        <DESCRTEC>
+O headset para jogos analógico Corsair Raptor HS30 oferece uma qualidade de som impressionante e um microfone com cancelamento de ruídos em um design confortável e com parte de trás fechada, o que é ótimo para sessões de jogo prolongadas. Ele possui drivers de áudio de neodímio de 40 mm para uma melhor qualidade de som e os fones de ouvido e fones de ouvido headband almofadados oferecem o conforto que você precisa para manter seu foco no jogo.
+
+Características Principais
+
+-Drivers de neodímio de 40 mm para uma melhor qualidade de áudio, os drivers de grandes diâmetro estão equipados com imãs de alta sensibilidade para oferecerem melhor som com menor distorção.
+-Design circumaural com a parte de trás fechada, s fones de ouvido se encaixam em torno das orelhas para ajudar a bloquear o ruído perturbador do ambiente, e a camada externa sólida ajuda a evitar incomodar os outros quando você está jogando ou ouvindo música.
+-Microfone com cancelamento de ruídos, o microfone filtra automaticamente o ruído de fundo, para que você possa ser ouvido com clareza.
+-Fones de ouvido e fones de ouvido headband almofadados, conforto extra, assim você pode manter seu foco no jogo por mais tempo sem o seu equipamento ficar atrapalhando.
+Dois conectores de áudio de 3,5 mm para compatibilidade, o HS30 funciona com qualquer PC ou Mac com conectores padrão de 3,5 mm para saída de áudio e entrada de microfone. Ele funciona com duas placas de som e conectores de áudio internos, em ambos os PCs desktop e notebooks e laptops.
+
+Especificações
+
+Fones de ouvido:
+Resposta de frequência: 20 Hz - 20 kHz
+Impedância: 32 Ohms @ 1 kHz
+Drivers: Neodímio de 40 mm
+Conector: Dois conectores de 3,5 mm
+
+Microfone:
+Tipo: Cancelamento de ruídos unidirecional
+Impedância: 2,2 k Ohms
+Resposta de frequência: 100 Hz - 10 kHz
+Sensibilidade: -42 dB (± 2 dB)
+
+Comprimento do cabo: 2,7 m/9 pol.
+
+Requisitos do sistema
+Qualquer computador com conectores de 3,5 mm (1/8 pol.) para saída de áudio e entrada de microfone
+
+Conteúdo do pacote
+Headset para jogos analógico Corsair Raptor HS30</DESCRTEC>
+        <PARTNUMBER>CA-9011121-NA-Y</PARTNUMBER>
+        <EAN>843591048279</EAN>
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>0.8000</PESOKG>
+        <PRECOREVENDA>195.6200</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0044067</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>85183000            </NCM>
+        <LARGURA>0.2200</LARGURA>
+        <ALTURA>0.2600</ALTURA>
+        <PROFUNDIDADE>0.1100</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos41" msdata:rowOrder="40">
+        <TIMESTAMP>2016-08-29T10:56:16-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>ACESSÓRIOS GAMER                                  </CATEGORIA>
+        <SUBCATEGORIA>TECLADOS GAMER                                    </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0048406</CODIGO>
+        <DESCRICAO>TECLADO GAMER CORSAIR RAPTOR K30 - CH-9000224-BR</DESCRICAO>
+        <DESCRTEC>
+Iluminação ajustável, seis teclas G e anti-ghosting para jogadas melhores e mais rápidas
+
+O teclado para jogos Corsair Raptor K30 fornece os elementos essenciais para jogos: iluminação ajustável, teclas G programáveis?, com armazenamento interno e um circuito anti-ghosting para entrada preciso durante o jogo rápido.
+
+A iluminação vermelha faz com que seja fácil encontrar as teclas importantes em ambientes com pouca luz. Você pode selecionar uma iluminação de baixo impacto, normal ou extrabrilhante, ou a desativar completamente. As seis teclas G programáveis ??e dedicadas permitem fácil acesso a até 18 de suas combinações mais usadas, e as configurações são armazenadas internamente, assim você pode levar seu K30 de sistema a sistema. E, controles multimídia de fácil acesso permitem que você reproduza, pare, pause, pule faixas e ajuste o volume diretamente no teclado.
+
+É fácil encontrar teclas importantes em salas pouco iluminadas. Selecione iluminação de baixo impacto, normal ou extrabrilhante, ou a desative completamente.
+
+Acesse suas macros favoritas, predefinições e combinações de teclas, mesmo durante a ação mais intensa. Três teclas "M" triplicam a capacidade de armazenamento.
+
+Cada toque de tecla se traduz em jogadas precisas — mesmo quando várias teclas são pressionadas.
+
+Armazena as configurações e perfis na memória do teclado para que eles funcionem independentemente do software e em outros computadores.
+
+Reproduz, interrompe, pausa, pula faixas e ajusta o volume diretamente no teclado.
+
+Os teclados para jogos da Corsair são projetados para jogos competitivos. Tratam-se de componentes e materiais de alta qualidade, eles oferecem uma ótima sensação das teclas e a resposta que você precisa quando a vitória é essencial. Eles fornecem uma receptividade incrível, personalização e precisão para melhorar o seu jogo.
+
+CONTEÚDO DO PACOTE:
+Teclado para jogos Raptor K30
+
+REQUISITOS DO SISTEMA E DE COMPATIBILIDADE:
+Um PC com uma porta USB 2.0 de alta potência (+500 mA)
+Windows  8, Windows 7, Windows Vista  ou Windows XP
+Uma conexão com a internet é necessária para download gratuito do software de controle
+Pelo menos 35 MB de espaço disponível no disco rígido
+
+ESPECIFICAÇÕES E DESEMPENHO:
+
+Tecla abobada de borracha
+Iluminação vermelha de LED com três níveis de iluminação
+Seis teclas de macro dedicadas
+36 KB de memória interna
+Sete controles de multimídia de fácil acesso
+INTERROMPER, ANTERIOR, REPRODUZIR/PAUSAR, SEGUINTE, MUDO, AUMENTAR OU DIMINUIR VOLUME
+Tecla de trava do Windows para jogo ininterrupto</DESCRTEC>
+        <PARTNUMBER>CH-9000224-BR</PARTNUMBER>
+        <EAN>843591087780</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>1.1000</PESOKG>
+        <PRECOREVENDA>213.4100</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0048406</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84716052            </NCM>
+        <LARGURA>0.5000</LARGURA>
+        <ALTURA>0.2300</ALTURA>
+        <PROFUNDIDADE>0.0500</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos42" msdata:rowOrder="41">
+        <TIMESTAMP>2016-08-29T14:55:18-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>PLACAS                                            </CATEGORIA>
+        <SUBCATEGORIA>PLACAS DE VÍDEO                                   </SUBCATEGORIA>
+        <FABRICANTE>POINT OF VIEW</FABRICANTE>
+        <CODIGO>0046335</CODIGO>
+        <DESCRICAO>PLACA DE VIDEO POINT OF VIEW GEFORCE GT 9500 1GB DDR2 128BITS - R-VGA150909H</DESCRICAO>
+        <DESCRTEC>
+ESPECIFICAÇÕES
+
+ - Unidade de Processador Gráfico: GeForce 9500GT
+ - Velocidade do núcleo Gráfico: 550 MHz
+ - Tamanho da memória: 1024MB
+ - Tipo de memória: DDR2
+ - Velocidade de memória: 666 MHz
+ - Barramento de memória: 128 bits
+ - Processadores de sombreamento: 32
+ - Shader clock: 1375 MHz
+ - DVI 1x
+ - 1x HDMI
+ - VGA 1x
+ - Interface: PCI Express 2.0
+ - Técnica de resfriamento: Ativa</DESCRTEC>
+        <PARTNUMBER>R-VGA150909H</PARTNUMBER>
+        <EAN>8717344969819</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>0.6400</PESOKG>
+        <PRECOREVENDA>219.2400</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0046335</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84733043            </NCM>
+        <LARGURA>0.1800</LARGURA>
+        <ALTURA>0.3000</ALTURA>
+        <PROFUNDIDADE>0.0500</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>6 - ESTRANGEIRA - IMP. DIRETA - LISTA CAMEX</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos43" msdata:rowOrder="42">
+        <TIMESTAMP>2016-08-29T10:50:02-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>GABINETES GAMER                                   </CATEGORIA>
+        <SUBCATEGORIA>GABINETES GAMER                                   </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0044063</CODIGO>
+        <DESCRICAO>GABINETE CORSAIR OBSIDIAN 250D PRETO MINI-ITX (S/ FONTE) - CC-9011047-WW</DESCRICAO>
+        <DESCRTEC>Se você quer construir um sistema Mini ITX, sem sacrificar a expansão, flexibilidade, ou desempenho, o Obsidian Series 250D é sua resposta. Apesar de ser pequeno por fora, a 250D tem espaço para componentes padrão, como um full-size 5,25 "unidade óptica, uma GPU de corpo inteiro, um radiador 240 milímetros, e mesmo um full-size fonte de alimentação ATX.
+
+O elegante painel frontal de alumínio fornece o projeto ainda sutil impressionante que os Gabinetes Obsidian Series são conhecidos, e uma janela superior dá-lhe uma visão de close-up de seus componentes de alta performance.A 250D é uma excelente escolha se você quer desempenho em tamanho real em um espaço pequeno.
+
+O pequeno tamanho do 250D torna ótimo para dormitórios, desktops, estantes, ou em qualquer outro lugar do espaço é um problema.
+
+O painel frontal tem uma aparência elegante que convém ao sistema de alto desempenho que você quer construir. É durável e resistente a arranhões e impressões digitais.
+
+Muitos Gabinetes de PC Mini ITX impor limitações estritas que podem tornar mais difícil construir uma bem-refrigerado, alto desempenho do PC. A 250D tem um design interior altamente eficiente que permite uma "unidade de 5,25 óptico, uma placa de vídeo de longa-metragem, e um full-size fonte de alimentação ATX. Há ainda pontos de montagem para um radiador 240 milímetros para o resfriamento avançado CPU.
+
+O interior é organizado de modo que a incluiu 140 milímetros fã ingestão frente puxa o ar frio diretamente sobre sua GPU. Isso pode ajudar com confiabilidade e dar-lhe extra headroom GPU overclocking.
+
+Você quer construir um sistema que não é apenas rápido, mas fácil de trabalhar. Up-frontal USB 3.0 e conectores de áudio permite que você rapidamente conectar dispositivos de armazenamento de alta velocidade e fones de ouvido.
+
+A alegria de construir o seu próprio sistema não é apenas sobre a utilidade. A janela de acrílico transparente permite que você mostrar o seu trabalho.
+
+Conteúdo da embalagem:
+Obsidian Series 250D Mini ITX PC Case
+Caixa de acessórios
+Guia de Início Rápido
+
+Compatibilidade:
+Motherboards Mini ITX
+
+Rescursos:  
+
+Painel de alumínio frontal e construção em aço espesso
+Dimensões gerais: 290 mm (A) x 277 mm (L) x 351 mm (P)
+Janela superior com visibilidade dos componentes
+Remoção traseira dos parafusos para PSU e acesso ao disco rígido
+Fácil remoção dos filtros de pó em todas as entradas
+Serve simultaneamente para duas unidades de 3,5/2,5 pol., duas unidades de 2,5 pol., uma unidade de 5,25 pol., uma PSU completa, uma GPU com 290 mm de comprimento e um radiador de 240 mm
+ 
+Painel frontal com USB 3.0, portas para fone de ouvido e microfone e botões Ligar e Redefinir
+Remoção dos três painéis inovadora para os painéis laterais e superiores com parafusos
+Ventoinha frontal de 200 mm, 140 mm ou 120 mm compatível (AF140L 140 mm incluído)
+Duas ventoinhas laterais de 120 mm compatíveis (AF140L 140 mm incluído)
+Duas ventoinhas traseiras de 80 mm compatíveis
+Muitas fixações do roteamento de cabos para a fácil manutenção dos cabos
+Instalação de todas as unidades sem ferramentas.
+
+Peso 4.42kg
+Cor Black
+Fator forma do gabinete Mini-ITX
+Dimensões 351mm x 277mm x 290mm
+Suporte da placa-mãe do gabinete Mini-ITX
+Comprimento máximo da GPU 290mm
+Altura máxima da ventoinha da CPU 95mm
+Comprimento máximo da PSU 180mm
+Slots de expansão do gabinete 2
+Compartimentos da unidade do gabinete (x1) 5.25in
+(x2) 2.5in
+(x2) Combo 3.5in/2.5in
+Material do gabinete Brushed Aluminum and Steel
+Fonte de alimentação do gabinete ATX (not included)
+Conexões externas (x2) USB 3.0 
+(x1) Headphone Port 
+(x1) Microphone Port
+Pontos de montagem da ventoinha Front: (x1) 120/140/200mm 
+Rear: (x2) 80mm 
+Side: (x2) 120mm
+Ventoinhas incluídas Front: (x1) 140mm 
+Side: (x1) 120mm
+Pontos de montagem do radiador Front: 120/140mm 
+Side: 240mm
+Coolers líquidos da Corsair compatíveis H55, H60, H100i</DESCRTEC>
+        <PARTNUMBER>CC-9011047-WW</PARTNUMBER>
+        <EAN>843591046398</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>5.6000</PESOKG>
+        <PRECOREVENDA>242.4000</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0044063</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84733019            </NCM>
+        <LARGURA>35.0000</LARGURA>
+        <ALTURA>0.3700</ALTURA>
+        <PROFUNDIDADE>0.4100</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos44" msdata:rowOrder="43">
+        <TIMESTAMP>2016-08-29T10:49:23-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>ACESSÓRIOS GAMER                                  </CATEGORIA>
+        <SUBCATEGORIA>MOUSES GAMER                                      </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0044761</CODIGO>
+        <DESCRICAO>MOUSE GAMER CORSAIR VENGEANCE M95 MMO E RTS BRANCO USB - CH-9000026-NA</DESCRICAO>
+        <DESCRTEC>
+MOUSE GAMER CORSAIR VENGEANCE M95 MMO E RTS BRANCO ARTICO USB CH-9000026-NA
+
+Aprimorado para jogos MMO (Massive Multiplayer Online) e de RTS (Real Time Strategy), o Vengeance M95 foi projetado para demandas complexas de jogos de multijogadores em massa e de estratégia em tempo real. Ele oferece programação de atalhos facilmente, 15 botões posicionados de forma inteligente e armazenamento interno para configurações de botão exclusivas para cada jogo.
+
+Principais Características
+
+-O sensor laser avançado de 8200 dpi foi desenhado para oferecer excelente desempenho, mesmo em superfícies mais difíceis.
+-A estrutura em alumínio leve está envolta em material suave para que se possa concentrar no jogo e não no acessório.
+-15 botões posicionados de forma inteligente, incluindo nove teclas de macros.
+-Sensor laser de 8200 dpi
+-Sensibilidade ultraelevada para um seguimento e controle precisos.
+-A estrutura em alumínio combina um elevado nível de rigidez e pouco peso, além de oferecer a distribuição ideal da massa.
+-Pode ajustar o desempenho do mouse à superfície da sua secretaria e ao seu estilo de jogo, escolhendo entre quatro tempos de resposta: 1000, 500, 250 ou 125 Hz (1, 2, 4 ou 8 ms).
+-Depois de configurar os botões e outros parâmetros para os seus jogos preferidos, pode alternar rapidamente entre perfis usando o M95. Uma vez que a informação é armazenada no M95, não precisa de repetir a configuração em cada novo computador.
+-A roda de deslocamento em metal sólido e revestida a borracha não só tem um tacto espetacular, como também lhe oferece a precisão de que necessita para selecionar armas. A exatidão tátil ajudam-no a escolher sempre a arma certa.
+-Micro-interruptores para 20 milhões de cliques
+-As superfícies são texturizadas e apresentam o grau de flexibilidade ideal para garantirem o melhor conforto.
+-Superfícies deslizantes de PTFE
+-O M95 inclui pontos de contato de baixa fricção para a movimentação rápida e precisa com esforço reduzido.
+-O sensor laser classifica automaticamente a qualidade refletora da superfície de jogo e ajusta o funcionamento em consonância.
+
+Especificações
+
+Cor: Branco
+Conexão: USB
+Tecnologia: Laser
+Resolução: 8200 DPI 
+Botões de programação; 15
+Report rate: 1000Hz/500Hz/250Hz/125Hz
+MMO: Massive Multplayer Online 
+RTS: Jogos de Estratégia
+
+Conteúdo e especificações
+
+Conteúdo da embalagem:
+Rato para jogos laser Vengeance M95
+Ficha com a garantia
+
+Requisitos do sistema:
+PC com entrada USB
+Windows  7,  Windows Vista   ou Windows XP
+Ligação à Internet (para a instalação do software e controladores)
+Mínimo de 35 MB de espaço no disco rígido</DESCRTEC>
+        <PARTNUMBER>CH-9000026-NA</PARTNUMBER>
+        <EAN>843591028066</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>0.3500</PESOKG>
+        <PRECOREVENDA>243.0400</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0044761</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84716053            </NCM>
+        <LARGURA>0.2000</LARGURA>
+        <ALTURA>0.2600</ALTURA>
+        <PROFUNDIDADE>0.0700</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos45" msdata:rowOrder="44">
+        <TIMESTAMP>2016-08-29T10:58:15-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>ACESSÓRIOS GAMER                                  </CATEGORIA>
+        <SUBCATEGORIA>MOUSES GAMER                                      </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0047200</CODIGO>
+        <DESCRICAO>MOUSE GAMER CORSAIR VENGEANCE M95 MMO E RTS PRETO USB - CH-9000025-NA</DESCRICAO>
+        <DESCRTEC>Modelo: M95 - CH-9000025-NA
+
+Aprimorado para jogos MMO (on-line de multijogadores em massa) e de RTS (estratégia em tempo real), o Vengeance M95 foi projetado para demandas complexas de jogos de multijogadores em massa e de estratégia em tempo real. Ele oferece uma programação fácil, 15 botões posicionados de forma inteligente e armazenamento interno para configurações de botão exclusivas para cada jogo.
+
+Principais Características
+
+-O sensor laser avançado de 8200 dpi foi desenhado para oferecer excelente desempenho, mesmo em superfícies mais difíceis.
+-A estrutura em alumínio leve está envolta em material suave para que se possa concentrar no jogo e não no acessório.
+-15 botões posicionados de forma inteligente, incluindo nove teclas de macros.
+-Sensor laser de 8200 dpi
+-Sensibilidade ultraelevada para um seguimento e controle precisos.
+-A estrutura em alumínio combina um elevado nível de rigidez e pouco peso, além de oferecer a distribuição ideal da massa.
+-Pode ajustar o desempenho do mouse à superfície da sua secretaria e ao seu estilo de jogo, escolhendo entre quatro tempos de resposta: 1000, 500, 250 ou 125 Hz (1, 2, 4 ou 8 ms).
+-Depois de configurar os botões e outros parâmetros para os seus jogos preferidos, pode alternar rapidamente entre perfis usando o M95. Uma vez que a informação é armazenada no M95, não precisa de repetir a configuração em cada novo computador.
+-A roda de deslocamento em metal sólido e revestida a borracha não só tem um tacto espetacular, como também lhe oferece a precisão de que necessita para selecionar armas. A exatidão tátil ajudam-no a escolher sempre a arma certa.
+-Micro-interruptores para 20 milhões de cliques
+-As superfícies são texturizadas e apresentam o grau de flexibilidade ideal para garantirem o melhor conforto.
+-Superfícies deslizantes de PTFE
+-O M95 inclui pontos de contato de baixa fricção para a movimentação rápida e precisa com esforço reduzido.
+-O sensor laser classifica automaticamente a qualidade refletora da superfície de jogo e ajusta o funcionamento em consonância.
+
+Especificações
+
+Cor: Preto 
+Conexão: USB
+Tecnologia: Laser
+Resolução: 8200 DPI 
+Botões de programação; 15
+Report rate: 1000Hz/500Hz/250Hz/125Hz
+MMO: Massive Multplayer Online 
+RTS: Jogos de Estratégia
+
+Conteúdo e especificações
+
+Conteúdo da embalagem:
+Rato para jogos laser Vengeance M95
+Ficha com a garantia
+
+Requisitos do sistema:
+PC com entrada USB
+Windows  7,  Windows Vista   ou Windows XP
+Ligação à Internet (para a instalação do software e controladores)
+Mínimo de 35 MB de espaço no disco rígido</DESCRTEC>
+        <PARTNUMBER>CH-9000025-NA</PARTNUMBER>
+        <EAN>843591028035</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>0.3500</PESOKG>
+        <PRECOREVENDA>248.9600</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0047200</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84716053            </NCM>
+        <LARGURA>0.2100</LARGURA>
+        <ALTURA>0.2700</ALTURA>
+        <PROFUNDIDADE>0.0700</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos46" msdata:rowOrder="45">
+        <TIMESTAMP>2016-08-29T17:09:34-03:00</TIMESTAMP>
+        <DEPARTAMENTO>IMPRESSÃO E SUPRIMENTOS                           </DEPARTAMENTO>
+        <CATEGORIA>SUPRIMENTOS                                       </CATEGORIA>
+        <SUBCATEGORIA>TONERS                                            </SUBCATEGORIA>
+        <FABRICANTE>BROTHER</FABRICANTE>
+        <CODIGO>0061292</CODIGO>
+        <DESCRICAO>TONER BROTHER TN3492SBR PRETO PARA IMPRESSORA LASER</DESCRICAO>
+        <DESCRTEC>CARTUCHO DE TONER BROTHER TN3492SBR PRETO PARA IMPRESSORA LASER
+Toner de 20.000 páginas atende somente os equipamentos: HLL6402DW e MFCL6902DW</DESCRTEC>
+        <PARTNUMBER>TN3492SBR</PARTNUMBER>
+        <EAN>7897091050655</EAN>
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>1.5200</PESOKG>
+        <PRECOREVENDA>313.2900</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0061292</URLFOTOPRODUTO>
+        <ESTOQUE>RJ</ESTOQUE>
+        <NCM>84439933            </NCM>
+        <LARGURA>0.3600</LARGURA>
+        <ALTURA>0.1500</ALTURA>
+        <PROFUNDIDADE>0.2500</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>7 - ESTRANGEIRA - ADIQ. MERC. INTERNO - LISTA CAMEX</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos47" msdata:rowOrder="46">
+        <TIMESTAMP>2016-08-29T10:55:47-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>ACESSÓRIOS GAMER                                  </CATEGORIA>
+        <SUBCATEGORIA>MOUSES GAMER                                      </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0048405</CODIGO>
+        <DESCRICAO>MOUSE GAMER CORSAIR SABRE LASER RGB 8200 DPI - CH-9000090-NA</DESCRICAO>
+        <DESCRTEC>Ultra leve e precisão superior para jogadas rápidas
+
+Ultra leve com apenas 100g, o mouse para jogos Corsair Gaming Sabre Optical RGB 6,400 DPI oferece conforto fácil e alcance fluido balanceado por rastreamento consistentemente preciso, taxa de atualização de 1.000 Hz, oito botões configuráveis e interruptores super-responsivos. Luz de fundo com 16,8 milhões de cores de quatro zonas cria uma aparência personalizada bonita que combina com seu estilo.
+
+É seu, então, personalize-o. Use o software Corsair Utility Engine (CUE) para definir sua cor e nível de brilho para cada zona. Escolha suas cores com um padrão único de quatro cores ou use o CUE para configurar um rodízio automático de cores com sua escolha de velocidade e paletas.
+
+Rastreamento inteligente de alta precisão faz com que cada clique conte e você saberá rapidamente se está configurado para metralhar ou causar danos a longo alcance. Você pode até configurar sua própria paleta de cores do indicador de DPI personalizado.
+
+Com ergonomia avançada que apóia confortavelmente sua mão inteira, você pode manejar o Sabre segurando-o de diversas formas. A adaptabilidade na garra fornece a adaptabilidade que você precisa para competir em uma grande variedade de tipos de jogos de FPS a RTS e MOBA. Os 8 botões programáveis podem ser personalizados com facilidade para aperfeiçoar seu jogo.
+
+O Sabre é perfeito se você prefere um mouse mais leve. Cada componente foi avaliado com relação à redução de peso sem sacrificar o desempenho e o resultado é um mouse que pesa apenas 100g.
+
+Se você gosta de jogar em DPIs mais baixos e tirar proveito de um mousepad maior, você conseguirá reagir mais rapidamente e cansará menos durante sessões de jogos mais longas.
+
+Conteúdo do Pacote:
+- Mouse para jogos Corsair Gaming Sabre Optical RGB
+- Guia de início rápido
+
+Requisitos do sistema e de compatibilidade:
+- PC com uma porta USB
+- Windows 8, Windows 7 ou Windows Vista
+- É necessário ter conexão com a Internet para fazer o download do software do painel de controle da Corsair
+
+- DPI: 50 dpi - 6400 dpi
+- Tipo de sensor: Optical
+- Luz de fundo de mouses: 4 Zone RGB
+- Programar botões: 8
+- Taxa de relatório: Selectable 1000Hz/500Hz/250Hz/125Hz
+- Memória integrada: Yes
+- Peso: 100g
+- Mouse Feet: Extra Large PTFE
+- Software: CUE Enabled
+- Tipo de cabo: 1.8m Braided Fiber
+- Tipo de jogo: FPS
+- Dimensão: 124mm x 80mm x 38mm</DESCRTEC>
+        <PARTNUMBER>CH-9000090-NA</PARTNUMBER>
+        <EAN>843591054584</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>0.3000</PESOKG>
+        <PRECOREVENDA>320.1000</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0048405</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84716053            </NCM>
+        <LARGURA>0.1600</LARGURA>
+        <ALTURA>0.2100</ALTURA>
+        <PROFUNDIDADE>0.0700</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos48" msdata:rowOrder="47">
+        <TIMESTAMP>2016-08-29T16:51:03-03:00</TIMESTAMP>
+        <DEPARTAMENTO>IMPRESSÃO E SUPRIMENTOS                           </DEPARTAMENTO>
+        <CATEGORIA>SUPRIMENTOS                                       </CATEGORIA>
+        <SUBCATEGORIA>TONERS                                            </SUBCATEGORIA>
+        <FABRICANTE>HP</FABRICANTE>
+        <CODIGO>0043816</CODIGO>
+        <DESCRICAO>TONER HP CB541AB LASER 125A CIANO (CP1215/1515)</DESCRICAO>
+        <DESCRTEC>TONER HP CB541AB LASER CIANO (CP1215/1515)
+
+Características do produto
+
+- Cor(es) do(s) cartucho(s) de impressão: Ciano
+
+- Tecnologia de impressão: Laser
+
+- Rendimento por página (cores): 1.400 páginas
+
+- Dimensões com embalagem: 365 x 100 x 110 mm
+
+- Peso com embagem: 0.8 kg</DESCRTEC>
+        <PARTNUMBER>CB541AB</PARTNUMBER>
+        <EAN>886111218752</EAN>
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>0.7500</PESOKG>
+        <PRECOREVENDA>323.1900</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0043816</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84439933            </NCM>
+        <LARGURA>0.1100</LARGURA>
+        <ALTURA>0.1500</ALTURA>
+        <PROFUNDIDADE>0.2200</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>4 - NACIONAL - CONF. PROCESSO PRODUTIVO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos49" msdata:rowOrder="48">
+        <TIMESTAMP>2016-08-29T17:05:53-03:00</TIMESTAMP>
+        <DEPARTAMENTO>IMPRESSÃO E SUPRIMENTOS                           </DEPARTAMENTO>
+        <CATEGORIA>SUPRIMENTOS                                       </CATEGORIA>
+        <SUBCATEGORIA>TONERS                                            </SUBCATEGORIA>
+        <FABRICANTE>BROTHER</FABRICANTE>
+        <CODIGO>0060060</CODIGO>
+        <DESCRICAO>TONER BROTHER TN3442SBR PRETO PARA IMPRESSORA LASER</DESCRICAO>
+        <DESCRTEC>8.000 páginas	
+Impressoras: HLL5102DW/HLL6202DW / HLL6402DW                                                          
+ Multifuncionais: DCPL5502DN/DCPL5652DN/ MFCL5902DW / MFCL 6702DW / MFCL6902DW</DESCRTEC>
+        <PARTNUMBER>TN3442SBR</PARTNUMBER>
+        <EAN>7897091050600</EAN>
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>1.2400</PESOKG>
+        <PRECOREVENDA>323.9000</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0060060</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84439933            </NCM>
+        <LARGURA>0.3600</LARGURA>
+        <ALTURA>0.1500</ALTURA>
+        <PROFUNDIDADE>0.2600</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>4 - NACIONAL - CONF. PROCESSO PRODUTIVO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos50" msdata:rowOrder="49">
+        <TIMESTAMP>2016-08-29T10:56:39-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>ACESSÓRIOS GAMER                                  </CATEGORIA>
+        <SUBCATEGORIA>MOUSES GAMER                                      </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0048404</CODIGO>
+        <DESCRICAO>MOUSE GAMER CORSAIR SABRE OPTICAL RGB 6400 DPI - CH-9000056-NA</DESCRICAO>
+        <DESCRTEC>Ultra leve e precisão superior para jogadas rápidas
+
+Ultra leve com apenas 100g, o mouse para jogos Corsair Gaming Sabre Optical RGB 6,400 DPI oferece conforto fácil e alcance fluido balanceado por rastreamento consistentemente preciso, taxa de atualização de 1.000 Hz, oito botões configuráveis e interruptores super-responsivos. Luz de fundo com 16,8 milhões de cores de quatro zonas cria uma aparência personalizada bonita que combina com seu estilo.
+
+É seu, então, personalize-o. Use o software Corsair Utility Engine (CUE) para definir sua cor e nível de brilho para cada zona. Escolha suas cores com um padrão único de quatro cores ou use o CUE para configurar um rodízio automático de cores com sua escolha de velocidade e paletas.
+
+Rastreamento inteligente de alta precisão faz com que cada clique conte e você saberá rapidamente se está configurado para metralhar ou causar danos a longo alcance. Você pode até configurar sua própria paleta de cores do indicador de DPI personalizado.
+
+Com ergonomia avançada que apóia confortavelmente sua mão inteira, você pode manejar o Sabre segurando-o de diversas formas. A adaptabilidade na garra fornece a adaptabilidade que você precisa para competir em uma grande variedade de tipos de jogos de FPS a RTS e MOBA. Os 8 botões programáveis podem ser personalizados com facilidade para aperfeiçoar seu jogo.
+
+O Sabre é perfeito se você prefere um mouse mais leve. Cada componente foi avaliado com relação à redução de peso sem sacrificar o desempenho e o resultado é um mouse que pesa apenas 100g.
+
+Se você gosta de jogar em DPIs mais baixos e tirar proveito de um mousepad maior, você conseguirá reagir mais rapidamente e cansará menos durante sessões de jogos mais longas.
+
+Conteúdo do Pacote:
+- Mouse para jogos Corsair Gaming Sabre Optical RGB
+- Guia de início rápido
+
+Requisitos do sistema e de compatibilidade:
+- PC com uma porta USB
+- Windows 8, Windows 7 ou Windows Vista
+- É necessário ter conexão com a Internet para fazer o download do software do painel de controle da Corsair
+
+- DPI: 50 dpi - 6400 dpi
+- Tipo de sensor: Optical
+- Luz de fundo de mouses: 4 Zone RGB
+- Programar botões: 8
+- Taxa de relatório: Selectable 1000Hz/500Hz/250Hz/125Hz
+- Memória integrada: Yes
+- Peso: 100g
+- Mouse Feet: Extra Large PTFE
+- Software: CUE Enabled
+- Tipo de cabo: 1.8m Braided Fiber
+- Tipo de jogo: FPS
+- Dimensão: 124mm x 80mm x 38mm</DESCRTEC>
+        <PARTNUMBER>CH-9000056-NA</PARTNUMBER>
+        <EAN>843591049443</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>0.3000</PESOKG>
+        <PRECOREVENDA>326.0400</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0048404</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84716053            </NCM>
+        <LARGURA>0.1600</LARGURA>
+        <ALTURA>0.2100</ALTURA>
+        <PROFUNDIDADE>0.0700</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos51" msdata:rowOrder="50">
+        <TIMESTAMP>2016-08-29T14:00:37-03:00</TIMESTAMP>
+        <DEPARTAMENTO>SOFTWARES                                         </DEPARTAMENTO>
+        <CATEGORIA>SISTEMA OPERACIONAL                               </CATEGORIA>
+        <SUBCATEGORIA>SISTEMA OPERACIONAL OEM                           </SUBCATEGORIA>
+        <FABRICANTE>MICROSOFT</FABRICANTE>
+        <CODIGO>KIT1391</CODIGO>
+        <DESCRICAO>WINDOWS 10 HOME 64 BITS BRAZILIAN OEM DVD - KW9-00154</DESCRICAO>
+        <DESCRTEC>
+É o Windows que você conhece, só que ainda melhor
+
+Uma visão em um relance de tudo o que é mais importante
+Personalize seu menu Iniciar fixando qualquer item (inclusive aplicativos, pessoas e listas de reprodução) para ter fácil acesso ao que você mais usa. Com os blocos de demonstração, você pode ir direto ao conteúdo, sem ter que abrir primeiro o aplicativo.
+
+Interaja com seu dispositivo da maneira que quiser
+Toque2, digite, escreva5: a escolha é sua. Assim, você pode usar o que funciona melhor para o que você está fazendo.
+
+A melhor tela é sempre aquela que você está usando
+O Windows 10 habilita seus aplicativos a terem ótima aparência e funcionamento em todos os modos e dispositivos. Em dispositivos conversíveis, a tela pode ser otimizada para funcionar com toque ou com teclado e mouse.</DESCRTEC>
+        <PARTNUMBER>KW9-00154</PARTNUMBER>
+        <EAN>885370922417</EAN>
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>0.0500</PESOKG>
+        <PRECOREVENDA>386.2900</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=KIT1391</URLFOTOPRODUTO>
+        <ESTOQUE>RJ</ESTOQUE>
+        <NCM>85234920            </NCM>
+        <LARGURA>0.1900</LARGURA>
+        <ALTURA>0.0100</ALTURA>
+        <PROFUNDIDADE>0.1400</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>2 - ESTRANGEIRA - ADIQ. MERC. INTERNO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos52" msdata:rowOrder="51">
+        <TIMESTAMP>2016-08-29T08:51:35-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>PLACAS                                            </CATEGORIA>
+        <SUBCATEGORIA>PLACAS DE VÍDEO                                   </SUBCATEGORIA>
+        <FABRICANTE>POWER COLOR</FABRICANTE>
+        <CODIGO>0049460</CODIGO>
+        <DESCRICAO>PLACA DE VIDEO POWER COLOR RADEON R7 360 2GB DDR5 128BITS - AXR7 360 2GBD5-DHE</DESCRICAO>
+        <DESCRTEC>
+Processador Gráfico:
+Radeon R7 360
+
+Interface:
+PCIE 3.0
+
+Engine Clock: 
+1060MHz
+
+Tamanho da memória: 
+2GB 
+
+Tipo de memória: 
+GDDR5 
+
+Interface de memória: 
+128 bits 
+
+Portas:
+DL DVI-I 
+HDMI 
+DisplayPort 
+Saída VGA (por conversor DVI para VGA) 
+
+Resolução:
+VGA: 2048 x 1536
+DVI: 2560 x 1600
+DisplayPort: 4096 x 2160
+HDMI: 4096 x 2160
+
+- Open GL
+- Tecnologia CrossFireX 
+- Tecnologia ATI Stream
+- Tecnologia ATI Eyefinity 
+- Suporte HDCP
+
+Requisitos mínimos de energia: 500W
+
+Conector de alimentação:
+Um conector de 6 pinos PCI Express de alimentação</DESCRTEC>
+        <PARTNUMBER>AXR7 360 2GBD5-DHE</PARTNUMBER>
+        <EAN>4715409187387</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>0.8000</PESOKG>
+        <PRECOREVENDA>415.6300</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0049460</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84733043            </NCM>
+        <LARGURA>0.3000</LARGURA>
+        <ALTURA>0.2000</ALTURA>
+        <PROFUNDIDADE>0.0800</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>6 - ESTRANGEIRA - IMP. DIRETA - LISTA CAMEX</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos53" msdata:rowOrder="52">
+        <TIMESTAMP>2016-08-29T10:57:27-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>ACESSÓRIOS GAMER                                  </CATEGORIA>
+        <SUBCATEGORIA>MOUSES GAMER                                      </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0048494</CODIGO>
+        <DESCRICAO>MOUSE GAMER CORSAIR SCIMITAR YELLOW PAD RGB 12000 DPI - CH-9000091-NA</DESCRICAO>
+        <DESCRTEC>nteúdo da embalagem
+
+Mouse óptico para jogos MOBA/MMO Scimitar RGB
+Guia de Início Rápido
+Compatibilidade
+
+Um PC com uma porta USB
+Windows 10, Windows 8 ou Windows 7
+É necessário ter conexão com a Internet para fazer o download do software Utility Engine da Corsair</DESCRTEC>
+        <PARTNUMBER>CH-9000091-NA</PARTNUMBER>
+        <EAN>843591056014</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>0.4000</PESOKG>
+        <PRECOREVENDA>451.6100</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0048494</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84716053            </NCM>
+        <LARGURA>0.1600</LARGURA>
+        <ALTURA>0.2100</ALTURA>
+        <PROFUNDIDADE>0.0800</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos54" msdata:rowOrder="53">
+        <TIMESTAMP>2016-08-29T10:51:19-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>GABINETES GAMER                                   </CATEGORIA>
+        <SUBCATEGORIA>GABINETES GAMER                                   </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0044054</CODIGO>
+        <DESCRICAO>GABINETE CORSAIR GRAPHITE 380T PORTATIL BRANCO MINI-ITX (S/ FONTE) - CC-9011060-WW</DESCRICAO>
+        <DESCRTEC>O gabinete móvel para Mini-ITX que foi construído para velocidade.
+
+O Graphite Series  380T causa um grande impacto em gabinetes de PC para Mini-ITX. Uma alça embutida facilita o transporte. É fácil construir o computador pronto para transporte dos seus sonhos com um interior espaçoso e de fácil acesso com espaço para uma placa gráfica extra-longa. É possível manter as coisas resfriadas com suportes para até cinco ventoinhas e um controlador de ventoinha de três velocidades conveniente no painel frontal.
+
+O 380T foi feito para transporte. A alça torna fácil pegar seu equipamento e transportar e o design integral da alça significa que ela estará lá quando você precisar e ela combina visualmente com a forma suave moldada quando você não precisar dela.
+
+Os dois painéis laterais saem facilmente com o levantar de uma trava de montagem embutida – sem parafusos borboletas ou alinhamento complicado. Eles combinam uma malha hexagonal metálica e filtro de poeira para fluxo de ar e uma janela transparente para mostrar seu equipamento.
+
+Os suportes frontais aceitam uma ventoinha de 200 mm ou 140 mm, ou ventoinhas duplas de 120 mm. Os suportes duplos de 120 mm no painel lateral aceitam um radiador de 240 mm e há suporte para uma ventoinha de 120 mm na traseira. O controlador do painel frontal permite que você escolha o nível exato de resfriamento que você precisa.
+
+O design interior inteligente permite grande performance em um pequeno espaço. Ele aceita uma fonte de alimentação de até 160 mm e uma GPU de até 290 mm.
+
+Trocas de armazenamento e atualizações são fáceis e sem necessidade de ferramentas com duas baias de unidade de 3,5 pol. e duas de 2,5 pol.
+
+O painel frontal possui portas para fone de ouvido e microfone e portas USB 3.0 duplas para armazenamento de alta velocidade e outros dispositivos USB.
+
+Conteúdo do pacote:
+Graphite Series 380T Mini ITX Case portátil
+Kit acessório e parafuso 
+Guia Rápido
+
+Compatibilidade:
+Placa mãe mini- ITX
+
+Especificações técnicas:
+
+Comprimento máximo da GPU: 290mm
+Altura máxima da ventoinha da CPU: 150mm
+Comprimento máximo da PSU: 160mm
+Pontos de montagem do radiador:
+Lateral: 240mm
+Pontos de montagem da ventoinha:
+Frontal: 2 x 120 mm ou 1 x 140 mm / 200 mm
+Traseiro: 1 x 120 mm
+Lateral: 2 x 120 mm
+
+Peso 5.6kg
+Cor Branco
+Fator forma do gabinete Mini-ITX
+Dimensões 393mm x 292mm x 356mm
+Suporte da placa-mãe do gabinete Mini-ITX
+Comprimento máximo da GPU 290mm
+Altura máxima da ventoinha da CPU 150mm
+Comprimento máximo da PSU 160mm
+Slots de expansão do gabinete 2
+Compartimentos da unidade do gabinete (x2) 2.5in 
+(x2) Combo 3.5in/2.5in
+Material do gabinete Steel
+Fonte de alimentação do gabinete ATX (not included)
+Conexões externas (x2) USB 3.0 
+(x1) Fan Controller 
+(x1) Headphone Port 
+(x1) Microphone Port
+Pontos de montagem da ventoinha Front: (x2) 120mm or (x1) 140/200mm 
+Rear: (x1) 120mm 
+Side: (x2) 120mm
+Ventoinhas incluídas Front: (x1) 140mm 
+Rear: (x1) 120mm
+Pontos de montagem do radiador Side: 240mm
+Coolers líquidos da Corsair compatíveis H55, H60, H75, H100i</DESCRTEC>
+        <PARTNUMBER>CC-9011060-WW</PARTNUMBER>
+        <EAN>843591049856</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>6.0000</PESOKG>
+        <PRECOREVENDA>510.3100</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0044054</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84733019            </NCM>
+        <LARGURA>0.3600</LARGURA>
+        <ALTURA>0.4300</ALTURA>
+        <PROFUNDIDADE>0.4500</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos55" msdata:rowOrder="54">
+        <TIMESTAMP>2016-08-29T10:47:36-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>GABINETES GAMER                                   </CATEGORIA>
+        <SUBCATEGORIA>GABINETES GAMER                                   </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0059405</CODIGO>
+        <DESCRICAO>GABINETE CORSAIR CARBIDE AIR 240 BRANCO ARTICO MICROATX (S/ FONTE) - CC-9011069-WW</DESCRICAO>
+        <DESCRTEC>
+Um gabinete para PC compacto feito para máximo resfriamento.
+
+Conheça o Carbide Series Air 240 – um gabinete para PC com formato pequeno e extraordinário para computadores Mini-ITX e MicroATX.
+
+O design do cubo atraente -- com uma janela lateral completa - armazena um layout interno otimizado para o fluxo de ar máximo ou configurações de resfriamento líquido avançadas (incluindo um ou dois radiadores de 240 mm).
+
+Não deixe o tamanho compacto enganar você – esse pequeno lida com componentes de tamanho completo, oferecendo ainda um ótimo espaço de instalação.
+
+O design interior incomum é otimizado para permitir que as ventoinhas de admissão forneçam ar frio diretamente para os componentes que geram mais calor.
+
+Embora ele seja do mesmo tamanho que muitos gabinetes Mini-ITX, o Air 240 suporta placas-mãe MicroATX. Isso lhe dá a opção de instalar GPUs duplas.
+
+Remoção da unidade de 3,5 pol., unidade de 2,5 pol. e painel lateral sem o uso de ferramentas, o que significa que as montagens e atualizações podem ser executadas sem a necessidade de uma chave de fenda. A abertura na placa traseira da CPU permite que você atualize o cooler da CPU sem remover a placa-mãe.
+
+O Air 240 tem furos pré-espaçados para radiadores de 240 mm na parte superior, inferior e frontal. Se você estiver usando uma placa-mãe Mini-ITX, será possível adicionar radiadores à parte dianteira e a parte inferior de 240 mm. Se você estiver usando uma placa-mãe MicroATX com GPU dupla, será possível instalar um radiador frontal de 240 mm.
+
+A flexibilidade vai além da compatibilidade Mini-ITX e MicroATX dupla. Os pés de borracha incluídos podem ser colocados em qualquer uma das três superfícies, para que você possa personalizar a orientação do chassis: como uma torre padrão, uma torre invertida ou como uma área de trabalho.
+
+A janela panorâmica permite que você admire seu trabalho.
+
+O Air 240 tem buracos de roteamento de cabos com apoios e fixações, com espaço de armazenamento de cabos dedicado atrás do compartimento da placa-mãe. É fácil mover os cabos para fora do caminho e para fora do caminho do fluxo de ar.
+
+Conectores na parte superior frontal tornam mais fácil conectar as unidades flash USB, discos rígidos portáteis e headsets USB.
+
+Conteúdo da embalagem:
+Gabinete para PC MicroATX e Mini-ITX com alto fluxo de ar Carbide Series  Air 240
+Kit de acessórios
+Guia de Início Rápido
+
+Compatibilidade:
+Compatível com Mini-ITX e MicroATX
+
+Especificações técnicas:
+
+Comprimento máximo da GPU: 290mm
+Altura máxima da ventoinha da CPU: 120mm
+Comprimento máximo da PSU: 225mm
+Pontos de montagem do radiador:
+Frontal: 240mm
+Inferior: 240 mm (somente para mITX)
+ 
+Pontos de montagem da ventoinha:
+Frontal: 2 x 120 mm
+Superior: 2 x 120 mm
+Inferior: 2 x 120 mm
+Traseiro: 2 x 80mm
+Lateral: 1 x 120 mm
+
+Peso 5.6kg
+Cor Arctic White
+Fator forma do gabinete MicroATX
+Dimensões 397mm x 260mm x 320mm
+Suporte da placa-mãe do gabinete Mini-ITX, MicroATX
+Comprimento máximo da GPU 290mm
+Altura máxima da ventoinha da CPU 120mm
+Comprimento máximo da PSU 240mm
+Slots de expansão do gabinete 4
+Compartimentos da unidade do gabinete (x3) 3.5in
+(x3) 2.5in
+Material do gabinete Steel
+Fonte de alimentação do gabinete ATX (not included)
+Conexões externas (x2) USB 3.0 
+(x1) Headphone Port 
+(x1) Microphone Port
+Pontos de montagem da ventoinha Front: (x2) 120mm 
+Top: (x2) 120mm 
+Rear: (x2) 80mm 
+Bottom: (x2) 120mm
+Side: (x1) 120mm
+Ventoinhas incluídas Front: (x2) 120mm 
+Rear: (x1) 120mm
+Pontos de montagem do radiador Front: 240mm 
+Bottom: 240mm
+Coolers líquidos da Corsair compatíveis H55, H60, H75, H80i, H100i, H105</DESCRTEC>
+        <PARTNUMBER>CC-9011069-WW</PARTNUMBER>
+        <EAN>843591052627</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>6.3000</PESOKG>
+        <PRECOREVENDA>528.1100</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0059405</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84733019            </NCM>
+        <LARGURA>0.3400</LARGURA>
+        <ALTURA>0.3900</ALTURA>
+        <PROFUNDIDADE>0.4800</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos56" msdata:rowOrder="55">
+        <TIMESTAMP>2016-08-29T10:55:28-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>COOLERS GAMER                                     </CATEGORIA>
+        <SUBCATEGORIA>WATER COOLERS                                     </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0048407</CODIGO>
+        <DESCRICAO>COOLER CORSAIR HYDRO H80I GT - CW-9060017-WW</DESCRICAO>
+        <DESCRTEC>
+ALTA PERFORMANCE LIQUID COOLING CPU
+Proteja seu hardware e aumente o potencial de overclock da sua CPU. O radiador de ventiladores duplos e com o dobro da espessura oferece uma incrível eficiência de refrigeração.
+
+
+Design avançado do ventilador
+Os ventiladores de 120mm usam pás de projeto personalizado para melhor pressão estática para relação de ruído, oferecendo maior desempenho a níveis de ruído mais baixos.
+
+Kit de suporte de montagem magnética multiplataforma sem uso de ferramentas
+O design modular simplifica a instalação e é compatível com processadores Intel e AMD.
+
+Tubulação de grande diâmetro e baixa permeabilidade
+A evaporação mínima do refrigerante ajuda a assegurar a longa durabilidade; e o material resiliente oferece alta flexibilidade e excelente proteção contra vazamentos.
+
+Especificações técnicas:
+- Dimensões do radiador: 120 mm x 152 mm x 38 mm
+- Dimensões do ventilador: 120 mm x 120 mm x 25 mm
+- Velocidade do ventilador: 2700 RPM
+- Fluxo de ar do ventilador: 77 CFM
+- dBAs do ventilador: 37,68 dBA
+- Pressão estática do ventilador: 4mm/H20
+
+Compatibilidade:
+- Intel  LGA 1150, 1155, 1156, 1366 e 2011
+- Soquetes AMD : FM1, FM2, AM2 e AM3
+
+Conteúdo da embalagem:
+- Refrigerador líquido para CPU de alto desempenho Corsair Hydro série H80 GT
+- Kit de montagem magnética multiplataforma para todos os atuais soquetes de CPU
+- Ventiladores de alto desempenho duplos SP120L
+- Parafusos e montagem de ventilador e de radiador
+- Composto térmico (pré-aplicado)
+- Guia de Início Rápido</DESCRTEC>
+        <PARTNUMBER>CW-9060017-WW</PARTNUMBER>
+        <EAN>843591053440</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>1.9000</PESOKG>
+        <PRECOREVENDA>577.3200</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0048407</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84145990            </NCM>
+        <LARGURA>0.2800</LARGURA>
+        <ALTURA>0.2400</ALTURA>
+        <PROFUNDIDADE>0.1600</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos57" msdata:rowOrder="56">
+        <TIMESTAMP>2016-08-29T14:54:57-03:00</TIMESTAMP>
+        <DEPARTAMENTO>IMPRESSÃO E SUPRIMENTOS                           </DEPARTAMENTO>
+        <CATEGORIA>SUPRIMENTOS                                       </CATEGORIA>
+        <SUBCATEGORIA>TONERS                                            </SUBCATEGORIA>
+        <FABRICANTE>HP</FABRICANTE>
+        <CODIGO>0061229</CODIGO>
+        <DESCRICAO>TONER HP CF380X 312A LASER PRETO (M476 /M476NW / M476DW)</DESCRICAO>
+        <DESCRTEC>CF380X</DESCRTEC>
+        <PARTNUMBER>CF380X</PARTNUMBER>
+        <EAN>887111367754</EAN>
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>1.0800</PESOKG>
+        <PRECOREVENDA>578.6200</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0061229</URLFOTOPRODUTO>
+        <ESTOQUE>RJ</ESTOQUE>
+        <NCM>84439933            </NCM>
+        <LARGURA>0.3800</LARGURA>
+        <ALTURA>0.1200</ALTURA>
+        <PROFUNDIDADE>0.1000</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>7 - ESTRANGEIRA - ADIQ. MERC. INTERNO - LISTA CAMEX</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos58" msdata:rowOrder="57">
+        <TIMESTAMP>2016-08-29T08:52:59-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>PLACAS                                            </CATEGORIA>
+        <SUBCATEGORIA>PLACAS DE VÍDEO                                   </SUBCATEGORIA>
+        <FABRICANTE>ASUS</FABRICANTE>
+        <CODIGO>0060145</CODIGO>
+        <DESCRICAO>PLACA DE VIDEO ASUS RADEON R7 370 4GB DDR5 256BITS - STRIX-R7370-DC2OC-4GD5-GAMING</DESCRICAO>
+        <DESCRTEC>
+ASUS STRIX R7 370 oferece desempenho bombástico e extrema confiabilidade
+
+- 1050MHz de engine clock para um melhor desempenho e excelente experiência durante o jogo.
+- DirectCU II com tecnologia 0dB fan:jogos menos exigentes em completo silêncio e jogos muito mais exigentes, 30% mais refrigerada e performance 3X mais silenciosa;
+- A tecnologia Auto -Extreme com Super Alloy Power II oferece qualidade premium e mais confiabilidade.
+GPU Tweak II com Xsplit Gamecaster fornece ajustes de desempenho intuitivos e streaming de jogos instantâneos
+
+Processador Gráfico:
+- AMD Radeon R7 370
+
+Barramento:
+- PCI Express 3.0
+
+OpenGL:
+- OpenGL 4.4
+
+Memória de Vídeo:
+- GDDR5 4GB
+
+Clock do processador:
+- 1070 MHz (OC Mode)
+- 1050 MHz (Gaming Mode)
+
+Clock de memória: 
+- 5600 MHz
+
+Interface de memória: 
+- 256-bits
+
+Resolução:
+- Máxima resolução DVI : 2560x1600
+
+Interface:
+- Saída de DVI : Sim x 1 (DVI-I), Sim x 1 (DVI-D)
+- Saída para HDMI : Sim x 1 
+- Porta de Display : Sim x 1 (DP Regular)
+- Suporta HDCP : Sim
+
+Consumo de Energia:
+- Até 150W 1 não requer energia adicional
+
+Acessórios:
+- 1 x Cabo CrossFire 
+- 1 x STRIX Laser Sticker
+
+Software:
+ASUS GPU Tweak II &amp; Driver
+
+Dimensões:
+- 8.43 " x 4.92 " x 1.65 " polegadas
+- 21.4 x 12.5 x4.2 centímetros</DESCRTEC>
+        <PARTNUMBER>STRIX-R7370-DC2OC-4GD5-GAMING</PARTNUMBER>
+        <EAN>4712900085419</EAN>
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>0.8000</PESOKG>
+        <PRECOREVENDA>840.3400</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0060145</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84733043            </NCM>
+        <LARGURA>0.2100</LARGURA>
+        <ALTURA>0.2300</ALTURA>
+        <PROFUNDIDADE>0.0600</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>6 - ESTRANGEIRA - IMP. DIRETA - LISTA CAMEX</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos59" msdata:rowOrder="58">
+        <TIMESTAMP>2016-08-29T08:52:40-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>PLACAS                                            </CATEGORIA>
+        <SUBCATEGORIA>PLACAS DE VÍDEO                                   </SUBCATEGORIA>
+        <FABRICANTE>MSI</FABRICANTE>
+        <CODIGO>0049139</CODIGO>
+        <DESCRICAO>PLACA DE VIDEO MSI RADEON R9 380 2GB DDR5 256BITS - R9 380 2GD5T OC</DESCRICAO>
+        <DESCRTEC>
+Processador Gráfico:
+AMD Radeon  R9 380
+
+Barramento Padrão:
+PCI Express x16 3.0
+
+Tipo de Memória:
+GDDR5
+
+Tamanho da memória(MB):
+2048
+
+Interface de Memória:
+256 bits
+
+Velocidade Clock Central (MHz):
+980 MHz
+
+Velocid. Clock Memória (MHz):
+5500
+
+Saída DVI:
+2 (DVI-I link duplo x 1, DVI-D link duplo x 1), Resolução máxima: 2560 x 1600 @60 Hz
+
+Máximo de Monitores: 3
+
+Saída HDMI:
+1 (versão 1.4a)
+Resolução máxima: 4096x2160 @24 Hz (1.4a)
+
+Porta Display:
+1 (versão 1.2)
+Resolução máxima: 4096x2160 @ 50 Hz
+
+Tecnologia Multi-GPU:
+Crossfire 
+
+Suporte HDCP: Sim
+
+Consumo de energia (W): 190
+
+Suporte HDMI: Sim
+
+DVI Link duplo: Sim
+
+Conectores de energia:
+6 pinos x 2
+
+Saída Monitor (Res Máxima):
+2560x1600
+
+Acessórios:
+Dongle DVI a VGA x 1
+
+RAMDACs: 400
+
+Suporte Versão: DirectX 12
+
+Suporte Versão OpenGL: 4.4
+
+Suporte SLI: Sim
+
+SLI 3 vías: Sim
+
+Dimensões(mm):
+254 x 128 x 37</DESCRTEC>
+        <PARTNUMBER>R9 380 2GD5T OC</PARTNUMBER>
+        <EAN>4719072401627</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>1.0000</PESOKG>
+        <PRECOREVENDA>960.2800</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0049139</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84733043            </NCM>
+        <LARGURA>0.3200</LARGURA>
+        <ALTURA>0.2400</ALTURA>
+        <PROFUNDIDADE>0.0700</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>6 - ESTRANGEIRA - IMP. DIRETA - LISTA CAMEX</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos60" msdata:rowOrder="59">
+        <TIMESTAMP>2016-08-29T10:53:05-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>GABINETES GAMER                                   </CATEGORIA>
+        <SUBCATEGORIA>GABINETES GAMER                                   </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0036962</CODIGO>
+        <DESCRICAO>GABINETE CORSAIR OBSIDIAN 900D CC-9011022-WW</DESCRICAO>
+        <DESCRTEC>
+A série Obsidian: projetada para integradores, por integradores.
+
+O que você fará com todo esse espaço?
+A série Obsidian 900D é para integradores sérios com grandes projetos. Você quer projetar o seu PC dos sonhos? Adicionar refrigeração líquida e a ar de ponta? Integrar uma usina de força em gráficos com GPU quádrupla e CPU dupla? Ou simplesmente criar um servidor de arquivos monstro?
+Se você já se fez perguntas assim, você precisa de um 900D.
+
+Flexibilidade de expansão séria para integradores sérios
+Não precisamos dizer que não há nada como muito espaço. Vamos deixar que os números falem por si:
+
+•Dez slots de expansão
+•Conecta até nove discos rígidos ou SSDs, com três montagens intercambiáveis
+•Quatro compartimentos para unidades ópticas de 5,25 pol.
+•Espaço para duas fontes de energia
+E, se nove discos rígidos ou SSDs não forem bastante, você pode expandir para 15 unidades pela adição de compartimentos de unidades de disco adicionais (disponíveis separadamente).
+
+Incrível desempenho e potencial de refrigeração
+Um projeto de gabinete com refrigeração ideal requer três coisas: boa ventilação passiva, opções de montagens de ventiladores flexíveis para bom fluxo de ar e espaço para adicionar sistemas de refrigeração ativa sofisticados. A série Obsidian 900D começa com um caminho livre para o fluxo de ar dos ventiladores de entrada até o interior do gabinete, saem nenhuma unidade no caminho. Mas isso é só o começo.
+
+•Inclui três ventiladores de entrada frontais AF120L de 120 mm e um ventilador de exaustão traseiro AF140L de 140 mm
+•15 locais de montagens de ventiladores no total
+•Cinco pontos de montagem de radiador
+•Quatro filtros de poeira removíveis
+
+Fácil de integrar. Fácil de conviver.
+Integrações de sistemas devem ser diretas e fáceis, sem que o gabinete do PC atrapalhe. E, do mesmo modo, reconfigurações e atualizações devem ser simples. Um processo de integração agradável com resultados de ótima aparência representa uma grande parte do orgulho que vem de se integrar PCs de alto desempenho.
+
+O 900D pode ajudar a fazer tudo isso acontecer com acesso ao painel lateral, instalação de discos rígidos e de unidades ópticas que não demandam ferramentas. Por dentro, você encontrará um corte da placa traseira da CPU e alças de borracha nos furos de roteamento de cabos. Existe bastante espaço para roteamento de cabos atrás da bandeja da placa mãe e as travas de cabos com liberação para baixo ajudam a criar um cabeamento limpo e de fácil modificação que não depende de dezenas de lacres.
+
+Você também tem compartimentos de discos rígidos modulares e os filtros de poeira e tampas do ventilador são fáceis e remover para limpeza e manutenção.
+
+Exagero modesto
+Deixe os iniciantes usarem gabinetes que parecem que vão se transformar em robôs gigantes. A série Obsidian 900D é construída em uma estrutura de aço e alumínio fundido, com sólidos painéis de aço e interior totalmente pintado. O painel de alumínio escovado resiste a arranhões e marcas de dedos, e é muito agradável tocar nele.
+
+Especificações técnicas
+•Inclui três ventiladores de exaustão AF120L de 120 mm e um ventilador de exaustão AF140L de 140 mm
+•Painel frontal de alumínio escovado com estrutura externa dianteira e traseira inteira de alumínio fundido
+•Cinco pontos de montagem de radiador: 
+•Frontal: até 360 mm o
+•Superior: até 480 mm (4 x 120) ou 420 mm (3 x 140) o
+•Inferior lado 1: até 480 mm (4 x 120) ou 420 mm (3 x 140) o
+•Inferior lado 2 (com PSU instalada): até 280 mm (2 x 140) ou 240 mm (2 x 120) o
+•Traseiro: 140 mm ou 120 mm
+•Até quinze locais de montagens de ventiladores no total
+•Nove compartimentos para discos rígidos combinadas de 3,5 pol. sem o uso de ferramentas e 2,5 pol. com parafusamento, expansível até quinze no total (requer a compra de dois compartimentos adicionais)
+•Quatro compartimentos para unidade de 5,25 pol. sem o uso de ferramentas
+•Dois USB 3.0, E/S no painel frontal de quatro USB 2.0
+•Acesso aos painéis superiores pelo painel lateral sem o uso de ferramentas.
+•Acesso inferior à câmara do radiador/HDD por trava magnética com portas basculantes.
+•Janela do painel lateral completa
+•As tampas inferiores removíveis do radiador permitem personalizar a aparência de uma forma refinada, limpa e arejada
+•Três compartimentos intercambiáveis integrados em um dos três compartimentos modulares inclusos para disco rígido
+•Dez slots de expansão para o sistemas dos sonhos com várias GPUs
+•Compartimentos duplos para PSU
+•Corte da placa traseira da CPU e orifícios para passagem dos cabos com alças de borracha
+•Filtros de poeira e tampas do ventilador fáceis de remover
+•Travas para passagem dos cabos com liberação para baixo e espaço adicional para passagem atrás da bandeja da placa mãe
+•PSU – ATX (não estão incluídos)
+
+Compatibilidade
+•Compatível com ATX, Micro ATX, E-ATX, HPTX, e Mini ITX
+
+Conteúdo da embalagem
+•Super gabinete de torre para PC da série Obsidian 900D
+•Guia de Início Rápido</DESCRTEC>
+        <PARTNUMBER>CC-9011022-WW</PARTNUMBER>
+        <EAN>843591033244</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>22.6000</PESOKG>
+        <PRECOREVENDA>1040.6300</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0036962</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>84733019            </NCM>
+        <LARGURA>0.3600</LARGURA>
+        <ALTURA>0.8000</ALTURA>
+        <PROFUNDIDADE>0.7500</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>2 - ESTRANGEIRA - ADIQ. MERC. INTERNO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos61" msdata:rowOrder="60">
+        <TIMESTAMP>2016-08-29T15:15:37-03:00</TIMESTAMP>
+        <DEPARTAMENTO>MONITORES E PROJETORES                            </DEPARTAMENTO>
+        <CATEGORIA>ACESSÓRIOS                                        </CATEGORIA>
+        <SUBCATEGORIA>BASE PARA MONITORES                               </SUBCATEGORIA>
+        <FABRICANTE>HP</FABRICANTE>
+        <CODIGO>0047889</CODIGO>
+        <DESCRICAO>HP SUPORTE PARA MONITOR - AW664AA#ABA</DESCRICAO>
+        <DESCRTEC>HP SUPORTE PARA MONITOR - AW664AA#ABA</DESCRTEC>
+        <PARTNUMBER>AW664AA#ABA</PARTNUMBER>
+        <EAN>884962381854</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>7.2000</PESOKG>
+        <PRECOREVENDA>1101.6700</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0047889</URLFOTOPRODUTO>
+        <ESTOQUE>RJ</ESTOQUE>
+        <NCM>83025000            </NCM>
+        <LARGURA>0.7000</LARGURA>
+        <ALTURA>0.4400</ALTURA>
+        <PROFUNDIDADE>0.2200</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>2 - ESTRANGEIRA - ADIQ. MERC. INTERNO</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos62" msdata:rowOrder="61">
+        <TIMESTAMP>2016-08-29T11:14:01-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPONENTES E PEÇAS                               </DEPARTAMENTO>
+        <CATEGORIA>PLACAS                                            </CATEGORIA>
+        <SUBCATEGORIA>PLACAS DE VÍDEO                                   </SUBCATEGORIA>
+        <FABRICANTE>ZOTAC</FABRICANTE>
+        <CODIGO>0061784</CODIGO>
+        <DESCRICAO>PLACA DE VIDEO ZOTAC GEFORCE GTX 1060 AMP 6GB DDR5 192BITS - ZT-P10600B-10M</DESCRICAO>
+        <DESCRTEC>.</DESCRTEC>
+        <PARTNUMBER>ZT-P10600B-10M</PARTNUMBER>
+        <EAN>4895173610165</EAN>
+        <GARANTIA>0</GARANTIA>
+        <PESOKG>1.4000</PESOKG>
+        <PRECOREVENDA>1455.5500</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0061784</URLFOTOPRODUTO>
+        <ESTOQUE>SC</ESTOQUE>
+        <NCM>84733043            </NCM>
+        <LARGURA>0.4000</LARGURA>
+        <ALTURA>0.0800</ALTURA>
+        <PROFUNDIDADE>0.2500</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>6 - ESTRANGEIRA - IMP. DIRETA - LISTA CAMEX</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos63" msdata:rowOrder="62">
+        <TIMESTAMP>2016-08-29T10:51:42-03:00</TIMESTAMP>
+        <DEPARTAMENTO>GAMER                                             </DEPARTAMENTO>
+        <CATEGORIA>FONTES GAMER                                      </CATEGORIA>
+        <SUBCATEGORIA>FONTES GAMER FULL MODULAR                         </SUBCATEGORIA>
+        <FABRICANTE>CORSAIR</FABRICANTE>
+        <CODIGO>0044763</CODIGO>
+        <DESCRICAO>FONTE CORSAIR AX1500I (1500 WATTS) 80 PLUS TITANIUM - CP-9020057-WW</DESCRICAO>
+        <DESCRTEC>PRODUTO NÃO ACOMPANHA CABO DE FORÇA.
+
+A melhor fonte de alimentação de PC de entusiasta que você pode ter.
+
+A AX1500i define a tecnologia de ponta para fontes de alimentação de PC de entusiastas. Ela fornece 1500 Watts de alimentação contínua controlada digitalmente – mesmo em circuitos de 115V 15 Amp – e certificação 80 PLUS Titanium com uma classificação incrível de 94% de eficiência.
+
+O Modo de ventoinha RPM Zero garante a operação silenciosa em cargas baixas e médias e o conjunto de cabos totalmente modulares de baixo perfil facilita a instalação e montagens com ótima aparência. A integração do Corsair Link permite que você monitore a utilização e a eficiência de energia e personalize o desempenho, diretamente de seu desktop do Windows. A AX1500i permite que você tenha tudo e é a fonte de alimentação que você deseja para seu PC de desempenho ultraelevado.
+
+Se você está montando sistemas de desempenho de qualidade ultraelevada ou tentando quebrar recordes mundiais de overclocking, você sabe quando até 1200 Watts não são suficientes. A AX1500i fornece confiavelmente 1500 Watts de potência contínua – sem pico – sob demanda. E, você não precisa de nenhuma fiação residencial especial para que isso aconteça.... você receberá 1500 Watts de potência limpa e estável mesmo em circuitos de 115V 15 Amp.
+
+A AX1500i foi projetada em torno de um DSP para eficiência aumentada, regulamentação de tensão mais rígida e especificações elétricas superiores. O design elegante baseado em DSP reduz a quantidade de componentes internos e permite melhor controle de oscilação e ruído elétrico.
+
+Simplificadamente, a AX1500i aproxima-se da eficiência quase perfeita como nenhuma outra fonte de alimentação de PC. Eficiência incrível tem tantos benefícios – não apenas ela reduz seus custos operacionais como também gera menos calor. E isso significa que há menos necessidade de resfriamento, o que diminui o ruído.
+
+De fato, na maioria das vezes, nenhum resfriamento ativo é necessário. A ventoinha simplesmente não roda. E quando você está exigindo muito dela, a ventoinha controlada termicamente ajusta a sua velocidade para corresponder à demanda. A ventoinha personalizada é extra grande, com um diâmetro de 140 mm para baixo ruído mesmo em carga total e usa um rolamento fluidodinâmico para operação silenciosa e confiável.
+
+Conecte a AX1500i a um conector USB na placa-mãe com o cabo incluído e você pode usar o Corsair Link para monitorar a entrada e a saída de energia, a eficiência e a temperatura interna em tempo real. Você pode personalizar a resposta de velocidade da ventoinha e configurar sua AX1500i para operar como uma fonte de alimentação de trilho único ou vários trilhos virtuais com pontos de OCP personalizáveis.
+
+A AX1500i é totalmente modular, o que significa que não há cabos presos permanentemente. Isso simplifica muito a instalação e permite que você use apenas os cabos que precisa, para obter uma montagem mais limpa e organizada. Isso também melhora o desempenho: menos cabos irrelevantes em seu sistema pode reduzir a obstrução do fluxo de ar.
+
+Conteúdo da embalagem:
+Fonte de alimentação AX1500i
+Pacote de cabos modulares
+Bolsa de acessórios com hardware de montagem, braçadeiras para cabos e placa de identificação do gabinete
+Manual
+Cabo de interface do Corsair Link Digital
+Cabo USB do Corsair Link
+Cabo de alimentação CA
+
+Compatibilidade:
+Totalmente compatível com os processadores da série Intel  Core  de 4ª geração
+Em conformidade com os padrões ATX12V v2.4 e EPS 2.92 e é compatível com as versões anteriores dos padrões ATX12V 2.2 e ATX12V 2.01
+
+Recursos:
+
+Processador de sinal digital (DSP) para fornecer energia extremamente limpa e eficiente com ajustes em tempo real
+Integração do Corsair Link  para monitoramento e ajuste das configurações de desempenho, ruído e OCP
+Modo de vários trilhos por padrão que pode ser configurado em um trilho único através do software do Corsair Link
+Uma ventoinha de rolamento fluidodinâmico ultrassilenciosa de 140 mm proporciona excelente fluxo de ar com níveis excepcionalmente baixos de ruído, variando a velocidade da ventoinha em resposta à temperatura
+Certificado com 80 PLUS Titanium, oferecendo eficiência de energia de até 94% em condições de carga real
+Corretor do fator de potência ativo (PFC) com valor de PF de 0,99
+Entrada CA universal de 100 a aproximadamente 240V
+Proteção contra sobrecargas, baixa voltagem, picos de corrente e curto-circuito fornece a máxima segurança para os seus componentes importantes do sistema
+Projetado para atender à saída de energia máxima a uma temperatura de 50 °C em grau de servidor.
+Interruptor autoavaliado para determinar a funcionalidade da PSU mesmo antes da instalação.
+Todos os capacitores japoneses classificados para 105C fornecem desempenho e confiabilidade incondicionais
+Uma garantia de sete anos e acesso vitalício ao suporte técnico e atendimento ao cliente lendários da Corsair
+Aprovações de segurança: cTUVus, TÜV, CCC, CE, RCM, CU, KC Mark, FCC
+
+MTBF 100,000 hours
+80 Plus Titanium
+Energia 1500 Watts
+Modo sem resfriamento Yes
+Tecnologia de rolamento da ventoinha Fluid Dynamic Bearing
+Tamanho da ventoinha (mm) 140mm
+C-Link Digital Yes
+Temperatura de saída contínua avaliada (°C) 50°C
+Conector ATX 150mm x 86mm x 225mm
+Modular Fully
+Cabos revestidos Low-Profile, All Black
+Conector ATX 1
+Conector EPS 2
+Conector de disquete 2
+Conector de periférico com quatro pinos 12
+Conector PCI 10
+Conector SATA 20
+Tipo de conector WW</DESCRTEC>
+        <PARTNUMBER>CP-9020057-WW</PARTNUMBER>
+        <EAN>843591030137</EAN>
+        <GARANTIA>12</GARANTIA>
+        <PESOKG>5.9000</PESOKG>
+        <PRECOREVENDA>1720.0500</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=0044763</URLFOTOPRODUTO>
+        <ESTOQUE>ES</ESTOQUE>
+        <NCM>85044021            </NCM>
+        <LARGURA>0.4500</LARGURA>
+        <ALTURA>0.2200</ALTURA>
+        <PROFUNDIDADE>0.1500</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>0</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>1 - ESTRANGEIRA - IMPORTACAO DIRETA</ORIGEMPRODUTO>
+      </Produtos>
+      <Produtos diffgr:id="Produtos64" msdata:rowOrder="63">
+        <TIMESTAMP>2016-08-29T14:21:30-03:00</TIMESTAMP>
+        <DEPARTAMENTO>COMPUTADORES                                      </DEPARTAMENTO>
+        <CATEGORIA>WORKSTATIONS                                      </CATEGORIA>
+        <SUBCATEGORIA>WORKSTATIONS                                      </SUBCATEGORIA>
+        <FABRICANTE>LENOVO</FABRICANTE>
+        <CODIGO>KIT1532</CODIGO>
+        <DESCRICAO>WORKSTATION LENOVO THINKSTATION E32 E3-1225 V3/2X4 8GB/500GB/QUADRO K600/ WIN8 PRO - 30A1004WBR</DESCRICAO>
+        <DESCRTEC>Marca: Lenovo
+- PN: 30A1004WBR 
+- Modelo: E32 
+- Tipo do Gabinete: Torre 
+- Processador: Intel Xeon E3 1225 V3 3.20G IGFX 
+- Velocidade do Processador: 3.2 GHz 
+- Cache do Processador: 8MB 
+- Chipset: Intel C226 
+- VPRO: Sim 
+- Memória: 8GB ECC(2x4GB), expansível até 32GB ECC 
+- Tipo de Memória: PC3-1600MHZ ECC UDIMM 
+- Slots de Memória: 4x DIMM 240 pinos 
+- Disco Rígido: 500GB 
+- Interface de Disco: SATA 
+- Velocidade de Disco: 7200rpm 
+- Interfaces SATA: 3x SATA 3.0Gb/s 
+- Placa de Rede: Gigabit Ethernet 
+- Placa de Som: Integrado High Definition(HD) Audio 
+- Placa de Vídeo: nVidia Quadro K600 1GB DL DVI + DP 
+- Slot de Vídeo: PCI Express x16 
+- Slots: 2x (PCI Express 2.0 x 1) 
+- Porta Serial: 1 
+- Porta Paralela: Não 
+- Porta USB: 2 x 2.0 + 6 x 3.0 
+- Mouse: USB com fio 
+- Teclado: USB com fio 
+- Mídia Óptica: DVD-RW 
+- Sistema Operacional: Windows 8 Pro 64 bits com Downgrade Win 7 Pro 64 bits (Imagem Win 7) 
+- Garantia: 3 anos on-site 
+- Peso Bruto: 12.5Kg 
+- Dimensões: 175 mm x 431 mmx 425 mm</DESCRTEC>
+        <PARTNUMBER>30A1004WBR</PARTNUMBER>
+        <EAN>888228783192</EAN>
+        <GARANTIA>36</GARANTIA>
+        <PESOKG>8.8000</PESOKG>
+        <PRECOREVENDA>3082.7500</PRECOREVENDA>
+        <DISPONIVEL>0</DISPONIVEL>
+        <URLFOTOPRODUTO>http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&amp;l=246&amp;src=KIT1532</URLFOTOPRODUTO>
+        <ESTOQUE>RJ</ESTOQUE>
+        <NCM>84715010            </NCM>
+        <LARGURA>0.5000</LARGURA>
+        <ALTURA>0.5200</ALTURA>
+        <PROFUNDIDADE>0.3000</PROFUNDIDADE>
+        <ATIVO>0</ATIVO>
+        <SUBSTTRIBUTARIA>1</SUBSTTRIBUTARIA>
+        <ORIGEMPRODUTO>4 - NACIONAL - CONF. PROCESSO PRODUTIVO</ORIGEMPRODUTO>
+      </Produtos>
+    </NewDataSet>
+  </diffgr:diffgram>
+</DataSet>
