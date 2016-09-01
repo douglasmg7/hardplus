@@ -62,8 +62,9 @@ function getDateLastQuery() {
     }
     // Get last query.
     else {
-      // Update last query file to read.
+      // Update last query file.
       lastQuery = new Date((data).trim());
+      console.log(`Last Query read from file: ${lastQuery.toISOString()}`);
       // Make the query.
       reqWS();
     }
@@ -89,22 +90,22 @@ function reqWS() {
   // Request to ws.
   request.get(url, (err, res, body) => {
   	assert.equal(null, err);
+    // Insert to db.
+    dbInsert(body);
     // Write xml result to file.
-    let xmlFile = __dirname + '/' + lastQuery.toISOString() + '.xml';
+    let xmlFile = __dirname + '/' + lastQuery.toISOString() + '--' + now.toISOString() + '.xml';
     fs.writeFile(xmlFile, body, (err)=>{
       assert.equal(null, err);
       console.log(`${xmlFile} saved`);
     });
-    // Insert to db.
-    dbInsert(body);
-    // Update last query.
-    lastQuery = now;
     // Write last query date to file.
     fs.writeFile(LAST_QUERY_FILE, now.toISOString(), (err)=>{
       assert.equal(null, err);
       console.log(`${LAST_QUERY_FILE} saved`);
       console.log(now.toISOString());
     });
+    // Update last query.
+    lastQuery = now;
   });
 }
 
@@ -115,59 +116,55 @@ function dbInsert(xmlData) {
   	assert.equal(null, err);
     // Convert xml to json (cheerio).
   	let $ = cheerio.load(xmlData, {xmlMode: true});
-  	let strProducts = '';
-  	console.time('mountObject');
-  	let products = [];
+    let bulk = db.collection('dealerProducts').initializeUnorderedBulkOp();
+    console.time('mountObject');
+    console.log('products count: ' + $('Produtos').length);
   	$('Produtos').each(function(i, el) {
-  		let product = {};
-  		product.code = ($(el).find('CODIGO').text()).trim();
-  		product.ts = ($(el).find('TIMESTAMP').text()).trim();
-  		product.desc = ($(el).find('DESCRICAO').text()).trim();
-  		product.department = ($(el).find('DEPARTAMENTO').text()).trim();
-  		product.category = ($(el).find('CATEGORIA').text()).trim();
-  		product.subCategory = ($(el).find('SUBCATEGORIA').text()).trim();
-  		product.manufacturer = ($(el).find('FABRICANTE').text()).trim();
-  		product.tecDesc = ($(el).find('DESCRTEC').text()).trim();
-  		// código do fabricante - não usado
-  		product.partNum = ($(el).find('PARTNUMBER').text()).trim();
-  		// refinar pesquisa no google - não usado - código do produto no google
-  		product.ean = ($(el).find('EAN').text()).trim();
-  		product.warranty = ($(el).find('GARANTIA').text()).trim();
-  		product.weight = ($(el).find('PESOKG').text()).trim();
-  		product.price = ($(el).find('PRECOREVENDA').text()).trim();
-  		product.available = ($(el).find('DISPONIVEL').text()).trim();
-  		product.urlImg = ($(el).find('URLFOTOPRODUTO').text()).trim();
-  		// se o produto está disponível
-  		product.stockLocation = ($(el).find('ESTOQUE').text()).trim();
-  		// código de classificação fiscal - irá usar
-  		product.ncm = ($(el).find('NCM').text()).trim();
-  		product.width = ($(el).find('LARGURA').text()).trim();
-  		product.height = ($(el).find('ALTURA').text()).trim();
-  		product.deep = ($(el).find('PROFUNDIDADE').text()).trim();
-  		// não trabalhar com o produto
-  		product.acive = ($(el).find('ATIVO').text()).trim();
-  		// usado junto com o ncm
-  		product.taxReplace = ($(el).find('SUBSTTRIBUTARIA').text()).trim();
-  		// se nacional ou importado
-  		product.origin = ($(el).find('ORIGEMPRODUTO').text()).trim();
-  		products.push(product);
-  		// restrict number of itens
-  		// if (i == 50) {
-  		// 	return false;
-  		// }
+      bulk
+        .find({
+          code: ($(el).find('CODIGO').text()).trim(),
+          stockLocation: ($(el).find('ESTOQUE').text()).trim()
+          })
+        .upsert()
+        .updateOne({
+          code: ($(el).find('CODIGO').text()).trim(),
+          stockLocation: ($(el).find('ESTOQUE').text()).trim(),
+          ts : ($(el).find('TIMESTAMP').text()).trim(),
+          desc: ($(el).find('DESCRICAO').text()).trim(),
+          // Produto ativo para venda.
+          acive: ($(el).find('ATIVO').text()).trim(),
+          available: ($(el).find('DISPONIVEL').text()).trim(),
+          price: ($(el).find('PRECOREVENDA').text()).trim(),
+          tecDesc: ($(el).find('DESCRTEC').text()).trim(),
+          department: ($(el).find('DEPARTAMENTO').text()).trim(),
+          category: ($(el).find('CATEGORIA').text()).trim(),
+          subCategory: ($(el).find('SUBCATEGORIA').text()).trim(),
+          manufacturer: ($(el).find('FABRICANTE').text()).trim(),
+          // Código do fabricante - não usado.
+          partNum: ($(el).find('PARTNUMBER').text()).trim(),
+          // Código de barras.
+          ean: ($(el).find('EAN').text()).trim(),
+          warranty: ($(el).find('GARANTIA').text()).trim(),
+          weight: ($(el).find('PESOKG').text()).trim(),
+          width: ($(el).find('LARGURA').text()).trim(),
+          height: ($(el).find('ALTURA').text()).trim(),
+          deep: ($(el).find('PROFUNDIDADE').text()).trim(),
+          urlImg: ($(el).find('URLFOTOPRODUTO').text()).trim(),
+          // Código de classificação fiscal.
+          ncm: ($(el).find('NCM').text()).trim(),
+          // Usado junto com o ncm.
+          taxReplace: ($(el).find('SUBSTTRIBUTARIA').text()).trim(),
+          // Se o produto é de origem nacional ou exterior.
+          origin: ($(el).find('ORIGEMPRODUTO').text()).trim()
+        });
   	});
   	console.timeEnd('mountObject');
-  	console.log(products[0].code);
-  	console.log(products[0].price);
-  	console.log("product count: " + products.length);
   	console.time('dbInsert');
-  	db.collection('dealerProducts').insertMany(products, (err, r)=>{
-  		assert.equal(null, err);
-  		assert.equal(products.length, r.insertedCount);
-  		console.timeEnd('dbInsert');
-  		// console.log(r);
-  		db.close();
-  	});
+    bulk.execute((err, r)=>{
+      assert.equal(null, err);
+      console.log(r.toJSON());
+      console.timeEnd('dbInsert');
+      db.close();
+    });
   });
-  //
 }

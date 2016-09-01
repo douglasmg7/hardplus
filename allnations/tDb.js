@@ -17,13 +17,14 @@ mongo.connect(mongoUrl, (err, db)=>{
 	assert.equal(null, err);
 
   let products = [];
-  products.push({code: 1, name: 'board', loja: 'sp', price: 111});
-  products.push({code: 2, name: 'mouse', loja: 'sp', price: 222});
+  let t = `board'`;
+  // products.push({code: 1, name: 'board', loja: 'sp', price: 111});
+  // products.push({code: 2, name: 'mouse', loja: 'sp', price: 222});
   // products.push({_id: 3, name: 'memory', price: 44});
 
   let bulk = db.collection('produtct').initializeUnorderedBulkOp();
-  bulk.find({code: '1', loja: 'sp'}).upsert().updateOne({code: '1', loja: 'sp', name: 'mouse', price: '111'});
-  bulk.find({code: '4', loja: 'rj'}).upsert().update({$set: {code: '2', loja: 'ma', price: '223'}});
+  bulk.find({code: '1', loja: 'sp'}).upsert().updateOne({code: '1', loja: 'sp', name: t, price: '111'});
+  bulk.find({code: '2', loja: 'rj'}).upsert().update({$set: {code: '2', loja: 'ma', price: '223'}});
   bulk.find({code: '3', loja: 'sp'}).upsert().updateOne({code: '3', loja: 'sp', name: 'memory', price: '333'});
   bulk.execute((err, r)=>{
     assert.equal(null, err);
