@@ -17,10 +17,11 @@
   },
   "homepage": "https://github.com/douglasmg7/hardplus#readme",
   "dependencies": {
+    "bunyan": "^1.8.1",
     "cheerio": "^0.22.0",
     "mongodb": "^2.2.8",
-    "pixl-xml": "^1.0.7",
     "request": "^2.74.0",
+    "winston": "^2.2.0",
     "xml2js": "^0.4.17"
   }
 }

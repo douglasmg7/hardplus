@@ -3,106 +3,122 @@
 
 'use strict';
 
+const bunyan = require('bunyan');
 const path = require('path');
 const fs = require('fs');
-const request = require('request');
 const assert = require('assert');
+const request = require('request');
 const mongo = require('mongodb').MongoClient;
 const cheerio = require('cheerio');
 
+// Sensitive data.
+const WS_USER = '0014770';
+const WS_PASSWORD = '728626';
+// Not so Sensitive.
+const WS_USER_FAKE = '0000';
+const WS_PASSWORD_FAKE = '0000';
 // Interval(min) to run the script.
 const INTERVAL_RUN_MIN = 1;
 // Interval(min) between querys.
-const INTERVAL_QUERY_MIN = 4;
+const INTERVAL_REQ_MIN = 4;
 // Keep last query time into a file.
-const LAST_QUERY_FILE_NAME = '.last_query';
-const LAST_QUERY_FILE = __dirname + '/' + LAST_QUERY_FILE_NAME;
-// Quering for the first time.
-const BEGIN_QUERY = '2015-01-01T00:00:00.000Z';
+const LAST_REQ_TIME_FILE_NAME = '.last_req';
+const LAST_REQ_TIME_FILE = __dirname + '/' + LAST_REQ_TIME_FILE_NAME;
+// First time request.
+const LAST_REQ_TIME_INIT = '2015-01-01T00:00:00.000Z';
 // Mongodb configuration
 const mongoUrl = 'mongodb://localhost:27017/store';
 // Last query date to use into next query.
 let lastQuery;
 
-// console.log(dtSearch.toISOString());
-// console.log(dtSearch.getTimezoneOffset());
-// 2016-06-01T03:00:00.000Z
-// 2016-08-30T09:00:00-03:00';
+let log = bunyan.createLogger({
+  name: process.title,
+  streams: [
+    {
+      level: 'info',
+      stream: process.stdout
+    },
+    {
+      level: 'info',
+      path: __dirname + '/' + __filename + '.log'
+    }
+  ]
+  // src: true
+});
 
-console.log('Script started');
+log.info('Script started', {run_interval_min: INTERVAL_RUN_MIN, request_interval_min: INTERVAL_REQ_MIN, last_req_time_file: LAST_REQ_TIME_FILE, last_req_time_init: LAST_REQ_TIME_INIT});
+getLastReqDate();
+
 // Run script.
 let timeout = setInterval(()=>{
-  console.log('Running script');
-  // Alredy has the last query time.
-  if (lastQuery) {
-    // Make the query.
-    reqWS(lastQuery);
-  }
-  // Read date of last query from file.
-  else {
-    getDateLastQuery();
-  }
+  log.info('Running script');
+  // Request web service.
+  reqWS(lastQuery);
 }, INTERVAL_RUN_MIN * 60000);
 
-// Read last query time from file.
-function getDateLastQuery() {
-  console.log(`Reading ${LAST_QUERY_FILE}`);
-  // Read file with last query date.
-  fs.readFile(LAST_QUERY_FILE, 'utf8', (err, data)=>{
+// Read last request date from file.
+function getLastReqDate() {
+  log.info(`Reading last request time from file.`);
+  // Read file with last request date.
+  fs.readFile(LAST_REQ_TIME_FILE, 'utf8', (err, data)=>{
     if (err) {
       // No last query file to read.
       if(err.code == 'ENOENT'){
-        lastQuery = new Date(BEGIN_QUERY);
-        console.log('starting query from begin');
+        lastQuery = new Date(LAST_REQ_TIME_INIT);
+        log.info(`No last request time file, using last request time init.`, {last_req_time_init: LAST_REQ_TIME_INIT});
       }
       // No expected error.
       else {
-        throw err;
+        log.err('Error reading last request time from file', {err: err});
+        process.nextTick(process.exit(1));
+        // todo: entry test
       }
     }
     // Get last query.
     else {
       // Update last query file.
       lastQuery = new Date((data).trim());
-      console.log(`Last Query read from file: ${lastQuery.toISOString()}`);
+      log.info(`Gotta last request time from file.`, {last_req_time: lastQuery.toISOString()});
       // Make the query.
       reqWS();
     }
   });
 }
 
-// Make request to web service.
+// Request web service.
 function reqWS() {
   // Elapsed time.
   let now = new Date();
-  console.log(`Last query: ${lastQuery.toISOString()}`);
-  console.log(`Now       : ${now.toISOString()}`);
   let elapsedTimeMin = Math.ceil((now.getTime() - lastQuery.getTime()) / 60000);
-  console.log(`Elapsed time: ${elapsedTimeMin}min`);
   // No time to query.
-  if (elapsedTimeMin < INTERVAL_QUERY_MIN) {
+  if (elapsedTimeMin < INTERVAL_REQ_MIN) {
+    log.info('No elapsed time to make web service request', {last_req_time: lastQuery.toISOString(), now_time: now.toISOString(), elapsed_time_min: elapsedTimeMin});
     return;
   }
-  // Make the query.
-  console.log('making query');
   // let url = 'http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/RetornarListaProdutos?CodigoCliente=0014770&Senha=728626&Data=2016-08-30T09:00:00-03:00';
-  let url = 'http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/RetornarListaProdutos?CodigoCliente=0014770&Senha=728626&Data=' + lastQuery.toISOString();
+  // let url = 'http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/RetornarListaProdutos?CodigoCliente=0014770&Senha=728626&Data=' + lastQuery.toISOString();
+  let url = `http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/RetornarListaProdutos?CodigoCliente=${WS_USER}&Senha=${WS_PASSWORD}&Data=${lastQuery.toISOString()}`;
+  let urlLog = `http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/RetornarListaProdutos?CodigoCliente=${WS_USER_FAKE}&Senha=${WS_PASSWORD_FAKE}&Data=${lastQuery.toISOString()}`;
+  // Make the query.
+  log.info('Making web service request', {last_req_time: lastQuery.toISOString(), now_time: now.toISOString(), elapsed_time_min: elapsedTimeMin, url: urlLog});
   // Request to ws.
   request.get(url, (err, res, body) => {
-  	assert.equal(null, err);
+    if (err) {
+      log.err('Error making web service request', {err: err});
+      return;
+    }
     // Insert to db.
     dbInsert(body);
     // Write xml result to file.
     let xmlFile = __dirname + '/' + lastQuery.toISOString() + '--' + now.toISOString() + '.xml';
     fs.writeFile(xmlFile, body, (err)=>{
       assert.equal(null, err);
-      console.log(`${xmlFile} saved`);
+      log.info('Xml web service response saved to file.', {xml_file: xmlFile});
     });
     // Write last query date to file.
-    fs.writeFile(LAST_QUERY_FILE, now.toISOString(), (err)=>{
+    fs.writeFile(LAST_REQ_TIME_FILE, now.toISOString(), (err)=>{
       assert.equal(null, err);
-      console.log(`${LAST_QUERY_FILE} saved`);
-      console.log(now.toISOString());
+      log.info('Last request time saved to file', {last_req_time: now.toISOString(), last_req_time_file: LAST_REQ_TIME_FILE});
     });
     // Update last query.
     lastQuery = now;
@@ -168,3 +184,7 @@ function dbInsert(xmlData) {
     });
   });
 }
+
+
+// console.log(dtSearch.toISOString());
+// console.log(dtSearch.getTimezoneOffset());
