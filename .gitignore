@@ -1,5 +1,7 @@
 public_html/
 node_modules/
 allnations/*.xml
+allnations/*.log
 allnations/xml/
 allnations/.last_req
+allnations/t.js

@@ -31,6 +31,8 @@ const LAST_REQ_TIME_INIT = '2015-01-01T00:00:00.000Z';
 const mongoUrl = 'mongodb://localhost:27017/store';
 // Last query date to use into next query.
 let lastQuery;
+// Keep timer value.
+let timerAux;
 // Log configuration.
 let log = bunyan.createLogger({
   name: path.parse(__filename).base,
@@ -51,7 +53,7 @@ log.info('Script started', {run_interval_min: INTERVAL_RUN_MIN, request_interval
 // Read last query time from file.
 getLastReqDate();
 // Run script.
-let timeout = setInterval(()=>{
+setInterval(()=>{
   log.info('Running script');
   // Request web service.
   reqWS(lastQuery);
@@ -103,27 +105,30 @@ function reqWS() {
   // Make the query.
   log.info('Making web service request', {last_req_time: lastQuery.toISOString(), now_time: now.toISOString(), elapsed_time_min: elapsedTimeMin, url: urlLog});
   // Request to ws.
+  timer.begin('reqTime');
   request.get(url, (err, res, body) => {
     if (err) {
       log.err('Error making web service request', {err: err});
       return;
     }
+    timerAux = timer.end('reqTime');
+    log.info('Web service request received', {req_duration_ms: timerAux});
     // Insert to db.
     dbInsert(body);
     // Write xml result to file.
     let xmlFile = __dirname + '/' + lastQuery.toISOString() + '--' + now.toISOString() + '.xml';
     fs.writeFile(xmlFile, body, (err)=>{
       if (err)
-        log.err('Error saving xml web service response to file.', {err: err, xml_file: xmlFile});
+        log.err('Error saving xml ws response to file.', {err: err, xml_file: xmlFile});
       else
-        log.info('Saved to file - xml web service response.', {xml_file: xmlFile});
+        log.info('Xml ws reaponse saved to file.', {xml_file: xmlFile});
     // Write last query date to file.
     });
     fs.writeFile(LAST_REQ_TIME_FILE, now.toISOString(), (err)=>{
       if (err)
         log.err('Error saving last request time to file.', {last_req_time: now.toISOString(), last_req_time_file: LAST_REQ_TIME_FILE});
       else
-        log.info('Saved to file - last request time.', {last_req_time: now.toISOString(), last_req_time_file: LAST_REQ_TIME_FILE});
+        log.info('Last request time saved to file.', {last_req_time: now.toISOString(), last_req_time_file: LAST_REQ_TIME_FILE});
     });
     // Update last query.
     lastQuery = now;
@@ -134,12 +139,14 @@ function reqWS() {
 function dbInsert(xmlData) {
   // Connect to mongo.
   mongo.connect(mongoUrl, (err, db)=>{
-  	assert.equal(null, err);
+    if(err){
+      log.err('MongoDb connection error.', {err: err});
+    }
     // Convert xml to json (cheerio).
+    timer.begin('mongoDbBulk');
   	let $ = cheerio.load(xmlData, {xmlMode: true});
     let bulk = db.collection('dealerProducts').initializeUnorderedBulkOp();
-    console.time('mountObject');
-    console.log('products count: ' + $('Produtos').length);
+    log.info('Products received.', {products_count: $('Produtos').length});
   	$('Produtos').each(function(i, el) {
       bulk
         .find({
@@ -179,14 +186,19 @@ function dbInsert(xmlData) {
           origin: ($(el).find('ORIGEMPRODUTO').text()).trim()
         });
   	});
-  	console.timeEnd('mountObject');
-  	console.time('dbInsert');
+    timerAux = timer.end('mongoDbBulk');
+    log.info('MongoDb bulk created.', {spend_time_bulk: timerAux});
+  	timer.begin('dbInsert');
     bulk.execute((err, r)=>{
-      assert.equal(null, err);
-      console.log(r.toJSON());
-      console.timeEnd('dbInsert');
-      db.close();      // err ? log.err('Error saving xml web service response to file.', {err: err, xml_file: xmlFile})
-      //     : log.info('Saved to file - xml web service response.', {xml_file: xmlFile})
+      if(err){
+        log.err('Error inserting products on mongoDb', {err: err});
+      }
+      else{
+        timerAux = timer.end('dbInsert');
+        log.info('MongoDb insert.', {spend_time_mongodb_insert: timerAux});
+        log.trace('MongoDb insert.', {mongodb_insert: r.toJSON()});
+      }
+      db.close();
     });
   });
 }

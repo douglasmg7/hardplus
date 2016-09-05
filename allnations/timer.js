@@ -2,13 +2,13 @@
 'use strict';
 
 let timer = {
-  start (label) {
+  begin (label) {
     this[label] = process.hrtime();
   },
   // n - nanoseconds
   // m - miliseconds
   // s - seconds
-  stop (label, option) {
+  end (label, option) {
     if (this[label]) {
       // Get elapsed time.
       let elapsedTime = process.hrtime(this[label]);
