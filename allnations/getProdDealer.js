@@ -2,7 +2,7 @@
 // maybe lost some data if the two server have diferent time
 
 'use strict';
-
+// npm modules
 const bunyan = require('bunyan');
 const path = require('path');
 const fs = require('fs');
@@ -10,7 +10,8 @@ const assert = require('assert');
 const request = require('request');
 const mongo = require('mongodb').MongoClient;
 const cheerio = require('cheerio');
-
+// personal modules
+const timer = require('./timer.js');
 // Sensitive data.
 const WS_USER = '0014770';
 const WS_PASSWORD = '728626';
@@ -30,9 +31,9 @@ const LAST_REQ_TIME_INIT = '2015-01-01T00:00:00.000Z';
 const mongoUrl = 'mongodb://localhost:27017/store';
 // Last query date to use into next query.
 let lastQuery;
-
+// Log configuration.
 let log = bunyan.createLogger({
-  name: process.title,
+  name: path.parse(__filename).base,
   streams: [
     {
       level: 'info',
@@ -40,15 +41,15 @@ let log = bunyan.createLogger({
     },
     {
       level: 'info',
-      path: __dirname + '/' + __filename + '.log'
+      path: path.parse(__filename).name + '.log'
     }
   ]
   // src: true
 });
 
 log.info('Script started', {run_interval_min: INTERVAL_RUN_MIN, request_interval_min: INTERVAL_REQ_MIN, last_req_time_file: LAST_REQ_TIME_FILE, last_req_time_init: LAST_REQ_TIME_INIT});
+// Read last query time from file.
 getLastReqDate();
-
 // Run script.
 let timeout = setInterval(()=>{
   log.info('Running script');
@@ -65,7 +66,7 @@ function getLastReqDate() {
       // No last query file to read.
       if(err.code == 'ENOENT'){
         lastQuery = new Date(LAST_REQ_TIME_INIT);
-        log.info(`No last request time file, using last request time init.`, {last_req_time_init: LAST_REQ_TIME_INIT});
+        log.warn(`No last request time file, using last request time init.`, {last_req_time_init: LAST_REQ_TIME_INIT});
       }
       // No expected error.
       else {
@@ -112,13 +113,17 @@ function reqWS() {
     // Write xml result to file.
     let xmlFile = __dirname + '/' + lastQuery.toISOString() + '--' + now.toISOString() + '.xml';
     fs.writeFile(xmlFile, body, (err)=>{
-      assert.equal(null, err);
-      log.info('Xml web service response saved to file.', {xml_file: xmlFile});
-    });
+      if (err)
+        log.err('Error saving xml web service response to file.', {err: err, xml_file: xmlFile});
+      else
+        log.info('Saved to file - xml web service response.', {xml_file: xmlFile});
     // Write last query date to file.
+    });
     fs.writeFile(LAST_REQ_TIME_FILE, now.toISOString(), (err)=>{
-      assert.equal(null, err);
-      log.info('Last request time saved to file', {last_req_time: now.toISOString(), last_req_time_file: LAST_REQ_TIME_FILE});
+      if (err)
+        log.err('Error saving last request time to file.', {last_req_time: now.toISOString(), last_req_time_file: LAST_REQ_TIME_FILE});
+      else
+        log.info('Saved to file - last request time.', {last_req_time: now.toISOString(), last_req_time_file: LAST_REQ_TIME_FILE});
     });
     // Update last query.
     lastQuery = now;
@@ -180,7 +185,8 @@ function dbInsert(xmlData) {
       assert.equal(null, err);
       console.log(r.toJSON());
       console.timeEnd('dbInsert');
-      db.close();
+      db.close();      // err ? log.err('Error saving xml web service response to file.', {err: err, xml_file: xmlFile})
+      //     : log.info('Saved to file - xml web service response.', {xml_file: xmlFile})
     });
   });
 }
