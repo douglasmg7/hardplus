@@ -5,3 +5,4 @@ allnations/*.log
 allnations/xml/
 allnations/.last_req
 allnations/t.js
+server/*.log
