@@ -8,7 +8,7 @@ var mongo = require('./model/db');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var allnation = require('./routes/allnation');
+var allnations = require('./routes/allnations');
 
 var app = express();
 
@@ -23,10 +23,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/allnation', allnation);
+app.use('/allnations', allnations);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
