@@ -1,9 +1,8 @@
-// 'use strict';
+'use strict';
 
 // var $ = require('jquery');
 // var Backbone = require('backbone');
 // Backbone.$ = $;
-
 
 // $("ul").append("<li>Test</li>");
 $(function () {
@@ -58,8 +57,10 @@ var ProductView = Backbone.View.extend({
     this.render();
   },
   tagName: 'li',
+  template: template_1,
+  // template: _.template("<p>Code: <%= code %>, Desc: <%= desc %></p>"),
   render: function(){
     console.log(this.model.get('code'));
-    this.$el.html(this.model.get('code'));
+    this.$el.html(this.template(this.model.toJSON()));
   }
 });

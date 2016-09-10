@@ -1,4 +1,4 @@
 {
 	  "verbose": true,
-	  "ignore": ["public/js/allnations.js"]
+	  "ignore": ["public/js/allnations.jss"]
 }
