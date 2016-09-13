@@ -18,6 +18,11 @@
     "jquery": "^3.1.0",
     "mongodb": "^2.2.9",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "vue": "^1.0.26",
+    "vue-resource": "^1.0.1"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.2"
   }
 }
