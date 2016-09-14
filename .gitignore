@@ -8,3 +8,4 @@ allnations/t.js
 server/*.log
 server/node_modules/
 server/bower_components/
+server/public/js/bundle*

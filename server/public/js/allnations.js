@@ -1,9 +1,8 @@
 /* globals  */
 'use strict';
+
 let vue = require('vue');
 let vueResource = require('vue-resource');
-// let products = vue.$resource('/allnations/');
-// let product = vue.$resource('/allnations/:id');
 
 vue.use(vueResource);
 
