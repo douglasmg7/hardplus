@@ -32,7 +32,8 @@ vue.use(vueResource);
       this.$http.get('/allnations/')
         .then((res)=>{
           this.products = res.body;
-          console.log(res);
+          // console.log(res);
+          // console.log(typeof res.body[0].available);
         })
         .catch((err)=>{
           console.log(err);
