@@ -2,18 +2,42 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Allnations</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Allnations Produtos</title>
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" charset="utf-8">
 </head>
 <body>
-  <div id="products">
-      <p> {{test}} </p>
-      <!-- <p> {{product.code}} - {{product.desc}}</p> -->
-      <ul>
-        <li v-for='product in products'>
-          {{$index}} - {{product.code}} - {{product.desc}}
-        </li>
-      </ul>
-  </div>
+  <div id="products" class="container-fluid">
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8">
+        <h3 class="text-center text-capitalize">Allnations produtos</h3>
+      </div>
+      <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-10">
+        <table class="table table-condensed table-hover">
+          <tr>
+            <th class="text-capitalize">item</th>
+            <th class="text-capitalize">codigo</th>
+            <th class="text-capitalize">descricao</th>
+          </tr>
+          <tr v-for='product in products'=>
+            <td>{{$index}}</td>
+            <td>{{product.code}}</td>
+            <td>{{product.desc}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-xs-1"></div>
+    </div>
+  </div><!-- container -->
 </body>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="js/bundle.js"></script>
+
 </html>

@@ -1,4 +1,7 @@
 {
 	  "verbose": true,
-	  "ignore": ["public/js/allnations.jss"]
+	  "ignore": [
+		"public/js/allnations.js",
+		"public/*.html"
+	  ]
 }

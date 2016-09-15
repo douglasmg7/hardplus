@@ -1,0 +1,5 @@
+desc
+preço
+quantidade em estoque
+
+filtro - mostra o mais barato
