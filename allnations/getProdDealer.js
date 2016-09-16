@@ -6,7 +6,6 @@
 const bunyan = require('bunyan');
 const path = require('path');
 const fs = require('fs');
-const assert = require('assert');
 const request = require('request');
 const mongo = require('mongodb').MongoClient;
 const cheerio = require('cheerio');
@@ -144,15 +143,14 @@ function dbInsert(xmlData) {
     }
     // Convert xml to json (cheerio).
     timer.begin('mongoDbBulk');
-  	let $ = cheerio.load(xmlData, {xmlMode: true});
+    let $ = cheerio.load(xmlData, {xmlMode: true});
     let bulk = db.collection('dealerProducts').initializeUnorderedBulkOp();
     log.info('Products received.', {products_count: $('Produtos').length});
-  	$('Produtos').each(function(i, el) {
+    $('Produtos').each(function(i, el) {
       bulk
         .find({
           code: ($(el).find('CODIGO').text()).trim(),
-          stockLocation: ($(el).find('ESTOQUE').text()).trim()
-          })
+          stockLocation: ($(el).find('ESTOQUE').text()).trim()})
         .upsert()
         .updateOne({
           code: ($(el).find('CODIGO').text()).trim(),
@@ -163,6 +161,8 @@ function dbInsert(xmlData) {
           acive: ($(el).find('ATIVO').text()).trim(),
           available: ($(el).find('DISPONIVEL').text()).trim(),
           price: ($(el).find('PRECOREVENDA').text()).trim(),
+          // converted to number
+          priceNum: parseFloat(($(el).find('PRECOREVENDA').text()).trim()),
           tecDesc: ($(el).find('DESCRTEC').text()).trim(),
           department: ($(el).find('DEPARTAMENTO').text()).trim(),
           category: ($(el).find('CATEGORIA').text()).trim(),
@@ -185,10 +185,10 @@ function dbInsert(xmlData) {
           // Se o produto é de origem nacional ou exterior.
           origin: ($(el).find('ORIGEMPRODUTO').text()).trim()
         });
-  	});
+    });
     timerAux = timer.end('mongoDbBulk');
     log.info('MongoDb bulk created.', {spend_time_bulk: timerAux});
-  	timer.begin('dbInsert');
+    timer.begin('dbInsert');
     bulk.execute((err, r)=>{
       if(err){
         log.err('Error inserting products on mongoDb', {err: err});

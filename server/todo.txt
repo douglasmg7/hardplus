@@ -1,5 +1,12 @@
-desc
-preço
-quantidade em estoque
+save atom configuration on git
+
+mostrar as seguintes colunas
+  desc
+  preço
+  quantidade em estoque
 
 filtro - mostra o mais barato
+  quando produtos iguais
+
+key f
+  focus in search box

@@ -17,19 +17,26 @@
       <div class="col-xs-2"></div>
     </div>
     <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8">
+        <input v-model="filName">
+      </div>
+      <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
       <div class="col-xs-1"></div>
       <div class="col-xs-10">
         <table class="table table-condensed">
           <tr>
             <th class="text-capitalize">id</th>
-            <th class="text-capitalize">descrição</th>
-            <th class="text-capitalize text-right">preço</th>
-            <th class="text-capitalize text-right">disponível</th>
+            <th @click="selectColOrder('desc')" class="text-capitalize">descrição</th>
+            <th @click="selectColOrder('priceNum')" class="text-capitalize text-right">preço</th>
+            <th @click="selectColOrder('available')" class="text-capitalize text-right">disponível</th>
           </tr>
-          <tr v-for="product in products | filterBy '1' in 'available'">
+          <tr v-for="product in products | orderBy orderCol order | filterBy '1' in 'available' | filterBy filName in 'desc' 'price'">
             <td>{{$index + 1}}</td>
             <td>{{product.desc}}</td>
-            <td class="text-right">{{product.price | currency}}</td>
+            <td class="text-right">{{product.priceNum | currency}}</td>
             <td class="text-right">{{product.available}}</td>
           </tr>
         </table>

@@ -13,7 +13,9 @@ vue.use(vueResource);
     data: {
       test: 'Start',
       product: {},
-      products: []
+      products: [],
+      orderCol: 'desc',
+      order: 1
     },
 
     created() {
@@ -41,12 +43,29 @@ vue.use(vueResource);
     },
 
     watch: {
+      // orderCol: function(val, oldVal){
+      //   if (true) {
+      //
+      //   }
+      // }
     },
 
     computed: {
     },
 
     methods: {
+      // select which col to order
+      selectColOrder: function (col) {
+        // same col, change cres/decr
+        if (col === this.orderCol) {
+          this.order = this.order * -1;
+        }
+        // change col to order
+        else {
+          this.orderCol = col;
+          this.order = 1;
+        }
+      }
     },
 
     directives: {

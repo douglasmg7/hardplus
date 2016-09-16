@@ -5,7 +5,7 @@ const router = express.Router();
 const mongo = require('../model/db');
 
 router.get('/', function(req, res) {
-  mongo.db.collection('dealerProducts').find().limit(100).toArray((err, r)=>{
+  mongo.db.collection('dealerProducts').find().limit(200).toArray((err, r)=>{
     if(err){
       console.log('Error getting data');
     }
