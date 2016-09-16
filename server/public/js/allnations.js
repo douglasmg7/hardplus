@@ -13,9 +13,12 @@ vue.use(vueResource);
     data: {
       test: 'Start',
       product: {},
-      products: [],
+      products: [
+        {desc:''}
+      ],
       orderCol: 'desc',
-      order: 1
+      order: 1,
+      filterName: ''
     },
 
     created() {

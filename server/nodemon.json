@@ -2,6 +2,7 @@
 	  "verbose": true,
 	  "ignore": [
 		"public/js/allnations.js",
-		"public/*.html"
+		"public/*.html",
+		"public/css/*
 	  ]
 }

@@ -7,6 +7,3 @@ mostrar as seguintes colunas
 
 filtro - mostra o mais barato
   quando produtos iguais
-
-key f
-  focus in search box

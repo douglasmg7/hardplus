@@ -6,34 +6,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Allnations Produtos</title>
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" charset="utf-8">
+  <link rel="stylesheet" href="/css/allnations.css" charset="utf-8">
 </head>
-<body>
-  <div id="products" class="container-fluid">
+<body  id="products" >
+
+  <!-- navigation -->
+  <nav class="navbar navbar-default navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Allnations</a>
+    </div><!-- .navbar-header  -->
+    <div id="navbar" class="navbar-collapse collapse">
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <button class="form-control btn btn-info" data-toggle="modal" data-target="#prd-info" type="button">open modal</button>
+          <input v-model="filterName" type="text" class="form-control">
+        </div>
+      </form>
+    </div><!-- .navbar-collapse -->
+  </div>
+  </nav>
+  <!-- navigation -->
+
+  <!-- content -->
+  <div class="container">
     <div class="row">
-      <div class="col-xs-2"></div>
-      <div class="col-xs-8">
-        <h3 class="text-center text-capitalize">Allnations produtos</h3>
-      </div>
-      <div class="col-xs-2"></div>
-    </div>
-    <div class="row">
-      <div class="col-xs-2"></div>
-      <div class="col-xs-8">
-        <input v-model="filName">
-      </div>
-      <div class="col-xs-2"></div>
-    </div>
-    <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-10">
+      <div class="col-xs-12">
         <table class="table table-condensed">
           <tr>
             <th class="text-capitalize">id</th>
-            <th @click="selectColOrder('desc')" class="text-capitalize">descrição</th>
-            <th @click="selectColOrder('priceNum')" class="text-capitalize text-right">preço</th>
-            <th @click="selectColOrder('available')" class="text-capitalize text-right">disponível</th>
+            <th @click="selectColOrder('desc')" class="text-capitalize sortable">descrição</th>
+            <th @click="selectColOrder('priceNum')" class="text-capitalize text-right sortable">preço</th>
+            <th @click="selectColOrder('available')" class="text-capitalize text-right sortable">disponível</th>
           </tr>
-          <tr v-for="product in products | orderBy orderCol order | filterBy '1' in 'available' | filterBy filName in 'desc' 'price'">
+          <!-- <tr v-for="product in products | orderBy orderCol order | filterBy '1' in 'available' | filterBy filterName in 'desc' 'price'"> -->
+          <tr v-for="product in products | orderBy orderCol order | filterBy filterName in 'desc' 'price'">
             <td>{{$index + 1}}</td>
             <td>{{product.desc}}</td>
             <td class="text-right">{{product.priceNum | currency}}</td>
@@ -41,9 +54,76 @@
           </tr>
         </table>
       </div>
-      <div class="col-xs-1"></div>
     </div>
   </div><!-- container -->
+  <!-- content -->
+
+  <!-- modal -->
+  <div id="prd-info" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">{{products[0].desc}}</h4>
+        </div>
+        <div class="modal-body">
+          <dl class="">
+            <dt>Código</dt>
+            <dd>{{products[0].code}}</dd>
+            <dt>Localização</dt>
+            <dd>{{products[0].stockLocation}}</dd>
+            <dt>Última atualização</dt>
+            <dd>{{products[0].ts}}</dd>
+            <dt>Ativo</dt>
+            <dd>{{products[0].acive}}</dd>
+            <dt>Disponibilidade</dt>
+            <dd>{{products[0].available}}</dd>
+            <dt>Preço</dt>
+            <dd>{{products[0].priceNum | price}}</dd>
+            <dd>{{products[0].price | price}}</dd>
+            <dt>Descrição</dt>
+            <dd>{{products[0].tecDesc}}</dd>
+            <dt>Departamento</dt>
+            <dd>{{products[0].department}}</dd>
+            <dt>Categoria</dt>
+            <dd>{{products[0].category}}</dd>
+            <dt>Sub-categoria</dt>
+            <dd>{{products[0].subCategory}}</dd>
+            <dt>Fabricante</dt>
+            <dd>{{products[0].manufacturer}}</dd>
+            <dt>Número do produto</dt>
+            <dd>{{products[0].partNum}}</dd>
+            <dt>EAN</dt>
+            <dd>{{products[0].ean}}</dd>
+            <dt>Garantia</dt>
+            <dd>{{products[0].warranty}}</dd>
+            <dt>Peso</dt>
+            <dd>{{products[0].weight}}</dd>
+            <dt>Largura</dt>
+            <dd>{{products[0].width}}</dd>
+            <dt>Altura</dt>
+            <dd>{{products[0].height}}</dd>
+            <dt>Profundidade</dt>
+            <dd>{{products[0].deep}}</dd>
+            <dt>Image</dt>
+            <dd>{{products[0].urlImg}}</dd>
+            <dt>NCM</dt>
+            <dd>{{products[0].ncm}}</dd>
+            <dt>Imposto</dt>
+            <dd>{{products[0].taxReplace}}</dd>
+            <dt>Origem</dt>
+            <dd>{{products[0].origin}}</dd>
+          </dl>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  <!-- modal -->
+
 </body>
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
