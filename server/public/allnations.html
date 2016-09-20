@@ -25,7 +25,6 @@
     <div id="navbar" class="navbar-collapse collapse">
       <form class="navbar-form navbar-right">
         <div class="form-group">
-          <button @click="resetPicId()" class="form-control btn btn-info" data-toggle="modal" data-target="#prd-info" type="button">open modal</button>
           <input v-model="filterName" type="text" class="form-control">
         </div>
       </form>
@@ -41,15 +40,15 @@
         <table class="table table-condensed">
           <tr>
             <th class="text-capitalize">id</th>
-            <th @click="selectColOrder('desc')" class="text-capitalize sortable">descrição</th>
-            <th @click="selectColOrder('priceNum')" class="text-capitalize text-right sortable">preço</th>
-            <th @click="selectColOrder('active')" class="text-capitalize text-right sortable">ativo</th>
-            <th @click="selectColOrder('available')" class="text-capitalize text-right sortable">disponibilidade</th>
+            <th @click="selectColOrder('desc')" class="text-capitalize clickable">descrição</th>
+            <th @click="selectColOrder('priceNum')" class="text-capitalize text-right clickable">preço</th>
+            <th @click="selectColOrder('active')" class="text-capitalize text-right clickable">ativo</th>
+            <th @click="selectColOrder('available')" class="text-capitalize text-right clickable">disponibilidade</th>
           </tr>
           <!-- <tr v-for="product in products | orderBy orderCol order | filterBy '1' in 'available' | filterBy filterName in 'desc' 'currency'"> -->
           <tr v-for="product in products | orderBy orderCol order | filterBy filterName in 'desc'">
             <td>{{$index + 1}}</td>
-            <td>{{product.desc}}</td>
+            <td @click="openInfo($event)" v-bind:data-code="product.code" class="clickable" data-toggle="modal" data-target="#prd-info">{{product.desc}}</td>
             <td class="text-right">{{product.price | currency}}</td>
             <td class="text-right">{{product.active ? 'Ativo' : 'Inativo'}}</td>
             <td class="text-right">{{product.available ? 'Disponível' : 'Indisponível'}}</td>
@@ -66,59 +65,59 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">{{products[0].desc}}</h4>
+          <h4 class="modal-title">{{productInfo.desc}}</h4>
         </div>
         <div class="modal-body">
           <dl class="dl-horizontal">
             <dt>Código</dt>
-            <dd>{{products[0].code}}</dd>
+            <dd>{{productInfo.code}}</dd>
             <dt>Localização</dt>
-            <dd>{{products[0].stockLocation}}</dd>
+            <dd>{{productInfo.stockLocation}}</dd>
             <dt>Última atualização</dt>
-            <dd>{{products[0].ts}}</dd>
+            <dd>{{productInfo.ts}}</dd>
             <dt>Ativo</dt>
-            <dd>{{products[0].active ? 'Ativo' : 'Inativo'}}</dd>
+            <dd>{{productInfo.active ? 'Ativo' : 'Inativo'}}</dd>
             <dt>Disponibilidade</dt>
-            <dd>{{products[0].available ? 'Disponível' : 'Indisponível'}}</dd>
+            <dd>{{productInfo.available ? 'Disponível' : 'Indisponível'}}</dd>
             <dt>Preço</dt>
-            <dd>{{products[0].price | currency}}</dd>
+            <dd>{{productInfo.price | currency}}</dd>
             <dt>Descrição</dt>
-            <dd>{{products[0].tecDesc}}</dd>
+            <dd>{{productInfo.tecDesc}}</dd>
             <dt>Departamento</dt>
-            <dd>{{products[0].department}}</dd>
+            <dd>{{productInfo.department}}</dd>
             <dt>Categoria</dt>
-            <dd>{{products[0].category}}</dd>
+            <dd>{{productInfo.category}}</dd>
             <dt>Sub-categoria</dt>
-            <dd>{{products[0].subCategory}}</dd>
+            <dd>{{productInfo.subCategory}}</dd>
             <dt>Fabricante</dt>
-            <dd>{{products[0].manufacturer}}</dd>
+            <dd>{{productInfo.manufacturer}}</dd>
             <dt>Número do produto</dt>
-            <dd>{{products[0].partNum}}</dd>
+            <dd>{{productInfo.partNum}}</dd>
             <dt>EAN</dt>
-            <dd>{{products[0].ean}}</dd>
+            <dd>{{productInfo.ean}}</dd>
             <dt>Garantia</dt>
-            <dd>{{products[0].warranty}} {{products[0].warranty | pluralize 'mes' 'meses'}}</dd>
+            <dd>{{productInfo.warranty}} {{productInfo.warranty | pluralize 'mes' 'meses'}}</dd>
             <dt>Peso</dt>
-            <dd>{{products[0].weight}}kg</dd>
+            <dd>{{productInfo.weight}}kg</dd>
             <dt>Largura</dt>
-            <dd>{{products[0].width}}cm</dd>
+            <dd>{{productInfo.width}}cm</dd>
             <dt>Altura</dt>
-            <dd>{{products[0].height}}cm</dd>
+            <dd>{{productInfo.height}}cm</dd>
             <dt>Profundidade</dt>
-            <dd>{{products[0].deep}}cm</dd>
+            <dd>{{productInfo.deep}}cm</dd>
             <dt>Imagem</dt>
-            <dd><img @click="changePic()" v-bind:src="products[0].urlImg + '-0' + picId" v-bind:alt="products[0].desc" /></dd>
+            <dd><img @click="changePic()" v-bind:src="productInfo.urlImg + '-0' + picId" v-bind:alt="productInfo.desc" /></dd>
             <dt>NCM</dt>
-            <dd>{{products[0].ncm}}</dd>
+            <dd>{{productInfo.ncm}}</dd>
             <dt>Imposto</dt>
-            <dd>{{products[0].taxReplace ? 'Incide ICMS ST' : 'Não incide ICMS ST'}}</dd>
+            <dd>{{productInfo.taxReplace ? 'Incide ICMS ST' : 'Não incide ICMS ST'}}</dd>
             <dt>Origem</dt>
-            <dd>{{products[0].origin}}</dd>
+            <dd>{{productInfo.origin}}</dd>
           </dl>
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Comercializar</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

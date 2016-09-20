@@ -2,6 +2,6 @@
   padding-top: 70px;
 }*/
 
-th.sortable {
+th.clickable, td.clickable {
    cursor: pointer;
 }

@@ -11,15 +11,19 @@ vue.use(vueResource);
     el: '#products',
 
     data: {
-      test: 'Start',
-      product: {},
+      // product: {},
+      // All products.
       products: [
         {desc:''}
       ],
+      productInfo: {},
+      // Which column to order.
       orderCol: 'desc',
+      // Crescent o decrescent order.
       order: 1,
+      // Used by the text filter.
       filterName: '',
-      // each produtc can have one o more pictures url
+      // Each produtc can have one o more pictures url.
       picId: 1
     },
 
@@ -60,10 +64,11 @@ vue.use(vueResource);
 
     methods: {
       // select which col to order
-      selectColOrder: function (col) {
+      selectColOrder(col){
         // same col, change cres/decr
         if (col === this.orderCol) {
           this.order = this.order * -1;
+          console.log(this.order);
         }
         // change col to order
         else {
@@ -71,17 +76,26 @@ vue.use(vueResource);
           this.order = 1;
         }
       },
-      // got to next picture url.
+      // Get next picture url.
       changePic(){
         this.picId++;
         // max picId.
         if (this.picId > 5) {
           this.picId = 1;
         }
+        // console.log(this.picId);
       },
-      // point to the first picture url.
-      resetPicId(){
-        this.picId=1;
+      // Open modal product info.
+      openInfo(event){
+        // Reset picture url number.
+        this.picId = 1;
+        // Get product from array.
+        this.productInfo = this.products.find(function(o){return o.code === event.target.dataset.code;});
+        // console.log(`code: ${this.productInfo.code}\ndesc: ${this.productInfo.desc}`);
+      },
+      // Start to comercialize the product.
+      setMarket(){
+        // Save to bd.
       }
     },
 
