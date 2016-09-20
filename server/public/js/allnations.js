@@ -18,7 +18,9 @@ vue.use(vueResource);
       ],
       orderCol: 'desc',
       order: 1,
-      filterName: ''
+      filterName: '',
+      // each produtc can have one o more pictures url
+      picId: 1
     },
 
     created() {
@@ -68,6 +70,18 @@ vue.use(vueResource);
           this.orderCol = col;
           this.order = 1;
         }
+      },
+      // got to next picture url.
+      changePic(){
+        this.picId++;
+        // max picId.
+        if (this.picId > 5) {
+          this.picId = 1;
+        }
+      },
+      // point to the first picture url.
+      resetPicId(){
+        this.picId=1;
       }
     },
 

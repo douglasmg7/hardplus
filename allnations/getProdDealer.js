@@ -24,6 +24,8 @@ const INTERVAL_REQ_MIN = 4;
 // Keep last query time into a file.
 const LAST_REQ_TIME_FILE_NAME = '.last_req';
 const LAST_REQ_TIME_FILE = __dirname + '/' + LAST_REQ_TIME_FILE_NAME;
+// dir to save xml files
+const XML_DIR = __dirname + '/xml/'
 // First time request.
 const LAST_REQ_TIME_INIT = '2015-01-01T00:00:00.000Z';
 // Mongodb configuration
@@ -106,8 +108,7 @@ function reqWS() {
   // Request to ws.
   timer.begin('reqTime');
   request.get(url, (err, res, body) => {
-    if (err) {
-      log.err('Error making web service request', {err: err});
+    if (err) {      log.err('Error making web service request', {err: err});
       return;
     }
     timerAux = timer.end('reqTime');
@@ -115,7 +116,7 @@ function reqWS() {
     // Insert to db.
     dbInsert(body);
     // Write xml result to file.
-    let xmlFile = __dirname + '/' + lastQuery.toISOString() + '--' + now.toISOString() + '.xml';
+    let xmlFile = XML_DIR + lastQuery.toISOString() + '--' + now.toISOString() + '.xml';
     fs.writeFile(xmlFile, body, (err)=>{
       if (err)
         log.err('Error saving xml ws response to file.', {err: err, xml_file: xmlFile});
@@ -153,16 +154,20 @@ function dbInsert(xmlData) {
           stockLocation: ($(el).find('ESTOQUE').text()).trim()})
         .upsert()
         .updateOne({
+          // código do produto
           code: ($(el).find('CODIGO').text()).trim(),
+          // localização em que se encotra o produto
           stockLocation: ($(el).find('ESTOQUE').text()).trim(),
-          ts : ($(el).find('TIMESTAMP').text()).trim(),
+          // data da última atualização do produto
+          ts : new Date(($(el).find('TIMESTAMP').text()).trim()),
+          // descrição do produto
           desc: ($(el).find('DESCRICAO').text()).trim(),
           // Produto ativo para venda.
-          acive: ($(el).find('ATIVO').text()).trim(),
-          available: ($(el).find('DISPONIVEL').text()).trim(),
-          price: ($(el).find('PRECOREVENDA').text()).trim(),
-          // converted to number
-          priceNum: parseFloat(($(el).find('PRECOREVENDA').text()).trim()),
+          // 0-não ativo, 1-ativo
+          active: parseInt(($(el).find('ATIVO').text()).trim()),
+          // 0-indisponível, 1-disponível
+          available: parseInt(($(el).find('DISPONIVEL').text()).trim()),
+          price: parseFloat(($(el).find('PRECOREVENDA').text()).trim()),
           tecDesc: ($(el).find('DESCRTEC').text()).trim(),
           department: ($(el).find('DEPARTAMENTO').text()).trim(),
           category: ($(el).find('CATEGORIA').text()).trim(),
@@ -172,16 +177,22 @@ function dbInsert(xmlData) {
           partNum: ($(el).find('PARTNUMBER').text()).trim(),
           // Código de barras.
           ean: ($(el).find('EAN').text()).trim(),
-          warranty: ($(el).find('GARANTIA').text()).trim(),
-          weight: ($(el).find('PESOKG').text()).trim(),
-          width: ($(el).find('LARGURA').text()).trim(),
-          height: ($(el).find('ALTURA').text()).trim(),
-          deep: ($(el).find('PROFUNDIDADE').text()).trim(),
+          // garantia em meses
+          warranty: parseInt(($(el).find('GARANTIA').text()).trim()),
+          // peso em kg
+          weight: parseFloat(($(el).find('PESOKG').text()).trim()),
+          // largura em centímetros
+          width: parseFloat(($(el).find('LARGURA').text()).trim()),
+          // altura em centímetros
+          height: parseFloat(($(el).find('ALTURA').text()).trim()),
+          // profundidade em centímetros
+          deep: parseFloat(($(el).find('PROFUNDIDADE').text()).trim()),
           urlImg: ($(el).find('URLFOTOPRODUTO').text()).trim(),
           // Código de classificação fiscal.
           ncm: ($(el).find('NCM').text()).trim(),
           // Usado junto com o ncm.
-          taxReplace: ($(el).find('SUBSTTRIBUTARIA').text()).trim(),
+          //  0-não incide ICMS ST, 1-Incide ICMS ST
+          taxReplace: parseInt(($(el).find('SUBSTTRIBUTARIA').text()).trim()),
           // Se o produto é de origem nacional ou exterior.
           origin: ($(el).find('ORIGEMPRODUTO').text()).trim()
         });
