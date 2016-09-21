@@ -106,7 +106,7 @@
             <dt>Profundidade</dt>
             <dd>{{productInfo.deep}}cm</dd>
             <dt>Imagem</dt>
-            <dd><img @click="changePic()" v-bind:src="productInfo.urlImg + '-0' + picId" v-bind:alt="productInfo.desc" /></dd>
+            <dd><img v-if="productInfo.urlImg" @click="changePic()" v-bind:src="productInfo.urlImg + '-0' + picId" v-bind:alt="productInfo.desc" /></dd>
             <dt>NCM</dt>
             <dd>{{productInfo.ncm}}</dd>
             <dt>Imposto</dt>
@@ -116,7 +116,7 @@
           </dl>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Comercializar</button>
+          <button @click="updateMarket(productInfo._id, true)" type="button" class="btn btn-primary">Comercializar</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div><!-- /.modal-content -->

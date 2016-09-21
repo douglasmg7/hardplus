@@ -28,18 +28,6 @@ vue.use(vueResource);
     },
 
     created() {
-      // this.$http.get('/allnations/8')
-      //   .then((res)=>{
-      //     // this.test = res.body.code;
-      //     // this.products.code = res.body.code;
-      //     // this.products.desc = res.body.desc;
-      //     this.products = res.body;
-      //     console.log(res);
-      //   })
-      //   .catch((err)=>{
-      //     console.log(err);
-      //   });
-
       this.$http.get('/allnations/')
         .then((res)=>{
           this.products = res.body;
@@ -93,9 +81,23 @@ vue.use(vueResource);
         this.productInfo = this.products.find(function(o){return o.code === event.target.dataset.code;});
         // console.log(`code: ${this.productInfo.code}\ndesc: ${this.productInfo.desc}`);
       },
-      // Start to comercialize the product.
-      setMarket(){
-        // Save to bd.
+      // Update product comercialization.
+      updateMarket(_id, val){
+        // console.log(`_id: ${_id}, val: ${val}`);
+        this.$http.put(`/allnations/${_id}`, {'market': val})
+          .then((res)=>{
+            // Not could process params.
+            if (res.body.err) {
+              alert(`erro: ${res.body.err}`);
+            }
+            // this.products = res.body;
+            console.log(res.body);
+            // console.log(typeof res.body[0].available);
+          })
+          .catch((err)=>{
+            alert(`error: ${JSON.stringify(err)}`);
+            console.log(`err: ${JSON.stringify(err)}`);
+          });
       }
     },
 
