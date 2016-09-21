@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" charset="utf-8">
   <link rel="stylesheet" href="/css/allnations.css" charset="utf-8">
 </head>
-<body  id="products" >
+<body  id="products">
+<!-- <body  id="products" :class="[t2, t1]"> -->
 
   <!-- navigation -->
   <nav class="navbar navbar-default navbar-static-top">
@@ -34,7 +35,7 @@
   <!-- navigation -->
 
   <!-- content -->
-  <div class="container">
+  <div class="container"
     <div class="row">
       <div class="col-xs-12">
         <table class="table table-condensed">
@@ -46,7 +47,9 @@
             <th @click="selectColOrder('available')" class="text-capitalize text-right clickable">disponibilidade</th>
           </tr>
           <!-- <tr v-for="product in products | orderBy orderCol order | filterBy '1' in 'available' | filterBy filterName in 'desc' 'currency'"> -->
-          <tr v-for="product in products | orderBy orderCol order | filterBy filterName in 'desc'">
+          <tr
+            v-for="product in products | orderBy orderCol order | filterBy filterName in 'desc'"
+            :class.sync="product.market">
             <td>{{$index + 1}}</td>
             <td @click="openInfo($event)" v-bind:data-code="product.code" class="clickable" data-toggle="modal" data-target="#prd-info">{{product.desc}}</td>
             <td class="text-right">{{product.price | currency}}</td>
@@ -116,7 +119,8 @@
           </dl>
         </div>
         <div class="modal-footer">
-          <button @click="updateMarket(productInfo._id, true)" type="button" class="btn btn-primary">Comercializar</button>
+          <button @click="updateMarket(productInfo._id, 'no-market')" type="button" class="btn btn-primary">Não-Comercializar</button>
+          <button @click="updateMarket(productInfo._id, 'market')" type="button" class="btn btn-primary">Comercializar</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div><!-- /.modal-content -->

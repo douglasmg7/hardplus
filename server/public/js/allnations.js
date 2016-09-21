@@ -90,6 +90,15 @@ vue.use(vueResource);
             if (res.body.err) {
               alert(`erro: ${res.body.err}`);
             }
+            // Data modifed.
+            else if (res.body.modifiedCount && (res.body.modifiedCount > 0)){
+              // Update product.
+              this.products.find(function(o){return o._id === _id;}).market = val;
+              console.log(`update - ${_id} - ${val}`);
+            }
+            else {
+              alert(`Não foi possível fazer a alteração.`);
+            }
             // this.products = res.body;
             console.log(res.body);
             // console.log(typeof res.body[0].available);
@@ -98,6 +107,14 @@ vue.use(vueResource);
             alert(`error: ${JSON.stringify(err)}`);
             console.log(`err: ${JSON.stringify(err)}`);
           });
+      },
+      //
+      setTrClassPorduct(event){
+        // Reset picture url number.
+        this.picId = 1;
+        // Get product from array.
+        this.productInfo = this.products.find(function(o){return o.code === event.target.dataset.code;});
+        // console.log(`code: ${this.productInfo.code}\ndesc: ${this.productInfo.desc}`);
       }
     },
 
