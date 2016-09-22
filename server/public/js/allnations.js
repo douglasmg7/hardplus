@@ -94,13 +94,13 @@ vue.use(vueResource);
             else if (res.body.modifiedCount && (res.body.modifiedCount > 0)){
               // Update product.
               this.products.find(function(o){return o._id === _id;}).market = val;
-              console.log(`update - ${_id} - ${val}`);
+              // console.log(`update - ${_id} - ${val}`);
             }
             else {
               alert(`Não foi possível fazer a alteração.`);
             }
             // this.products = res.body;
-            console.log(res.body);
+            // console.log(res.body);
             // console.log(typeof res.body[0].available);
           })
           .catch((err)=>{

@@ -1,0 +1,16 @@
+xml - RetornarListaProdutos
+versão antiga
+http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/RetornarListaProdutos?CodigoCliente=0014770&Senha=728626&Data=2016-09-21T11:46:11.687Z
+
+
+xml - RetornarListaProdutos
+http://wspub.allnations.com.br/wsIntEstoqueClientesV2/ServicoReservasPedidosExt.asmx/RetornarListaProdutos?CodigoCliente=0014770&Senha=728626&Data=2016-09-21T11:46:11.687Z
+
+xml - RetornarListaProdutosEstoque (mais completa)
+http://wspub.allnations.com.br/wsIntEstoqueClientesV2/ServicoReservasPedidosExt.asmx/RetornarListaProdutosEstoque?CodigoCliente=0014770&Senha=728626&Data=2016-09-21T11:46:11.687Z
+
+json - RetornarListaProdutos
+http://wspub.allnations.com.br/wsIntEstoqueClientesV2/ServicoReservasPedidosExt.asmx/RetornarListaProdutosJson?CodigoCliente=0014770&Senha=728626&Data=2016-09-21T11:46:11.687Z
+
+xml - RetornarListaProdutosEstoque (mais completa)
+não existe o serviço

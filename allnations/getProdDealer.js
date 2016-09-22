@@ -25,7 +25,7 @@ const INTERVAL_REQ_MIN = 4;
 const LAST_REQ_TIME_FILE_NAME = '.last_req';
 const LAST_REQ_TIME_FILE = __dirname + '/' + LAST_REQ_TIME_FILE_NAME;
 // dir to save xml files
-const XML_DIR = __dirname + '/xml/'
+const XML_DIR = __dirname + '/xml/';
 // First time request.
 const LAST_REQ_TIME_INIT = '2015-01-01T00:00:00.000Z';
 // Mongodb configuration
@@ -43,7 +43,7 @@ let log = bunyan.createLogger({
       stream: process.stdout
     },
     {
-      level: 'info',
+      level: 'trace',
       path: path.parse(__filename).name + '.log'
     }
   ]
@@ -207,8 +207,28 @@ function dbInsert(xmlData) {
       else{
         timerAux = timer.end('dbInsert');
         log.info('MongoDb insert.', {spend_time_mongodb_insert: timerAux});
-        log.trace('MongoDb insert.', {mongodb_insert: r.toJSON()});
+        log.debug('MongoDb insert.', {mongodb_insert: r.toJSON()});
       }
+
+      // db.collection('dealerProducts').updateMany(
+      //   {market: {$exists: false}},
+      //   {$set: {market: 'no-market'}}, (err, r)=>{
+      //
+      //   });
+
+      // Include field market.
+      timer.begin('dbUpdate');
+      db.collection('dealerProducts').updateMany(
+        {market: {$exists: false}},
+        {$set: {market: 'no-market'}})
+        .then(r=>{
+          timerAux = timer.end('dbUpdate');
+          log.info('MongoDb update.', {spend_time_mongodb_update: timerAux});
+          log.debug('MongoDb update.', {mongodb_update: r.toJSON()});
+        })
+        .catch(err=>{
+          log.err('Error updating products.market on mongoDb', {err: err});
+        });
       db.close();
     });
   });

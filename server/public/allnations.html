@@ -119,8 +119,16 @@
           </dl>
         </div>
         <div class="modal-footer">
-          <button @click="updateMarket(productInfo._id, 'no-market')" type="button" class="btn btn-primary">Não-Comercializar</button>
-          <button @click="updateMarket(productInfo._id, 'market')" type="button" class="btn btn-primary">Comercializar</button>
+          <button
+            v-if="productInfo.market === 'no-market'"
+            @click="updateMarket(productInfo._id, 'market')"
+            type="button"
+            class="btn btn-success">Comercializar</button>
+          <button
+            v-if="productInfo.market === 'market'"
+            @click="updateMarket(productInfo._id, 'no-market')"
+            type="button"
+            class="btn btn-warning">Não-Comercializar</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div><!-- /.modal-content -->

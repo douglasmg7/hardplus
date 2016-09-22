@@ -5,6 +5,7 @@ allnations/*.log
 allnations/xml/
 allnations/.last_req
 allnations/t.js
+allnations/doc/.*
 server/*.log
 server/node_modules/
 server/bower_components/

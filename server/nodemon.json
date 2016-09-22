@@ -3,6 +3,6 @@
 	  "ignore": [
 		"public/js/allnations.js",
 		"public/*.html",
-		"public/css/*
+		"public/css/*"
 	  ]
 }

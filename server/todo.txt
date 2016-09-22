@@ -5,6 +5,8 @@ mostrar as seguintes colunas
   preço
   quantidade em estoque
 
+mudar ws para a versão 2
+
 filtro - mostra o mais barato
   quando produtos iguais
 
@@ -12,6 +14,10 @@ filtro - mostra o mais barato
 erros
   meses for 0 na garantia
   no descrescent sort for price and the others colums
+
+atualizar sublime
+
+
 
 
   v-bind:class="product.market ? 'market' : null"

@@ -6,7 +6,8 @@ th.clickable, td.clickable {
    cursor: pointer;
 }
 tr.market {
-  background-color: #D9EDF7;
+  background-color: #bdffbd;
+  /*background-color: #D9EDF7;*/
 }
 td.market-in {
   background-color: #DFF0D8;
