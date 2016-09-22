@@ -1,5 +1,9 @@
 save atom configuration on git
 
+remover senhas do servidor
+
+implementar unit test
+
 mostrar as seguintes colunas
   desc
   preço
