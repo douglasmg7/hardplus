@@ -101,8 +101,11 @@ function reqWS() {
   }
   // let url = 'http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/RetornarListaProdutos?CodigoCliente=0014770&Senha=728626&Data=2016-08-30T09:00:00-03:00';
   // let url = 'http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/RetornarListaProdutos?CodigoCliente=0014770&Senha=728626&Data=' + lastQuery.toISOString();
-  let url = `http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/RetornarListaProdutos?CodigoCliente=${WS_USER}&Senha=${WS_PASSWORD}&Data=${lastQuery.toISOString()}`;
-  let urlLog = `http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/RetornarListaProdutos?CodigoCliente=${WS_USER_FAKE}&Senha=${WS_PASSWORD_FAKE}&Data=${lastQuery.toISOString()}`;
+  // let url = `http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/RetornarListaProdutos?CodigoCliente=${WS_USER}&Senha=${WS_PASSWORD}&Data=${lastQuery.toISOString()}`;
+  // let urlLog = `http://wspub.allnations.com.br/wsIntEstoqueClientes/ServicoReservasPedidosExt.asmx/RetornarListaProdutos?CodigoCliente=${WS_USER_FAKE}&Senha=${WS_PASSWORD_FAKE}&Data=${lastQuery.toISOString()}`;
+  let url = `http://wspub.allnations.com.br/wsIntEstoqueClientesV2/ServicoReservasPedidosExt.asmx/RetornarListaProdutosEstoque?CodigoCliente=${WS_USER}&Senha=${WS_PASSWORD}&Data=${lastQuery.toISOString()}`;
+  let urlLog = `http://wspub.allnations.com.br/wsIntEstoqueClientesV2/ServicoReservasPedidosExt.asmx/RetornarListaProdutosEstoque?CodigoCliente=${WS_USER_FAKE}&Senha=${WS_PASSWORD_FAKE}&Data=${lastQuery.toISOString()}`;
+
   // Make the query.
   log.info('Making web service request', {last_req_time: lastQuery.toISOString(), now_time: now.toISOString(), elapsed_time_min: elapsedTimeMin, url: urlLog});
   // Request to ws.
@@ -154,47 +157,59 @@ function dbInsert(xmlData) {
           stockLocation: ($(el).find('ESTOQUE').text()).trim()})
         .upsert()
         .updateOne({
-          // código do produto
-          code: ($(el).find('CODIGO').text()).trim(),
-          // localização em que se encotra o produto
-          stockLocation: ($(el).find('ESTOQUE').text()).trim(),
-          // data da última atualização do produto
+          // Data da última atualização do produto
           ts : new Date(($(el).find('TIMESTAMP').text()).trim()),
-          // descrição do produto
-          desc: ($(el).find('DESCRICAO').text()).trim(),
-          // Produto ativo para venda.
-          // 0-não ativo, 1-ativo
-          active: parseInt(($(el).find('ATIVO').text()).trim()),
-          // 0-indisponível, 1-disponível
-          available: parseInt(($(el).find('DISPONIVEL').text()).trim()),
-          price: parseFloat(($(el).find('PRECOREVENDA').text()).trim()),
-          tecDesc: ($(el).find('DESCRTEC').text()).trim(),
+          // Departamento do produto.
           department: ($(el).find('DEPARTAMENTO').text()).trim(),
+          // Categoria do produto.
           category: ($(el).find('CATEGORIA').text()).trim(),
+          // Sub-categoria do produto.
           subCategory: ($(el).find('SUBCATEGORIA').text()).trim(),
+          // Fabricante do produto.
           manufacturer: ($(el).find('FABRICANTE').text()).trim(),
+          // Identificador do produto.
+          code: ($(el).find('CODIGO').text()).trim(),
+          // Descrição do produto.
+          desc: ($(el).find('DESCRICAO').text()).trim(),
+          // Descrição técnica do produto.
+          tecDesc: ($(el).find('DESCRTEC').text()).trim(),
           // Código do fabricante - não usado.
           partNum: ($(el).find('PARTNUMBER').text()).trim(),
           // Código de barras.
           ean: ($(el).find('EAN').text()).trim(),
-          // garantia em meses
+          // Garantia em meses.
           warranty: parseInt(($(el).find('GARANTIA').text()).trim()),
-          // peso em kg
+          // Peso (kg).
           weight: parseFloat(($(el).find('PESOKG').text()).trim()),
-          // largura em centímetros
-          width: parseFloat(($(el).find('LARGURA').text()).trim()),
-          // altura em centímetros
-          height: parseFloat(($(el).find('ALTURA').text()).trim()),
-          // profundidade em centímetros
-          deep: parseFloat(($(el).find('PROFUNDIDADE').text()).trim()),
+          // Preço praticado pela All Nations para revenda.
+          price: parseFloat(($(el).find('PRECOREVENDA').text()).trim()),
+          // Preço praticado pela All Nations para revenda sem ST.
+          priceNoST: parseFloat(($(el).find('PRECOSEMST').text()).trim()),
+          // Situação do produto.
+          // 0-indisponível no momento, 1-disponível.
+          available: parseInt(($(el).find('DISPONIVEL').text()).trim()),
+          // Caminho para a imagem do produto no site da All Nations.
           urlImg: ($(el).find('URLFOTOPRODUTO').text()).trim(),
+          // Estoque de origem do produto (RJ, SC e ES).
+          stockLocation: ($(el).find('ESTOQUE').text()).trim(),
           // Código de classificação fiscal.
           ncm: ($(el).find('NCM').text()).trim(),
-          // Usado junto com o ncm.
-          //  0-não incide ICMS ST, 1-Incide ICMS ST
+          // Largura em centímetros
+          width: parseFloat(($(el).find('LARGURA').text()).trim()),
+          // Altura em centímetros
+          height: parseFloat(($(el).find('ALTURA').text()).trim()),
+          // Profundidade em centímetros
+          deep: parseFloat(($(el).find('PROFUNDIDADE').text()).trim()),
+          // Produto ativo para venda.
+          // 0-não ativo, 1-ativo.
+          active: parseInt(($(el).find('ATIVO').text()).trim()),
+          // Indica se incide ICMS ST sobre o produto.
+          //  0-não incide ICMS ST, 1-Incide ICMS ST.
           taxReplace: parseInt(($(el).find('SUBSTTRIBUTARIA').text()).trim()),
-          // Se o produto é de origem nacional ou exterior.
-          origin: ($(el).find('ORIGEMPRODUTO').text()).trim()
+          // Indica a origem do produto (nacional, importado, adquirido no mercado interno, entre outros).
+          origin: ($(el).find('ORIGEMPRODUTO').text()).trim(),
+          // Estoque disponível no momento da consulta (max = 100);
+          stockQtd: parseFloat(($(el).find('ESTOQUEDISPONIVEL').text()).trim())
         });
     });
     timerAux = timer.end('mongoDbBulk');
@@ -209,13 +224,6 @@ function dbInsert(xmlData) {
         log.info('MongoDb insert.', {spend_time_mongodb_insert: timerAux});
         log.debug('MongoDb insert.', {mongodb_insert: r.toJSON()});
       }
-
-      // db.collection('dealerProducts').updateMany(
-      //   {market: {$exists: false}},
-      //   {$set: {market: 'no-market'}}, (err, r)=>{
-      //
-      //   });
-
       // Include field market.
       timer.begin('dbUpdate');
       db.collection('dealerProducts').updateMany(
@@ -233,7 +241,3 @@ function dbInsert(xmlData) {
     });
   });
 }
-
-
-// console.log(dtSearch.toISOString());
-// console.log(dtSearch.getTimezoneOffset());

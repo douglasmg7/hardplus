@@ -40,21 +40,23 @@
       <div class="col-xs-12">
         <table class="table table-condensed">
           <tr>
-            <th class="text-capitalize">id</th>
+            <!-- <th class="text-capitalize">id</th> -->
             <th @click="selectColOrder('desc')" class="text-capitalize clickable">descrição</th>
+            <th @click="selectColOrder('stockQtd')" class="text-capitalize clickable">estoque</th>
             <th @click="selectColOrder('priceNum')" class="text-capitalize text-right clickable">preço</th>
-            <th @click="selectColOrder('active')" class="text-capitalize text-right clickable">ativo</th>
-            <th @click="selectColOrder('available')" class="text-capitalize text-right clickable">disponibilidade</th>
+            <!-- <th @click="selectColOrder('active')" class="text-capitalize text-right clickable">ativo</th> -->
+            <th @click="selectColOrder('available')" class="text-capitalize text-right clickable">disp.</th>
           </tr>
           <!-- <tr v-for="product in products | orderBy orderCol order | filterBy '1' in 'available' | filterBy filterName in 'desc' 'currency'"> -->
           <tr
             v-for="product in products | orderBy orderCol order | filterBy filterName in 'desc'"
             :class.sync="product.market">
-            <td>{{$index + 1}}</td>
+            <!-- <td>{{$index + 1}}</td> -->
             <td @click="openInfo($event)" v-bind:data-code="product.code" class="clickable" data-toggle="modal" data-target="#prd-info">{{product.desc}}</td>
+            <td class="text-right">{{product.stockQtd}}</td>
             <td class="text-right">{{product.price | currency}}</td>
-            <td class="text-right">{{product.active ? 'Ativo' : 'Inativo'}}</td>
-            <td class="text-right">{{product.available ? 'Disponível' : 'Indisponível'}}</td>
+            <!-- <td class="text-right">{{product.active ? 'Ativo' : 'Inativo'}}</td> -->
+            <td class="text-right">{{product.available && product.active ? 'Sim' : 'Não'}}</td>
           </tr>
         </table>
       </div>

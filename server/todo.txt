@@ -21,7 +21,8 @@ erros
 
 atualizar sublime
 
+duvidas
+  ativo e disponível, dão na mesma?
 
-
-
-  v-bind:class="product.market ? 'market' : null"
+fica vermelho
+  market && (indisponível ou menos que um).
