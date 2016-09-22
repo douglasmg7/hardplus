@@ -5,16 +5,11 @@
 th.clickable, td.clickable {
    cursor: pointer;
 }
+/*comercialized but not available or not active*/
 tr.market {
-  background-color: #bdffbd;
-  /*background-color: #D9EDF7;*/
-}
-td.market-in {
-  background-color: #DFF0D8;
-}
-td.market-off {
-  background-color: #FCF8E3;
-}
-td.market-out {
   background-color: #F2DEDE;
+}
+/*comercialized and available and active*/
+tr.market.available-prd.active-prd.stock-prd {
+  background-color: #bdffbd;
 }

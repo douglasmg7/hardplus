@@ -50,7 +50,11 @@
           <!-- <tr v-for="product in products | orderBy orderCol order | filterBy '1' in 'available' | filterBy filterName in 'desc' 'currency'"> -->
           <tr
             v-for="product in products | orderBy orderCol order | filterBy filterName in 'desc'"
-            :class.sync="product.market">
+            :class="{
+              'market': product.market === 'market',
+              'available-prd': product.available,
+              'active-prd': product.active,
+              'stock-prd': product.stockQtd > 1 }">
             <!-- <td>{{$index + 1}}</td> -->
             <td @click="openInfo($event)" v-bind:data-code="product.code" class="clickable" data-toggle="modal" data-target="#prd-info">{{product.desc}}</td>
             <td class="text-right">{{product.stockQtd}}</td>

@@ -26,3 +26,8 @@ duvidas
 
 fica vermelho
   market && (indisponível ou menos que um).
+
+
+
+  :class="product.market === 'market' && product.available && product.active ? 'market' : ''"
+  
