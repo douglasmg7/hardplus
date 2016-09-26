@@ -70,6 +70,8 @@ function getLastReqDate() {
       if(err.code == 'ENOENT'){
         lastQuery = new Date(LAST_REQ_TIME_INIT);
         log.warn(`No last request time file, using last request time init.`, {last_req_time_init: LAST_REQ_TIME_INIT});
+        // Make the query.
+        reqWS();
       }
       // No expected error.
       else {
@@ -224,11 +226,11 @@ function dbInsert(xmlData) {
         log.info('MongoDb insert.', {spend_time_mongodb_insert: timerAux});
         log.debug('MongoDb insert.', {mongodb_insert: r.toJSON()});
       }
-      // Include field market.
+      // Include fields market and idStore.
       timer.begin('dbUpdate');
       db.collection('dealerProducts').updateMany(
         {market: {$exists: false}},
-        {$set: {market: 'no-market'}})
+        {$set: {market: 'no-market', idStore: ''}})
         .then(r=>{
           timerAux = timer.end('dbUpdate');
           log.info('MongoDb update.', {spend_time_mongodb_update: timerAux});

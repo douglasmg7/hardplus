@@ -44,8 +44,8 @@
             <th @click="selectColOrder('desc')" class="text-capitalize clickable">descrição</th>
             <th @click="selectColOrder('stockQtd')" class="text-capitalize clickable">estoque</th>
             <th @click="selectColOrder('priceNum')" class="text-capitalize text-right clickable">preço</th>
-            <!-- <th @click="selectColOrder('active')" class="text-capitalize text-right clickable">ativo</th> -->
-            <th @click="selectColOrder('available')" class="text-capitalize text-right clickable">disp.</th>
+            <th @click="selectColOrder('available')" class="text-capitalize text-right clickable">disp</th>
+            <th @click="selectColOrder('code-store')" class="text-capitalize text-right clickable">Loja</th>
           </tr>
           <!-- <tr v-for="product in products | orderBy orderCol order | filterBy '1' in 'available' | filterBy filterName in 'desc' 'currency'"> -->
           <tr
@@ -59,8 +59,8 @@
             <td @click="openInfo($event)" v-bind:data-code="product.code" class="clickable" data-toggle="modal" data-target="#prd-info">{{product.desc}}</td>
             <td class="text-right">{{product.stockQtd}}</td>
             <td class="text-right">{{product.price | currency}}</td>
-            <!-- <td class="text-right">{{product.active ? 'Ativo' : 'Inativo'}}</td> -->
             <td class="text-right">{{product.available && product.active ? 'Sim' : 'Não'}}</td>
+            <td class="text-right">{{product.idStore ? product.idStore : ''}}</td>
           </tr>
         </table>
       </div>
@@ -124,18 +124,53 @@
             <dd>{{productInfo.origin}}</dd>
           </dl>
         </div>
-        <div class="modal-footer">
-          <button
-            v-if="productInfo.market === 'no-market'"
-            @click="updateMarket(productInfo._id, 'market')"
-            type="button"
-            class="btn btn-success">Comercializar</button>
-          <button
-            v-if="productInfo.market === 'market'"
-            @click="updateMarket(productInfo._id, 'no-market')"
-            type="button"
-            class="btn btn-warning">Não-Comercializar</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div class="modal-footer form-inline">
+          <div class="row">
+            <div class="col-xs-6">
+              <!-- Comercialize -->
+              <div class="form-group"
+                v-if="productInfo.market === 'no-market'">
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <button
+                      @click="updateMarket(productInfo._id, 'market')"
+                      class="btn btn-success"
+                      type="button">Comercializar</button>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Hardplus Id">
+                </div>
+              </div>
+              <!-- Change id -->
+              <div class="form-group"
+                v-if="productInfo.market === 'market'">
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <button
+                      @click="changeIdReference()"
+                      class="btn btn-success"
+                      type="button">Alterar Id</button>
+                  </span>
+                  <input v-model="productInfo.idStore" type="text" class="form-control" placeholder="Id produto loja">
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-xs-2">
+            </div> -->
+            <div class="col-xs-6">
+              <!-- Not comercializer -->
+              <div class="form-group"
+                v-if="productInfo.market === 'market'">
+                <button
+                  @click="updateMarket(productInfo._id, 'no-market')"
+                  type="button"
+                  class="btn btn-warning">Não-Comercializar</button>
+              </div>
+              <!-- close -->
+              <div class="form-group">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

@@ -68,7 +68,7 @@ vue.use(vueResource);
       changePic(){
         this.picId++;
         // max picId.
-        if (this.picId > 5) {
+        if (this.picId > 6) {
           this.picId = 1;
         }
         // console.log(this.picId);
@@ -108,7 +108,11 @@ vue.use(vueResource);
             console.log(`err: ${JSON.stringify(err)}`);
           });
       },
-      //
+      // Change id that product reference to.
+      changeIdReference(){
+        alert(`change id to: ${this.productInfo.idStore}`);
+      },
+      // Update current product table row selectioned.
       setTrClassPorduct(event){
         // Reset picture url number.
         this.picId = 1;
