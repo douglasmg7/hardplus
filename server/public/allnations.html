@@ -133,24 +133,24 @@
                 <div class="input-group">
                   <span class="input-group-btn">
                     <button
-                      @click="updateMarket(productInfo._id, 'market')"
+                      @click="updateProductMarket(productInfo._id, 'market')"
                       class="btn btn-success"
                       type="button">Comercializar</button>
                   </span>
                   <input type="text" class="form-control" placeholder="Hardplus Id">
                 </div>
               </div>
-              <!-- Change id -->
+              <!-- Change id to reference -->
               <div class="form-group"
                 v-if="productInfo.market === 'market'">
                 <div class="input-group">
                   <span class="input-group-btn">
                     <button
-                      @click="changeIdReference()"
+                      @click="updateProductId()"
                       class="btn btn-success"
                       type="button">Alterar Id</button>
                   </span>
-                  <input v-model="productInfo.idStore" type="text" class="form-control" placeholder="Id produto loja">
+                  <input id="inputIdStore" value="{{productInfo.idStore}}" type="text" class="form-control" placeholder="Id produto loja">
                 </div>
               </div>
             </div>
@@ -161,7 +161,7 @@
               <div class="form-group"
                 v-if="productInfo.market === 'market'">
                 <button
-                  @click="updateMarket(productInfo._id, 'no-market')"
+                  @click="updateProductMarket(productInfo._id, 'no-market')"
                   type="button"
                   class="btn btn-warning">Não-Comercializar</button>
               </div>

@@ -82,7 +82,7 @@ vue.use(vueResource);
         // console.log(`code: ${this.productInfo.code}\ndesc: ${this.productInfo.desc}`);
       },
       // Update product comercialization.
-      updateMarket(_id, val){
+      updateProductMarket(_id, val){
         // console.log(`_id: ${_id}, val: ${val}`);
         this.$http.put(`/allnations/${_id}`, {'market': val})
           .then((res)=>{
@@ -109,8 +109,37 @@ vue.use(vueResource);
           });
       },
       // Change id that product reference to.
-      changeIdReference(){
-        alert(`change id to: ${this.productInfo.idStore}`);
+      updateProductId(){
+        let _id = this.productInfo._id;
+        let val = document.getElementById("inputIdStore").value;
+        // console.log(`_id: ${_id}, val: ${val}`);
+        this.$http.put(`/allnations/${_id}`, {'idStore': val})
+          .then((res)=>{
+            // Not could process params.
+            if (res.body.err) {
+              alert(`erro: ${res.body.err}`);
+            }
+            // Data modifed.
+            else if (res.body.modifiedCount && (res.body.modifiedCount > 0)){
+              // Update product id to reference.
+              let prod = this.products.find(function(o){return o._id === _id;});
+              console.log(`product id: ${prod._id}`);
+              console.log(`product desc: ${prod.desc}`);
+              console.log(`product idStore: ${prod._idStore}`);
+              this.products.find(function(o){return o._id === _id;}).idStore = val;
+              console.log(`update - ${_id} - ${val}`);
+            }
+            else {
+              alert(`Não foi possível fazer a alteração.`);
+            }
+            // this.products = res.body;
+            // console.log(res.body);
+            // console.log(typeof res.body[0].available);
+          })
+          .catch((err)=>{
+            alert(`error: ${JSON.stringify(err)}`);
+            console.log(`err: ${JSON.stringify(err)}`);
+          });
       },
       // Update current product table row selectioned.
       setTrClassPorduct(event){
