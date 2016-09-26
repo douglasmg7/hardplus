@@ -1,0 +1,14 @@
+code-hardplus
+name
+description - resume
+picture - 0
+sub - description
+manufacter
+Warranty
+weight
+lenth
+width
+deep
+price
+site (product description)
+list of dealer products
