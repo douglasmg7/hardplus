@@ -230,7 +230,7 @@ function dbInsert(xmlData) {
       timer.begin('dbUpdate');
       db.collection('dealerProducts').updateMany(
         {market: {$exists: false}},
-        {$set: {market: 'no-market', idStore: ''}})
+        {$set: {market: false, idStore: ''}})
         .then(r=>{
           timerAux = timer.end('dbUpdate');
           log.info('MongoDb update.', {spend_time_mongodb_update: timerAux});

@@ -24,7 +24,8 @@ vue.use(vueResource);
       // Used by the text filter.
       filterName: '',
       // Each produtc can have one o more pictures url.
-      picId: 1
+      picId: 1,
+      inputChangIdStore: ''
     },
 
     created() {
@@ -79,12 +80,27 @@ vue.use(vueResource);
         this.picId = 1;
         // Get product from array.
         this.productInfo = this.products.find(function(o){return o.code === event.target.dataset.code;});
-        // console.log(`code: ${this.productInfo.code}\ndesc: ${this.productInfo.desc}`);
+        // Set input value.
+        this.inputChangIdStore = this.productInfo.idStore;
+      },
+      setCommercialize(product, commercialize, idStore){
+        commercialize = commercialize ? true: false;
+        idStore = idStore || '';
+        console.log(`product _id: ${product._id}`);
+        console.log(`commercialize: ${commercialize}`);
+        console.log(`idStore: ${idStore}`);
+        this.setProductMarket(product, commercialize);
+        if (idStore) {
+          this.setProductIdStore(product, idStore);
+        }
       },
       // Update product comercialization.
-      updateProductMarket(_id, val){
-        // console.log(`_id: ${_id}, val: ${val}`);
-        this.$http.put(`/allnations/${_id}`, {'market': val})
+      setProductMarket(product, commercialize){
+        commercialize = commercialize ? true: false;
+        console.log('setProductMarket');
+        console.log(`product _id: ${product._id}`);
+        console.log(`commercialize: ${commercialize}`);
+        this.$http.put(`/allnations/${product._id}`, {'market': commercialize})
           .then((res)=>{
             // Not could process params.
             if (res.body.err) {
@@ -93,61 +109,42 @@ vue.use(vueResource);
             // Data modifed.
             else if (res.body.modifiedCount && (res.body.modifiedCount > 0)){
               // Update product.
-              this.products.find(function(o){return o._id === _id;}).market = val;
+              product.market = commercialize;
+              // this.products.find(function(o){return o._id === _id;}).market = val;
               // console.log(`update - ${_id} - ${val}`);
             }
             else {
-              alert(`Não foi possível fazer a alteração.`);
+              alert(`Não foi possível fazer a alteração da comerialização.`);
             }
-            // this.products = res.body;
-            // console.log(res.body);
-            // console.log(typeof res.body[0].available);
           })
           .catch((err)=>{
             alert(`error: ${JSON.stringify(err)}`);
             console.log(`err: ${JSON.stringify(err)}`);
           });
       },
-      // Change id that product reference to.
-      updateProductId(){
-        let _id = this.productInfo._id;
-        let val = document.getElementById("inputIdStore").value;
-        // console.log(`_id: ${_id}, val: ${val}`);
-        this.$http.put(`/allnations/${_id}`, {'idStore': val})
+      // Change id that product to refere.
+      setProductIdStore(product, idStore){
+        idStore = idStore || '';
+        this.$http.put(`/allnations/${product._id}`, {'idStore': idStore})
           .then((res)=>{
             // Not could process params.
             if (res.body.err) {
               alert(`erro: ${res.body.err}`);
             }
+
             // Data modifed.
             else if (res.body.modifiedCount && (res.body.modifiedCount > 0)){
               // Update product id to reference.
-              let prod = this.products.find(function(o){return o._id === _id;});
-              console.log(`product id: ${prod._id}`);
-              console.log(`product desc: ${prod.desc}`);
-              console.log(`product idStore: ${prod._idStore}`);
-              this.products.find(function(o){return o._id === _id;}).idStore = val;
-              console.log(`update - ${_id} - ${val}`);
+              // this.products.find(function(o){return o._id === _id;}).idStore = idStore;
+              product.idStore = idStore;
             }
             else {
-              alert(`Não foi possível fazer a alteração.`);
+              alert(`Não foi possível fazer a alteração do Id.`);
             }
-            // this.products = res.body;
-            // console.log(res.body);
-            // console.log(typeof res.body[0].available);
           })
           .catch((err)=>{
             alert(`error: ${JSON.stringify(err)}`);
-            console.log(`err: ${JSON.stringify(err)}`);
           });
-      },
-      // Update current product table row selectioned.
-      setTrClassPorduct(event){
-        // Reset picture url number.
-        this.picId = 1;
-        // Get product from array.
-        this.productInfo = this.products.find(function(o){return o.code === event.target.dataset.code;});
-        // console.log(`code: ${this.productInfo.code}\ndesc: ${this.productInfo.desc}`);
       }
     },
 

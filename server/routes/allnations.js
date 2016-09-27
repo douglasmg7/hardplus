@@ -27,11 +27,11 @@ router.get('/:id', function(req, res) {
 
 // Update a product.
 router.put('/:id', function(req, res) {
-  // console.log(req.body);
+  // console.log(`id: ${req.params.id}, body: ${req.body}`);
   // console.log(req.body.market);
   // Update product market.
-  if (req.body.market) {
-    console.log(`mongo - id: ${req.params.id}`);
+  if (req.body.market !== undefined) {
+    console.log(`id: ${req.params.id}, market: ${req.body.market}`);
     mongo.db.collection('dealerProducts').updateOne({_id: new ObjectId(req.params.id)}, {$set: {market: req.body.market}}, (err, r)=>{
       if(err){
         console.log('Error getting data');
@@ -46,11 +46,10 @@ router.put('/:id', function(req, res) {
       });
     });
     // res.json({'market update': req.body.market});
-
   }
   // Update product id to referece.
-  else if (req.body.idStore) {
-    console.log(`mongo - id: ${req.params.id}`);
+  else if (req.body.idStore !== undefined) {
+    console.log(`id: ${req.params.id}, idStore: ${req.body.idStore}`);
     mongo.db.collection('dealerProducts').updateOne({_id: new ObjectId(req.params.id)}, {$set: {idStore: req.body.idStore}}, (err, r)=>{
       if(err){
         console.log(`Error updating idStore from product. _id: ${req.params.id}, idStore: ${req.body.idStore}`);
@@ -67,8 +66,6 @@ router.put('/:id', function(req, res) {
   {
     res.json({err: 'no parameter to update'});
   }
-
-
 });
 
 module.exports = router;
