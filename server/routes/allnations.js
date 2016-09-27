@@ -7,7 +7,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 // Get all products.
 router.get('/', function(req, res) {
-  mongo.db.collection('dealerProducts').find().limit(30).toArray((err, r)=>{
+  mongo.db.collection('dealerProducts').find().toArray((err, r)=>{
     if(err){
       console.log('Error getting data');
     }

@@ -75,11 +75,23 @@ vue.use(vueResource);
         // console.log(this.picId);
       },
       // Open modal product info.
-      openInfo(event){
+      // openInfo(event){
+      //   console.time('openInfo');
+      //   // Reset picture url number.
+      //   this.picId = 1;
+      //   // Get product from array.
+      //   this.productInfo = this.products.find(function(o){return o.code === event.target.dataset.code;});
+      //   console.timeEnd('openInfo');
+      //   // Set input value.
+      //   this.inputChangIdStore = this.productInfo.idStore;
+      // },
+      openInfo(product){
+        console.time('openInfo');
         // Reset picture url number.
         this.picId = 1;
         // Get product from array.
-        this.productInfo = this.products.find(function(o){return o.code === event.target.dataset.code;});
+        this.productInfo = product;
+        console.timeEnd('openInfo');
         // Set input value.
         this.inputChangIdStore = this.productInfo.idStore;
       },
@@ -122,24 +134,26 @@ vue.use(vueResource);
             console.log(`err: ${JSON.stringify(err)}`);
           });
       },
+      sendMsg(){
+        alert('121212');
+      },
       // Change id that product to refere.
       setProductIdStore(product, idStore){
         idStore = idStore || '';
+        console.log('setProductIdStore');
+        console.log(`product _id: ${product._id}`);
+        console.log(`idStore: ${idStore}`);
         this.$http.put(`/allnations/${product._id}`, {'idStore': idStore})
           .then((res)=>{
             // Not could process params.
             if (res.body.err) {
               alert(`erro: ${res.body.err}`);
             }
-
             // Data modifed.
             else if (res.body.modifiedCount && (res.body.modifiedCount > 0)){
               // Update product id to reference.
               // this.products.find(function(o){return o._id === _id;}).idStore = idStore;
               product.idStore = idStore;
-            }
-            else {
-              alert(`Não foi possível fazer a alteração do Id.`);
             }
           })
           .catch((err)=>{
