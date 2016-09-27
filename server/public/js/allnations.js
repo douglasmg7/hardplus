@@ -72,19 +72,7 @@ vue.use(vueResource);
         if (this.picId > 6) {
           this.picId = 1;
         }
-        // console.log(this.picId);
       },
-      // Open modal product info.
-      // openInfo(event){
-      //   console.time('openInfo');
-      //   // Reset picture url number.
-      //   this.picId = 1;
-      //   // Get product from array.
-      //   this.productInfo = this.products.find(function(o){return o.code === event.target.dataset.code;});
-      //   console.timeEnd('openInfo');
-      //   // Set input value.
-      //   this.inputChangIdStore = this.productInfo.idStore;
-      // },
       openInfo(product){
         console.time('openInfo');
         // Reset picture url number.
@@ -133,9 +121,6 @@ vue.use(vueResource);
             alert(`error: ${JSON.stringify(err)}`);
             console.log(`err: ${JSON.stringify(err)}`);
           });
-      },
-      sendMsg(){
-        alert('121212');
       },
       // Change id that product to refere.
       setProductIdStore(product, idStore){

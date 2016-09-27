@@ -1,9 +1,3 @@
-<ul id="list">
-  <li v-repeat="item in items" v-on="click: toggle(item)">
-    {{item.text}}
-  </li>
-</ul>
-
 save atom configuration on git
 
 remover senhas do servidor
@@ -32,7 +26,3 @@ duvidas
 
 fica vermelho
   market && (indisponível ou menos que um).
-
-
-
-  :class="product.market === 'market' && product.available && product.active ? 'market' : ''"
