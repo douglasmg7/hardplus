@@ -54,7 +54,7 @@
               'active-prd': product.active,
               'stock-prd': product.stockQtd > 1 }">
             <!-- <td>{{$index + 1}}</td> -->
-            <td @click="openInfo(product)" class="clickable" data-toggle="modal" data-target="#modal-product-info">{{product.desc}}</td>
+            <td @click="openInfo(product)" v-bind:data-code="product.code" class="clickable" data-toggle="modal" data-target="#prd-info">{{product.desc}}</td>
             <!-- <td @click="openInfo($event)" v-bind:data-code="product.code" class="clickable" data-toggle="modal" data-target="#prd-info">{{product.desc}}</td> -->
             <td class="text-right">{{product.stockQtd}}</td>
             <td class="text-right">{{product.price | currency}}</td>
@@ -68,7 +68,7 @@
   <!-- content -->
 
   <!-- modal -->
-  <div id="modal-product-info" class="modal" tabindex="-1" role="dialog">
+  <div id="prd-info" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -168,7 +168,7 @@
               </div>
             </div>
           </div>
-        </div><!-- /.modal-footer -->
+        </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->

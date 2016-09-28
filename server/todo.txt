@@ -4,25 +4,8 @@ remover senhas do servidor
 
 implementar unit test
 
-mostrar as seguintes colunas
-  desc
-  preço
-  quantidade em estoque
-
-mudar ws para a versão 2
-
-filtro - mostra o mais barato
-  quando produtos iguais
-
-
 erros
   meses for 0 na garantia
   no descrescent sort for price and the others colums
 
 atualizar sublime
-
-duvidas
-  ativo e disponível, dão na mesma?
-
-fica vermelho
-  market && (indisponível ou menos que um).
