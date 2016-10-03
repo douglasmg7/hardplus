@@ -1,0 +1,34 @@
+[
+  {
+    "_id" : ObjectId("57ea6ae5f8abe88c2df5bb07"),
+    "department" : "ACESSÓRIOS COMPUTADORES",
+		"category" : "MOUSES",
+		"subCategory" : "MOUSES COM FIO",
+		"manufacturer" : "PCTOP",
+		"code" : "0028002",
+		"desc" : "MOUSE PCTOP USB BLISTER OPTICO 800 DPI PRETO - MOPR01-USB",
+		"tecDesc" : "Ideal para usuários de desktops e notebooks.\r\nSensor ótico de alta resolução.\r\nÓtima transmissão, garantindo movimentos precisos.\r\nDesign ergonômico\r\n\r\nEspecificações:\r\nEmbalagem: blister\r\nResolução: 800dpi\r\nConexão: USB\r\nCor: preto\r\nSensor: Ótico\r\nBotões: 2 + 1 wheel\r\nCompatível: Window 9X/Me/2000/XP/Vista\r\nDimensão do produto (LxAxP): 5 x 3 x 9 cm",
+		"partNum" : "MOPR01-USB",
+		"ean" : "7898951027152",
+		"warranty" : 6,
+		"weight" : 0.1,
+		"price" : 5.75,
+		"priceNoST" : 4.53,
+		"available" : 1,
+		"urlImg" : "http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0028002",
+		"stockLocation" : "RJ",
+		"ncm" : "84716053",
+		"width" : 0.04,
+		"height" : 0.12,
+		"deep" : 0.08,
+		"active" : 1,
+		"taxReplace" : 1,
+		"origin" : "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
+		"stockQtd" : 100,
+		"market" : false,
+		"idStore" : ""
+  },
+  {
+    "category" : "MOUSESES"
+  }
+]

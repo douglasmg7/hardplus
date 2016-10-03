@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "start-dev": "npm run watch & npm start"
+    "start-dev": "npm run watch & npm start",
+	"test": "mocha test -u bdd"
   },
   "dependencies": {
     "body-parser": "~1.15.1",

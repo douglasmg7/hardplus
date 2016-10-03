@@ -9,3 +9,13 @@ erros
   no descrescent sort for price and the others colums
 
 atualizar sublime
+
+
+products doc
+  _id - mongodb
+  code - hardplus
+  dealer - allnations ,x , y
+  name
+  description
+  price
+    
