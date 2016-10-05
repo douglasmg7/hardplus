@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nodemon ./bin/www",
     "start-dev": "npm run watch & npm start",
-	"test": "mocha test -u bdd"
+	"test": "mocha test -u bdd",
+	"testCompile": "mocha test -u bdd --compilers js:babel-core/register"
   },
   "dependencies": {
     "body-parser": "~1.15.1",

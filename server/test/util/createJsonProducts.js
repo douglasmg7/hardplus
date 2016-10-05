@@ -31,9 +31,9 @@ mongo.connect('mongodb://localhost:27017/store', (err, db)=>{
     // Write All Nations products to json file.
     fs.writeFile(FILE_NAME, JSON.stringify(r, replace, '  '), err=>{
       assert.equal(null, err);
-      console.log(`All Nations products written to file: ${FILE_NAME}`);
-      console.log(`You shoud make manual changes to the created json file to perform desired test.`);
-      console.log(`The old file maybe alredy have the desired changes. Do not lost it!`);
+      console.log(`All Nations products written to file: \u001b[44m${FILE_NAME}\u001b[40m`);
+      console.log(`\u001b[42mYou shoud make manual changes to the created json file to perform desired test.\u001b[40m`);
+      console.log(`\u001b[91mThe old file maybe alredy have the desired changes. Do not lost it!\u001b[39m`);
     });
   });
 });

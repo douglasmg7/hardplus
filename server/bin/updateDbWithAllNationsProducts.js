@@ -16,28 +16,33 @@ const INTERVAL_RUN_MIN = 1;
 // Signal to run the script to update store db.
 const WATCH_FILE_NAME = '.dbChangeAllNations';
 const WATCH_FILE = __dirname + '/' + WATCH_FILE_NAME;
-// Mongodb Db.
-const mongoUrl = 'mongodb://localhost:27017/store';
+// Database name.
+const DB_NAME = 'store'
+const mongoUrl = `mongodb://localhost:27017/${DB_NAME}`;
+// Collections name.
+const COL_STORE = 'products';
+const COL_ALL_NATIONS = 'dealerProducts';
 
 // Keep timer value.
 // let timerAux;
 
+// Run directly from node.
+if(require.main === module){
+  log.info(`Start -> run interval: \u001b[44m${INTERVAL_RUN_MIN}min\u001b[40m, watch file: \u001b[44m${WATCH_FILE}\u001b[40m`);
+  // Run script.
+  setInterval(()=>{
+    log.info('Run...');
 
-log.info(`Start -> run interval: \u001b[44m${INTERVAL_RUN_MIN}min\u001b[40m, watch file: \u001b[44m${WATCH_FILE}\u001b[40m`);
+  }, INTERVAL_RUN_MIN * 60000);
 
-// Run script.
-setInterval(()=>{
-  log.info('Run...');
-
-}, INTERVAL_RUN_MIN * 60000);
-
-connectDb(mongoUrl, (db=>{
-  findProductsAllNations(db, cursor=>{
-    insertProductsStore(db, cursor, ()=>{
-      db.close();
+  connectDb(mongoUrl, (db=>{
+    findProductsAllNations(db, cursor=>{
+      insertProductsStore(db, cursor, ()=>{
+        db.close();
+      });
     });
-  });
-}));
+  }));
+}
 
 // Connect to db.
 function connectDb(url, callback){
@@ -50,36 +55,37 @@ function connectDb(url, callback){
   });
 }
 
-// Get all products that idStore field exist.
+// Get all products that idStore is not empty.
+// When the idStore is not empty, product was selected to be commercialize.
 function findProductsAllNations(db, callback){
-  let cursor = db.collection('dealerProducts').find({idStore: {$ne: ""}});
-  callback(cursor);
+  db.collection(COL_ALL_NATIONS).find({idStore: {$ne: ""}}).toArray((err, products)=>{
+    if(err){
+      throw err;
+    }
+    callback(products);
+  });
 }
 
 // Insert products.
-function insertProductsStore(db, product, callback){
-  let bulk = db.collection('products').initializeUnorderedBulkOp();
-  product.each((err, doc)=>{
-    if (doc != null) {
-      bulk
-        .find({idStore: doc.idStore, dealer: "AllNations", stockLocation: doc.stockLocation})
-        .upsert()
-        .updateOne({
-          idStore: doc.idStore,
-          dealer: "AllNations",
-          price: doc.price,
-          stockLocation: doc.stockLocation,
-          active: (doc.available && doc.active),
-          stockQtd: doc.stockQtd
-        });
-    }
-    else {
-      bulk.execute((err, r)=>{
-        if(err){
-          log.err('Error inserting products on mongoDb', {err: err});
-        }
-        callback(r);
+function insertProductsStore(db, products, callback){
+  let bulk = db.collection(COL_STORE).initializeUnorderedBulkOp();
+  // Add each product to the bulk.
+  for (let product of products) {
+    bulk
+      .find({idStore: product.idStore, dealer: "AllNations", stockLocation: product.stockLocation})
+      .upsert()
+      .updateOne({
+        idStore: product.idStore,
+        dealer: "AllNations",
+        price: product.price,
+        stockLocation: product.stockLocation,
+        active: (product.available && product.active),
+        stockQtd: product.stockQtd
       });
-    }
-  });
+  }
+  callback();
 }
+
+module.exports.connectDb = connectDb;
+module.exports.findProductsAllNations = findProductsAllNations;
+module.exports.insertProductsStore = insertProductsStore;
