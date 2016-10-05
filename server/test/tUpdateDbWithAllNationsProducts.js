@@ -5,21 +5,55 @@
 const expect = require('chai').expect;
 const AllNations = require('../bin/updateDbWithAllNationsProducts');
 const mongo = require('mongodb').MongoClient;
-const productsAllNations = require('./AllNationsProducts.json');
+const productsAllNations = require('./allNationsProducts.json');
+const productsStore = require('./storeProducts.json');
 // Database name.
 const DB_NAME = 'storeTest';
 const MONGO_URL = `mongodb://localhost:27017/${DB_NAME}`;
-// Collections name.
-const COL_STORE = 'products';
-const COL_ALL_NATIONS = 'dealerProducts';
 
 // Db connection used into the test.
 let dbTest = null;
 // All Nations products to be commercialized.
 let productsANC = null;
 
-describe('All Nations', function(){
+// Initialize All Nations collections.
+function initAllNationsCollection(db, callback){
+  let col = db.collection(AllNations.COLL_ALL_NATION_PRODUCTS);
+  // Drop table.
+  col.drop(()=>{
+    // Assert table was dropped.
+    col.find().toArray((err, r)=>{
+      expect(r.length).to.equal(0);
+      // Insert All Nations products.
+      col.insertMany(productsAllNations, (err, r)=>{
+        expect(err).to.equal(null);
+        expect(r.insertedCount).to.equal(productsAllNations.length);
+        callback();
+      });
+    });
+  });
+}
 
+// Initialize store collections.
+function initStoreCollection(db, callback){
+  let col = db.collection(AllNations.COLL_STORE_PRODUCTS);
+  // Drop table.
+  col.drop(()=>{
+    // Assert table was dropped.
+    col.find().toArray((err, r)=>{
+      expect(r.length).to.equal(0);
+      // Insert store products.
+      col.insertMany(productsStore, (err, r)=>{
+        expect(err).to.equal(null);
+        expect(r.insertedCount).to.equal(productsStore.length);
+        callback();
+      });
+    });
+  });
+}
+
+
+describe('All Nations', function(){
   before('Clean db test', (done)=>{
     // Pupulate db.
     // Convert timestamp string to date.
@@ -29,19 +63,9 @@ describe('All Nations', function(){
     // Connect to db.
     mongo.connect(MONGO_URL, (err, db)=>{
       expect(err).to.equal(null);
-      let col = db.collection('dealerProducts');
-      // Drop table.
-      col.drop(()=>{
-        // Assert table was dropped.
-        col.find().toArray((err, r)=>{
-          expect(r.length).to.equal(0);
-          // Insert All Nations products.
-          col.insertMany(productsAllNations, (err, r)=>{
-            expect(err).to.equal(null);
-            expect(r.insertedCount).to.equal(productsAllNations.length);
-            db.close();
-          });
-          // db.collection('dealerProducts')
+      initAllNationsCollection(db, ()=>{
+        initStoreCollection(db,()=>{
+          db.close();
           done();
         });
       });
@@ -76,23 +100,19 @@ describe('All Nations', function(){
       }
       // To be used into the next test.
       productsANC = products;
-
-      dbTest.close();
-
       done();
     });
   });
 
-  // it('Insert All Nations products into store database.', done=>{
-  //   AllNations.insertProductsStore(productsANC, ()=>{
-  //     let col = dbTest.collection(COL_ALL_NATIONS);
-  //     col.find().toArray((err, products)=>{
-  //       expect(products).to.be.lengthOf(productsANC);
-  //     });
-  //
-  //     dbTest.close();
-  //     done();
-  //   });
-  // });
+  it('Insert All Nations products into store database.', done=>{
+    AllNations.insertProductsStore(dbTest, productsANC, ()=>{
+      let col = dbTest.collection(AllNations.COLL_STORE_PRODUCTS);
+      col.find().toArray((err, products)=>{
+        expect(products).to.be.lengthOf(productsANC.length, 'Not all products inserted into store database');
+        dbTest.close();
+        done();
+      });
+    });
+  });
 
 });

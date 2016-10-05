@@ -17,11 +17,11 @@ const INTERVAL_RUN_MIN = 1;
 const WATCH_FILE_NAME = '.dbChangeAllNations';
 const WATCH_FILE = __dirname + '/' + WATCH_FILE_NAME;
 // Database name.
-const DB_NAME = 'store'
-const mongoUrl = `mongodb://localhost:27017/${DB_NAME}`;
+const DB_NAME = 'store';
+const MONGO_URL = `mongodb://localhost:27017/${DB_NAME}`;
 // Collections name.
-const COL_STORE = 'products';
-const COL_ALL_NATIONS = 'dealerProducts';
+const COLL_STORE_PRODUCTS = 'storeProducts';
+const COLL_ALL_NATION_PRODUCTS = 'dealerProducts';
 
 // Keep timer value.
 // let timerAux;
@@ -35,7 +35,7 @@ if(require.main === module){
 
   }, INTERVAL_RUN_MIN * 60000);
 
-  connectDb(mongoUrl, (db=>{
+  connectDb(MONGO_URL, (db=>{
     findProductsAllNations(db, cursor=>{
       insertProductsStore(db, cursor, ()=>{
         db.close();
@@ -58,7 +58,7 @@ function connectDb(url, callback){
 // Get all products that idStore is not empty.
 // When the idStore is not empty, product was selected to be commercialize.
 function findProductsAllNations(db, callback){
-  db.collection(COL_ALL_NATIONS).find({idStore: {$ne: ""}}).toArray((err, products)=>{
+  db.collection(COLL_ALL_NATION_PRODUCTS).find({idStore: {$ne: ""}}).toArray((err, products)=>{
     if(err){
       throw err;
     }
@@ -68,7 +68,7 @@ function findProductsAllNations(db, callback){
 
 // Insert products.
 function insertProductsStore(db, products, callback){
-  let bulk = db.collection(COL_STORE).initializeUnorderedBulkOp();
+  let bulk = db.collection(COLL_STORE_PRODUCTS).initializeUnorderedBulkOp();
   // Add each product to the bulk.
   for (let product of products) {
     bulk
@@ -76,16 +76,25 @@ function insertProductsStore(db, products, callback){
       .upsert()
       .updateOne({
         idStore: product.idStore,
-        dealer: "AllNations",
+        // dealer: "AllNations",
+        dealerCode: product.code,
         price: product.price,
         stockLocation: product.stockLocation,
         active: (product.available && product.active),
         stockQtd: product.stockQtd
       });
   }
-  callback();
+  // log.info('MongoDb insert.', {spend_time_mongodb_insert: timerAux});
+  // log.debug('MongoDb insert.', {mongodb_insert: r.toJSON()});
+
+  bulk.execute((err, r)=>{
+    // log.debug('MongoDb insert.', {mongodb_insert: r.toJSON()});
+    callback(err, r);
+  });
 }
 
 module.exports.connectDb = connectDb;
 module.exports.findProductsAllNations = findProductsAllNations;
 module.exports.insertProductsStore = insertProductsStore;
+module.exports.COLL_STORE_PRODUCTS = COLL_STORE_PRODUCTS;
+module.exports.COLL_ALL_NATION_PRODUCTS = COLL_ALL_NATION_PRODUCTS;

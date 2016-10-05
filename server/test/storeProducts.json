@@ -1,0 +1,26 @@
+[
+  {
+    "idStore": "flt-hrd-002",
+    "dealer": "AllNations",
+    "price": 8.00,
+    "stockLocation": "ES",
+    "active": 0,
+    "stockQtd": 9
+  },
+  {
+    "idStore": "flt-hrd-003",
+    "dealer": "AllNations",
+    "price": 11.31,
+    "stockLocation": "RJ",
+    "active": 1,
+    "stockQtd": 95
+  },
+  {
+    "idStore": "mouse-hrd-001",
+    "dealer": "AllNations",
+    "price": 5.75,
+    "stockLocation": "RJ",
+    "active": 1,
+    "stockQtd": 100
+  }
+]

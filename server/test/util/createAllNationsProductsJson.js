@@ -9,7 +9,12 @@ const fs = require('fs');
 const assert = require('assert');
 const mongo = require('mongodb').MongoClient;
 
-const FILE_NAME = 'AllNationsProducts.json';
+const FILE_NAME = 'allNationsProducts.json';
+// Database name.
+const DB_NAME = 'store';
+const MONGO_URL = `mongodb://localhost:27017/${DB_NAME}`;
+// Collections name.
+const COLL_ALL_NATION_PRODUCTS = 'dealerProducts';
 // Amount of products to be created.
 const PRODUCT_QTD  = 20;
 
@@ -22,10 +27,10 @@ let replace = function(k, v){
 };
 
 // Connect to db.
-mongo.connect('mongodb://localhost:27017/store', (err, db)=>{
+mongo.connect(MONGO_URL, (err, db)=>{
   assert.equal(null, err);
   // Find All Nations products.
-  db.collection('dealerProducts').find().limit(PRODUCT_QTD).toArray((err, r)=>{
+  db.collection(COLL_ALL_NATION_PRODUCTS).find().limit(PRODUCT_QTD).toArray((err, r)=>{
     assert.equal(null, err);
     db.close();
     // Write All Nations products to json file.

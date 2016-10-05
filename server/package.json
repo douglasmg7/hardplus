@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon ./bin/www",
     "start-dev": "npm run watch & npm start",
-	"test": "mocha test -u bdd",
+	"test": "mocha test -u bdd -R spec -t 2000",
 	"testCompile": "mocha test -u bdd --compilers js:babel-core/register"
   },
   "dependencies": {
