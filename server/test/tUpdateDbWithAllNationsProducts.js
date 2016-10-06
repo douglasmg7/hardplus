@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /* eslint-env mocha */
 'use strict';
+process.env.NODE_ENV = 'test';
 
 // Npm modules.
 const expect = require('chai').expect;

@@ -26,7 +26,7 @@ if(require.main === module){
   log.info(`Start -> run interval: \u001b[44m${INTERVAL_RUN_MIN}min\u001b[40m, watch file: \u001b[44m${WATCH_FILE}\u001b[40m`);
   // Run script.
   setInterval(()=>{
-    log.info('Run...');
+    log.info('Running...');
 
   }, INTERVAL_RUN_MIN * 60000);
 
@@ -46,6 +46,7 @@ function connectDb(url, callback){
       log.err(`MongoDb connection, err: ${err}`);
       return;
     }
+    log.info('Connected.');
     callback(db);
   });
 }
@@ -67,12 +68,13 @@ function insertProductsStore(db, products, callback){
   // Add each product to the bulk.
   for (let product of products) {
     bulk
-      .find({idStore: product.idStore, dealer: "AllNations", stockLocation: product.stockLocation})
+      .find({dealerCode: product.code, dealer: "AllNations"})
+      // .find({idStore: product.idStore, dealer: "AllNations", stockLocation: product.stockLocation})
       .upsert()
       .updateOne({
-        idStore: product.idStore,
-        dealer: "AllNations",
         dealerCode: product.code,
+        dealer: "AllNations",
+        idStore: product.idStore,
         price: product.price,
         stockLocation: product.stockLocation,
         active: (product.available && product.active),
