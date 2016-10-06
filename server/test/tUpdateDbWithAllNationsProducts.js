@@ -2,14 +2,15 @@
 /* eslint-env mocha */
 'use strict';
 
+// Npm modules.
 const expect = require('chai').expect;
-const AllNations = require('../bin/updateDbWithAllNationsProducts');
 const mongo = require('mongodb').MongoClient;
+// personal modules
 const productsAllNations = require('./allNationsProducts.json');
 const productsStore = require('./storeProducts.json');
-// Database name.
-const DB_NAME = 'storeTest';
-const MONGO_URL = `mongodb://localhost:27017/${DB_NAME}`;
+const dbConfig = require('../bin/dbConfig');
+// Module to test.
+const AllNations = require('../bin/updateDbWithAllNationsProducts');
 
 // Db connection used into the test.
 let dbTest = null;
@@ -18,7 +19,7 @@ let productsANC = null;
 
 // Initialize All Nations collections.
 function initAllNationsCollection(db, callback){
-  let col = db.collection(AllNations.COLL_ALL_NATION_PRODUCTS);
+  let col = db.collection(dbConfig.collAllNationProducts);
   // Drop table.
   col.drop(()=>{
     // Assert table was dropped.
@@ -36,7 +37,7 @@ function initAllNationsCollection(db, callback){
 
 // Initialize store collections.
 function initStoreCollection(db, callback){
-  let col = db.collection(AllNations.COLL_STORE_PRODUCTS);
+  let col = db.collection(dbConfig.collStoreProducts);
   // Drop table.
   col.drop(()=>{
     // Assert table was dropped.
@@ -61,7 +62,7 @@ describe('All Nations', function(){
       val.ts = new Date(val.ts);
     }
     // Connect to db.
-    mongo.connect(MONGO_URL, (err, db)=>{
+    mongo.connect(dbConfig.urlTest, (err, db)=>{
       expect(err).to.equal(null);
       initAllNationsCollection(db, ()=>{
         initStoreCollection(db,()=>{
@@ -73,8 +74,8 @@ describe('All Nations', function(){
   });
 
   it('Connect to db products.', function(done){
-    AllNations.connectDb(MONGO_URL, db=>{
-      expect(db.databaseName).to.equal(DB_NAME);
+    AllNations.connectDb(dbConfig.urlTest, db=>{
+      expect(db.databaseName).to.equal(dbConfig.dbNameTest);
       dbTest = db;
       done();
     });
@@ -106,7 +107,7 @@ describe('All Nations', function(){
 
   it('Insert All Nations products into store database.', done=>{
     AllNations.insertProductsStore(dbTest, productsANC, ()=>{
-      let col = dbTest.collection(AllNations.COLL_STORE_PRODUCTS);
+      let col = dbTest.collection(dbConfig.collStoreProducts);
       col.find().toArray((err, products)=>{
         expect(products).to.be.lengthOf(productsANC.length, 'Not all products inserted into store database');
         dbTest.close();

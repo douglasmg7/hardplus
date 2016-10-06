@@ -9,8 +9,11 @@ const fs = require('fs');
 const request = require('request');
 const mongo = require('mongodb').MongoClient;
 const cheerio = require('cheerio');
+
 // personal modules
-const timer = require('./timer.js');
+const timer = require('./timer');
+const dbConfig = require('./dbConfig');
+
 // Sensitive data.
 const WS_USER = '0014770';
 const WS_PASSWORD = '728626';
@@ -28,8 +31,7 @@ const LAST_REQ_TIME_FILE = __dirname + '/' + LAST_REQ_TIME_FILE_NAME;
 const XML_DIR = __dirname + '/xml/';
 // First time request.
 const LAST_REQ_TIME_INIT = '2015-01-01T00:00:00.000Z';
-// Mongodb configuration
-const mongoUrl = 'mongodb://localhost:27017/store';
+
 // Last query date to use into next query.
 let lastQuery;
 // Keep timer value.
@@ -143,14 +145,14 @@ function reqWS() {
 // Insert/update data to db.
 function dbInsert(xmlData) {
   // Connect to mongo.
-  mongo.connect(mongoUrl, (err, db)=>{
+  mongo.connect(dbConfig.url, (err, db)=>{
     if(err){
       log.err('MongoDb connection error.', {err: err});
     }
     // Convert xml to json (cheerio).
     timer.begin('mongoDbBulk');
     let $ = cheerio.load(xmlData, {xmlMode: true});
-    let bulk = db.collection('dealerProducts').initializeUnorderedBulkOp();
+    let bulk = db.collection(dbConfig.collAllNationProducts).initializeUnorderedBulkOp();
     log.info('Products received.', {products_count: $('Produtos').length});
     $('Produtos').each(function(i, el) {
       bulk

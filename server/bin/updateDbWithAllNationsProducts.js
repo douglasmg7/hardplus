@@ -10,18 +10,13 @@ const mongo = require('mongodb').MongoClient;
 // personal modules
 // const timer = require('./timer');
 const log = require('./log');
+const dbConfig = require('./dbConfig');
 
 // Interval(min) to run the script.
 const INTERVAL_RUN_MIN = 1;
 // Signal to run the script to update store db.
 const WATCH_FILE_NAME = '.dbChangeAllNations';
 const WATCH_FILE = __dirname + '/' + WATCH_FILE_NAME;
-// Database name.
-const DB_NAME = 'store';
-const MONGO_URL = `mongodb://localhost:27017/${DB_NAME}`;
-// Collections name.
-const COLL_STORE_PRODUCTS = 'storeProducts';
-const COLL_ALL_NATION_PRODUCTS = 'dealerProducts';
 
 // Keep timer value.
 // let timerAux;
@@ -35,7 +30,7 @@ if(require.main === module){
 
   }, INTERVAL_RUN_MIN * 60000);
 
-  connectDb(MONGO_URL, (db=>{
+  connectDb(dbConfig.url, (db=>{
     findProductsAllNations(db, cursor=>{
       insertProductsStore(db, cursor, ()=>{
         db.close();
@@ -58,7 +53,7 @@ function connectDb(url, callback){
 // Get all products that idStore is not empty.
 // When the idStore is not empty, product was selected to be commercialize.
 function findProductsAllNations(db, callback){
-  db.collection(COLL_ALL_NATION_PRODUCTS).find({idStore: {$ne: ""}}).toArray((err, products)=>{
+  db.collection(dbConfig.collAllNationProducts).find({idStore: {$ne: ""}}).toArray((err, products)=>{
     if(err){
       throw err;
     }
@@ -68,7 +63,7 @@ function findProductsAllNations(db, callback){
 
 // Insert products.
 function insertProductsStore(db, products, callback){
-  let bulk = db.collection(COLL_STORE_PRODUCTS).initializeUnorderedBulkOp();
+  let bulk = db.collection(dbConfig.collStoreProducts).initializeUnorderedBulkOp();
   // Add each product to the bulk.
   for (let product of products) {
     bulk
@@ -76,7 +71,7 @@ function insertProductsStore(db, products, callback){
       .upsert()
       .updateOne({
         idStore: product.idStore,
-        // dealer: "AllNations",
+        dealer: "AllNations",
         dealerCode: product.code,
         price: product.price,
         stockLocation: product.stockLocation,
@@ -93,8 +88,7 @@ function insertProductsStore(db, products, callback){
   });
 }
 
+// For unit test.
 module.exports.connectDb = connectDb;
 module.exports.findProductsAllNations = findProductsAllNations;
 module.exports.insertProductsStore = insertProductsStore;
-module.exports.COLL_STORE_PRODUCTS = COLL_STORE_PRODUCTS;
-module.exports.COLL_ALL_NATION_PRODUCTS = COLL_ALL_NATION_PRODUCTS;

@@ -5,16 +5,14 @@
 
 'use strict';
 
+// Npm modules.
 const fs = require('fs');
 const assert = require('assert');
 const mongo = require('mongodb').MongoClient;
-
+// Personal modules.
+const dbConfig = require('../../bin/dbConfig');
+// File to write the json data.
 const FILE_NAME = 'allNationsProducts.json';
-// Database name.
-const DB_NAME = 'store';
-const MONGO_URL = `mongodb://localhost:27017/${DB_NAME}`;
-// Collections name.
-const COLL_ALL_NATION_PRODUCTS = 'dealerProducts';
 // Amount of products to be created.
 const PRODUCT_QTD  = 20;
 
@@ -27,10 +25,10 @@ let replace = function(k, v){
 };
 
 // Connect to db.
-mongo.connect(MONGO_URL, (err, db)=>{
+mongo.connect(dbConfig.url, (err, db)=>{
   assert.equal(null, err);
   // Find All Nations products.
-  db.collection(COLL_ALL_NATION_PRODUCTS).find().limit(PRODUCT_QTD).toArray((err, r)=>{
+  db.collection(dbConfig.collAllNationProducts).find().limit(PRODUCT_QTD).toArray((err, r)=>{
     assert.equal(null, err);
     db.close();
     // Write All Nations products to json file.
