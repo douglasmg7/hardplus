@@ -31,8 +31,8 @@ if(require.main === module){
   }, INTERVAL_RUN_MIN * 60000);
 
   connectDb(dbConfig.url, (db=>{
-    findProductsAllNations(db, cursor=>{
-      insertProductsStore(db, cursor, ()=>{
+    findProductsAllNations(db, products=>{
+      insertProductsStore(db, products, ()=>{
         db.close();
       });
     });
@@ -44,9 +44,9 @@ function connectDb(url, callback){
   mongo.connect(url, (err, db)=>{
     if(err){
       log.err(`MongoDb connection, err: ${err}`);
-      return;
+      throw err;
     }
-    log.info('Connected.');
+    log.info('Connected to db.');
     callback(db);
   });
 }
@@ -54,16 +54,22 @@ function connectDb(url, callback){
 // Get all products that idStore is not empty.
 // When the idStore is not empty, product was selected to be commercialize.
 function findProductsAllNations(db, callback){
-  db.collection(dbConfig.collAllNationProducts).find({idStore: {$ne: ""}}).toArray((err, products)=>{
-    if(err){
+  log.info('Find All Nations products.');
+  db.collection(dbConfig.collAllNationProducts).find({idStore: {$ne: ""}}).toArray()
+    .then(products=>{
+      log.info(`Found ${products.length} to be commercialized.`);
+      log.silly(JSON.stringify(products, null, ' '));
+      callback(products);
+    })
+    .catch(err=>{
+      log.error(`Insert products All Nations, err: ${err}`);
       throw err;
-    }
-    callback(products);
-  });
+    });
 }
 
 // Insert products.
 function insertProductsStore(db, products, callback){
+  log.info('Mounting bulk to insert\/update All Nations products to be commercialized.');
   let bulk = db.collection(dbConfig.collStoreProducts).initializeUnorderedBulkOp();
   // Add each product to the bulk.
   for (let product of products) {
@@ -81,12 +87,14 @@ function insertProductsStore(db, products, callback){
         stockQtd: product.stockQtd
       });
   }
-  // log.info('MongoDb insert.', {spend_time_mongodb_insert: timerAux});
-  // log.debug('MongoDb insert.', {mongodb_insert: r.toJSON()});
-
+  log.info('Inserting\/updating sotore database with All Nations products to be commercialized.');
   bulk.execute((err, r)=>{
-    // log.debug('MongoDb insert.', {mongodb_insert: r.toJSON()});
-    callback(err, r);
+    if(err){
+      log.error(`Inserting\/updating sotore database with All Nations products to be commercialized, err: ${err}`);
+    } else {
+      log.info('');
+    }
+    callback(r);
   });
 }
 
