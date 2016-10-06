@@ -1,26 +1,20 @@
 [
   {
-    "idStore": "flt-hrd-002",
+    "idStore": "flt-hrd",
     "dealer": "AllNations",
-    "price": 8.00,
+    "dealerCode": "0046860",
+    "price": 7.77,
     "stockLocation": "ES",
     "active": 0,
-    "stockQtd": 9
+    "stockQtd": 49
   },
   {
-    "idStore": "flt-hrd-003",
+    "idStore": "laptop-hrd",
     "dealer": "AllNations",
-    "price": 11.31,
-    "stockLocation": "RJ",
+    "dealerCode": "0061338",
+    "price": 2114.33,
+    "stockLocation": "ES",
     "active": 1,
-    "stockQtd": 95
-  },
-  {
-    "idStore": "mouse-hrd-001",
-    "dealer": "AllNations",
-    "price": 5.75,
-    "stockLocation": "RJ",
-    "active": 1,
-    "stockQtd": 100
+    "stockQtd": 33
   }
 ]

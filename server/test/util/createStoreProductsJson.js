@@ -13,7 +13,7 @@ const dbConfig = require('../../bin/dbConfig');
 // File name to be written.
 const FILE_NAME = 'storeProducts.json';
 // Amount of products to be created.
-const PRODUCT_QTD  = 3;
+const PRODUCT_QTD  = 10;
 
 // Discard _id field.
 let replace = function(k, v){
