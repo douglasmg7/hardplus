@@ -12,13 +12,6 @@ const logPath = parsePath.dir + '/' + parsePath.name + '.log';
 // Log configuration.
 let log = new (winston.Logger)({
   transports: [
-    // new (winston.transports.Console)({
-    //   level: 'silly',
-    //   prettyPrint: true,
-    //   colorize: true,
-    //   silent: false,
-    //   timestamp: false
-    // }),
     new (winston.transports.File)({
       level: 'silly',
       prettyPrint: true,
@@ -38,7 +31,7 @@ let log = new (winston.Logger)({
 if(process.env.NODE_ENV !== 'test'){
   log.add(winston.transports.Console,
     {
-      level: 'silly',
+      level: 'info',
       prettyPrint: true,
       colorize: true,
       silent: false,

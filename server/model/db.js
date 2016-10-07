@@ -1,11 +1,14 @@
 'use strict';
 
 const mongo = require('mongodb').MongoClient;
-const mongoUrl = 'mongodb://localhost:27017/store';
+const dbConfig = require('../bin/dbConfig');
 
-let state = {db: null};
+let state = {
+  db: null,
+  config: dbConfig
+};
 
-mongo.connect(mongoUrl, (err, database)=>{
+mongo.connect(dbConfig.url, (err, database)=>{
   if(err){
     console.log('MongoDb connection error.', {err: err});
     process.exit(1);
