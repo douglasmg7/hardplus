@@ -63,7 +63,7 @@ function runScript(){
 function connectDb(url, callback){
   mongo.connect(url, (err, db)=>{
     if(err){
-      log.err(`MongoDb connection, err: ${err}`);
+      log.error(`MongoDb connection, err: ${err}`);
       throw err;
     }
     log.info('Db opened.');

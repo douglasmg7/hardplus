@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongo = require('./model/db');
+// personal modules
+const log = require('./bin/log');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -30,8 +32,9 @@ app.use('/users', users);
 app.use('/allnations', allnations);
 
 app.use(function(err, req, res, next) {
-  res.status(500).send({error: 'Something failed!'});
-  console.error(err.stack);
+  res.status(500).send({error: 'Internal server error.'});
+  // res.json(500, {ERROR: 'Internal server error.'} );
+  log.error(err.stack);
 });
 
 
