@@ -1,11 +1,11 @@
+*.swp
+*.log
 public_html/
 node_modules/
 allnations/*.xml
 allnations/t.js
 allnations/doc/.*
-server/*.log
 server/node_modules/
 server/bower_components/
 server/public/js/bundle*
-server/bin/*.log
 server/bin/xml/

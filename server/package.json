@@ -28,6 +28,7 @@
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
     "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "webpack": "^1.13.2"
   }
 }

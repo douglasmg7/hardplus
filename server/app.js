@@ -11,6 +11,7 @@ const log = require('./bin/log');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var allnations = require('./routes/allnations');
+var products = require('./routes/products');
 
 var app = express();
 
@@ -20,7 +21,11 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+
+// Not log request in test mode.
+if (app.get('env') !== 'test') {
+  app.use(logger('dev'));
+}
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -30,6 +35,7 @@ app.use('/bower_components', express.static(path.join(__dirname, 'bower_componen
 app.use('/', routes);
 app.use('/users', users);
 app.use('/allnations', allnations);
+app.use('/products', products);
 
 app.use(function(err, req, res, next) {
   res.status(500).send({error: 'Internal server error.'});

@@ -8,7 +8,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 // Get all products.
 router.get('/', function(req, res) {
-  mongo.db.collection(dbConfig.collAllNationProducts).find().limit(30).toArray((err, r)=>{
+  mongo.db.collection(dbConfig.collStoreProducts).find().limit(30).toArray((err, r)=>{
     if(err){
       console.log('Error getting data');
     }
@@ -16,15 +16,6 @@ router.get('/', function(req, res) {
   });
 });
 
-// Get specific product.
-router.get('/:id', function(req, res) {
-  mongo.db.collection(dbConfig.collAllNationProducts).findOne({code: '0059989'}, (err, r)=>{
-    if(err){
-      console.log('Error getting data');
-    }
-    res.json(r);
-  });
-});
 
 // Update a product.
 router.put('/:id', function(req, res) {
