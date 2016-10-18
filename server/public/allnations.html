@@ -19,7 +19,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <!-- menus -->
       <a class="navbar-brand" href="#">Allnations</a>
+      <a class="navbar-brand" href="storeProducts.html">Loja</a>
     </div><!-- .navbar-header  -->
     <div id="navbar" class="navbar-collapse collapse">
       <form class="navbar-form navbar-right">
@@ -48,7 +50,7 @@
           <!-- <tr v-for="product in products | orderBy orderCol order | filterBy '1' in 'available' | filterBy filterName in 'desc' 'currency'"> -->
           <tr
             v-for="product in products | orderBy orderCol order | filterBy filterName in 'desc'"
-            :class="{
+            v-bind:class="{
               'market': product.market,
               'available-prd': product.available,
               'active-prd': product.active,

@@ -9,7 +9,11 @@ let state = {
   config: dbConfig
 };
 
-mongo.connect(dbConfig.url, (err, database)=>{
+// Define which db to use.
+let dbUrl = null;
+process.env.NODE_ENV === 'test' ? dbUrl = dbConfig.urlTest : dbUrl = dbConfig.url;
+
+mongo.connect(dbUrl, (err, database)=>{
   if(err){
     log.error('MongoDb connection error.', {err: err});
     process.exit(1);

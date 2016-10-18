@@ -73,8 +73,14 @@ describe('Store', ()=>{
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         expect(res.body).to.be.an('array');
+        expect(res.body).to.be.lengthOf(2);
+        expect(res.body[0].idStore).to.be.a('string');
+        expect(res.body[0].dealer).to.be.a('string');
+        expect(res.body[0].price).to.be.a('number');
+        expect(res.body[0].stockLocation).to.be.a('string');
+        expect(res.body[0].active).to.be.a('number');
+        expect(res.body[0].stockQtd).to.be.a('number');
 
-        // console.log(JSON.stringify(res));
         done();
       });
   });

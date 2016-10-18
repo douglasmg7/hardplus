@@ -8,16 +8,21 @@ var mongo = require('./model/db');
 // personal modules
 const log = require('./bin/log');
 
+// routes
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var allnations = require('./routes/allnations');
-var products = require('./routes/products');
+var wsAllNations = require('./routes/wsAllNations');
+var wsProducts = require('./routes/wsProducts');
 
 var app = express();
 
+// pretty in development
+if (app.get('env') === 'development') {
+  app.locals.pretty = true;
+}
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -26,6 +31,7 @@ app.set('view engine', 'jade');
 if (app.get('env') !== 'test') {
   app.use(logger('dev'));
 }
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -34,8 +40,17 @@ app.use('/bower_components', express.static(path.join(__dirname, 'bower_componen
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/allnations', allnations);
-app.use('/products', products);
+// web service
+app.use('/ws/allnations', wsAllNations);
+app.use('/ws/products', wsProducts);
+// store products
+app.use('/products', (req, res)=>{
+  res.render('productsStore', { title: 'Hey', message: 'Hello there!'});
+});
+// all nations products
+app.use('/allnations', (req, res)=>{
+  res.render('productsAllNations', { title: 'Hey', message: 'Hello there!'});
+});
 
 app.use(function(err, req, res, next) {
   res.status(500).send({error: 'Internal server error.'});
