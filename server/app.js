@@ -11,8 +11,9 @@ const log = require('./bin/log');
 // routes
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var wsAllNations = require('./routes/wsAllNations');
-var wsProducts = require('./routes/wsProducts');
+var routeWsAllNations = require('./routes/wsAllNations');
+var routeWsProducts = require('./routes/wsProducts');
+var routeProducts = require('./routes/products');
 
 var app = express();
 
@@ -41,16 +42,17 @@ app.use('/bower_components', express.static(path.join(__dirname, 'bower_componen
 app.use('/', routes);
 app.use('/users', users);
 // web service
-app.use('/ws/allnations', wsAllNations);
-app.use('/ws/products', wsProducts);
-// store products
-app.use('/products', (req, res)=>{
-  res.render('productsStore', { title: 'Hey', message: 'Hello there!'});
-});
-// all nations products
-app.use('/allnations', (req, res)=>{
-  res.render('productsAllNations', { title: 'Hey', message: 'Hello there!'});
-});
+app.use('/ws/allnations', routeWsAllNations);
+app.use('/ws/products', routeWsProducts);
+app.use('/products', routeProducts);
+// // store products
+// app.use('/products', (req, res)=>{
+//   res.render('productsStore', { title: 'Hey', message: 'Hello there!'});
+// });
+// // all nations products
+// app.use('/allnations', (req, res)=>{
+//   res.render('productsAllNations', { title: 'Hey', message: 'Hello there!'});
+// });
 
 app.use(function(err, req, res, next) {
   res.status(500).send({error: 'Internal server error.'});
