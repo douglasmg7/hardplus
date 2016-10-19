@@ -3,24 +3,32 @@ html
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    title Produtos
     link(rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" charset="utf-8")
-    link(rel="stylesheet" href="/css/allnations.css" charset="utf-8")
+    block head
+
 
   body#products
-    //- nav
     nav.navbar.navbar-default.navbar-static-top
       .container-fluid
         .navbar-header
-          button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+          button.navbar-toggle.collapsed(
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbar-collapse-main"
+            aria-expanded="false"
+            aria-controls="navbar"
+          )
             span.sr-only Toggle navigation
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          //- menu
-          a.navbar-brand(href="allnations") Allnations
-          a.navbar-brand(href="store") Loja
-        .navbar-collapse.collapse#navbar
+          //- brand
+          //- a.navbar-brand(href="store") Produtos
+        .collapse.navbar-collapse#navbar-collapse-main
+          ul.nav.navbar-nav
+            //- menu
+            li(v-bind:class="{active: menuIsActive.store}"): a(href="store") Hard Plus
+            li(v-bind:class="{active: menuIsActive.allNations}"): a(href="allnations") All Nations
           form.navbar-form.navbar-right
             .form-group
               input.form-control(v-model="filterName" type="text")
@@ -47,4 +55,4 @@ html
 
   script(src="/bower_components/jquery/dist/jquery.min.js")
   script(src="/bower_components/bootstrap/dist/js/bootstrap.min.js")
-  script(src="../js/bundle.js")
+  block bundle

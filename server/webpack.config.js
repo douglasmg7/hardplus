@@ -8,12 +8,20 @@ module.exports = {
   // devtool: 'source-map',   // for production
   devtool: 'eval',   // fast build
   entry: {
-    bundle: './public/js/allnations.js'
+    bundleProductsAllNations: './public/js/productsAllNations.js',
+    bundleProductsStore: './public/js/productsStore.js'
   },
   output: {
     path: './public/js/',
     filename: '[name].js'
   },
+  // entry: {
+  //   bundle: './public/js/allnations.js'
+  // },
+  // output: {
+  //   path: './public/js/',
+  //   filename: '[name].js'
+  // },
   module: {
     loaders: [
       // {

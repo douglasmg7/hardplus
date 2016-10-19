@@ -1,5 +1,9 @@
 extends productsLayout.pug
 
+block head
+  link(rel="stylesheet" href="/css/productsStore.css" charset="utf-8")
+  title Produtos Hard Plus
+
 block content_tr
   tr
     //- th.text-capitalize id
@@ -93,3 +97,6 @@ block modal_footer
       //- close
       .form-group
         button.btn.btn-default(type="button" data-dismiss="modal") Close
+
+block bundle
+  script(src="../js/bundleProductsStore.js")

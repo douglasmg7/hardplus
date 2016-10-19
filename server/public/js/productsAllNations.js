@@ -27,7 +27,12 @@ vue.use(vueResource);
       filterName: '',
       // Each produtc can have one o more pictures url.
       picId: 1,
-      inputChangIdStore: ''
+      inputChangIdStore: '',
+      // actived menu
+      menuIsActive: {
+        allNations: true,
+        store: false
+      }
     },
 
     created() {

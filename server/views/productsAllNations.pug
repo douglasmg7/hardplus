@@ -1,5 +1,9 @@
 extends productsLayout.pug
 
+block head
+  link(rel="stylesheet" href="/css/productsAllNations.css" charset="utf-8")
+  title Produtos All Nations
+
 block content_tr
   tr
     //- th.text-capitalize id
@@ -93,3 +97,6 @@ block modal_footer
       //- close
       .form-group
         button.btn.btn-default(type="button" data-dismiss="modal") Close
+
+block bundle
+  script(src="../js/bundleProductsAllNations.js")
