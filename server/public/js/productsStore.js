@@ -4,7 +4,7 @@
 let vue = require('vue');
 let vueResource = require('vue-resource');
 
-const WS_ALL_NATIONS = '/ws/allnations';
+const WS_PRODUCTS = '/ws/products';
 
 vue.use(vueResource);
 
@@ -36,11 +36,11 @@ vue.use(vueResource);
     },
 
     created() {
-      this.$http.get(WS_ALL_NATIONS)
+      this.$http.get(WS_PRODUCTS)
         .then((res)=>{
           this.products = res.body;
-          // console.log(res);
-          // console.log(typeof res.body[0].available);
+          console.log(res);
+          console.log(JSON.stringify(res.body[0]));
         })
         .catch((err)=>{
           console.log(err);
@@ -107,7 +107,7 @@ vue.use(vueResource);
         console.log('setProductMarket');
         console.log(`product _id: ${product._id}`);
         console.log(`commercialize: ${commercialize}`);
-        this.$http.put(`${WS_ALL_NATIONS}/${product._id}`, {'market': commercialize})
+        this.$http.put(`${WS_PRODUCTS}/${product._id}`, {'market': commercialize})
           .then((res)=>{
             // Not could process params.
             if (res.body.err) {
@@ -135,7 +135,7 @@ vue.use(vueResource);
         console.log('setProductIdStore');
         console.log(`product _id: ${product._id}`);
         console.log(`idStore: ${idStore}`);
-        this.$http.put(`${WS_ALL_NATIONS}/${product._id}`, {'idStore': idStore})
+        this.$http.put(`${WS_PRODUCTS}/${product._id}`, {'idStore': idStore})
           .then((res)=>{
             // Not could process params.
             if (res.body.err) {

@@ -35,7 +35,7 @@ function initStoreCollection(db, callback){
   });
 }
 
-describe('Store', ()=>{
+describe('Web service products store', ()=>{
 
   before((done)=>{
     // Pupulate db.
@@ -67,7 +67,7 @@ describe('Store', ()=>{
 
   it('get all products', (done)=>{
     chai.request(server)
-      .get('/products')
+      .get('/ws/products')
       .end((err, res)=>{
         expect(err).to.be.null;
         expect(res).to.have.status(200);
@@ -76,6 +76,8 @@ describe('Store', ()=>{
         expect(res.body).to.be.lengthOf(2);
         expect(res.body[0].idStore).to.be.a('string');
         expect(res.body[0].dealer).to.be.a('string');
+        expect(res.body[0].dealerCode).to.be.a('string');
+        expect(res.body[0].dealerProductDesc).to.be.a('string');
         expect(res.body[0].price).to.be.a('number');
         expect(res.body[0].stockLocation).to.be.a('string');
         expect(res.body[0].active).to.be.a('number');

@@ -7,96 +7,101 @@ block head
 block content_tr
   tr
     //- th.text-capitalize id
-    th.text-capitalize.clickable(@click="selectColOrder('desc')") descrição
-    th.text-capitalize.clickable(@click="selectColOrder('stockQtd')") estoque
+    th.text-capitalize.text-right.clickable(@click="selectColOrder('code-store')") cod. Loja
+    th.text-capitalize.text-right.clickable(@click="selectColOrder('dealer')") Revendedor
+    th.text-capitalize.text-right.clickable(@click="selectColOrder('stockLocation')") local
+    th.text-capitalize.text-right.clickable(@click="selectColOrder('dealerCode')") cod. (Rev)
+    th.text-capitalize.text-left.clickable(@click="selectColOrder('dealerCode')") Descrição (Rev)
+    //- th.text-capitalize.clickable(@click="selectColOrder('desc')") descrição
+    th.text-capitalize.text-right.clickable(@click="selectColOrder('stockQtd')") estoque
     th.text-capitalize.text-right.clickable(@click="selectColOrder('priceNum')") preço
-    th.text-capitalize.text-right.clickable(@click="selectColOrder('available')") disp
-    th.text-capitalize.text-right.clickable(@click="selectColOrder('code-store')") Loja
-  //- tr(v-for="product in products | orderBy orderCol order | filterBy '1' in 'available' | filterBy filterName in 'desc' 'currency'")
+    //- th.text-capitalize.text-right.clickable(@click="selectColOrder('available')") disp
   tr(
-    v-for="product in products | orderBy orderCol order | filterBy filterName in 'desc'"
-    v-bind:class="{'market': product.market, 'available-prd': product.available, 'active-prd': product.active, 'stock-prd': product.stockQtd > 1 }"
+    v-for="product in products"
   )
     //- td {{$index + 1}}
-    td.clickable(@click="openInfo(product)" v-bind:data-code="product.code" data-toggle="modal" data-target="#prd-info") {{product.desc}}
-    //- td.clickable(@click="openInfo($event)" v-bind:data-code="product.code" data-toggle="modal" data-target="#prd-info") {{product.desc}}
+    td.text-right {{product.idStore}}
+    td.text-right {{product.dealer}}
+    td.text-right {{product.stockLocation}}
+    td.text-right {{product.dealerCode}}
+    td.text-left {{product.dealerProductDesc}}
+    //- td.clickable(@click="openInfo(product)" v-bind:data-code="product.idStore" data-toggle="modal" data-target="#prd-info") {{product.desc}}
     td.text-right {{product.stockQtd}}
     td.text-right {{product.price | currency}}
-    td.text-right {{product.available && product.active ? 'Sim' : 'Não'}}
-    td.text-right {{product.idStore ? product.idStore : ''}}
+    //- td.text-right {{product.available && product.active ? 'Sim' : 'Não'}}
 
 block modal_body
-  dl.dl-horizontal
-    dt Código
-    dd {{productInfo.code}}
-    dt Localização
-    dd {{productInfo.stockLocation}}
-    dt Última atualização
-    dd {{productInfo.ts}}
-    dt Ativo
-    dd {{productInfo.active ? 'Ativo' : 'Inativo'}}
-    dt Disponibilidade
-    dd {{productInfo.available ? 'Disponível' : 'Indisponível'}}
-    dt Preço
-    dd {{productInfo.price | currency}}
-    dt Descrição
-    dd {{productInfo.tecDesc}}
-    dt Departamento
-    dd {{productInfo.department}}
-    dt Categoria
-    dd {{productInfo.category}}
-    dt Sub-categoria
-    dd {{productInfo.subCategory}}
-    dt Fabricante
-    dd {{productInfo.manufacturer}}
-    dt Número do produto
-    dd {{productInfo.partNum}}
-    dt EAN
-    dd {{productInfo.ean}}
-    dt Garantia
-    dd {{productInfo.warranty}} {{productInfo.warranty | pluralize 'mes' 'meses'}}
-    dt Peso
-    dd {{productInfo.weight}}kg
-    dt Largura
-    dd {{productInfo.width}}cm
-    dt Altura
-    dd {{productInfo.height}}cm
-    dt Profundidade
-    dd {{productInfo.deep}}cm
-    dt Imagem
-    dd
-      img(v-if="productInfo.urlImg" @click="changePic()" v-bind:src="productInfo.urlImg + '-0' + picId" v-bind:alt="productInfo.desc")
-    dt NCM
-    dd {{productInfo.ncm}}
-    dt Imposto
-    dd {{productInfo.taxReplace ? 'Incide ICMS ST' : 'Não incide ICMS ST'}}
-    dt Origem
-    dd {{productInfo.origin}}
+  //- dl.dl-horizontal
+  //-   dt Código
+  //-   dd {{productInfo.code}}
+  //-   dt Localização
+  //-   dd {{productInfo.stockLocation}}
+  //-   dt Última atualização
+  //-   dd {{productInfo.ts}}
+  //-   dt Ativo
+  //-   dd {{productInfo.active ? 'Ativo' : 'Inativo'}}
+  //-   dt Disponibilidade
+  //-   dd {{productInfo.available ? 'Disponível' : 'Indisponível'}}
+  //-   dt Preço
+  //-   dd {{productInfo.price | currency}}
+  //-   dt Descrição
+  //-   dd {{productInfo.tecDesc}}
+  //-   dt Departamento
+  //-   dd {{productInfo.department}}
+  //-   dt Categoria
+  //-   dd {{productInfo.category}}
+  //-   dt Sub-categoria
+  //-   dd {{productInfo.subCategory}}
+  //-   dt Fabricante
+  //-   dd {{productInfo.manufacturer}}
+  //-   dt Número do produto
+  //-   dd {{productInfo.partNum}}
+  //-   dt EAN
+  //-   dd {{productInfo.ean}}
+  //-   dt Garantia
+  //-   dd {{productInfo.warranty}} {{productInfo.warranty | pluralize 'mes' 'meses'}}
+  //-   dt Peso
+  //-   dd {{productInfo.weight}}kg
+  //-   dt Largura
+  //-   dd {{productInfo.width}}cm
+  //-   dt Altura
+  //-   dd {{productInfo.height}}cm
+  //-   dt Profundidade
+  //-   dd {{productInfo.deep}}cm
+  //-   dt Imagem
+  //-   dd
+  //-     img(v-if="productInfo.urlImg" @click="changePic()" v-bind:src="productInfo.urlImg + '-0' + picId" v-bind:alt="productInfo.desc")
+  //-   dt NCM
+  //-   dd {{productInfo.ncm}}
+  //-   dt Imposto
+  //-   dd {{productInfo.taxReplace ? 'Incide ICMS ST' : 'Não incide ICMS ST'}}
+  //-   dt Origem
+  //-   dd {{productInfo.origin}}
 
 block modal_footer
   .row
-    .col-xs-6
-      //- Commercialize
-      .form-group(v-if="!productInfo.market")
-        .input-group
-          .span.input-group-btn
-            button.btn.btn-success(
-              @click="setCommercialize(productInfo, true, inputChangIdStore)" type="button") Comercializar
-          input.form-control(v-model="inputChangIdStore" type="text" placeholder="Id Hardplus")
-      //- Change id store to reference
-      .form-group(v-if="productInfo.market")
-        .input-group
-          span.input-group-btn
-            button.btn.btn-success(@click="setProductIdStore(productInfo, inputChangIdStore)" type="button") Alterar Id
-          span
-            input.form-control(v-model="inputChangIdStore" type="text" placeholder="Id Hardplus")
-    .col-xs-6
-      //- Not commercialize
-      .form-group(v-if="productInfo.market")
-        button.btn.btn-warning(@click="setCommercialize(productInfo)" type="button") Não-Comercializar
-      //- close
-      .form-group
-        button.btn.btn-default(type="button" data-dismiss="modal") Close
+    //- .col-xs-6
+    //-   //- Commercialize
+    //-   .form-group(v-if="!productInfo.market")
+    //-     .input-group
+    //-       .span.input-group-btn
+    //-         button.btn.btn-success(
+    //-           @click="setCommercialize(productInfo, true, inputChangIdStore)" type="button") Comercializar
+    //-       input.form-control(v-model="inputChangIdStore" type="text" placeholder="Id Hardplus")
+    //-   //- Change id store to reference
+    //-   .form-group(v-if="productInfo.market")
+    //-     .input-group
+    //-       span.input-group-btn
+    //-         button.btn.btn-success(@click="setProductIdStore(productInfo, inputChangIdStore)" type="button") Alterar Id
+    //-       span
+    //-         input.form-control(v-model="inputChangIdStore" type="text" placeholder="Id Hardplus")
+    //- .col-xs-6
+    //-   //- Not commercialize
+    //-   .form-group(v-if="productInfo.market")
+    //-     button.btn.btn-warning(@click="setCommercialize(productInfo)" type="button") Não-Comercializar
+    //-   //- close
+    //-   .form-group
+    //-     button.btn.btn-default(type="button" data-dismiss="modal") Close
 
 block bundle
   script(src="../js/bundleProductsStore.js")

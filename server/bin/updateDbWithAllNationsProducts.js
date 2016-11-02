@@ -101,8 +101,9 @@ function insertProductsStore(db, products, callback){
       .find({dealerCode: product.code, dealer: "AllNations"})
       .upsert()
       .updateOne({
-        dealerCode: product.code,
         dealer: "AllNations",
+        dealerCode: product.code,
+        dealerProductDesc: product.desc,
         idStore: product.idStore,
         price: product.price,
         stockLocation: product.stockLocation,
