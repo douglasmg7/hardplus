@@ -11,11 +11,17 @@ erros
 atualizar sublime
 
 
-products doc
-  _id - mongodb
-  code - hardplus
-  dealer - allnations ,x , y
-  name
-  description
-  price
-    
+store products
+  - Título (hp definir)
+  - Foto (hp definir)
+  - Descrição primária (hp definir)
+  - Descrição completa (hp definir)
+  - Marca/Fabricante (hp definir)
+  - Grupo/Categoria (hp definir)
+  - Garantia tempo (hp definir)
+  - Observação garantia (hp definir)
+  - preço do fornecedor
+  - Lucro (valor ou porcentagem, se digitar porcento usar porcentagem)
+  - desconto pagamento em dinheiro (valor e checkbox habilitando)
+      aplica ao valor final e não somente ao lucro
+  - qtd estoque (original)

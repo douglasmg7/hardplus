@@ -5,6 +5,8 @@ node_modules/
 allnations/*.xml
 allnations/t.js
 allnations/doc/.*
+server/bin/*.watch
+server/bin/.last_req
 server/node_modules/
 server/bower_components/
 server/public/js/bundle*

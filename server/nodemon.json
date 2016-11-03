@@ -3,6 +3,8 @@
 	  "ignore": [
 		"public/js/allnations.js",
 		"public/*.html",
-		"public/css/*"
+		"public/css/*",
+    "bin/updateDbWithAllNationsProducts.js",
+    "bin/getAllNationsProducts.js"
 	  ]
 }

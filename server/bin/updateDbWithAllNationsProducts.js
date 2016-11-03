@@ -10,19 +10,18 @@ const mongo = require('mongodb').MongoClient;
 // personal modules
 const log = require('./log');
 const dbConfig = require('./dbConfig');
+// signal to run the script to update store db
+const watchDogFile = require('./watchDogConfig').updateAllNationProducts;
 
 // Interval(min) to run the script.
 const INTERVAL_RUN_MIN = 10;
-// Signal to run the script to update store db.
-const WATCH_FILE_NAME = '.db_change_all_nations.watch';
-const WATCH_FILE = __dirname + '/' + WATCH_FILE_NAME;
 // Timeout to cancel setInterval.
 let timeout;
 
 // Running directly from node.
 if(require.main === module){
   // log.info(`Init: run interval: \u001b[44m${INTERVAL_RUN_MIN}min\u001b[40m, watch file: \u001b[44m${WATCH_FILE}\u001b[40m`);
-  log.info('Init', {run_interval: `${INTERVAL_RUN_MIN}min`, watch_file: WATCH_FILE});
+  log.info('Init', {run_interval: `${INTERVAL_RUN_MIN}min`, watch_file: watchDogFile});
   // Run script for ther first time when started.
   runScript();
   // Create new interval to run script.
@@ -30,9 +29,9 @@ if(require.main === module){
     runScript();
   }, INTERVAL_RUN_MIN * 60000);
   // Watch file for changes in the All Nations products.
-  fs.watchFile(WATCH_FILE, {interval: 2000}, (curr, prev)=>{
+  fs.watchFile(watchDogFile, {interval: 2000}, (curr, prev)=>{
     if (curr.mtime !== prev.mtime) {
-      log.info(`${WATCH_FILE_NAME} changed.`);
+      log.info(`${watchDogFile} changed.`);
       // Cancel interval to run the script.
       clearInterval(timeout);
       // Run the script.
@@ -75,7 +74,7 @@ function connectDb(url, callback){
 // When the idStore is not empty, product was selected to be commercialize.
 function findProductsAllNations(db, callback){
   log.info('Finding... All Nations products.');
-  db.collection(dbConfig.collAllNationProducts).find({idStore: {$exists: true, $ne: ""}}).toArray()
+  db.collection(dbConfig.collAllNationProducts).find({storeProdcutId: {$exists: true, $ne: ""}}).toArray()
     .then(products=>{
       log.info(`Found ${products.length} to be commercialized.`);
       log.silly(JSON.stringify(products, null, ' '));
@@ -98,17 +97,26 @@ function insertProductsStore(db, products, callback){
   // Add each product to the bulk.
   for (let product of products) {
     bulk
-      .find({dealerCode: product.code, dealer: "AllNations"})
+      .find({dealerProductId: product.code, dealer: "AllNations"})
       .upsert()
       .updateOne({
-        dealer: "AllNations",
-        dealerCode: product.code,
-        dealerProductDesc: product.desc,
-        idStore: product.idStore,
-        price: product.price,
-        stockLocation: product.stockLocation,
-        active: (product.available && product.active),
-        stockQtd: product.stockQtd
+        $set: {
+          dealer: "AllNations",
+          dealerProductId: product.code,
+          dealerProductLastUpdate: product.ts,
+          dealerProductTitle: product.desc,
+          dealerProductDesc: product.tecDesc,
+          dealerProductWarrantyPeriodDays: product.warranty,
+          dealerProductPrice: product.price,
+          dealerProductLocation: product.stockLocation,
+          dealerProductWeightG: product.weight * 1000,
+          dealerProductWidthMm: product.width * 1000,
+          dealerProductHeightMm: product.height * 1000,
+          dealerProductDeepMm: product.deep * 1000,
+          dealerProductActive: (product.available && product.active),
+          dealerProductQtd: product.stockQtd,
+          storeProductId: product.storeProdcutId
+        }
       });
   }
   log.info('Updating... All Nations products to be commercialized.');

@@ -3,14 +3,14 @@
 
 'use strict';
 // npm modules
-const bunyan = require('bunyan');
-const path = require('path');
+// const path = require('path');
 const fs = require('fs');
 const request = require('request');
 const mongo = require('mongodb').MongoClient;
 const cheerio = require('cheerio');
 
 // personal modules
+const log = require('./log');
 const timer = require('./timer');
 const dbConfig = require('./dbConfig');
 
@@ -36,23 +36,9 @@ const LAST_REQ_TIME_INIT = '2015-01-01T00:00:00.000Z';
 let lastQuery;
 // Keep timer value.
 let timerAux;
-// Log configuration.
-let log = bunyan.createLogger({
-  name: path.parse(__filename).base,
-  streams: [
-    {
-      level: 'info',
-      stream: process.stdout
-    },
-    {
-      level: 'trace',
-      path: path.parse(__filename).name + '.log'
-    }
-  ]
-  // src: true
-});
 
-log.info('Script started', {run_interval_min: INTERVAL_RUN_MIN, request_interval_min: INTERVAL_REQ_MIN, last_req_time_file: LAST_REQ_TIME_FILE, last_req_time_init: LAST_REQ_TIME_INIT});
+log.info('Init', {run_interval_min: INTERVAL_RUN_MIN, request_interval_min: INTERVAL_REQ_MIN, last_req_time_file: LAST_REQ_TIME_FILE, last_req_time_init: LAST_REQ_TIME_INIT});
+
 // Read last query time from file.
 getLastReqDate();
 // Run script.
@@ -77,7 +63,7 @@ function getLastReqDate() {
       }
       // No expected error.
       else {
-        log.err('Error reading last request time from file', {err: err});
+        log.error('Error reading last request time from file', {err: err});
         process.nextTick(process.exit(1));
         // todo: entry test
       }
@@ -115,7 +101,7 @@ function reqWS() {
   // Request to ws.
   timer.begin('reqTime');
   request.get(url, (err, res, body) => {
-    if (err) {      log.err('Error making web service request', {err: err});
+    if (err) {      log.error('Error making web service request', {err: err});
       return;
     }
     timerAux = timer.end('reqTime');
@@ -126,14 +112,14 @@ function reqWS() {
     let xmlFile = XML_DIR + lastQuery.toISOString() + '--' + now.toISOString() + '.xml';
     fs.writeFile(xmlFile, body, (err)=>{
       if (err)
-        log.err('Error saving xml ws response to file.', {err: err, xml_file: xmlFile});
+        log.error('Error saving xml ws response to file.', {err: err, xml_file: xmlFile});
       else
         log.info('Xml ws reaponse saved to file.', {xml_file: xmlFile});
     // Write last query date to file.
     });
     fs.writeFile(LAST_REQ_TIME_FILE, now.toISOString(), (err)=>{
       if (err)
-        log.err('Error saving last request time to file.', {last_req_time: now.toISOString(), last_req_time_file: LAST_REQ_TIME_FILE});
+        log.error('Error saving last request time to file.', {last_req_time: now.toISOString(), last_req_time_file: LAST_REQ_TIME_FILE});
       else
         log.info('Last request time saved to file.', {last_req_time: now.toISOString(), last_req_time_file: LAST_REQ_TIME_FILE});
     });
@@ -147,7 +133,7 @@ function dbInsert(xmlData) {
   // Connect to mongo.
   mongo.connect(dbConfig.url, (err, db)=>{
     if(err){
-      log.err('MongoDb connection error.', {err: err});
+      log.error('MongoDb connection error.', {err: err});
     }
     // Convert xml to json (cheerio).
     timer.begin('mongoDbBulk');
@@ -161,59 +147,61 @@ function dbInsert(xmlData) {
           stockLocation: ($(el).find('ESTOQUE').text()).trim()})
         .upsert()
         .updateOne({
-          // Data da última atualização do produto
-          ts : new Date(($(el).find('TIMESTAMP').text()).trim()),
-          // Departamento do produto.
-          department: ($(el).find('DEPARTAMENTO').text()).trim(),
-          // Categoria do produto.
-          category: ($(el).find('CATEGORIA').text()).trim(),
-          // Sub-categoria do produto.
-          subCategory: ($(el).find('SUBCATEGORIA').text()).trim(),
-          // Fabricante do produto.
-          manufacturer: ($(el).find('FABRICANTE').text()).trim(),
-          // Identificador do produto.
-          code: ($(el).find('CODIGO').text()).trim(),
-          // Descrição do produto.
-          desc: ($(el).find('DESCRICAO').text()).trim(),
-          // Descrição técnica do produto.
-          tecDesc: ($(el).find('DESCRTEC').text()).trim(),
-          // Código do fabricante - não usado.
-          partNum: ($(el).find('PARTNUMBER').text()).trim(),
-          // Código de barras.
-          ean: ($(el).find('EAN').text()).trim(),
-          // Garantia em meses.
-          warranty: parseInt(($(el).find('GARANTIA').text()).trim()),
-          // Peso (kg).
-          weight: parseFloat(($(el).find('PESOKG').text()).trim()),
-          // Preço praticado pela All Nations para revenda.
-          price: parseFloat(($(el).find('PRECOREVENDA').text()).trim()),
-          // Preço praticado pela All Nations para revenda sem ST.
-          priceNoST: parseFloat(($(el).find('PRECOSEMST').text()).trim()),
-          // Situação do produto.
-          // 0-indisponível no momento, 1-disponível.
-          available: parseInt(($(el).find('DISPONIVEL').text()).trim()),
-          // Caminho para a imagem do produto no site da All Nations.
-          urlImg: ($(el).find('URLFOTOPRODUTO').text()).trim(),
-          // Estoque de origem do produto (RJ, SC e ES).
-          stockLocation: ($(el).find('ESTOQUE').text()).trim(),
-          // Código de classificação fiscal.
-          ncm: ($(el).find('NCM').text()).trim(),
-          // Largura em centímetros
-          width: parseFloat(($(el).find('LARGURA').text()).trim()),
-          // Altura em centímetros
-          height: parseFloat(($(el).find('ALTURA').text()).trim()),
-          // Profundidade em centímetros
-          deep: parseFloat(($(el).find('PROFUNDIDADE').text()).trim()),
-          // Produto ativo para venda.
-          // 0-não ativo, 1-ativo.
-          active: parseInt(($(el).find('ATIVO').text()).trim()),
-          // Indica se incide ICMS ST sobre o produto.
-          //  0-não incide ICMS ST, 1-Incide ICMS ST.
-          taxReplace: parseInt(($(el).find('SUBSTTRIBUTARIA').text()).trim()),
-          // Indica a origem do produto (nacional, importado, adquirido no mercado interno, entre outros).
-          origin: ($(el).find('ORIGEMPRODUTO').text()).trim(),
-          // Estoque disponível no momento da consulta (max = 100);
-          stockQtd: parseFloat(($(el).find('ESTOQUEDISPONIVEL').text()).trim())
+          $set: {
+            // Data da última atualização do produto
+            ts : new Date(($(el).find('TIMESTAMP').text()).trim()),
+            // Departamento do produto.
+            department: ($(el).find('DEPARTAMENTO').text()).trim(),
+            // Categoria do produto.
+            category: ($(el).find('CATEGORIA').text()).trim(),
+            // Sub-categoria do produto.
+            subCategory: ($(el).find('SUBCATEGORIA').text()).trim(),
+            // Fabricante do produto.
+            manufacturer: ($(el).find('FABRICANTE').text()).trim(),
+            // Identificador do produto.
+            code: ($(el).find('CODIGO').text()).trim(),
+            // Descrição do produto.
+            desc: ($(el).find('DESCRICAO').text()).trim(),
+            // Descrição técnica do produto.
+            tecDesc: ($(el).find('DESCRTEC').text()).trim(),
+            // Código do fabricante - não usado.
+            partNum: ($(el).find('PARTNUMBER').text()).trim(),
+            // Código de barras.
+            ean: ($(el).find('EAN').text()).trim(),
+            // Garantia em meses.
+            warranty: parseInt(($(el).find('GARANTIA').text()).trim()),
+            // Peso (kg).
+            weight: parseFloat(($(el).find('PESOKG').text()).trim()),
+            // Preço praticado pela All Nations para revenda.
+            price: parseFloat(($(el).find('PRECOREVENDA').text()).trim()),
+            // Preço praticado pela All Nations para revenda sem ST.
+            priceNoST: parseFloat(($(el).find('PRECOSEMST').text()).trim()),
+            // Situação do produto.
+            // 0-indisponível no momento, 1-disponível.
+            available: parseInt(($(el).find('DISPONIVEL').text()).trim()),
+            // Caminho para a imagem do produto no site da All Nations.
+            urlImg: ($(el).find('URLFOTOPRODUTO').text()).trim(),
+            // Estoque de origem do produto (RJ, SC e ES).
+            stockLocation: ($(el).find('ESTOQUE').text()).trim(),
+            // Código de classificação fiscal.
+            ncm: ($(el).find('NCM').text()).trim(),
+            // Largura em centímetros
+            width: parseFloat(($(el).find('LARGURA').text()).trim()),
+            // Altura em centímetros
+            height: parseFloat(($(el).find('ALTURA').text()).trim()),
+            // Profundidade em centímetros
+            deep: parseFloat(($(el).find('PROFUNDIDADE').text()).trim()),
+            // Produto ativo para venda.
+            // 0-não ativo, 1-ativo.
+            active: parseInt(($(el).find('ATIVO').text()).trim()),
+            // Indica se incide ICMS ST sobre o produto.
+            //  0-não incide ICMS ST, 1-Incide ICMS ST.
+            taxReplace: parseInt(($(el).find('SUBSTTRIBUTARIA').text()).trim()),
+            // Indica a origem do produto (nacional, importado, adquirido no mercado interno, entre outros).
+            origin: ($(el).find('ORIGEMPRODUTO').text()).trim(),
+            // Estoque disponível no momento da consulta (max = 100);
+            stockQtd: parseFloat(($(el).find('ESTOQUEDISPONIVEL').text()).trim())
+          }
         });
     });
     timerAux = timer.end('mongoDbBulk');
@@ -221,12 +209,12 @@ function dbInsert(xmlData) {
     timer.begin('dbInsert');
     bulk.execute((err, r)=>{
       if(err){
-        log.err('Error inserting products on mongoDb', {err: err});
+        log.error('Error inserting products on mongoDb', {err: err});
       }
       else{
         timerAux = timer.end('dbInsert');
         log.info('MongoDb insert.', {spend_time_mongodb_insert: timerAux});
-        log.debug('MongoDb insert.', {mongodb_insert: r.toJSON()});
+        log.debug('MongoDb insert.', {mongodb_insert: r});
       }
       // Include fields market and idStore.
       timer.begin('dbUpdate');
@@ -236,10 +224,10 @@ function dbInsert(xmlData) {
         .then(r=>{
           timerAux = timer.end('dbUpdate');
           log.info('MongoDb update.', {spend_time_mongodb_update: timerAux});
-          log.debug('MongoDb update.', {mongodb_update: r.toJSON()});
+          log.debug('MongoDb update.', {mongodb_update: r});
         })
         .catch(err=>{
-          log.err('Error updating products.market on mongoDb', {err: err});
+          log.error('Error updating products.market on mongoDb', {err: err});
         });
       db.close();
     });
