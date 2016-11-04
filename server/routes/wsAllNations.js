@@ -32,51 +32,46 @@ router.get('/:id', function(req, res) {
 
 // Update a product.
 router.put('/:id', function(req, res) {
-  // console.log(`id: ${req.params.id}, body: ${req.body}`);
-  // console.log(req.body.market);
   // Update product market.
   if (req.body.market !== undefined) {
-    let wdContent = `id: ${req.params.id}, market: ${req.body.market}`;
-    console.log(wdContent);
-    mongo.db.collection(dbConfig.collAllNationProducts).updateOne({_id: new ObjectId(req.params.id)}, {$set: {market: req.body.market}}, (err, r)=>{
+    // change product
+    mongo.db.collection(dbConfig.collAllNationProducts).updateOne({_id: new ObjectId(req.params.id)}, {$set: {market: req.body.market, storeProductId: req.body.storeProductId}}, (err, r)=>{
       if(err){
-        console.log('Error getting data');
+        console.log('Error change product');
         res.json('status: fail');
       }
-      // console.log(`matchedCount: ${r.matchedCount}`);
-      // console.log(`modifiedCount: ${r.modifiedCount}`);
-      // console.log(`result: ${JSON.stringify(r.result)}`);
-      res.json({
-        'matchedCount': r.matchedCount,
-        'modifiedCount': r.modifiedCount
-      });
-      // set watch dog
-      fs.writeFile(wdUpdateAllNationProducts, wdContent, 'utf-8', (err)=>{
-        if(err){
-          console.log(`saving watch dog, err: ${err}`);
-        } else {
-          console.log('watch dog saved, update store products with All Nations products');
-        }
-      });
-
-    });
-    // res.json({'market update': req.body.market});
-  }
-  // Update product id to referece.
-  else if (req.body.idStore !== undefined) {
-    console.log(`id: ${req.params.id}, idStore: ${req.body.idStore}`);
-    mongo.db.collection(dbConfig.collAllNationProducts).updateOne({_id: new ObjectId(req.params.id)}, {$set: {idStore: req.body.idStore}}, (err, r)=>{
-      if(err){
-        console.log(`Error updating idStore from product. _id: ${req.params.id}, idStore: ${req.body.idStore}`);
-        res.json('status: fail');
+      else {
+        res.json({
+          'matchedCount': r.matchedCount,
+          'modifiedCount': r.modifiedCount
+        });
+        // write to watch dog
+        let wdContent = `watch dog - All Nations product changed, id: ${req.params.id}, market: ${req.body.market}, storeProductId: ${req.body.storeProductId}`;
+        fs.writeFile(wdUpdateAllNationProducts, wdContent, 'utf-8', (err)=>{
+          if(err){
+            console.log(`saving watch dog, err: ${err}`);
+          } else {
+            console.log(wdContent);
+          }
+        });
       }
-      res.json({
-        'matchedCount': r.matchedCount,
-        'modifiedCount': r.modifiedCount
-      });
     });
-    // res.json({'market update': req.body.market});
   }
+  // // Update product id to referece.
+  // else if (req.body.idStore !== undefined) {
+  //   console.log(`id: ${req.params.id}, idStore: ${req.body.idStore}`);
+  //   mongo.db.collection(dbConfig.collAllNationProducts).updateOne({_id: new ObjectId(req.params.id)}, {$set: {idStore: req.body.idStore}}, (err, r)=>{
+  //     if(err){
+  //       console.log(`Error updating idStore from product. _id: ${req.params.id}, idStore: ${req.body.idStore}`);
+  //       res.json('status: fail');
+  //     }
+  //     res.json({
+  //       'matchedCount': r.matchedCount,
+  //       'modifiedCount': r.modifiedCount
+  //     });
+  //   });
+  //   // res.json({'market update': req.body.market});
+  // }
   else
   {
     res.json({err: 'no parameter to update'});

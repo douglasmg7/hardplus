@@ -27,7 +27,7 @@ vue.use(vueResource);
       filterName: '',
       // Each produtc can have one o more pictures url.
       picId: 1,
-      inputChangIdStore: '',
+      inputStoreProductId: '',
       // actived menu
       menuIsActive: {
         allNations: true,
@@ -48,11 +48,6 @@ vue.use(vueResource);
     },
 
     watch: {
-      // orderCol: function(val, oldVal){
-      //   if (true) {
-      //
-      //   }
-      // }
     },
 
     computed: {
@@ -81,44 +76,32 @@ vue.use(vueResource);
         }
       },
       openInfo(product){
-        console.time('openInfo');
         // Reset picture url number.
         this.picId = 1;
         // Get product from array.
         this.productInfo = product;
-        console.timeEnd('openInfo');
         // Set input value.
-        this.inputChangIdStore = this.productInfo.idStore;
+        this.inputStoreProductId = this.productInfo.storeProductId;
       },
-      setCommercialize(product, commercialize, idStore){
-        commercialize = commercialize ? true: false;
-        idStore = idStore || '';
-        console.log(`product _id: ${product._id}`);
-        console.log(`commercialize: ${commercialize}`);
-        console.log(`idStore: ${idStore}`);
-        this.setProductMarket(product, commercialize);
-        if (idStore) {
-          this.setProductIdStore(product, idStore);
+      setCommercialize(product, opt){
+        opt.commercialize = opt.commercialize === undefined ? product.market: opt.commercialize;
+        // must have store product id when commercialize
+        if (opt.commercialize) {
+          opt.storeProductId = opt.storeProductId ? opt.storeProductId: product._id;
         }
-      },
-      // Update product comercialization.
-      setProductMarket(product, commercialize){
-        commercialize = commercialize ? true: false;
-        console.log('setProductMarket');
-        console.log(`product _id: ${product._id}`);
-        console.log(`commercialize: ${commercialize}`);
-        this.$http.put(`${WS_ALL_NATIONS}/${product._id}`, {'market': commercialize})
+        console.log(`setCommercialize: storeProductId: ${opt.storeProductId}, commercialize: ${opt.commercialize}`);
+        this.$http.put(`${WS_ALL_NATIONS}/${product._id}`, {'market': opt.commercialize, 'storeProductId': opt.storeProductId})
           .then((res)=>{
-            // Not could process params.
+            // not could process params
             if (res.body.err) {
               alert(`erro: ${res.body.err}`);
             }
-            // Data modifed.
+            // data modifed
             else if (res.body.modifiedCount && (res.body.modifiedCount > 0)){
-              // Update product.
-              product.market = commercialize;
-              // this.products.find(function(o){return o._id === _id;}).market = val;
-              // console.log(`update - ${_id} - ${val}`);
+              // update product
+              product.market = opt.commercialize;
+              product.storeProductId = opt.storeProductId;
+              this.inputStoreProductId = opt.storeProductId;
             }
             else {
               alert(`Não foi possível fazer a alteração da comerialização.`);
@@ -127,29 +110,6 @@ vue.use(vueResource);
           .catch((err)=>{
             alert(`error: ${JSON.stringify(err)}`);
             console.log(`err: ${JSON.stringify(err)}`);
-          });
-      },
-      // Change id that product to refere.
-      setProductIdStore(product, idStore){
-        idStore = idStore || '';
-        console.log('setProductIdStore');
-        console.log(`product _id: ${product._id}`);
-        console.log(`idStore: ${idStore}`);
-        this.$http.put(`${WS_ALL_NATIONS}/${product._id}`, {'idStore': idStore})
-          .then((res)=>{
-            // Not could process params.
-            if (res.body.err) {
-              alert(`erro: ${res.body.err}`);
-            }
-            // Data modifed.
-            else if (res.body.modifiedCount && (res.body.modifiedCount > 0)){
-              // Update product id to reference.
-              // this.products.find(function(o){return o._id === _id;}).idStore = idStore;
-              product.idStore = idStore;
-            }
-          })
-          .catch((err)=>{
-            alert(`error: ${JSON.stringify(err)}`);
           });
       }
     },
