@@ -47,7 +47,7 @@ html
           .modal-header
             button.close(type="button" data-dismiss="modal" aria-label="Close")
               span(aria-hidden="true") &times;
-            h4.modal-title {{productInfo.desc}}
+            block modal_header
           .modal-body
             block modal_body
           .modal-footer.form-inline

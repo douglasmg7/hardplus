@@ -23,6 +23,9 @@ block content_tr
     td.text-right {{product.available && product.active ? 'Sim' : 'Não'}}
     td.text-right {{product.storeProductId ? product.storeProductId : ''}}
 
+block modal_header
+  h4.modal-title {{productInfo.desc}}
+
 block modal_body
   dl.dl-horizontal
     dt Código

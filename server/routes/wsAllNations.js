@@ -57,21 +57,6 @@ router.put('/:id', function(req, res) {
       }
     });
   }
-  // // Update product id to referece.
-  // else if (req.body.idStore !== undefined) {
-  //   console.log(`id: ${req.params.id}, idStore: ${req.body.idStore}`);
-  //   mongo.db.collection(dbConfig.collAllNationProducts).updateOne({_id: new ObjectId(req.params.id)}, {$set: {idStore: req.body.idStore}}, (err, r)=>{
-  //     if(err){
-  //       console.log(`Error updating idStore from product. _id: ${req.params.id}, idStore: ${req.body.idStore}`);
-  //       res.json('status: fail');
-  //     }
-  //     res.json({
-  //       'matchedCount': r.matchedCount,
-  //       'modifiedCount': r.modifiedCount
-  //     });
-  //   });
-  //   // res.json({'market update': req.body.market});
-  // }
   else
   {
     res.json({err: 'no parameter to update'});
