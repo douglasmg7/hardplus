@@ -25,7 +25,7 @@
     "taxReplace": 1,
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 100,
-    "market": false,
+    "commercialize": false,
     "storeProductId": "mouse-hrd"
   },
   {
@@ -54,7 +54,7 @@
     "taxReplace": 1,
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 100,
-    "market": false,
+    "commercialize": false,
     "storeProductId": ""
   },
   {
@@ -83,7 +83,7 @@
     "taxReplace": 1,
     "origin": "2 - ESTRANGEIRA - ADIQ. MERC. INTERNO",
     "stockQtd": 100,
-    "market": false,
+    "commercialize": false,
     "storeProductId": ""
   },
   {
@@ -112,7 +112,7 @@
     "taxReplace": 0,
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 100,
-    "market": false,
+    "commercialize": false,
     "storeProductId": "flt-hrd"
   },
   {
@@ -141,7 +141,7 @@
     "taxReplace": 1,
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 95,
-    "market": false,
+    "commercialize": false,
     "storeProductId": "flt-hrd"
   },
   {
@@ -170,7 +170,7 @@
     "taxReplace": 0,
     "origin": "2 - ESTRANGEIRA - ADIQ. MERC. INTERNO",
     "stockQtd": 100,
-    "market": false,
+    "commercialize": false,
     "storeProductId": ""
   },
   {
@@ -199,7 +199,7 @@
     "taxReplace": 0,
     "origin": "8 - NACIONAL - CONTEUDO IMP. SUP. 70%",
     "stockQtd": 100,
-    "market": false,
+    "commercialize": false,
     "storeProductId": ""
   },
   {
@@ -228,7 +228,7 @@
     "taxReplace": 0,
     "origin": "4 - NACIONAL - CONF. PROCESSO PRODUTIVO",
     "stockQtd": 100,
-    "market": false,
+    "commercialize": false,
     "storeProductId": "pen-drive-hrd"
   },
   {
@@ -257,7 +257,7 @@
     "taxReplace": 1,
     "origin": "8 - NACIONAL - CONTEUDO IMP. SUP. 70%",
     "stockQtd": 0,
-    "market": false,
+    "commercialize": false,
     "storeProductId": ""
   },
   {
@@ -286,7 +286,7 @@
     "taxReplace": 1,
     "origin": "8 - NACIONAL - CONTEUDO IMP. SUP. 70%",
     "stockQtd": 100,
-    "market": false,
+    "commercialize": false,
     "storeProductId": ""
   },
   {
@@ -315,7 +315,7 @@
     "taxReplace": 1,
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 100,
-    "market": false,
+    "commercialize": false,
     "storeProductId": ""
   },
   {
@@ -344,7 +344,7 @@
     "taxReplace": 0,
     "origin": "4 - NACIONAL - CONF. PROCESSO PRODUTIVO",
     "stockQtd": 77,
-    "market": false,
+    "commercialize": false,
     "storeProductId": ""
   },
   {
@@ -373,7 +373,7 @@
     "taxReplace": 1,
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 100,
-    "market": false,
+    "commercialize": false,
     "storeProductId": ""
   },
   {
@@ -402,7 +402,7 @@
     "taxReplace": 1,
     "origin": "0 - NACIONAL",
     "stockQtd": 100,
-    "market": false,
+    "commercialize": false,
     "storeProductId": ""
   },
   {
@@ -431,7 +431,7 @@
     "taxReplace": 1,
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 100,
-    "market": false,
+    "commercialize": false,
     "storeProductId": ""
   },
   {
@@ -460,7 +460,7 @@
     "taxReplace": 1,
     "origin": "0 - NACIONAL",
     "stockQtd": 5,
-    "market": false,
+    "commercialize": false,
     "storeProductId": ""
   },
   {
@@ -489,7 +489,7 @@
     "taxReplace": 1,
     "origin": "0 - NACIONAL",
     "stockQtd": 12,
-    "market": false,
+    "commercialize": false,
     "storeProductId": ""
   },
   {
@@ -518,7 +518,7 @@
     "taxReplace": 0,
     "origin": "2 - ESTRANGEIRA - ADIQ. MERC. INTERNO",
     "stockQtd": 53,
-    "market": false,
+    "commercialize": false,
     "storeProductId": ""
   },
   {
@@ -547,7 +547,7 @@
     "taxReplace": 0,
     "origin": "2 - ESTRANGEIRA - ADIQ. MERC. INTERNO",
     "stockQtd": 3,
-    "market": false,
+    "commercialize": false,
     "storeProductId": ""
   },
   {
@@ -576,7 +576,7 @@
     "taxReplace": 1,
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 100,
-    "market": false,
+    "commercialize": false,
     "storeProductId": "key-hrd"
   }
 ]

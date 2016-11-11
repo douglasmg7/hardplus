@@ -115,6 +115,7 @@ function insertProductsStore(db, products, callback){
           dealerProductDeepMm: product.deep * 1000,
           dealerProductActive: (product.available && product.active),
           dealerProductQtd: product.stockQtd,
+          // dealerProductCommercialize: product.commercialize
           storeProductId: product.storeProductId
         }
       });

@@ -11,10 +11,10 @@ block content_tr
     th.text-capitalize.clickable(@click="selectColOrder('stockQtd')") estoque
     th.text-capitalize.text-right.clickable(@click="selectColOrder('priceNum')") preço
     th.text-capitalize.text-right.clickable(@click="selectColOrder('available')") disp
-    th.text-capitalize.text-right.clickable(@click="selectColOrder('code-store')") loja
+    th.text-capitalize.text-right.clickable(@click="selectColOrder('id-store')") id loja
   tr(
     v-for="product in products | orderBy orderCol order | filterBy filterName in 'desc'"
-    v-bind:class="{'market': product.market, 'available-prd': product.available, 'active-prd': product.active, 'stock-prd': product.stockQtd > 1 }"
+    v-bind:class="{'commercialize': product.commercialize, 'available-prd': product.available, 'active-prd': product.active, 'stock-prd': product.stockQtd > 1 }"
   )
     //- td {{$index + 1}}
     td.clickable(@click="openInfo(product)" v-bind:data-code="product.code" data-toggle="modal" data-target="#prd-info") {{product.desc}}
@@ -28,8 +28,10 @@ block modal_header
 
 block modal_body
   dl.dl-horizontal
-    dt Código
+    dt id All Nations
     dd {{productInfo.code}}
+    dt id Loja
+    dd {{productInfo.storeProductId}}
     dt Localização
     dd {{productInfo.stockLocation}}
     dt Última atualização
@@ -38,6 +40,8 @@ block modal_body
     dd {{productInfo.active ? 'Ativo' : 'Inativo'}}
     dt Disponibilidade
     dd {{productInfo.available ? 'Disponível' : 'Indisponível'}}
+    dt Estoque
+    dd {{productInfo.stockQtd}}
     dt Preço
     dd {{productInfo.price | currency}}
     dt Descrição
@@ -78,14 +82,14 @@ block modal_footer
   .row
     .col-xs-6
       //- commercialize
-      .form-group(v-if="!productInfo.market")
+      .form-group(v-if="!productInfo.commercialize")
         .input-group
           .span.input-group-btn
             button.btn.btn-success(
               @click="setCommercialize(productInfo, {storeProductId: inputStoreProductId, commercialize: true})" type="button") Comercializar
           input.form-control(v-model="inputStoreProductId" type="text" placeholder="Id Hardplus")
       //- change product store id
-      .form-group(v-if="productInfo.market")
+      .form-group(v-if="productInfo.commercialize")
         .input-group
           span.input-group-btn
             button.btn.btn-success(@click="setCommercialize(productInfo, {storeProductId: inputStoreProductId})" type="button") Alterar Id
@@ -93,7 +97,7 @@ block modal_footer
             input.form-control(v-model="inputStoreProductId" type="text" placeholder="Id Hardplus")
     .col-xs-6
       //- not commercialize
-      .form-group(v-if="productInfo.market")
+      .form-group(v-if="productInfo.commercialize")
         button.btn.btn-warning(@click="setCommercialize(productInfo, {storeProductId: inputStoreProductId, commercialize: false})" type="button") Não-Comercializar
       //- close
       .form-group

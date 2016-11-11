@@ -17,7 +17,7 @@ let dbConfig = {
   // All Nations products collections.
   collAllNationProducts: 'allNationsProducts',
   // Store products collections.
-  collStoreProducts: 'hardPlusProducts'
+  collStoreProducts: 'storeProducts'
 };
 
 module.exports = dbConfig;

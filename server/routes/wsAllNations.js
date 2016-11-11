@@ -32,10 +32,10 @@ router.get('/:id', function(req, res) {
 
 // Update a product.
 router.put('/:id', function(req, res) {
-  // Update product market.
-  if (req.body.market !== undefined) {
+  // Update product commercialize.
+  if (req.body.commercialize !== undefined) {
     // change product
-    mongo.db.collection(dbConfig.collAllNationProducts).updateOne({_id: new ObjectId(req.params.id)}, {$set: {market: req.body.market, storeProductId: req.body.storeProductId}}, (err, r)=>{
+    mongo.db.collection(dbConfig.collAllNationProducts).updateOne({_id: new ObjectId(req.params.id)}, {$set: {commercialize: req.body.commercialize, storeProductId: req.body.storeProductId}}, (err, r)=>{
       if(err){
         console.log('Error change product');
         res.json('status: fail');
@@ -46,7 +46,7 @@ router.put('/:id', function(req, res) {
           'modifiedCount': r.modifiedCount
         });
         // write to watch dog
-        let wdContent = `watch dog - All Nations product changed, id: ${req.params.id}, market: ${req.body.market}, storeProductId: ${req.body.storeProductId}`;
+        let wdContent = `watch dog - All Nations product changed, id: ${req.params.id}, commercialize: ${req.body.commercialize}, storeProductId: ${req.body.storeProductId}`;
         fs.writeFile(wdUpdateAllNationProducts, wdContent, 'utf-8', (err)=>{
           if(err){
             console.log(`saving watch dog, err: ${err}`);

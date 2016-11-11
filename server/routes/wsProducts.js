@@ -20,11 +20,11 @@ router.get('/', function(req, res) {
 // Update a product.
 router.put('/:id', function(req, res) {
   // console.log(`id: ${req.params.id}, body: ${req.body}`);
-  // console.log(req.body.market);
-  // Update product market.
-  if (req.body.market !== undefined) {
-    console.log(`id: ${req.params.id}, market: ${req.body.market}`);
-    mongo.db.collection(dbConfig.collAllNationProducts).updateOne({_id: new ObjectId(req.params.id)}, {$set: {market: req.body.market}}, (err, r)=>{
+  // console.log(req.body.commercialize);
+  // Update product commercialize.
+  if (req.body.commercialize !== undefined) {
+    console.log(`id: ${req.params.id}, commercialize: ${req.body.commercialize}`);
+    mongo.db.collection(dbConfig.collAllNationProducts).updateOne({_id: new ObjectId(req.params.id)}, {$set: {commercialize: req.body.commercialize}}, (err, r)=>{
       if(err){
         console.log('Error getting data');
         res.json('status: fail');
@@ -32,12 +32,13 @@ router.put('/:id', function(req, res) {
       // console.log(`matchedCount: ${r.matchedCount}`);
       // console.log(`modifiedCount: ${r.modifiedCount}`);
       // console.log(`result: ${JSON.stringify(r.result)}`);
+        
       res.json({
         'matchedCount': r.matchedCount,
         'modifiedCount': r.modifiedCount
       });
     });
-    // res.json({'market update': req.body.market});
+    // res.json({'commercialize update': req.body.commercialize});
   }
   // Update product id to referece.
   else if (req.body.idStore !== undefined) {
@@ -52,7 +53,7 @@ router.put('/:id', function(req, res) {
         'modifiedCount': r.modifiedCount
       });
     });
-    // res.json({'market update': req.body.market});
+    // res.json({'commercialize update': req.body.commercialize});
   }
   else
   {

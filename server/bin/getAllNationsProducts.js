@@ -8,6 +8,7 @@ const fs = require('fs');
 const request = require('request');
 const mongo = require('mongodb').MongoClient;
 const cheerio = require('cheerio');
+const argv = require('yargs').argv;
 
 // personal modules
 const log = require('./log');
@@ -39,8 +40,18 @@ let timerAux;
 
 log.info('Init', {run_interval_min: INTERVAL_RUN_MIN, request_interval_min: INTERVAL_REQ_MIN, last_req_time_file: LAST_REQ_TIME_FILE, last_req_time_init: LAST_REQ_TIME_INIT});
 
+// args h - number of hours before now
+if(typeof argv.h === 'number') {
+  lastQuery = new Date();
+  lastQuery.setHours(lastQuery.getHours() - argv.h);
+  log.info(`Using last request time from command line.`, {last_req_time: lastQuery.toISOString()});
+  // Make the query.
+  reqWS();
 // Read last query time from file.
-getLastReqDate();
+} else{
+  getLastReqDate();
+}
+
 // Run script.
 setInterval(()=>{
   log.info('Running script');
@@ -216,18 +227,18 @@ function dbInsert(xmlData) {
         log.info('MongoDb insert.', {spend_time_mongodb_insert: timerAux});
         log.debug('MongoDb insert.', {mongodb_insert: r});
       }
-      // Include fields market and idStore.
+      // Include fields commercialize and idStore.
       timer.begin('dbUpdate');
-      db.collection('dealerProducts').updateMany(
-        {market: {$exists: false}},
-        {$set: {market: false, idStore: ''}})
+      db.collection(dbConfig.collAllNationProducts).updateMany(
+        {commercialize: {$exists: false}},
+        {$set: {commercialize: false, storeProductId: ''}})
         .then(r=>{
           timerAux = timer.end('dbUpdate');
           log.info('MongoDb update.', {spend_time_mongodb_update: timerAux});
           log.debug('MongoDb update.', {mongodb_update: r});
         })
         .catch(err=>{
-          log.error('Error updating products.market on mongoDb', {err: err});
+          log.error('Error updating products.commercialize on mongoDb', {err: err});
         });
       db.close();
     });

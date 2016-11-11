@@ -84,13 +84,13 @@ vue.use(vueResource);
         this.inputStoreProductId = this.productInfo.storeProductId;
       },
       setCommercialize(product, opt){
-        opt.commercialize = opt.commercialize === undefined ? product.market: opt.commercialize;
+        opt.commercialize = opt.commercialize === undefined ? product.commercialize: opt.commercialize;
         // must have store product id when commercialize
         if (opt.commercialize) {
           opt.storeProductId = opt.storeProductId ? opt.storeProductId: product._id;
         }
         console.log(`setCommercialize: storeProductId: ${opt.storeProductId}, commercialize: ${opt.commercialize}`);
-        this.$http.put(`${WS_ALL_NATIONS}/${product._id}`, {'market': opt.commercialize, 'storeProductId': opt.storeProductId})
+        this.$http.put(`${WS_ALL_NATIONS}/${product._id}`, {'commercialize': opt.commercialize, 'storeProductId': opt.storeProductId})
           .then((res)=>{
             // not could process params
             if (res.body.err) {
@@ -99,7 +99,7 @@ vue.use(vueResource);
             // data modifed
             else if (res.body.modifiedCount && (res.body.modifiedCount > 0)){
               // update product
-              product.market = opt.commercialize;
+              product.commercialize = opt.commercialize;
               product.storeProductId = opt.storeProductId;
               this.inputStoreProductId = opt.storeProductId;
             }
