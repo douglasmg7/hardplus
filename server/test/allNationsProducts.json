@@ -26,7 +26,7 @@
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 100,
     "market": false,
-    "storeProdcutId": "mouse-hrd"
+    "storeProductId": "mouse-hrd"
   },
   {
     "ts": "2016-09-27T18:56:25.000Z",
@@ -55,7 +55,7 @@
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 100,
     "market": false,
-    "storeProdcutId": ""
+    "storeProductId": ""
   },
   {
     "ts": "2016-09-05T13:15:54.000Z",
@@ -84,7 +84,7 @@
     "origin": "2 - ESTRANGEIRA - ADIQ. MERC. INTERNO",
     "stockQtd": 100,
     "market": false,
-    "storeProdcutId": ""
+    "storeProductId": ""
   },
   {
     "ts": "2016-09-23T12:54:51.000Z",
@@ -113,7 +113,7 @@
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 100,
     "market": false,
-    "storeProdcutId": "flt-hrd"
+    "storeProductId": "flt-hrd"
   },
   {
     "ts": "2016-09-27T20:48:33.000Z",
@@ -142,7 +142,7 @@
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 95,
     "market": false,
-    "storeProdcutId": "flt-hrd"
+    "storeProductId": "flt-hrd"
   },
   {
     "ts": "2016-09-23T17:43:54.000Z",
@@ -171,7 +171,7 @@
     "origin": "2 - ESTRANGEIRA - ADIQ. MERC. INTERNO",
     "stockQtd": 100,
     "market": false,
-    "storeProdcutId": ""
+    "storeProductId": ""
   },
   {
     "ts": "2016-09-23T12:52:44.000Z",
@@ -200,7 +200,7 @@
     "origin": "8 - NACIONAL - CONTEUDO IMP. SUP. 70%",
     "stockQtd": 100,
     "market": false,
-    "storeProdcutId": ""
+    "storeProductId": ""
   },
   {
     "ts": "2016-09-12T16:56:41.000Z",
@@ -229,7 +229,7 @@
     "origin": "4 - NACIONAL - CONF. PROCESSO PRODUTIVO",
     "stockQtd": 100,
     "market": false,
-    "storeProdcutId": "pen-drive-hrd"
+    "storeProductId": "pen-drive-hrd"
   },
   {
     "ts": "2016-09-22T13:16:50.000Z",
@@ -258,7 +258,7 @@
     "origin": "8 - NACIONAL - CONTEUDO IMP. SUP. 70%",
     "stockQtd": 0,
     "market": false,
-    "storeProdcutId": ""
+    "storeProductId": ""
   },
   {
     "ts": "2016-09-23T12:21:53.000Z",
@@ -287,7 +287,7 @@
     "origin": "8 - NACIONAL - CONTEUDO IMP. SUP. 70%",
     "stockQtd": 100,
     "market": false,
-    "storeProdcutId": ""
+    "storeProductId": ""
   },
   {
     "ts": "2016-09-02T12:15:15.000Z",
@@ -316,7 +316,7 @@
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 100,
     "market": false,
-    "storeProdcutId": ""
+    "storeProductId": ""
   },
   {
     "ts": "2016-09-12T16:56:07.000Z",
@@ -345,7 +345,7 @@
     "origin": "4 - NACIONAL - CONF. PROCESSO PRODUTIVO",
     "stockQtd": 77,
     "market": false,
-    "storeProdcutId": ""
+    "storeProductId": ""
   },
   {
     "ts": "2016-09-15T21:15:27.000Z",
@@ -374,7 +374,7 @@
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 100,
     "market": false,
-    "storeProdcutId": ""
+    "storeProductId": ""
   },
   {
     "ts": "2016-09-27T19:00:39.000Z",
@@ -403,7 +403,7 @@
     "origin": "0 - NACIONAL",
     "stockQtd": 100,
     "market": false,
-    "storeProdcutId": ""
+    "storeProductId": ""
   },
   {
     "ts": "2016-09-02T12:19:25.000Z",
@@ -432,7 +432,7 @@
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 100,
     "market": false,
-    "storeProdcutId": ""
+    "storeProductId": ""
   },
   {
     "ts": "2016-09-09T16:24:30.000Z",
@@ -461,7 +461,7 @@
     "origin": "0 - NACIONAL",
     "stockQtd": 5,
     "market": false,
-    "storeProdcutId": ""
+    "storeProductId": ""
   },
   {
     "ts": "2016-09-09T16:23:51.000Z",
@@ -490,7 +490,7 @@
     "origin": "0 - NACIONAL",
     "stockQtd": 12,
     "market": false,
-    "storeProdcutId": ""
+    "storeProductId": ""
   },
   {
     "ts": "2016-09-19T19:58:02.000Z",
@@ -519,7 +519,7 @@
     "origin": "2 - ESTRANGEIRA - ADIQ. MERC. INTERNO",
     "stockQtd": 53,
     "market": false,
-    "storeProdcutId": ""
+    "storeProductId": ""
   },
   {
     "ts": "2016-09-23T12:27:03.000Z",
@@ -548,7 +548,7 @@
     "origin": "2 - ESTRANGEIRA - ADIQ. MERC. INTERNO",
     "stockQtd": 3,
     "market": false,
-    "storeProdcutId": ""
+    "storeProductId": ""
   },
   {
     "ts": "2016-09-15T21:15:10.000Z",
@@ -577,6 +577,6 @@
     "origin": "1 - ESTRANGEIRA - IMPORTACAO DIRETA",
     "stockQtd": 100,
     "market": false,
-    "storeProdcutId": "key-hrd"
+    "storeProductId": "key-hrd"
   }
 ]

@@ -4,6 +4,7 @@
 		"public/js/allnations.js",
 		"public/*.html",
 		"public/css/*",
+		"*/*.log",
     "bin/updateDbWithAllNationsProducts.js",
     "bin/getAllNationsProducts.js"
 	  ]

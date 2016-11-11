@@ -90,7 +90,7 @@ describe('Store products', function(){
       expect(products).to.have.lengthOf(5);
       // Sort by idStore;
       products.sort((a, b)=>{
-        return b.storeProdcutId < a.storeProdcutId ? 1: -1;
+        return b.storeProductId < a.storeProductId ? 1: -1;
       });
       // storeProductId from db.
       let ptoductIdTest = [
@@ -101,7 +101,7 @@ describe('Store products', function(){
         'pen-drive-hrd'
       ];
       for (let i = 0; i < products.length; i++) {
-        expect(products[i].storeProdcutId).to.have.string(ptoductIdTest[i]);
+        expect(products[i].storeProductId).to.have.string(ptoductIdTest[i]);
       }
       // To be used into the next test.
       productsANC = products;
