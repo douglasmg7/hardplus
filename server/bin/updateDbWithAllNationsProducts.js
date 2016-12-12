@@ -73,10 +73,10 @@ function connectDb(url, callback){
 // Get all products that idStore is not empty.
 function findProductsAllNations(db, callback){
   log.info('Finding... All Nations products.');
-  // if storeProductId is not empty, product was selected to be commercialized
+  // if storeProductId is not empty, product was selected to be trade once - commercialize can be true o false
   db.collection(dbConfig.collAllNationProducts).find({storeProductId: {$exists: true, $ne: ""}}).toArray()
     .then(products=>{
-      log.info(`Found ${products.length} to be commercialized.`);
+      log.info(`Found ${products.length} to be trade.`);
       log.silly(JSON.stringify(products, null, ' '));
       callback(products);
     })
@@ -115,7 +115,7 @@ function insertProductsStore(db, products, callback){
           dealerProductDeepMm: product.deep * 1000,
           dealerProductActive: (product.available && product.active),
           dealerProductQtd: product.stockQtd,
-          // dealerProductCommercialize: product.commercialize
+          dealerProductCommercialize: product.commercialize,
           storeProductId: product.storeProductId
         }
       });
