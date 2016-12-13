@@ -13,7 +13,10 @@ mouserover
 
 store products
   - Título (hp definir)
-  - Foto (hp definir)
+  - image
+      todas as imagens utilizaveis, incluindo do fornecedor e as de downloads
+  - Ícone (hp definir)
+      vai aparecer junto com o título e a descrição primária
   - Descrição primária (hp definir)
   - Descrição completa (hp definir)
   - Marca/Fabricante (hp definir)
@@ -24,4 +27,5 @@ store products
   - Lucro (valor ou porcentagem, se digitar porcento usar porcentagem)
   - desconto pagamento em dinheiro (valor e checkbox habilitando)
       aplica ao valor final e não somente ao lucro
+      aplicar valor padrão  
   - qtd estoque (original)

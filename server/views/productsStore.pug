@@ -18,7 +18,7 @@ block content_tr
     v-for="product in products"
   )
     //- td {{$index + 1}}
-    td.clickable.text-left(@click="openInfo(product)" v-bind:data-code="product.code" data-toggle="modal" data-target="#prd-info") {{product.storeProductId}}
+    td.clickable.text-left(@click="openInfo(product)" v-bind:data-code="product.code" data-toggle="modal" data-target="#prd-info" v-bind:title='product.dealerProductTitle') {{product.storeProductId}}
     td.text-left {{product.dealer}}
     td.text-left {{product.dealerProductLocation}}
     td.text-left {{product.dealerProductId}}
@@ -32,19 +32,16 @@ block modal_header
 block modal_body
   .form-group
     label(for='title') Título
-    input.form-control(id='title')
+    input.form-control(id='title' v-model='productInfo.dealerProductTitle')
   .form-group
     label(for='image') Image
     input(id='image' type='file')
   .form-group
-    label(for='location') Localização
-    input(id='location')
-  .form-group
     label(for='desc-primariy') Descrição primária
-    input.form-control(id='desc-primariy')
+    textarea.form-control(id='desc-primariy' v-model='productInfo.storeProductDescPrimary')
   .form-group
     label(for='desc-complete') Descrição completa
-    input.form-control(id='desc-complete')
+    textarea.form-control(id='desc-complete' v-model='productInfo.storeProductDescComplete')
   .form-group
     label(for='maker') Fabricante
     input.form-control(id='maker')
@@ -60,51 +57,28 @@ block modal_body
   .form-group
     label(for='price') Preço (fornecedor)
     input.form-control(id='price')
-
-
-  //- dl.dl-horizontal
-  //-   dt Descrição primária
-  //-   dd {{productInfo.storeTitle}}
-  //-   dt Descrição completa
-  //-   dd {{productInfo.storeTitle}}
-  //-   dt Fabricante
-  //-   dd {{productInfo.storeTitle}}
-  //-   dt Tag
-  //-   dd {{productInfo.storeTitle}}
-  //-   dt Garantia (tempo)
-  //-   dd {{productInfo.storeTitle}}
-  //-   dt Garantia (observação)
-  //-   dd {{productInfo.storeTitle}}
-  //-   dt Preço
-  //-   dd {{productInfo.dealerProductPrice}}
-  //-   dt Lucro
-  //-   dd {{productInfo.dealerProductPrice}}
-  //-   dt Desconto
-  //-   dd {{productInfo.dealerProductPrice}}
-  //-   dt Estoque quantidade
-  //-   dd {{productInfo.dealerProductQtd}}
+  .form-group
+    label(for='markup') Preço (Lucro)
+    input.form-control(id='markup')
+  .form-group
+    label(for='discount') Desconto
+    input.form-control(id='discount' v-model='productInfo.storeProductDiscount')
+    input(type='checkbox' v-model='productInfo.storeProductDiscountEnable' id='discountEnable')
+    label(for='discountEnable') Usar desconto
+  .form-group
+    label(for='stockQtd') Estoque
+    input.form-control(id='stockQtd')
+  .form-group
+    input(type='checkbox' v-model='productInfo.storeProductCommercialize' id='commercialize')
+    label(for='commercialize') Comercializar
 
 block modal_footer
   .row
     .col-xs-6
-      //- Commercialize
-      .form-group(v-if="!productInfo.market")
-        .input-group
-          .span.input-group-btn
-            button.btn.btn-success(
-              @click="setCommercialize(productInfo, true, inputChangIdStore)" type="button") Comercializar
-          input.form-control(v-model="inputChangIdStore" type="text" placeholder="Id Hardplus")
-      //- Change id store to reference
-      .form-group(v-if="productInfo.market")
-        .input-group
-          span.input-group-btn
-            button.btn.btn-success(@click="setProductIdStore(productInfo, inputChangIdStore)" type="button") Alterar Id
-          span
-            input.form-control(v-model="inputChangIdStore" type="text" placeholder="Id Hardplus")
     .col-xs-6
-      //- Not commercialize
-      .form-group(v-if="productInfo.market")
-        button.btn.btn-warning(@click="setCommercialize(productInfo)" type="button") Não-Comercializar
+      //- save
+      .form-group
+        button.btn.btn-success(@click="saveProductStore(productInfo, {storeProductId: inputStoreProductId, commercialize: false})" type="button") Save
       //- close
       .form-group
         button.btn.btn-default(type="button" data-dismiss="modal") Close
