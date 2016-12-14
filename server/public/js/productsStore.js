@@ -56,6 +56,26 @@ vue.use(vueResource);
     },
 
     computed: {
+      finalPrice() {
+        let result = this.productInfo.dealerProductPrice;
+        // applay markup
+        if (this.productInfo.storeProductMarkup > 0) {
+          result *= (1 + (this.productInfo.storeProductMarkup / 100));
+        }
+        return result;
+      },
+      finalPriceDiscount() {
+        let result = this.productInfo.dealerProductPrice;
+        // applay markup
+        if (this.productInfo.storeProductMarkup > 0) {
+          result *= (1 + (this.productInfo.storeProductMarkup / 100));
+        }
+        // applay discount
+        if (this.productInfo.storeProductDiscountEnable && this.productInfo.storeProductDiscount > 0) {
+          result -= this.productInfo.storeProductDiscount;
+        }
+        return result;
+      }      
     },
 
     methods: {
@@ -90,32 +110,23 @@ vue.use(vueResource);
         // Set input value.
         this.inputChangIdStore = this.productInfo.idStore;
       },
-      saveProductStore(product, opt){
-        opt.commercialize = opt.commercialize === undefined ? product.commercialize: opt.commercialize;
-        // must have store product id when commercialize
-        if (opt.commercialize) {
-          opt.storeProductId = opt.storeProductId ? opt.storeProductId: product._id;
-        }
-        console.log(`setCommercialize: storeProductId: ${opt.storeProductId}, commercialize: ${opt.commercialize}`);
-        this.$http.put(`${WS_PRODUCTS}/${product._id}`, {'commercialize': opt.commercialize, 'storeProductId': opt.storeProductId})
+      saveProductStore(product){
+        this.$http.put(`${WS_PRODUCTS}/${product._id}`, product)
           .then((res)=>{
             // not could process params
             if (res.body.err) {
               alert(`erro: ${res.body.err}`);
             }
-            // data modifed
-            else if (res.body.modifiedCount && (res.body.modifiedCount > 0)){
-              // update product
-              product.commercialize = opt.commercialize;
-              product.storeProductId = opt.storeProductId;
-              this.inputStoreProductId = opt.storeProductId;
+            // data modified
+            else if (res.body.matchedCount && (res.body.matchedCount > 0)){
+              console.log('Produto atualizado.');
             }
             else {
-              alert(`Não foi possível fazer a alteração da comerialização.`);
+              alert(`Não foi possível fazer as alterações. result: ${JSON.stringify(res.body)}`);
             }
           })
           .catch((err)=>{
-            alert(`error: ${JSON.stringify(err)}`);
+            alert(`erro: ${JSON.stringify(err)}`);
             console.log(`err: ${JSON.stringify(err)}`);
           });
       }
