@@ -27,5 +27,9 @@ store products
   - Lucro (valor ou porcentagem, se digitar porcento usar porcentagem)
   - desconto pagamento em dinheiro (valor e checkbox habilitando)
       aplica ao valor final e não somente ao lucro
-      aplicar valor padrão  
+      aplicar valor padrão
   - qtd estoque (original)
+
+
+  v-for="product in products | orderBy orderCol order | filterBy filterName in 'desc'"
+  v-bind:class="{'commercialize': product.commercialize, 'available-prd': product.available, 'active-prd': product.active, 'stock-prd': product.stockQtd > 1 }"

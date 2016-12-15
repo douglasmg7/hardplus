@@ -6,10 +6,23 @@
 // npm modules
 const path = require('path');
 const winston = require('winston');
+const fs = require('fs');
+
 // file to log.
 let parsePath = path.parse(module.parent.filename);
-const logPath = parsePath.dir + '/' + parsePath.name + '.log';
-// console.log(logPath);
+const logDir = path.join(parsePath.dir, 'log');
+const logFilename = path.join(logDir, (parsePath.name + '.log'));
+// console.log(logDir);
+// console.log(logFilename);
+
+// create log dir
+try {
+  if (!fs.existsSync(logDir)) {
+    fs.mkdirSync(logDir);
+  }
+} catch (e) {
+  console.log(e);
+}
 
 // Log configuration.
 let log = new (winston.Logger)({
@@ -20,7 +33,7 @@ let log = new (winston.Logger)({
       silent: false,
       colorize: true,
       timestamp: true,
-      filename: logPath,
+      filename: logFilename,
       maxsize: 40000,
       maxFiles: 10,
       json: false

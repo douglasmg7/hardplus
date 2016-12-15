@@ -1,4 +1,4 @@
-/* globals  */
+/* globals  accounting*/
 'use strict';
 
 let vue = require('vue');
@@ -111,6 +111,12 @@ vue.use(vueResource);
             alert(`error: ${JSON.stringify(err)}`);
             console.log(`err: ${JSON.stringify(err)}`);
           });
+      }
+    },
+
+    filters: {
+      currencyBr(value){
+        return accounting.formatMoney(value, "R$", 2, ".", ",");
       }
     },
 

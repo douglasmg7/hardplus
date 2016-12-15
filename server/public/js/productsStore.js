@@ -1,12 +1,24 @@
-/* globals  */
+/* globals accounting */
 'use strict';
 
 let vue = require('vue');
 let vueResource = require('vue-resource');
+// let veeValidate = require('vee-validate');
 
 const WS_PRODUCTS = '/ws/products';
 
 vue.use(vueResource);
+
+
+// const config = {
+//   errorBagName: 'errors', // change if property conflicts.
+//   delay: 0,
+//   locale: 'en',
+//   messages: null,
+//   strict: true
+// };
+// vue.use(veeValidate, config);
+
 
 (function(exports){
   exports.app = new vue({
@@ -75,7 +87,7 @@ vue.use(vueResource);
           result -= this.productInfo.storeProductDiscount;
         }
         return result;
-      }      
+      }
     },
 
     methods: {
@@ -130,7 +142,31 @@ vue.use(vueResource);
             console.log(`err: ${JSON.stringify(err)}`);
           });
       }
+      // onlyNumber(event){
+      //   if (event.key === '2') {
+      //     alert('second');
+      //     return false;
+      //   } else{
+      //     alert('other');
+      //     return true;
+      //   }
+      //   return (
+      //     event.ctrlKey ||
+      //     event.altKey ||
+      //     (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) ||
+      //     (95<event.keyCode && event.keyCode<106) ||
+      //     (event.keyCode==8) || (event.keyCode==9) ||
+      //     (event.keyCode>34 && event.keyCode<40) ||
+      //     (event.keyCode==46)
+      //   );
+      // }
 
+    },
+
+    filters: {
+      currencyBr(value){
+        return accounting.formatMoney(value, "R$", 2, ".", ",");
+      }
     },
 
     directives: {

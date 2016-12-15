@@ -24,7 +24,7 @@ block content_tr
     td.text-left {{product.dealerProductId}}
     td.text-left {{product.dealerProductTitle}}
     td.text-left {{product.dealerProductQtd}}
-    td.text-left {{product.dealerProductPrice | currency}}
+    td.text-left {{product.dealerProductPrice | currencyBr}}
 
 block modal_header
   h4.modal-title {{productInfo.dealerProductTitle}}
@@ -63,10 +63,13 @@ block modal_body
       .row
         .col-xs-4
           label(for='price') Preço (fornecedor)
-          input.form-control(value='{{productInfo.dealerProductPrice}}' disabled id='price')
+          input.form-control(:value='productInfo.dealerProductPrice' disabled id='price')
         .col-xs-4
           label(for='markup') Lucro (%)
-          input.form-control(v-model.number='productInfo.storeProductMarkup' id='markup')
+          input.form-control(id='markup')
+          //- input.form-control(v-validate data-vv-rules='require|email' id='markup')
+          //- span must have some value
+          //- input.form-control(v-model='productInfo.storeProductMarkup' v-on:keydown='onlyNumber' id='markup' )
         .col-xs-4
           label(for='discount') Desconto (valor ou %)
           input.form-control(v-model='productInfo.storeProductDiscount' id='discount')
@@ -75,17 +78,22 @@ block modal_body
         input(type='checkbox' v-model='productInfo.storeProductDiscountEnable')
         | Usar desconto
     .form-group
+      //- label.label(for='email') Email
+      //- p(:class="{ 'control': true }")
+      //-   input(:class="{'input': true, 'is-danger': errors.has('email') }" v-validate data-vv-rules="required|email" name="email" type="text" placeholder="Email")
+      //-   span(v-show="errors.has('email')" class="help is-danger") {{ errors.first('email') }}
+    .form-group
       .row
         .col-xs-6
           label(for='discount') Preço final sem desconto
-          input.form-control(id='discount' value='{{finalPrice}}' disabled)
+          input.form-control(:value='finalPrice' id='discount' disabled)
         .col-xs-6
           label(for='discount') Preço final com desconto
-          input.form-control(id='discount' value='{{finalPriceDiscount}}' disabled)
+          input.form-control(:value='finalPriceDiscount' id='discount' disabled)
 
     .form-group
       label(for='stockQtd') Estoque
-      input.form-control(id='stockQtd' value='{{productInfo.dealerProductQtd}}' disabled)
+      input.form-control(:value='productInfo.dealerProductQtd' id='stockQtd' disabled)
     .checkbox
       label
         input(type='checkbox' v-model='productInfo.storeProductCommercialize')

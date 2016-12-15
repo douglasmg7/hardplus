@@ -13,13 +13,13 @@ block content_tr
     th.text-capitalize.text-right.clickable(@click="selectColOrder('available')") disp
     th.text-capitalize.text-right.clickable(@click="selectColOrder('id-store')") id loja
   tr(
-    v-for="product in products | orderBy orderCol order | filterBy filterName in 'desc'"
+    v-for="product in products"
     v-bind:class="{'commercialize': product.commercialize, 'available-prd': product.available, 'active-prd': product.active, 'stock-prd': product.stockQtd > 1 }"
   )
     //- td {{$index + 1}}
     td.clickable(@click="openInfo(product)" v-bind:data-code="product.code" data-toggle="modal" data-target="#prd-info") {{product.desc}}
     td.text-right {{product.stockQtd}}
-    td.text-right {{product.price | currency}}
+    td.text-right {{product.price | currencyBr}}
     td.text-right {{product.available && product.active ? 'Sim' : 'Não'}}
     td.text-right {{product.storeProductId ? product.storeProductId : ''}}
 
@@ -43,7 +43,7 @@ block modal_body
     dt Estoque
     dd {{productInfo.stockQtd}}
     dt Preço
-    dd {{productInfo.price | currency}}
+    dd {{productInfo.price | currencyBr}}
     dt Descrição
     dd {{productInfo.tecDesc}}
     dt Departamento
@@ -59,7 +59,7 @@ block modal_body
     dt EAN
     dd {{productInfo.ean}}
     dt Garantia
-    dd {{productInfo.warranty}} {{productInfo.warranty | pluralize 'mes' 'meses'}}
+    dd {{productInfo.warranty}} {{productInfo.warranty}}
     dt Peso
     dd {{productInfo.weight}}kg
     dt Largura
