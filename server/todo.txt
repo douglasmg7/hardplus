@@ -33,3 +33,10 @@ store products
 
   v-for="product in products | orderBy orderCol order | filterBy filterName in 'desc'"
   v-bind:class="{'commercialize': product.commercialize, 'available-prd': product.available, 'active-prd': product.active, 'stock-prd': product.stockQtd > 1 }"
+
+  npm packages
+  rimraf
+  webpack-dev-server
+
+  music
+    fly - acoustic (meadowlark  )

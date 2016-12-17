@@ -47,6 +47,10 @@ app.use('/ws/products', routeWsProducts);
 // html
 app.use('/products', routeProducts);
 
+// test
+app.get('/tt', (req, res)=>{
+  res.render('tt');
+});
 
 app.use(function(err, req, res, next) {
   res.status(500).send({error: 'Internal server error.'});

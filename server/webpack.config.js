@@ -9,7 +9,8 @@ module.exports = {
   devtool: 'eval',   // fast build
   entry: {
     bundleProductsAllNations: './public/js/productsAllNations.js',
-    bundleProductsStore: './public/js/productsStore.js'
+    bundleProductsStore: './public/js/productsStore.js',
+    bundleTt: './public/js/tt.js'
   },
   output: {
     path: './public/js/',
@@ -19,7 +20,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.common.js'
     }
-  },  
+  },
   // entry: {
   //   bundle: './public/js/allnations.js'
   // },
