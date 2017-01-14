@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: 0 */
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -5,6 +6,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongo = require('./model/db');
+// webpack HMR - hot module reload
+const webpack = require("webpack");
+const webpackDevMiddleware = require("webpack-dev-middleware");
+const webpackHotMiddleware = require("webpack-hot-middleware");
+const webpackConfig = require('./webpack.config');
 // personal modules
 const log = require('./bin/log');
 
@@ -16,6 +22,15 @@ var routeWsProducts = require('./routes/wsProducts');
 var routeProducts = require('./routes/products');
 
 var app = express();
+
+// webpack HMR
+var compiler = webpack(webpackConfig);
+app.use(webpackDevMiddleware(compiler, {
+  // noInfo: false, publicPath: './asdf', stats: {colors: true}
+  noInfo: false, publicPath: webpackConfig.output.publicPath, stats: {colors: true}
+}));
+console.log(webpackConfig.output);
+app.use(webpackHotMiddleware(compiler));
 
 // pretty in development
 if (app.get('env') === 'development') {

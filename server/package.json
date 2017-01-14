@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "cross-env NODE_ENV=development node ./bin/www",
+    "startMon": "nodemon ./bin/www",
     "start-dev": "npm run watch & npm start",
     "test": "mocha test -u bdd -R spec -t 2000",
     "testCompile": "mocha test -u bdd --compilers js:babel-core/register"
@@ -13,7 +14,7 @@
     "bunyan": "^1.8.1",
     "cheerio": "^0.22.0",
     "cookie-parser": "~1.4.3",
-    "debug": "~2.4.4",
+    "debug": "^2.6.0",
     "express": "~4.14.0",
     "mongodb": "^2.2.9",
     "morgan": "~1.7.0",
@@ -27,12 +28,21 @@
     "yargs": "^6.3.0"
   },
   "devDependencies": {
+    "nodemon": "^1.11.0",
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
+    "mocha": "^3.1.2",
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
-    "mocha": "^3.1.2",
-    "nodemon": "^1.11.0",
-    "webpack": "^1.14.0"
+    "cross-env": "^3.1.4",
+    "webpack": "^2.2.0-rc.4",
+    "webpack-dev-middleware": "^1.9.0",
+    "webpack-hot-middleware": "^2.15.0",
+    "vue-loader": "^10.0.2",
+    "vue-template-compiler": "^2.1.8",
+    "file-loader": "^0.9.0",
+    "url-loader": "^0.5.7",
+    "css-loader": "^0.26.1",
+    "style-loader": "^0.13.1"
   }
 }

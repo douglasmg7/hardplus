@@ -17,9 +17,9 @@ let app7 = new vue({
   el: '#app-7',
   data: {
     groceryList: [
-      { text: 'Vegetables' },
-      { text: 'Cheese' },
-      { text: 'Whatever else humans are supposed to eat' }]
+      { text: 'Veeegetables' },
+      { text: 'Cheeses' },
+      { text: '234Whatever else humans are supposed to eat' }]
   }
 });
 
