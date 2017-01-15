@@ -8,14 +8,15 @@ const DEVELOPMENT = process.env.NODE_ENV === 'development';
 
 let entry = DEVELOPMENT
   ? {
-    bundleProductsAllNations: ['./public/js/productsAllNations.js', 'webpack-hot-middleware/client'],
-    bundleProductsStore: ['./public/js/productsStore.js', 'webpack-hot-middleware/client'],
-    bundleTt: ['./public/js/tt.js', 'webpack-hot-middleware/client']
+    // bundleProductsAllNations: ['./src/js/productsAllNations.js', 'webpack-hot-middleware/client'],
+    // bundleProductsStore: ['./src/js/productsStore.js', 'webpack-hot-middleware/client'],
+    bundleTt: ['./src/js/tt.js', 'webpack-hot-middleware/client'],
+    bundleMain: ['./src/js/v.js', 'webpack-hot-middleware/client']
   }
   : {
-    bundleProductsAllNations: './public/js/productsAllNations.js',
-    bundleProductsStore: './public/js/productsStore.js',
-    bundleTt: './public/js/tt.js'
+    bundleProductsAllNations: './src/js/productsAllNations.js',
+    bundleProductsStore: './src/js/productsStore.js',
+    bundleTt: './src/js/tt.js'
   };
 
 let plugins = DEVELOPMENT
@@ -26,10 +27,11 @@ let plugins = DEVELOPMENT
   : [];
 
 module.exports = {
-  cache: true,
+  // cache: true,
   // devtool: 'source-map',   // for production
   // devtool: '#eval-source-map',
-  devtool: 'eval',   // fast build
+  // devtool: 'eval',   // fast build
+  devtool: '#eval-source-map',
   entry: entry,
   // entry: {
   //   bundleProductsAllNations: './public/js/productsAllNations.js',
@@ -37,8 +39,9 @@ module.exports = {
   //   bundleTt: './public/js/tt.js'
   // },
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    path: path.resolve(__dirname, 'dist/'),
+    publicPath: '',
+    // publicPath: 'dist/',
     filename: '[name].js'
   },
 
@@ -52,36 +55,39 @@ module.exports = {
   },
 
   module: {
-    loaders: [
-      // {
-      //   test:/\.js$/,
-      //   include: [
-      //     path.resolve(__dirname, 'public/js')
-      //     // path.resolve(__dirname, "app/test")
-      //   ],
-      //   // exclude: /(node_modules|bower_components)/,
-      //   loader: 'babel',
-      //   query: {
-      //     cacheDirectory: true, //important for performance
-      //     presets: ['es2015']
-      //   }
-      // }
-      // {
-      //   test:/\.jpg$/,
-      //   // include: path.resolve(__dirname, 'srcd'),
-      //   exclude: /(node_modules|bower_components)/,
-      //   loader: 'file'
-      //   // query: {
-      //   //   name: '[name][hash].[ext]'
-      //   // }
-      // },
-      // {
-      //   test:/\.css$/,
-      //   // include: path.resolve(__dirname, 'srcd'),
-      //   exclude: /(node_modules|bower_components)/,
-      //   loader: 'style!css'
-      // }
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
+            // the "scss" and "sass" values for the lang attribute to the right configs here.
+            // other preprocessors should work out of the box, no loader config like this nessessary.
+            'scss': 'vue-style-loader!css-loader!sass-loader',
+            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+          }
+          // other vue-loader options go here
+        }
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]?[hash]'
+        }
+      }
     ]
+  },
+
+  devServer: {
+    historyApiFallback: true,
+    noInfo: true
   },
   plugins: plugins
 };

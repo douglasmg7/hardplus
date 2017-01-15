@@ -8,9 +8,12 @@ var bodyParser = require('body-parser');
 var mongo = require('./model/db');
 // webpack HMR - hot module reload
 const webpack = require("webpack");
-const webpackDevMiddleware = require("webpack-dev-middleware");
-const webpackHotMiddleware = require("webpack-hot-middleware");
-const webpackConfig = require('./webpack.config');
+let webpackConfig = require('./webpack.config');
+let compiler = webpack(webpackConfig);
+let webpackDevMiddleware = require("webpack-dev-middleware")(compiler, {
+  noInfo: false, publicPath: webpackConfig.output.publicPath, stats: {colors: true}
+});
+let webpackHotMiddleware = require("webpack-hot-middleware")(compiler);
 // personal modules
 const log = require('./bin/log');
 
@@ -24,13 +27,8 @@ var routeProducts = require('./routes/products');
 var app = express();
 
 // webpack HMR
-var compiler = webpack(webpackConfig);
-app.use(webpackDevMiddleware(compiler, {
-  // noInfo: false, publicPath: './asdf', stats: {colors: true}
-  noInfo: false, publicPath: webpackConfig.output.publicPath, stats: {colors: true}
-}));
-console.log(webpackConfig.output);
-app.use(webpackHotMiddleware(compiler));
+app.use(webpackDevMiddleware);
+app.use(webpackHotMiddleware);
 
 // pretty in development
 if (app.get('env') === 'development') {
@@ -51,8 +49,8 @@ if (app.get('env') !== 'test') {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
+app.use(express.static(path.join(__dirname, 'dist/')));
+app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));
 
 app.use('/', routes);
 app.use('/users', users);
@@ -65,6 +63,11 @@ app.use('/products', routeProducts);
 // test
 app.get('/tt', (req, res)=>{
   res.render('tt');
+});
+
+// vue hmr test
+app.get('/v', (req, res)=>{
+  res.render('v');
 });
 
 app.use(function(err, req, res, next) {
