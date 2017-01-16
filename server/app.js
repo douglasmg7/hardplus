@@ -52,6 +52,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist/')));
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));
 
+// app.use(require('connect-livereload')({
+//   port: 35729,
+//   ignore: ['.js', '.svg']
+// }));
+
 app.use('/', routes);
 app.use('/users', users);
 // web service

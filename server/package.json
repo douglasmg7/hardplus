@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "start-old": "livereload ./views -d -e pug & cross-env NODE_ENV=development node ./bin/www",
+<<<<<<< HEAD
     "start-dev": "cross-env NODE_ENV=development nodemon ./bin/www",
+=======
+    "start-dev": "cross-env NODE_ENV=development node ./bin/www",
+>>>>>>> 1ff0c3d4b32a1e1b167305c7455b8d5469482647
     "livereload": "livereload ./views -d -e pug",
     "start": "npm run livereload & npm run start-dev",
     "start-nodemon": "nodemon ./bin/www",
@@ -35,6 +39,7 @@
     "babel-preset-es2015": "^6.18.0",
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
+    "connect-livereload": "^0.6.0",
     "cross-env": "^3.1.4",
     "css-loader": "^0.26.1",
     "file-loader": "^0.9.0",
