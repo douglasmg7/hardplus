@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "cross-env NODE_ENV=development node ./bin/www",
-    "startMon": "nodemon ./bin/www",
-    "start-dev": "npm run watch & npm start",
+    "start-old": "livereload ./views -d -e pug & cross-env NODE_ENV=development node ./bin/www",
+    "start-dev": "cross-env NODE_ENV=development node ./bin/www",
+    "livereload": "livereload ./views -d -e pug",
+    "start": "npm run livereload & npm run start-dev",
+    "start-nodemon": "nodemon ./bin/www",
     "test": "mocha test -u bdd -R spec -t 2000",
     "testCompile": "mocha test -u bdd --compilers js:babel-core/register"
   },
@@ -33,6 +35,7 @@
     "babel-preset-es2015": "^6.18.0",
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
+    "connect-livereload": "^0.6.0",
     "cross-env": "^3.1.4",
     "css-loader": "^0.26.1",
     "file-loader": "^0.9.0",

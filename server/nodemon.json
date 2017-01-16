@@ -1,6 +1,7 @@
 {
 	  "verbose": true,
 	  "ignore": [
+    "src/*"
 		"public/js/allnations.js",
 		"public/*.html",
 		"public/css/*",
