@@ -64,10 +64,12 @@ app.use('/products', routeProducts);
 app.get('/tt', (req, res)=>{
   res.render('tt');
 });
-
 // vue hmr test
 app.get('/v', (req, res)=>{
   res.render('v');
+});
+app.get('/j', (req, res)=>{
+  res.render('j');
 });
 
 app.use(function(err, req, res, next) {

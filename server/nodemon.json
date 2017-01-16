@@ -1,10 +1,15 @@
 {
 	  "verbose": true,
 	  "ignore": [
-		"public/js/allnations.js",
-		"public/*.html",
-		"public/css/*",
-		"*/*.log",
+    "*/*.log",
+    "*/*.txt",
+    "bower.json",
+    "test/*",
+    "src/*",
+		"views/*",
+		"node_modules/*",
+		"bower_components/*",
+    "dist/*",
     "bin/updateDbWithAllNationsProducts.js",
     "bin/getAllNationsProducts.js"
 	  ]
