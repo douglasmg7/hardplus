@@ -4,11 +4,7 @@
   "private": true,
   "scripts": {
     "start-old": "livereload ./views -d -e pug & cross-env NODE_ENV=development node ./bin/www",
-<<<<<<< HEAD
     "start-dev": "cross-env NODE_ENV=development nodemon ./bin/www",
-=======
-    "start-dev": "cross-env NODE_ENV=development node ./bin/www",
->>>>>>> 1ff0c3d4b32a1e1b167305c7455b8d5469482647
     "livereload": "livereload ./views -d -e pug",
     "start": "npm run livereload & npm run start-dev",
     "start-nodemon": "nodemon ./bin/www",
