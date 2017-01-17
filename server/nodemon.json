@@ -1,24 +1,21 @@
 {
 	  "verbose": true,
 	  "ignore": [
-<<<<<<< HEAD
-    "*/*.log",
-    "*/*.txt",
-    "bower.json",
-    "test/*",
-    "src/*",
-		"views/*",
-		"node_modules/*",
-		"bower_components/*",
-    "dist/*",
-=======
-    "src/*"
-		"public/js/allnations.js",
-		"public/*.html",
-		"public/css/*",
-		"*/*.log",
->>>>>>> 1ff0c3d4b32a1e1b167305c7455b8d5469482647
-    "bin/updateDbWithAllNationsProducts.js",
-    "bin/getAllNationsProducts.js"
+      "*/*.log",
+      "*/*.txt",
+      "bower.json",
+      "test/*",
+      "src/*",
+  		"views/*",
+  		"node_modules/*",
+  		"bower_components/*",
+      "dist/*",
+      "src/*",
+  		"public/js/allnations.js",
+  		"public/*.html",
+  		"public/css/*",
+  		"*/*.log",
+      "bin/updateDbWithAllNationsProducts.js",
+      "bin/getAllNationsProducts.js"
 	  ]
 }

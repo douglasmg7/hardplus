@@ -1,5 +1,6 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+// import App from './App.vue';
+let App = require('./App.vue');
 
 new Vue({
   el: '#app',
@@ -7,4 +8,4 @@ new Vue({
   data: {
     msg: 'loa'
   }
-})
+});
