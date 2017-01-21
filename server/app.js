@@ -7,13 +7,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongo = require('./model/db');
 // webpack HMR - hot module reload
-const webpack = require("webpack");
+const webpack = require('webpack');
 let webpackConfig = require('./webpack.config');
 let compiler = webpack(webpackConfig);
-let webpackDevMiddleware = require("webpack-dev-middleware")(compiler, {
+let webpackDevMiddleware = require('webpack-dev-middleware')(compiler, {
   noInfo: false, publicPath: webpackConfig.output.publicPath, stats: {colors: true}
 });
-let webpackHotMiddleware = require("webpack-hot-middleware")(compiler);
+let webpackHotMiddleware = require('webpack-hot-middleware')(compiler);
 // personal modules
 const log = require('./bin/log');
 
@@ -51,6 +51,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist/')));
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));
+app.use('/semantic', express.static(path.join(__dirname, 'semantic/')));
 
 app.use('/', routes);
 app.use('/users', users);
@@ -68,8 +69,13 @@ app.get('/tt', (req, res)=>{
 app.get('/v', (req, res)=>{
   res.render('v');
 });
+// single component test
 app.get('/j', (req, res)=>{
   res.render('j');
+});
+// semantic-ui test
+app.get('/s', (req, res)=>{
+  res.render('s');
 });
 
 app.use(function(err, req, res, next) {
