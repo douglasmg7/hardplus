@@ -12,7 +12,9 @@ let entry = DEVELOPMENT
     // bundleProductsStore: ['./src/js/productsStore.js', 'webpack-hot-middleware/client'],
     bundleTt: ['./src/js/tt.js', 'webpack-hot-middleware/client?reload=true'],
     bundleMain: ['./src/js/v.js', 'webpack-hot-middleware/client'],
-    bundleJ: ['./src/js/j.js', 'webpack-hot-middleware/client?reload=true']
+    bundleJ: ['./src/js/j.js', 'webpack-hot-middleware/client?reload=true'],
+    bundleS: ['./src/js/s.js', 'webpack-hot-middleware/client?reload=true'],
+    bundlePStore: ['./src/js/pStore.js', 'webpack-hot-middleware/client?reload=true']
   }
   : {
     bundleProductsAllNations: './src/js/productsAllNations.js',
@@ -77,12 +79,54 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.css$/,
+        loader: ['style-loader', 'css-loader'],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(eot|png|svg|[ot]tf|woff2?)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader',
+        query: {limit: 10000}
+      },
+      // {
+      //   test:/.eot$/,
+      //   loader:'url-loader',
+      //   query:{mimetype:'application/vnd.ms-fontobject',name:'./public/css/semantic/themes/default/assets/fonts/icons.eot'}
+      // },
+      // {
+      //   test:/.woff$/,
+      //   loader:'url-loader',
+      //   query:{mimetype:'application/font-woff',name:'./public/css/semantic/themes/default/assets/fonts/icons.woff'}
+      // },
+      // {
+      //   test:/.woff2$/,
+      //   loader:'url-loader',
+      //   query:{mimetype:'application/font-woff2',name:'./public/css/semantic/themes/default/assets/fonts/icons.woff2'}
+      // },
+      // {
+      //   test:/.[ot]tf$/,
+      //   loader:'url-loader',
+      //   query:{mimetype:'application/octet-stream',name:'./public/css/semantic/themes/default/assets/fonts/icons.ttf'}
+      // },
+      // {
+      //   test:/.svg$/,
+      //   loader:'url-loader',
+      //   query:{mimetype:'image/svg+xml',name:'./public/css/semantic/themes/default/assets/fonts/icons.svg'}
+      // },
+      {
+        test: /\.(jpg|gif)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
         }
       }
+      // {
+      //   test: /\.(png|jpg|gif|svg)$/,
+      //   loader: 'file-loader',
+      //   options: {
+      //     name: '[name].[ext]?[hash]'
+      //   }
+      // }
     ]
   },
 
