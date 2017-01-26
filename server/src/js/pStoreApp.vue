@@ -1,52 +1,68 @@
-/* globals accounting */
-'use strict';
+<template lang='pug'>
+  div
+    //- // p uiuiu-{{bandName}}
+    //- table.ui.celled.striped.table
+    //- table.ui.sortable.line.striped.table
+    //- table.ui.sortable.celled.striped.table
+    //- table.ui.line.striped.table
+    table.ui.compact.striped.table
+      thead
+        tr
+          // th.text-capitalize id
+          th.clickable(@click="selectColOrder('code-store')") Hardplus id
+          th.clickable(@click="selectColOrder('dealer')") Revendedor
+          th.clickable(@click="selectColOrder('stockLocation')") local
+          th.clickable(@click="selectColOrder('dealerCode')") Rev Id
+          th.clickable(@click="selectColOrder('dealerCode')") Rev Titulo
+          th.clickable(@click="selectColOrder('stockQtd')") estoque
+          th.clickable(@click="selectColOrder('priceNum')") preço
+      tbody
+        tr(v-for="product in products")
+          // td {{$index + 1}}
+          td.clickable(@click="openInfo(product)" v-bind:data-code="product.code" data-toggle="modal" data-target="#prd-info" v-bind:title='product.dealerProductTitle') {{product.storeProductId}}
+          td {{product.dealer}}
+          td {{product.dealerProductLocation}}
+          td {{product.dealerProductId}}
+          td {{product.dealerProductTitle}}
+          td {{product.dealerProductQtd}}
+          //   td {{product.dealerProductPrice | currencyBr}}
+          td {{product.dealerProductPrice}}
+</template>
 
-let vue = require('vue');
-let vueResource = require('vue-resource');
-// let veeValidate = require('vee-validate');
+<script>
+  /* globals accounting */
+  'use strict';
 
-const WS_PRODUCTS = '/ws/products';
+  // let veeValidate = require('vee-validate');
 
-vue.use(vueResource);
+  const WS_PRODUCTS = '/ws/products';
 
-
-// const config = {
-//   errorBagName: 'errors', // change if property conflicts.
-//   delay: 0,
-//   locale: 'en',
-//   messages: null,
-//   strict: true
-// };
-// vue.use(veeValidate, config);
-
-
-(function(exports){
-  exports.app = new vue({
-    el: '#products',
-
-    data: {
-      // product: {},
-      // All products.
-      products: [
-        {desc:''}
-      ],
-      productInfo: {},
-      // Which column to order.
-      orderCol: 'desc',
-      // Crescent o decrescent order.
-      order: 1,
-      // Used by the text filter.
-      filterName: '',
-      // Each produtc can have one o more pictures url.
-      picId: 1,
-      inputChangIdStore: '',
-      // actived menu
-      menuIsActive: {
-        allNations: false,
-        store: true
+  export default {
+    data: function(){
+      return {
+        bandName: 'U2-U2',
+        // product: {},
+        // All products.
+        products: [
+          {desc:''}
+        ],
+        productInfo: {},
+        // Which column to order.
+        orderCol: 'desc',
+        // Crescent o decrescent order.
+        order: 1,
+        // Used by the text filter.
+        filterName: '',
+        // Each produtc can have one o more pictures url.
+        picId: 1,
+        inputChangIdStore: '',
+        // actived menu
+        menuIsActive: {
+          allNations: false,
+          store: true
+        }
       }
     },
-
     created() {
       this.$http.get(WS_PRODUCTS)
         .then((res)=>{
@@ -58,7 +74,6 @@ vue.use(vueResource);
           console.log(err);
         });
     },
-
     watch: {
       // orderCol: function(val, oldVal){
       //   if (true) {
@@ -142,25 +157,6 @@ vue.use(vueResource);
             console.log(`err: ${JSON.stringify(err)}`);
           });
       }
-      // onlyNumber(event){
-      //   if (event.key === '2') {
-      //     alert('second');
-      //     return false;
-      //   } else{
-      //     alert('other');
-      //     return true;
-      //   }
-      //   return (
-      //     event.ctrlKey ||
-      //     event.altKey ||
-      //     (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) ||
-      //     (95<event.keyCode && event.keyCode<106) ||
-      //     (event.keyCode==8) || (event.keyCode==9) ||
-      //     (event.keyCode>34 && event.keyCode<40) ||
-      //     (event.keyCode==46)
-      //   );
-      // }
-
     },
 
     filters: {
@@ -175,5 +171,16 @@ vue.use(vueResource);
     http: {
       // root: '/root'
     }
-  });
-})(window);
+  }
+</script>
+
+<style lang='stylus'>
+  th.clickable, td.clickable
+     cursor: pointer
+  /*comercialized but not available or not active*/
+  tr.market
+    background-color: #F2DEDE
+  /*comercialized and available and active*/
+  tr.market.available-prd.active-prd.stock-prd
+    background-color: #bdffbd
+</style>
