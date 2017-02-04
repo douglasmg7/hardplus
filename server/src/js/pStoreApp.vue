@@ -19,24 +19,89 @@
       tbody
         tr(v-for="product in products")
           // td {{$index + 1}}
-          td.clickable(@click="openInfo(product)" v-bind:data-code="product.code" data-toggle="modal" data-target="#prd-info" v-bind:title='product.dealerProductTitle') {{product.storeProductId}}
-          td {{product.dealer}}
-          td {{product.dealerProductLocation}}
-          td {{product.dealerProductId}}
-          td {{product.dealerProductTitle}}
-          td {{product.dealerProductQtd}}
+          td.clickable(@click="showProductDetail(product)" v-bind:data-code="product.code" v-bind:title='product.dealerProductTitle') {{product.storeProductId}}
+          td.clickable(@click="showProductDetail(product)") {{product.dealer}}
+          td.clickable(@click="showProductDetail(product)") {{product.dealerProductLocation}}
+          td.clickable(@click="showProductDetail(product)") {{product.dealerProductId}}
+          td.clickable(@click="showProductDetail(product)") {{product.dealerProductTitle}}
+          td.clickable(@click="showProductDetail(product)") {{product.dealerProductQtd}}
           //   td {{product.dealerProductPrice | currencyBr}}
-          td {{product.dealerProductPrice}}
+          td.clickable(@click="showProductDetail(product)") {{product.dealerProductPrice}}
+    //- .ui.button(
+    //-   onclick=
+    //-     "$('.ui.fullscreen.modal')\
+    //-       .modal('setting', 'duration', 0)\
+    //-       .modal('show');"
+    //-   ) show modal
+    .ui.small.modal
+      i.close.icon
+      .header {{productDetail.dealerProductTitle}}
+      .content
+        form.ui.form
+          .field
+            label Título
+            input(v-model='productDetail.dealerProductTitle')
+          .field
+            label Imagem
+            input(type='file')
+          .field
+            label Descrição primária
+            textarea(v-model='productDetail.storeProductDescPrimary' rows='2')
+          .field
+            label Descrição completa
+            textarea(v-model='productDetail.storeProductDescComplete' rows='3')
+          .two.fields
+            .field
+              label Fabricante
+              input(v-model='productDetail.storeProductMaker')
+            .field
+              label Categoria
+              input(v-model='productDetail.storeProductCategory')
+          .two.fields
+            .field
+              label Garantia (dias)
+              input(v-model='productDetail.storeProductWarrantyDays')
+            .field
+              label Garantia - observação
+              input(v-model='productDetail.storeProductWarrantyDetail')
+          .three.fields
+            .field
+              label Preco (fornecedor)
+              input(v-model='productDetail.dealerProductPrice' readonly="")
+            .field
+              label Lucro (%)
+              input()
+            .field
+              label Desconto (valor ou %)
+              input(v-model='productDetail.storeProductDiscount')
+          .field
+            .ui.toggle.checkbox
+              input(type='checkbox' v-model='productDetail.storeProductDiscountEnable')
+              label Usar desconto
+          .three.fields
+            .field
+              label Preço final sem desconto
+              input(:value='finalPrice' readonly="")
+            .field
+              label Preço final com desconto
+              input(:value='finalPriceDiscount' readonly="")
+            .field
+              label Estoque
+              input(v-model='productDetail.dealerProductQtd' readonly="")
+          .field
+            .ui.toggle.checkbox
+              input(type='checkbox' v-model='productDetail.storeProductCommercialize')
+              Label Comercializar
+      .actions
+        .ui.black.cancel.button no
+        .ui.positive.button yes
 </template>
 
 <script>
   /* globals accounting */
   'use strict';
-
   // let veeValidate = require('vee-validate');
-
   const WS_PRODUCTS = '/ws/products';
-
   export default {
     data: function(){
       return {
@@ -46,7 +111,7 @@
         products: [
           {desc:''}
         ],
-        productInfo: {},
+        productDetail: {},
         // Which column to order.
         orderCol: 'desc',
         // Crescent o decrescent order.
@@ -84,22 +149,22 @@
 
     computed: {
       finalPrice() {
-        let result = this.productInfo.dealerProductPrice;
+        let result = this.productDetail.dealerProductPrice;
         // applay markup
-        if (this.productInfo.storeProductMarkup > 0) {
-          result *= (1 + (this.productInfo.storeProductMarkup / 100));
+        if (this.productDetail.storeProductMarkup > 0) {
+          result *= (1 + (this.productDetail.storeProductMarkup / 100));
         }
         return result;
       },
       finalPriceDiscount() {
-        let result = this.productInfo.dealerProductPrice;
+        let result = this.productDetail.dealerProductPrice;
         // applay markup
-        if (this.productInfo.storeProductMarkup > 0) {
-          result *= (1 + (this.productInfo.storeProductMarkup / 100));
+        if (this.productDetail.storeProductMarkup > 0) {
+          result *= (1 + (this.productDetail.storeProductMarkup / 100));
         }
         // applay discount
-        if (this.productInfo.storeProductDiscountEnable && this.productInfo.storeProductDiscount > 0) {
-          result -= this.productInfo.storeProductDiscount;
+        if (this.productDetail.storeProductDiscountEnable && this.productDetail.storeProductDiscount > 0) {
+          result -= this.productDetail.storeProductDiscount;
         }
         return result;
       }
@@ -127,15 +192,19 @@
           this.picId = 1;
         }
       },
-      openInfo(product){
+      showProductDetail(product){
         // console.time('openInfo');
         // Reset picture url number.
         this.picId = 1;
         // Get product from array.
-        this.productInfo = product;
+        this.productDetail = product;
         // console.timeEnd('openInfo');
         // Set input value.
-        this.inputChangIdStore = this.productInfo.idStore;
+        this.inputChangIdStore = this.productDetail.idStore;
+        // open modal
+        $('.ui.small.modal')
+          .modal('setting', 'duration', 0)
+          .modal('show');
       },
       saveProductStore(product){
         this.$http.put(`${WS_PRODUCTS}/${product._id}`, product)
