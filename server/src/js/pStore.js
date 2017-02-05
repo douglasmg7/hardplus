@@ -11,15 +11,15 @@ import vueResource from 'vue-resource';
 Vue.use(vueResource);
 // components
 import pStoreApp from './pStoreApp.vue';
-import menuApp from './menuApp.vue';
+import menuProducts from './menuProducts.vue';
 
 window.app_vue = new Vue({
   el: '#app',
   data: {
-    msg: 'Olllá'
+    msg: 'Products Store'
   },
   components: {
     pStoreApp,
-    menuApp
+    menuProducts
   }
 });

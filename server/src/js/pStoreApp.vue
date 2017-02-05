@@ -1,10 +1,5 @@
 <template lang='pug'>
   div
-    //- // p uiuiu-{{bandName}}
-    //- table.ui.celled.striped.table
-    //- table.ui.sortable.line.striped.table
-    //- table.ui.sortable.celled.striped.table
-    //- table.ui.line.striped.table
     table.ui.compact.striped.table
       thead
         tr
@@ -40,7 +35,7 @@
             input(type='file')
           .field
             label Descrição primária
-            textarea(v-model='productDetail.storeProductDescPrimary' rows='2')
+            textarea(v-model='productDetail.storeProductDescPrimary ? productDetail.storeProductDescPrimary : productDetail.dealerProductDesc' rows='2')
           .field
             label Descrição completa
             textarea(v-model='productDetail.storeProductDescComplete ? productDetail.storeProductDescComplete : productDetail.dealerProductDesc' rows='3')
@@ -78,15 +73,6 @@
                 select.ui.compact.selection.dropdown
                   option(value='%') %
                   option(value='R$') R$
-              //- .ui.right.action.left.icon.input
-              //-   i.search.icon
-              //-   input(type='text' v-model='productDetail.storeProductDiscount')
-              //-   .ui.basic.floating.dropdown.button
-              //-     //- .text .com
-              //-     i.dropdown.icon
-              //-     .menu
-              //-       .item R$
-              //-       .item %
           .one.fields
             .field
               .ui.checkbox
@@ -249,20 +235,12 @@
             console.log(`err: ${JSON.stringify(err)}`);
           });
       }
-    },
-
-    filters: {
-      currencyBr(value){
-        return accounting.formatMoney(value, 'R$', 2, '.', ',');
-      }
-    },
-
-    directives: {
-
-    },
-    http: {
-      // root: '/root'
     }
+    // filters: {
+    //   currencyBr(value){
+    //     return accounting.formatMoney(value, 'R$', 2, '.', ',');
+    //   }
+    // }
   }
 </script>
 

@@ -14,7 +14,8 @@ let entry = DEVELOPMENT
     bundleMain: ['./src/js/v.js', 'webpack-hot-middleware/client'],
     bundleJ: ['./src/js/j.js', 'webpack-hot-middleware/client?reload=true'],
     bundleS: ['./src/js/s.js', 'webpack-hot-middleware/client?reload=true'],
-    bundlePStore: ['./src/js/pStore.js', 'webpack-hot-middleware/client?reload=true']
+    bundlePStore: ['./src/js/pStore.js', 'webpack-hot-middleware/client?reload=true'],
+    bundle_productsAllNations: ['./src/js/_productsAllNations.js', 'webpack-hot-middleware/client?reload=true']
   }
   : {
     bundleProductsAllNations: './src/js/productsAllNations.js',

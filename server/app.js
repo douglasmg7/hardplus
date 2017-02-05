@@ -77,10 +77,6 @@ app.get('/j', (req, res)=>{
 app.get('/s', (req, res)=>{
   res.render('s');
 });
-// new products store
-app.get('/pStore', (req, res)=>{
-  res.render('pStore');
-});
 
 app.use(function(err, req, res, next) {
   res.status(500).send({error: 'Internal server error.'});

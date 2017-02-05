@@ -1,17 +1,16 @@
 <template lang='pug'>
   .ui.menu
-    a.item.active(href="store") Hard Plus
-    a.item(href='allnations') All Nations
+    a.item.active(href="_store") Hard Plus
+    a.item(href='_allnations') All Nations
     a.item(href='lojasamericanas') Lojas Americanas
 </template>
 
 <script>
   'use strict';
-
   export default {
     data: function(){
       return {
-        bandName: 'U2-U2'
+        msg: 'Menu Products'
       }
     },
     created() {
