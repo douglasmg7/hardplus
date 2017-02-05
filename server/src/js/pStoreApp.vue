@@ -59,42 +59,74 @@
               input(v-model='productDetail.storeProductCategory')
           .two.fields
             .field
-              label Garantia (dias)
-              input(v-model='productDetail.storeProductWarrantyDays')
+              label Garantia
+              .ui.right.labeled.input
+                input(v-model='productDetail.storeProductWarrantyDays')
+                .ui.label.basic Dias
             .field
               label Garantia - observação
               input(v-model='productDetail.storeProductWarrantyDetail')
           .three.fields
             .field
-              label Preco (fornecedor)
-              input(v-model='productDetail.dealerProductPrice' readonly="")
+              label Preço do fornecedor
+              .ui.labeled.input
+                .ui.label.basic R$
+                input(v-model='productDetail.dealerProductPrice' readonly="")
             .field
-              label Lucro (%)
-              input()
+              label Lucro
+              .ui.right.labeled.input
+                input
+                .ui.label.basic %
             .field
-              label Desconto (valor ou %)
-              input(v-model='productDetail.storeProductDiscount')
-          .field
-            .ui.toggle.checkbox
-              input(type='checkbox' v-model='productDetail.storeProductDiscountEnable')
-              label Usar desconto
+              label Desconto
+              .ui.right.labeled.input
+                input(v-model='productDetail.storeProductDiscount')
+                .ui.dropdown.label
+                  .text .com
+                  i.dropdown.icon
+                  .menu
+                    .item .com
+                    .item .net
+                    .item .org
+          .one.fields
+            .field
+              .ui.checkbox
+                input(type='checkbox' v-model='productDetail.storeProductDiscountEnable')
+                label Habilitar desconto
+          .two.fields
+            .field
+              label Lucro final
+              .ui.labeled.input
+                .ui.label.basic R$
+                input(v-model='productDetail.storeProductDiscount' readonly="")
+            .field
+              label Lucro final
+              .ui.right.labeled.input
+                input(v-model='productDetail.storeProductDiscount' readonly="")
+                .ui.label.basic %
+
           .three.fields
             .field
               label Preço final sem desconto
-              input(:value='finalPrice' readonly="")
+              .ui.labeled.input
+                .ui.label.basic R$
+                input(:value='finalPrice' readonly="")
             .field
               label Preço final com desconto
-              input(:value='finalPriceDiscount' readonly="")
+              .ui.labeled.input
+                .ui.label.basic R$
+                input(:value='finalPriceDiscount' readonly="")
             .field
               label Estoque
               input(v-model='productDetail.dealerProductQtd' readonly="")
           .field
-            .ui.toggle.checkbox
+            .ui.checkbox
               input(type='checkbox' v-model='productDetail.storeProductCommercialize')
-              Label Comercializar
+              Label Comercializar produto
+
       .actions
-        .ui.black.cancel.button no
-        .ui.positive.button yes
+        .ui.black.cancel.button Fechar
+        .ui.positive.button Salvar
 </template>
 
 <script>
