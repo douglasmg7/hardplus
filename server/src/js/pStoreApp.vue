@@ -27,12 +27,6 @@
           td.clickable(@click="showProductDetail(product)") {{product.dealerProductQtd}}
           //   td {{product.dealerProductPrice | currencyBr}}
           td.clickable(@click="showProductDetail(product)") {{product.dealerProductPrice}}
-    //- .ui.button(
-    //-   onclick=
-    //-     "$('.ui.fullscreen.modal')\
-    //-       .modal('setting', 'duration', 0)\
-    //-       .modal('show');"
-    //-   ) show modal
     .ui.small.modal
       i.close.icon
       .header {{productDetail.dealerProductTitle}}
@@ -40,7 +34,7 @@
         form.ui.form
           .field
             label Título
-            input(v-model='productDetail.dealerProductTitle')
+            input(v-model='productDetail.storeProductTitle ? productDetail.storeProductTitle : productDetail.dealerProductTitle')
           .field
             label Imagem
             input(type='file')
@@ -49,7 +43,7 @@
             textarea(v-model='productDetail.storeProductDescPrimary' rows='2')
           .field
             label Descrição completa
-            textarea(v-model='productDetail.storeProductDescComplete' rows='3')
+            textarea(v-model='productDetail.storeProductDescComplete ? productDetail.storeProductDescComplete : productDetail.dealerProductDesc' rows='3')
           .two.fields
             .field
               label Fabricante
@@ -75,36 +69,29 @@
             .field
               label Lucro
               .ui.right.labeled.input
-                input
+                input(v-model='productDetail.dealerProductPrice')
                 .ui.label.basic %
             .field
               label Desconto
-              .ui.right.labeled.input
-                input(v-model='productDetail.storeProductDiscount')
-                .ui.dropdown.label
-                  .text .com
-                  i.dropdown.icon
-                  .menu
-                    .item .com
-                    .item .net
-                    .item .org
+              .ui.action.input
+                input(v-model='productDetail.dealerProductPrice')
+                select.ui.compact.selection.dropdown
+                  option(value='%') %
+                  option(value='R$') R$
+              //- .ui.right.action.left.icon.input
+              //-   i.search.icon
+              //-   input(type='text' v-model='productDetail.storeProductDiscount')
+              //-   .ui.basic.floating.dropdown.button
+              //-     //- .text .com
+              //-     i.dropdown.icon
+              //-     .menu
+              //-       .item R$
+              //-       .item %
           .one.fields
             .field
               .ui.checkbox
                 input(type='checkbox' v-model='productDetail.storeProductDiscountEnable')
                 label Habilitar desconto
-          .two.fields
-            .field
-              label Lucro final
-              .ui.labeled.input
-                .ui.label.basic R$
-                input(v-model='productDetail.storeProductDiscount' readonly="")
-            .field
-              label Lucro final
-              .ui.right.labeled.input
-                input(v-model='productDetail.storeProductDiscount' readonly="")
-                .ui.label.basic %
-
           .three.fields
             .field
               label Preço final sem desconto
@@ -123,7 +110,6 @@
             .ui.checkbox
               input(type='checkbox' v-model='productDetail.storeProductCommercialize')
               Label Comercializar produto
-
       .actions
         .ui.black.cancel.button Fechar
         .ui.positive.button Salvar
@@ -133,6 +119,11 @@
   /* globals accounting */
   'use strict';
   // let veeValidate = require('vee-validate');
+  $(document).ready(function(){
+    // initialize dropdown
+    $('.ui.dropdown')
+      .dropdown({duration: 0});
+  });
   const WS_PRODUCTS = '/ws/products';
   export default {
     data: function(){
