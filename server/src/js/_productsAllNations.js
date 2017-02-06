@@ -6,7 +6,6 @@ Vue.use(vueResource);
 // components
 import menuProducts from './menuProducts.vue';
 import productsAllnations from './_productsAllNations.vue';
-import productsDetailAllnations from './_productsDetailAllNations.vue';
 
 window.app_vue = new Vue({
   el: '#app',
@@ -15,7 +14,6 @@ window.app_vue = new Vue({
   },
   components: {
     menuProducts,
-    productsAllnations,
-    productsDetailAllnations
+    productsAllnations
   }
 });

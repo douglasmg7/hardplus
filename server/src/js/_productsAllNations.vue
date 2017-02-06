@@ -4,6 +4,7 @@
       thead
         tr
           // th.text-capitalize id
+
           th.clickable(@click="selectColOrder('desc')") Descrição
           th.clickable(@click="selectColOrder('stockQtd')") Estoque
           th.clickable(@click="selectColOrder('priceNum')") Preço
@@ -18,6 +19,7 @@
           //- td.clickable(@click="showProductDetail(product)") {{product.price | currencyBr}}
           td.clickable(@click="showProductDetail(product)") {{product.available && product.active ? 'Sim' : 'Não'}}
           td.clickable(@click="showProductDetail(product)") {{product.storeProductId ? product.storeProductId : ''}}
+    products-detail-allnations(v-bind:product='productDetail')
     //- .ui.small.modal
     //-   i.close.icon
     //-   .header {{productDetail.desc}}
@@ -33,17 +35,20 @@
 <script>
   /* globals accounting */
   'use strict';
+  // components
+  import productsDetailAllnations from './_productsDetailAllNations.vue';
   // let veeValidate = require('vee-validate');
   // $(document).ready(function(){
   // });
   const WS_ALL_NATIONS = '/ws/allnations';
   export default {
+    components: {
+      productsDetailAllnations
+    },
     data: function(){
       return {
         // All products.
-        products: [
-          {desc:''}
-        ],
+        products: ['void'],
         productDetail: {},
         // Which column to order.
         orderCol: 'desc',
@@ -65,6 +70,8 @@
       this.$http.get(WS_ALL_NATIONS)
         .then((res)=>{
           this.products = res.body;
+          // anyware, to not throw error on child component
+          // this.productDetail = this.products[0];
           // console.log(res);
           // console.log(JSON.stringify(res.body[0]));
         })
