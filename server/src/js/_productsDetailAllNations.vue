@@ -4,7 +4,6 @@
       i.close.icon
       .header {{product.desc}}
       .content
-        //- table.ui.compact.striped.table
         table.ui.very.compact.striped.table
           tbody
             tr
@@ -23,20 +22,11 @@
               td Descrição
               td {{product.tecDesc}}
             tr
-              td teste
-              td
-                - var n=0;
-                  while n < 4
-                    p= n++
-            tr
               td Imagem
               td
                 .ui.tiny.images(v-if='product.urlImg')
-                  - for(var x=0; x<4; x++)
-                    img(v-bind:src="product.urlImg + '-0' + picId")
-                    //- img(v-bind:src="product.urlImg + '-0' + picId")
-                //- img.ui.small.image(v-if="product.urlImg" @click="changePic()" v-bind:src="product.urlImg + '-0' + picId")
-                //- img.ui.small.image(v-if="product.urlImg" @click="changePic()" v-bind:src="product.urlImg + '-0' + picId")
+                  - for(var i=1; i<5; i++)
+                    img(v-bind:src='product.urlImg + "-0"' + '+' + i)
             tr
               td Disponibilidade
               td {{product.available ? 'Disponível' : 'Indisponível'}}
@@ -98,33 +88,28 @@
 </template>
 <script>
   'use strict';
+  // $('document').ready(function(){
+  //   console.log('document-load');
+  //   console.log('Número de imgs: ' + $('img').length);
+  //   $('img').on('load', function () {
+  //     console.log('image-load');
+  //   });
+  // });
   export default {
     data: function(){
       return {
-        // Each produtc can have one o more pictures url.
-        picId: 1
+        msg: 'Products Detail All Nations'
       }
     },
     props:[
       'product'
     ],
-    methods: {
-      // Get next picture url.
-      changePic(){
-        this.picId++;
-        // max picId.
-        if (this.picId > 6) {
-          this.picId = 1;
-        }
+    filters: {
+      currencyBr(value){
+        // return accounting.formatMoney(value, "R$", 2, ".", ",");
       }
     }
   }
 </script>
 <style lang='stylus'>
-  /*comercialized but not available or not active*/
-  tr.market
-    background-color: #F2DEDE
-  /*comercialized and available and active*/
-  tr.market.available-prd.active-prd.stock-prd
-    background-color: #bdffbd
 </style>
