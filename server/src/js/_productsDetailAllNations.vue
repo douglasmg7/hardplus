@@ -41,8 +41,10 @@
               td {{product.stockLocation}}
             tr
               td Preço
-              td {{product.price}}
-              //- .description {{product.price | currencyBr}}
+              td {{product.price | currencyBr}}
+            tr
+              td Preço sem ST
+              td {{product.priceNoST | currencyBr}}
             tr
               td Departamento
               td {{product.department}}
@@ -53,17 +55,18 @@
               td Sub-categoria
               td {{product.subCategory}}
             tr
-              td Número do produto
+              td PN (Part Number)
               td {{product.partNum}}
             tr
-              td EAN
+              td EAN (Código de barras)
               td {{product.ean}}
             tr
               td Garantia
-              td {{product.warranty}}
+              td {{warranty_month}}
+              //- td {{product.warranty}} mes(es)
             tr
               td Peso
-              td {{product.weight}} kg
+              td {{product.weight * 1000}} gramas
             tr
               td Largura
               td {{product.width}} cm
@@ -83,18 +86,13 @@
               td Origem
               td {{product.origin}}
       .actions
-        .ui.black.cancel.button Fechar
-        .ui.positive.button Salvar
+        button.ui.positive.button(@click='setCommercialize(product)' v-if='!product.commercialize') Comercializar
+        button.ui.negative.button(@click='unsetCommercialize(product)' v-if='product.commercialize') Não Comercializar
 </template>
 <script>
   'use strict';
-  // $('document').ready(function(){
-  //   console.log('document-load');
-  //   console.log('Número de imgs: ' + $('img').length);
-  //   $('img').on('load', function () {
-  //     console.log('image-load');
-  //   });
-  // });
+  const WS_ALL_NATIONS = '/ws/allnations';
+  import accounting from 'accounting';
   export default {
     data: function(){
       return {
@@ -106,7 +104,64 @@
     ],
     filters: {
       currencyBr(value){
-        // return accounting.formatMoney(value, "R$", 2, ".", ",");
+        return accounting.formatMoney(value, "R$ ", 2, ".", ",");
+      }
+    },
+    computed: {
+      warranty_month(){
+        if(this.product.warranty === 0){
+          return 'Sem garantia';
+        } else if(this.product.warranty === 1){
+          return '1 mes';
+        } else{
+          return this.product.warranty + ' meses';
+        }
+      }
+    },
+    methods: {
+      setCommercialize(product){
+        console.log(`set commercialize - code: ${product.code}, _id: ${product._id}`);
+        this.$http.put(`${WS_ALL_NATIONS}/set-commercialize/${product._id}`)
+          .then((res)=>{
+            // error
+            if (res.body.err) {
+              alert(`erro: ${res.body.err}`);
+            }
+            // data modifed
+            else if (res.body.modifiedCount && (res.body.modifiedCount > 0)){
+              // update product
+              product.commercialize = true;
+            }
+            else {
+              alert(`Não foi possível comercializar o produto _id: ${product._id}.`);
+            }
+          })
+          .catch((err)=>{
+            alert(`error: ${JSON.stringify(err)}`);
+            console.log(`err: ${JSON.stringify(err)}`);
+          });
+      },
+      unsetCommercialize(product){
+        console.log(`unset commercialize - code: ${product.code}, _id: ${product._id}`);
+        this.$http.put(`${WS_ALL_NATIONS}/unset-commercialize/${product._id}`)
+          .then((res)=>{
+            // error
+            if (res.body.err) {
+              alert(`erro: ${res.body.err}`);
+            }
+            // data modifed
+            else if (res.body.modifiedCount && (res.body.modifiedCount > 0)){
+              // update product
+              product.commercialize = false;
+            }
+            else {
+              alert(`Não foi possível não comercializar o produto _id: ${product._id}.`);
+            }
+          })
+          .catch((err)=>{
+            alert(`error: ${JSON.stringify(err)}`);
+            console.log(`err: ${JSON.stringify(err)}`);
+          });
       }
     }
   }
