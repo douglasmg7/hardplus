@@ -86,8 +86,8 @@
               td Origem
               td {{product.origin}}
       .actions
-        button.ui.positive.button(@click='setCommercialize(product)' v-if='!product.commercialize') Comercializar
-        button.ui.negative.button(@click='unsetCommercialize(product)' v-if='product.commercialize') Não Comercializar
+        button.ui.positive.button(@click='setCommercialize(product, true)' v-if='!product.commercialize') Comercializar
+        button.ui.negative.button(@click='setCommercialize(product, false)' v-if='product.commercialize') Não Comercializar
 </template>
 <script>
   'use strict';
@@ -119,9 +119,10 @@
       }
     },
     methods: {
-      setCommercialize(product){
-        console.log(`set commercialize - code: ${product.code}, _id: ${product._id}`);
-        this.$http.put(`${WS_ALL_NATIONS}/set-commercialize/${product._id}`)
+      setCommercialize(product, commercialize){        
+        commercialize = commercialize === true ? true : false;
+        console.log(`setCommercialize: ${commercialize}, code: ${product.code}, _id: ${product._id}`);
+        this.$http.put(`${WS_ALL_NATIONS}/set-commercialize/${product._id}`, {commercialize: commercialize})
           .then((res)=>{
             // error
             if (res.body.err) {
@@ -130,32 +131,10 @@
             // data modifed
             else if (res.body.modifiedCount && (res.body.modifiedCount > 0)){
               // update product
-              product.commercialize = true;
+              product.commercialize = commercialize;
             }
             else {
               alert(`Não foi possível comercializar o produto _id: ${product._id}.`);
-            }
-          })
-          .catch((err)=>{
-            alert(`error: ${JSON.stringify(err)}`);
-            console.log(`err: ${JSON.stringify(err)}`);
-          });
-      },
-      unsetCommercialize(product){
-        console.log(`unset commercialize - code: ${product.code}, _id: ${product._id}`);
-        this.$http.put(`${WS_ALL_NATIONS}/unset-commercialize/${product._id}`)
-          .then((res)=>{
-            // error
-            if (res.body.err) {
-              alert(`erro: ${res.body.err}`);
-            }
-            // data modifed
-            else if (res.body.modifiedCount && (res.body.modifiedCount > 0)){
-              // update product
-              product.commercialize = false;
-            }
-            else {
-              alert(`Não foi possível não comercializar o produto _id: ${product._id}.`);
             }
           })
           .catch((err)=>{

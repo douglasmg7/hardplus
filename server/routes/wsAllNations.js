@@ -6,9 +6,9 @@ const router = express.Router();
 const mongo = require('../model/db');
 const dbConfig = mongo.config;
 const ObjectId = require('mongodb').ObjectId;
-const fs = require('fs');
+// const fs = require('fs');
 // signal to run the script to update store products collections with All Nations products
-const wdUpdateAllNationProductsFileName = require('../bin/watchDogConfig').updateAllNationProductsFileName;
+// const wdUpdateAllNationProductsFileName = require('../bin/watchDogConfig').updateAllNationProductsFileName;
 
 // Get all products.
 router.get('/', function (req, res) {
@@ -32,53 +32,51 @@ router.get('/:id', function(req, res) {
 
 // commercialize product
 router.put('/set-commercialize/:_id', function(req, res) {
+  const commercialize = req.body.commercialize === true;
   // change product
-  mongo.db.collection(dbConfig.collAllNationProducts).updateOne({_id: new ObjectId(req.params._id)}, {$set: {commercialize: true}}, (err, r)=>{
-    if(err){
-      console.log('Error: setCommercialize, _id ${req.params.id}');
-      res.json('status: fail');
-    }else{
-      res.json({
-        'matchedCount': r.matchedCount,
-        'modifiedCount': r.modifiedCount
-      });
-      // write watch dog
-      const wdContent = `watch dog - all nations product changed - _id: ${req.params._id}`;
-      fs.writeFile(wdUpdateAllNationProductsFileName, wdContent, 'utf-8', (err)=>{
-        if(err){
-          console.log(`error: saving ${wdContent}, err: ${err}`);
-        }else{
-          console.log(wdContent);
-        }
-      });
-    }
+  // mongodb formated _id product
+  const _id = new ObjectId(req.params._id);
+  // update all nations db
+  mongo.db.collection(dbConfig.collAllNationProducts).findOneAndUpdate({_id: _id}, {$set: {commercialize: commercialize}}, {returnOriginal: false})
+  .then(result=>{
+    const product = result.value;
+    // console.log('product');
+    // console.log(product);
+    return mongo.db.collection(dbConfig.collStoreProducts).updateOne({_id: _id},
+      {$set: {
+        dealer: 'AllNations',
+        dealerProductId: product.code,
+        dealerProductLastUpdate: product.ts,
+        dealerProductTitle: product.desc,
+        dealerProductDesc: product.tecDesc,
+        dealerProductWarrantyPeriodDays: product.warranty,
+        dealerProductPrice: product.price,
+        dealerProductPriceNoST: product.priceNoST,
+        dealerProductLocation: product.stockLocation,
+        dealerProductWeightG: product.weight * 1000,
+        dealerProductWidthMm: product.width * 1000,
+        dealerProductHeightMm: product.height * 1000,
+        dealerProductDeepMm: product.deep * 1000,
+        dealerProductActive: (product.available && product.active),
+        dealerProductQtd: product.stockQtd,
+        dealerProductCommercialize: product.commercialize
+      }}, {upsert: true});
+  }).then(result=>{
+    console.log('set-commercialize: suecess, _id: ${req.params._id}, commercialize: ${commercialize}');
+    console.log(`result.matchedCount: ${result.matchedCount}`);
+    console.log(`result.modifiedCount: ${result.modifiedCount}`);
+    // console.log('result:');
+    // console.log(result);
+    res.json({
+      'matchedCount': result.matchedCount,
+      'modifiedCount': result.modifiedCount
+    });
+  }).catch((err)=>{
+    console.log(`Error: set-commercialize, _id: ${req.params._id}, err: ${err}`);
+    res.json('status: fail');
   });
 });
 
-// no commercialize product
-router.put('/unset-commercialize/:_id', function(req, res) {
-  // change product
-  mongo.db.collection(dbConfig.collAllNationProducts).updateOne({_id: new ObjectId(req.params._id)}, {$set: {commercialize: false}}, (err, r)=>{
-    if(err){
-      console.log('Error: unsetCommercialize, _id ${req.params.id}');
-      res.json('status: fail');
-    }else{
-      res.json({
-        'matchedCount': r.matchedCount,
-        'modifiedCount': r.modifiedCount
-      });
-      // write watch dog
-      const wdContent = `watch dog - all nations product changed - _id: ${req.params._id}`;
-      fs.writeFile(wdUpdateAllNationProductsFileName, wdContent, 'utf-8', (err)=>{
-        if(err){
-          console.log(`error: saving ${wdContent}, err: ${err}`);
-        }else{
-          console.log(wdContent);
-        }
-      });
-    }
-  });
-});
 // // Update a product.
 // router.put('/:id', function(req, res) {
 //   // Update product commercialize.

@@ -11,7 +11,7 @@ const mongo = require('mongodb').MongoClient;
 const log = require('./log');
 const dbConfig = require('./dbConfig');
 // signal to run the script to update store db
-const watchDogFile = require('./watchDogConfig').updateAllNationProducts;
+const watchDogFile = require('./watchDogConfig').updateAllNationProductsFileName;
 
 // Interval(min) to run the script.
 const INTERVAL_RUN_MIN = 10;
