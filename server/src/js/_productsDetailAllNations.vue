@@ -119,17 +119,17 @@
       }
     },
     methods: {
-      setCommercialize(product, commercialize){        
+      setCommercialize(product, commercialize){
         commercialize = commercialize === true ? true : false;
-        console.log(`setCommercialize: ${commercialize}, code: ${product.code}, _id: ${product._id}`);
+        console.log(`setCommercialize -> _id: ${product._id}, commercialize: ${commercialize}`);
         this.$http.put(`${WS_ALL_NATIONS}/set-commercialize/${product._id}`, {commercialize: commercialize})
           .then((res)=>{
             // error
             if (res.body.err) {
               alert(`erro: ${res.body.err}`);
             }
-            // data modifed
-            else if (res.body.modifiedCount && (res.body.modifiedCount > 0)){
+            // success
+            else if (res.body.status && res.body.status === 'success'){
               // update product
               product.commercialize = commercialize;
             }

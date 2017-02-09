@@ -1,8 +1,8 @@
 <template lang='pug'>
   .ui.menu
-    a.item.active(href="_store") Hard Plus
-    a.item(href='_allnations') All Nations
-    a.item(href='lojasamericanas') Lojas Americanas
+    a.item(href='_store' v-bind:class='{"active": active === "store"}') Hard Plus
+    a.item(href='_allnations' v-bind:class='{"active": active === "allNations"}') All Nations
+    a.item(href='lojasamericanas' v-bind:class='{"active": active === "lojasAmericanas"}') Lojas Americanas
 </template>
 
 <script>
@@ -13,6 +13,9 @@
         msg: 'Menu Products'
       }
     },
+    props: [
+      'active'
+    ],
     created() {
     }
   }
