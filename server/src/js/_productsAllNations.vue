@@ -1,5 +1,9 @@
 <template lang='pug'>
   div
+    menu-products(active='allNations' v-on:search='tMsg(arguments[0])')
+    //- menu-products(active='allNations' v-on:search='tMsg(value)')
+    p {{searchText}}
+    //- button.ui.button(v-on:click='tMsg("Olá")')
     table.ui.compact.table
       thead
         tr
@@ -33,6 +37,7 @@
   'use strict';
   import accounting from 'accounting';
   // components
+  import menuProducts from './menuProducts.vue';
   import productsDetailAllnations from './_productsDetailAllNations.vue';
   // let veeValidate = require('vee-validate');
   // $(document).ready(function(){
@@ -40,6 +45,7 @@
   const WS_ALL_NATIONS = '/ws/allnations';
   export default {
     components: {
+      menuProducts,
       productsDetailAllnations
     },
     data: function(){
@@ -64,20 +70,18 @@
         // curret page for pagination
         page:1,
         // number of pages for pagination
-        pageCount: 1
+        pageCount: 1,
+        // test
+        searchText: ''
       }
     },
     created() {
       this.getProducts(1);
-      // this.$http.get(WS_ALL_NATIONS)
-      //   .then((res)=>{
-      //     this.products = res.body.products;
-      //   })
-      //   .catch((err)=>{
-      //     console.log(err);
-      //   });
     },
     methods: {
+      tMsg(msg){
+        alert(msg);
+      },
       // retrive products page
       getProducts(page){
         this.$http.get(`${WS_ALL_NATIONS}?page=${page}`)

@@ -5,7 +5,7 @@ import Vue from 'vue';
 import vueResource from 'vue-resource';
 Vue.use(vueResource);
 // components
-import menuProducts from './menuProducts.vue';
+// import menuProducts from './menuProducts.vue';
 import productsAllnations from './_productsAllNations.vue';
 
 window.AppVue = new Vue({
@@ -14,7 +14,7 @@ window.AppVue = new Vue({
     msg: 'Products All Nations'
   },
   components: {
-    menuProducts,
+    // menuProducts,
     productsAllnations
   }
 });
