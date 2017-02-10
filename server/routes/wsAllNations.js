@@ -6,21 +6,34 @@ const router = express.Router();
 const mongo = require('../model/db');
 const dbConfig = mongo.config;
 const ObjectId = require('mongodb').ObjectId;
+// pagination
+const PAGE_SIZE = 50;
 // const fs = require('fs');
 // signal to run the script to update store products collections with All Nations products
 // const wdUpdateAllNationProductsFileName = require('../bin/watchDogConfig').updateAllNationProductsFileName;
 
-// Get all products.
+// get products
 router.get('/', function (req, res) {
-  mongo.db.collection(dbConfig.collAllNationProducts).find().limit(30).toArray((err, r) => {
-    if (err) {
-      console.log('Error getting data');
-    }
-    res.json(r);
+  // define skip page
+
+  const page = (req.query.page && (req.query.page > 0)) ? req.query.page : 1;
+  const skip = (page - 1) * PAGE_SIZE;
+
+  // get prodcuts and total count
+  Promise.all([
+    mongo.db.collection(dbConfig.collAllNationProducts).find().skip(skip).limit(PAGE_SIZE).toArray(),
+    mongo.db.collection(dbConfig.collAllNationProducts).count()
+  ])
+  .then((result)=>{
+    const pageCount = Math.ceil(result[1] / PAGE_SIZE);
+    res.json({products: result[0], page: page, pageCount: pageCount});
+  })
+  .catch(err=>{
+    console.log(`Error getting data, err: ${err}`);
   });
 });
 
-// Get specific product.
+// get specific product
 router.get('/:id', function(req, res) {
   mongo.db.collection(dbConfig.collAllNationProducts).findOne({code: '0059989'}, (err, r)=>{
     if(err){

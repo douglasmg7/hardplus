@@ -6,6 +6,18 @@ const mongo = require('../model/db');
 const dbConfig = mongo.config;
 const ObjectId = require('mongodb').ObjectId;
 
+// // Get all products.
+// router.get('/', function(req, res) {
+//   console.log('page');
+//   console.log(req.params.page);
+//   mongo.db.collection(dbConfig.collStoreProducts).find().limit(30).toArray((err, r)=>{
+//     if(err){
+//       console.log('Error getting store products: ${err}');
+//     }
+//     res.json(r);
+//   });
+// });
+
 // Get all products.
 router.get('/', function(req, res) {
   mongo.db.collection(dbConfig.collStoreProducts).find().limit(30).toArray((err, r)=>{

@@ -4,7 +4,6 @@
       thead
         tr
           // th.text-capitalize id
-
           th.clickable(@click="selectColOrder('desc')") Descrição
           th.clickable(@click="selectColOrder('stockQtd')") Estoque
           th.clickable(@click="selectColOrder('priceNum')") Preço
@@ -21,6 +20,12 @@
           td.clickable(@click="showProductDetail(product)") {{product.price | currencyBr}}
           td.clickable(@click="showProductDetail(product)") {{product.available && product.active ? 'Sim' : 'Não'}}
           td.clickable(@click="showProductDetail(product)") {{product.storeProductId ? product.storeProductId : ''}}
+    .ui.hidden.divider
+    .ui.center.aligned.container
+      .ui.pagination.menu
+        div(v-for='n in pageCount')
+          a.item(@click='getProducts(n)' v-bind:class='{"active": n==page}') {{n}}
+    .ui.hidden.divider
     products-detail-allnations(v-bind:product='productDetail')
 </template>
 <script>
@@ -55,23 +60,36 @@
         menuIsActive: {
           allNations: false,
           store: true
-        }
+        },
+        // curret page for pagination
+        page:1,
+        // number of pages for pagination
+        pageCount: 1
       }
     },
     created() {
-      this.$http.get(WS_ALL_NATIONS)
-        .then((res)=>{
-          this.products = res.body;
-          // anyware, to not throw error on child component
-          // this.productDetail = this.products[0];
-          // console.log(res);
-          // console.log(JSON.stringify(res.body[0]));
-        })
-        .catch((err)=>{
-          console.log(err);
-        });
+      this.getProducts(1);
+      // this.$http.get(WS_ALL_NATIONS)
+      //   .then((res)=>{
+      //     this.products = res.body.products;
+      //   })
+      //   .catch((err)=>{
+      //     console.log(err);
+      //   });
     },
     methods: {
+      // retrive products page
+      getProducts(page){
+        this.$http.get(`${WS_ALL_NATIONS}?page=${page}`)
+          .then((res)=>{
+            this.products = res.body.products;
+            this.page = res.body.page;
+            this.pageCount = res.body.pageCount;
+          })
+          .catch((err)=>{
+            console.log(`Error - getProducts(), err: ${err}`);
+          });
+      },
       // select which col to order
       selectColOrder(col){
         // same col, change cres/decr
@@ -85,14 +103,6 @@
           this.order = 1;
         }
       },
-      // // Get next picture url.
-      // changePic(){
-      //   this.picId++;
-      //   // max picId.
-      //   if (this.picId > 6) {
-      //     this.picId = 1;
-      //   }
-      // },
       showProductDetail(product){
         // console.time('openInfo');
         // Reset picture url number.
@@ -137,7 +147,7 @@
 </script>
 <style lang='stylus'>
   th.clickable, td.clickable
-     cursor: pointer
+    cursor: pointer
   /*comercialized but not available or not active*/
   tr.commercialize
     background-color: #F2DEDE
