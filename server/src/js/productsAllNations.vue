@@ -1,8 +1,6 @@
 <template lang='pug'>
   div
     menu-products(active='allNations' v-on:input='search=arguments[0]' v-on:search='getProducts()')
-    //- menu-products(active='allNations' v-on:input='search=arguments[0]' v-on:search='getProducts(1, arguments[0])')
-    //- p {{search}}
     table.ui.compact.table
       thead
         tr

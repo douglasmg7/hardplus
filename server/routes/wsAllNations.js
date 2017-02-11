@@ -22,7 +22,6 @@ router.get('/', function (req, res) {
     console.log(`Error getting data, err: ${err}`);
   });
 });
-
 // get specific product
 router.get('/:id', function(req, res) {
   mongo.db.collection(dbConfig.collAllNationProducts).findOne({code: '0059989'}, (err, r)=>{

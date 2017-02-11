@@ -63,15 +63,21 @@
       }
     },
     created() {
-      this.$http.get(WS_STORE)
-        .then((res)=>{
-          this.products = res.body;
-        })
-        .catch((err)=>{
-          console.log(err);
-        });
+      this.getProducts();
     },
     methods: {
+      // retrive products page
+      getProducts(page=1){
+        this.$http.get(`${WS_STORE}?page=${page}&search=${this.search}`)
+          .then((res)=>{
+            this.products = res.body.products;
+            this.page = res.body.page;
+            this.pageCount = res.body.pageCount;
+          })
+          .catch((err)=>{
+            console.log(`Error - getProducts(), err: ${err}`);
+          });
+      },
       showProductDetail(product){
         this.productDetail = product;
         // open modal

@@ -75,7 +75,7 @@
               input(type='checkbox' v-model='product.storeProductCommercialize')
               Label Comercializar produto
       .actions
-        button.ui.positive.button(@click='setCommercialize(product, true)' v-if='!product.commercialize') Salvar
+        button.ui.positive.button(@click='saveProduct(product)') Salvar
         button.ui.black.deny.button Fechar
 </template>
 <script>
@@ -113,7 +113,7 @@
             console.log(`err: ${JSON.stringify(err)}`);
           });
       },
-      saveProductStore(product){
+      saveProduct(product){
         this.$http.put(`${WS_STORE}/${product._id}`, product)
           .then((res)=>{
             // not could process params
