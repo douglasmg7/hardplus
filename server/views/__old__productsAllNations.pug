@@ -1,0 +1,107 @@
+extends productsLayout.pug
+
+block head
+  link(rel="stylesheet" href="/css/productsAllNations.css" charset="utf-8")
+  title Produtos All Nations
+
+block content_tr
+  tr
+    //- th.text-capitalize id
+    th.text-capitalize.clickable(@click="selectColOrder('desc')") descrição
+    th.text-capitalize.clickable(@click="selectColOrder('stockQtd')") estoque
+    th.text-capitalize.text-right.clickable(@click="selectColOrder('priceNum')") preço
+    th.text-capitalize.text-right.clickable(@click="selectColOrder('available')") disp
+    th.text-capitalize.text-right.clickable(@click="selectColOrder('id-store')") id loja
+  tr(
+    v-for="product in products"
+    v-bind:class="{'commercialize': product.commercialize, 'available-prd': product.available, 'active-prd': product.active, 'stock-prd': product.stockQtd > 1 }"
+  )
+    //- td {{$index + 1}}
+    td.clickable(@click="openInfo(product)" v-bind:data-code="product.code" data-toggle="modal" data-target="#prd-info") {{product.desc}}
+    td.text-right {{product.stockQtd}}
+    td.text-right {{product.price | currencyBr}}
+    td.text-right {{product.available && product.active ? 'Sim' : 'Não'}}
+    td.text-right {{product.storeProductId ? product.storeProductId : ''}}
+
+block modal_header
+  h4.modal-title {{productInfo.desc}}
+
+block modal_body
+  dl.dl-horizontal
+    dt id All Nations
+    dd {{productInfo.code}}
+    dt id Loja
+    dd {{productInfo.storeProductId}}
+    dt Localização
+    dd {{productInfo.stockLocation}}
+    dt Última atualização
+    dd {{productInfo.ts}}
+    dt Ativo
+    dd {{productInfo.active ? 'Ativo' : 'Inativo'}}
+    dt Disponibilidade
+    dd {{productInfo.available ? 'Disponível' : 'Indisponível'}}
+    dt Estoque
+    dd {{productInfo.stockQtd}}
+    dt Preço
+    dd {{productInfo.price | currencyBr}}
+    dt Descrição
+    dd {{productInfo.tecDesc}}
+    dt Departamento
+    dd {{productInfo.department}}
+    dt Categoria
+    dd {{productInfo.category}}
+    dt Sub-categoria
+    dd {{productInfo.subCategory}}
+    dt Fabricante
+    dd {{productInfo.manufacturer}}
+    dt Número do produto
+    dd {{productInfo.partNum}}
+    dt EAN
+    dd {{productInfo.ean}}
+    dt Garantia
+    dd {{productInfo.warranty}} {{productInfo.warranty}}
+    dt Peso
+    dd {{productInfo.weight}}kg
+    dt Largura
+    dd {{productInfo.width}}cm
+    dt Altura
+    dd {{productInfo.height}}cm
+    dt Profundidade
+    dd {{productInfo.deep}}cm
+    dt Imagem
+    dd
+      img(v-if="productInfo.urlImg" @click="changePic()" v-bind:src="productInfo.urlImg + '-0' + picId" v-bind:alt="productInfo.desc")
+    dt NCM
+    dd {{productInfo.ncm}}
+    dt Imposto
+    dd {{productInfo.taxReplace ? 'Incide ICMS ST' : 'Não incide ICMS ST'}}
+    dt Origem
+    dd {{productInfo.origin}}
+
+block modal_footer
+  .row
+    .col-xs-6
+      //- commercialize
+      .form-group(v-if="!productInfo.commercialize")
+        .input-group
+          .span.input-group-btn
+            button.btn.btn-success(
+              @click="setCommercialize(productInfo, {storeProductId: inputStoreProductId, commercialize: true})" type="button") Comercializar
+          input.form-control(v-model="inputStoreProductId" type="text" placeholder="Id Hardplus")
+      //- change product store id
+      .form-group(v-if="productInfo.commercialize")
+        .input-group
+          span.input-group-btn
+            button.btn.btn-success(@click="setCommercialize(productInfo, {storeProductId: inputStoreProductId})" type="button") Alterar Id
+          span
+            input.form-control(v-model="inputStoreProductId" type="text" placeholder="Id Hardplus")
+    .col-xs-6
+      //- not commercialize
+      .form-group(v-if="productInfo.commercialize")
+        button.btn.btn-warning(@click="setCommercialize(productInfo, {storeProductId: inputStoreProductId, commercialize: false})" type="button") Não-Comercializar
+      //- close
+      .form-group
+        button.btn.btn-default(type="button" data-dismiss="modal") Close
+
+block bundle
+  script(src="../js/bundleProductsAllNations.js")

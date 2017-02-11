@@ -39,10 +39,11 @@ router.put('/set-commercialize/:_id', function(req, res) {
   // change product
   // mongodb formated _id product
   const _id = new ObjectId(req.params._id);
-  // update all nations db
+  // update all nations products db
   mongo.db.collection(dbConfig.collAllNationProducts).findOneAndUpdate({_id: _id}, {$set: {commercialize: commercialize}}, {returnOriginal: false})
   .then(result=>{
     const product = result.value;
+    // update store products db
     return mongo.db.collection(dbConfig.collStoreProducts).updateOne({_id: _id},
       {$set: {
         dealer: 'AllNations',

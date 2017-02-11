@@ -37,7 +37,7 @@
   import accounting from 'accounting';
   // components
   import menuProducts from './menuProducts.vue';
-  import productsDetailAllnations from './_productsDetailAllNations.vue';
+  import productsDetailAllnations from './productsDetailAllNations.vue';
   // let veeValidate = require('vee-validate');
   // $(document).ready(function(){
   // });

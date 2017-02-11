@@ -1,29 +1,27 @@
 'use strict';
 
-let path = require('path');
-let webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 const DEVELOPMENT = process.env.NODE_ENV === 'development';
 // const PRODUCTION = process.env.NODE_ENV === 'production';
 
-let entry = DEVELOPMENT
+const entry = DEVELOPMENT
   ? {
-    // bundleProductsAllNations: ['./src/js/productsAllNations.js', 'webpack-hot-middleware/client'],
-    // bundleProductsStore: ['./src/js/productsStore.js', 'webpack-hot-middleware/client'],
-    bundleTt: ['./src/js/tt.js', 'webpack-hot-middleware/client?reload=true'],
-    bundleMain: ['./src/js/v.js', 'webpack-hot-middleware/client'],
-    bundleJ: ['./src/js/j.js', 'webpack-hot-middleware/client?reload=true'],
-    bundleS: ['./src/js/s.js', 'webpack-hot-middleware/client?reload=true'],
-    bundlePStore: ['./src/js/pStore.js', 'webpack-hot-middleware/client?reload=true'],
-    bundle_productsAllNations: ['./src/js/_productsAllNations.js', 'webpack-hot-middleware/client?reload=true']
+    // bundleTt: ['./src/js/tt.js', 'webpack-hot-middleware/client?reload=true'],
+    // bundleMain: ['./src/js/v.js', 'webpack-hot-middleware/client'],
+    // bundleJ: ['./src/js/j.js', 'webpack-hot-middleware/client?reload=true'],
+    // bundleS: ['./src/js/s.js', 'webpack-hot-middleware/client?reload=true'],
+    bundleProductsAllNations: ['./src/js/productsAllNations.js', 'webpack-hot-middleware/client?reload=true'],
+    bundleProductsStore: ['./src/js/productsStore.js', 'webpack-hot-middleware/client?reload=true']
   }
   : {
+    // bundleTt: './src/js/tt.js',
     bundleProductsAllNations: './src/js/productsAllNations.js',
-    bundleProductsStore: './src/js/productsStore.js',
-    bundleTt: './src/js/tt.js'
+    bundleProductsStore: './src/js/productsStore.js'
   };
 
-let plugins = DEVELOPMENT
+const plugins = DEVELOPMENT
   ? [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
