@@ -1,45 +1,24 @@
 'use strict';
-
 // npm modules
 const express = require('express');
 const router = express.Router();
 const mongo = require('../model/db');
 const dbConfig = mongo.config;
 const ObjectId = require('mongodb').ObjectId;
-// pagination
+// page size for pagination
 const PAGE_SIZE = 50;
-// const fs = require('fs');
-// signal to run the script to update store products collections with All Nations products
-// const wdUpdateAllNationProductsFileName = require('../bin/watchDogConfig').updateAllNationProductsFileName;
-
 // get products
 router.get('/', function (req, res) {
   const page = (req.query.page && (req.query.page > 0)) ? req.query.page : 1;
   const skip = (page - 1) * PAGE_SIZE;
   const search = req.query.search ? {'desc': {$regex: req.query.search, $options: 'i'}} : {};
-  // get prodcuts and total count
+  const cursor = mongo.db.collection(dbConfig.collAllNationProducts).find(search).sort({'desc': 1}).skip(skip).limit(PAGE_SIZE);
   Promise.all([
-    // all prodcuts
-    mongo.db.collection(dbConfig.collAllNationProducts).find(search).sort({'desc': 1}).skip(skip).limit(PAGE_SIZE).toArray(),
-    // all products count
-    mongo.db.collection(dbConfig.collAllNationProducts).count()
-  ])
-  .then((result)=>{
-    let pageCount;
-    // rsult from search, there is a search
-    if (Object.keys(search).length > 0) {
-      // products count returned from search
-      pageCount = Math.ceil(result[0].length / PAGE_SIZE);
-      console.log(`number of products: ${result[0].length}`);
-      console.log(`search count: ${pageCount}`);
-    } else{
-      // products count db (all products)
-      pageCount = Math.ceil(result[1] / PAGE_SIZE);
-      console.log(`db count: ${pageCount}`);
-    }
-    res.json({products: result[0], page: page, pageCount: pageCount});
-  })
-  .catch(err=>{
+    cursor.toArray(),
+    cursor.count()
+  ]).then(([products, count])=>{
+    res.json({products, page, pageCount: Math.ceil(count / PAGE_SIZE)});
+  }).catch(err=>{
     console.log(`Error getting data, err: ${err}`);
   });
 });
