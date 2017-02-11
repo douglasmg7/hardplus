@@ -14,18 +14,29 @@ const PAGE_SIZE = 50;
 
 // get products
 router.get('/', function (req, res) {
-  // define skip page
-
   const page = (req.query.page && (req.query.page > 0)) ? req.query.page : 1;
   const skip = (page - 1) * PAGE_SIZE;
-
+  const search = req.query.search ? {'desc': {$regex: req.query.search, $options: 'i'}} : {};
   // get prodcuts and total count
   Promise.all([
-    mongo.db.collection(dbConfig.collAllNationProducts).find().skip(skip).limit(PAGE_SIZE).toArray(),
+    // all prodcuts
+    mongo.db.collection(dbConfig.collAllNationProducts).find(search).sort({'desc': 1}).skip(skip).limit(PAGE_SIZE).toArray(),
+    // all products count
     mongo.db.collection(dbConfig.collAllNationProducts).count()
   ])
   .then((result)=>{
-    const pageCount = Math.ceil(result[1] / PAGE_SIZE);
+    let pageCount;
+    // rsult from search, there is a search
+    if (Object.keys(search).length > 0) {
+      // products count returned from search
+      pageCount = Math.ceil(result[0].length / PAGE_SIZE);
+      console.log(`number of products: ${result[0].length}`);
+      console.log(`search count: ${pageCount}`);
+    } else{
+      // products count db (all products)
+      pageCount = Math.ceil(result[1] / PAGE_SIZE);
+      console.log(`db count: ${pageCount}`);
+    }
     res.json({products: result[0], page: page, pageCount: pageCount});
   })
   .catch(err=>{

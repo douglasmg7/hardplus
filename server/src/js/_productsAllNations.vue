@@ -1,9 +1,8 @@
 <template lang='pug'>
   div
-    menu-products(active='allNations' v-on:search='tMsg(arguments[0])')
-    //- menu-products(active='allNations' v-on:search='tMsg(value)')
-    p {{searchText}}
-    //- button.ui.button(v-on:click='tMsg("Olá")')
+    menu-products(active='allNations' v-on:input='search=arguments[0]' v-on:search='getProducts()')
+    //- menu-products(active='allNations' v-on:input='search=arguments[0]' v-on:search='getProducts(1, arguments[0])')
+    //- p {{search}}
     table.ui.compact.table
       thead
         tr
@@ -54,37 +53,36 @@
         products: ['void'],
         productDetail: {},
         // Which column to order.
-        orderCol: 'desc',
+        // orderCol: 'desc',
         // Crescent o decrescent order.
-        order: 1,
+        // order: 1,
         // Used by the text filter.
-        filterName: '',
+        // filterName: '',
         // Each produtc can have one o more pictures url.
-        picId: 1,
-        inputChangIdStore: '',
+        // picId: 1,
+        // inputChangIdStore: '',
         // actived menu
-        menuIsActive: {
-          allNations: false,
-          store: true
-        },
+        // menuIsActive: {
+        //   allNations: false,
+        //   store: true
+        // },
         // curret page for pagination
         page:1,
         // number of pages for pagination
         pageCount: 1,
-        // test
-        searchText: ''
+        search: ''
       }
     },
     created() {
-      this.getProducts(1);
+      this.getProducts();
     },
     methods: {
-      tMsg(msg){
-        alert(msg);
-      },
+      // tMsg(msg){
+      //   alert(msg);
+      // },
       // retrive products page
-      getProducts(page){
-        this.$http.get(`${WS_ALL_NATIONS}?page=${page}`)
+      getProducts(page=1){
+        this.$http.get(`${WS_ALL_NATIONS}?page=${page}&search=${this.search}`)
           .then((res)=>{
             this.products = res.body.products;
             this.page = res.body.page;
@@ -94,28 +92,28 @@
             console.log(`Error - getProducts(), err: ${err}`);
           });
       },
-      // select which col to order
-      selectColOrder(col){
-        // same col, change cres/decr
-        if (col === this.orderCol) {
-          this.order = this.order * -1;
-          console.log(this.order);
-        }
-        // change col to order
-        else {
-          this.orderCol = col;
-          this.order = 1;
-        }
-      },
+      // // select which col to order
+      // selectColOrder(col){
+      //   // same col, change cres/decr
+      //   if (col === this.orderCol) {
+      //     this.order = this.order * -1;
+      //     console.log(this.order);
+      //   }
+      //   // change col to order
+      //   else {
+      //     this.orderCol = col;
+      //     this.order = 1;
+      //   }
+      // },
       showProductDetail(product){
         // console.time('openInfo');
         // Reset picture url number.
-        this.picId = 1;
+        // this.picId = 1;
         // Get product from array.
         this.productDetail = product;
         // console.timeEnd('openInfo');
         // Set input value.
-        this.inputChangIdStore = this.productDetail.idStore;
+        // this.inputChangIdStore = this.productDetail.idStore;
         // open modal
         $('.ui.small.modal')
           .modal('setting', 'duration', 0)

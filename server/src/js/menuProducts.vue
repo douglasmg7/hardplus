@@ -6,9 +6,10 @@
     .right.menu
       .item
         .ui.icon.input
-          input(v-model='searchText' placeholder='Pesquisar')
-          //- input(v-bind:value='value' v-on:input='updateValue($event.target.value)' placeholder='Pesquisar')
-          i.search.link.icon(v-on:click='updateValue()')
+          input(v-on:input='$emit("input", $event.target.value)' v-on:keypress='emitSearch($event)' v-model='searchText' placeholder='Pesquisa')
+          i.search.link.icon(v-on:click='$emit("search")')
+          //- input(v-model='searchText' v-on:keypress='emitSearch($event)' placeholder='Pesquisa')
+          //- i.search.link.icon(v-on:click='$emit("search", searchText)')
 </template>
 
 <script>
@@ -24,10 +25,18 @@
       'active'
     ],
     methods: {
-      updateValue(){
-        console.log('click');
-        this.$emit('search', this.searchText);
+      emitSearch(event){
+        // enter key pressed, make search
+        if (event.keyCode == 13) {this.$emit('search');}
+        // esc key pressed, clean search
+        if (event.keyCode == 27) {this.searchText=''; this.$emit('input', ''); this.$emit('search');}
       }
+        // emitSearch(event){
+        //   // enter key pressed, make search
+        //   if (event.keyCode == 13) {this.$emit('search', this.searchText);}
+        //   // esc key pressed, clean search
+        //   if (event.keyCode == 27) {this.searchText=''; this.$emit('search', this.searchText);}
+        // }
     }
   }
 </script>
