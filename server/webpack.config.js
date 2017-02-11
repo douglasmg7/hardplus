@@ -1,33 +1,23 @@
 'use strict';
-
 const path = require('path');
 const webpack = require('webpack');
-
 const DEVELOPMENT = process.env.NODE_ENV === 'development';
 // const PRODUCTION = process.env.NODE_ENV === 'production';
-
 const entry = DEVELOPMENT
   ? {
-    // bundleTt: ['./src/js/tt.js', 'webpack-hot-middleware/client?reload=true'],
-    // bundleMain: ['./src/js/v.js', 'webpack-hot-middleware/client'],
-    // bundleJ: ['./src/js/j.js', 'webpack-hot-middleware/client?reload=true'],
-    // bundleS: ['./src/js/s.js', 'webpack-hot-middleware/client?reload=true'],
     bundleProductsAllNations: ['./src/js/productsAllNations.js', 'webpack-hot-middleware/client?reload=true'],
     bundleProductsStore: ['./src/js/productsStore.js', 'webpack-hot-middleware/client?reload=true']
   }
   : {
-    // bundleTt: './src/js/tt.js',
     bundleProductsAllNations: './src/js/productsAllNations.js',
     bundleProductsStore: './src/js/productsStore.js'
   };
-
 const plugins = DEVELOPMENT
   ? [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ]
   : [];
-
 module.exports = {
   // cache: true,
   // devtool: 'source-map',   // for production
@@ -46,7 +36,6 @@ module.exports = {
     // publicPath: 'dist/',
     filename: '[name].js'
   },
-
   // uncomment to use standalone build instead run-time only
   // standalone required to use template instead of render
   // single componente can use template with run-time
@@ -55,7 +44,6 @@ module.exports = {
       'vue$': 'vue/dist/vue.common.js'
     }
   },
-
   module: {
     rules: [
       {
@@ -128,7 +116,6 @@ module.exports = {
       // }
     ]
   },
-
   devServer: {
     historyApiFallback: true,
     noInfo: true
