@@ -44,7 +44,7 @@
     $('.ui.dropdown')
       .dropdown({duration: 0});
   });
-  const WS_PRODUCTS = '/ws/products';
+  const WS_STORE = '/ws/store';
   export default {
     components: {
       menuProducts,
@@ -63,7 +63,7 @@
       }
     },
     created() {
-      this.$http.get(WS_PRODUCTS)
+      this.$http.get(WS_STORE)
         .then((res)=>{
           this.products = res.body;
         })
@@ -80,7 +80,7 @@
           .modal('show');
       },
       saveProductStore(product){
-        this.$http.put(`${WS_PRODUCTS}/${product._id}`, product)
+        this.$http.put(`${WS_STORE}/${product._id}`, product)
           .then((res)=>{
             // not could process params
             if (res.body.err) {

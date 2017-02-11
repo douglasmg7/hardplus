@@ -20,7 +20,7 @@ const log = require('./bin/log');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var routeWsAllNations = require('./routes/wsAllNations');
-var routeWsProducts = require('./routes/wsProducts');
+var routeWsStore = require('./routes/wsStore');
 var routeProducts = require('./routes/products');
 
 var app = express();
@@ -51,7 +51,7 @@ app.use('/', routes);
 app.use('/users', users);
 // web service
 app.use('/ws/allnations', routeWsAllNations);
-app.use('/ws/products', routeWsProducts);
+app.use('/ws/store', routeWsStore);
 // html
 app.use('/products', routeProducts);
 

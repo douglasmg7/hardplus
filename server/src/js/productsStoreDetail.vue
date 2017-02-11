@@ -112,6 +112,26 @@
             alert(`error: ${JSON.stringify(err)}`);
             console.log(`err: ${JSON.stringify(err)}`);
           });
+      },
+      saveProductStore(product){
+        this.$http.put(`${WS_STORE}/${product._id}`, product)
+          .then((res)=>{
+            // not could process params
+            if (res.body.err) {
+              alert(`erro: ${res.body.err}`);
+            }
+            // data modified
+            else if (res.body.matchedCount && (res.body.matchedCount > 0)){
+              console.log('Produto atualizado.');
+            }
+            else {
+              alert(`Não foi possível fazer as alterações. result: ${JSON.stringify(res.body)}`);
+            }
+          })
+          .catch((err)=>{
+            alert(`erro: ${JSON.stringify(err)}`);
+            console.log(`err: ${JSON.stringify(err)}`);
+          });
       }
     },
     computed: {
