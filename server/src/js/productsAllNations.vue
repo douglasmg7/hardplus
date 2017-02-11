@@ -29,7 +29,7 @@
         div(v-for='n in pageCount')
           a.item(@click='getProducts(n)' v-bind:class='{"active": n==page}') {{n}}
     .ui.hidden.divider
-    products-detail-allnations(v-bind:product='productDetail')
+    products-allnations-detail(v-bind:product='productDetail')
 </template>
 <script>
   /* globals accounting */
@@ -37,7 +37,7 @@
   import accounting from 'accounting';
   // components
   import menuProducts from './menuProducts.vue';
-  import productsDetailAllnations from './productsDetailAllNations.vue';
+  import productsAllnationsDetail from './productsAllNationsDetail.vue';
   // let veeValidate = require('vee-validate');
   // $(document).ready(function(){
   // });
@@ -45,31 +45,18 @@
   export default {
     components: {
       menuProducts,
-      productsDetailAllnations
+      productsAllnationsDetail
     },
     data: function(){
       return {
         // All products.
         products: ['void'],
         productDetail: {},
-        // Which column to order.
-        // orderCol: 'desc',
-        // Crescent o decrescent order.
-        // order: 1,
-        // Used by the text filter.
-        // filterName: '',
-        // Each produtc can have one o more pictures url.
-        // picId: 1,
-        // inputChangIdStore: '',
-        // actived menu
-        // menuIsActive: {
-        //   allNations: false,
-        //   store: true
-        // },
         // curret page for pagination
         page:1,
         // number of pages for pagination
         pageCount: 1,
+        // text for search products
         search: ''
       }
     },
@@ -77,9 +64,6 @@
       this.getProducts();
     },
     methods: {
-      // tMsg(msg){
-      //   alert(msg);
-      // },
       // retrive products page
       getProducts(page=1){
         this.$http.get(`${WS_ALL_NATIONS}?page=${page}&search=${this.search}`)
@@ -92,28 +76,9 @@
             console.log(`Error - getProducts(), err: ${err}`);
           });
       },
-      // // select which col to order
-      // selectColOrder(col){
-      //   // same col, change cres/decr
-      //   if (col === this.orderCol) {
-      //     this.order = this.order * -1;
-      //     console.log(this.order);
-      //   }
-      //   // change col to order
-      //   else {
-      //     this.orderCol = col;
-      //     this.order = 1;
-      //   }
-      // },
       showProductDetail(product){
-        // console.time('openInfo');
-        // Reset picture url number.
-        // this.picId = 1;
-        // Get product from array.
         this.productDetail = product;
-        // console.timeEnd('openInfo');
-        // Set input value.
-        // this.inputChangIdStore = this.productDetail.idStore;
+
         // open modal
         $('.ui.small.modal')
           .modal('setting', 'duration', 0)

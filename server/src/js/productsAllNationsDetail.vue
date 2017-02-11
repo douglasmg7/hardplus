@@ -88,6 +88,7 @@
       .actions
         button.ui.positive.button(@click='setCommercialize(product, true)' v-if='!product.commercialize') Comercializar
         button.ui.negative.button(@click='setCommercialize(product, false)' v-if='product.commercialize') Não Comercializar
+        button.ui.black.deny.button Fechar
 </template>
 <script>
   'use strict';
