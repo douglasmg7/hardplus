@@ -82,26 +82,6 @@
           .modal('setting', 'duration', 0)
           .modal('show');
       },
-      // saveProductStore(product){
-      //   this.$http.put(`${WS_PRODUCTS}/${product._id}`, product)
-      //     .then((res)=>{
-      //       // not could process params
-      //       if (res.body.err) {
-      //         alert(`erro: ${res.body.err}`);
-      //       }
-      //       // data modified
-      //       else if (res.body.matchedCount && (res.body.matchedCount > 0)){
-      //         console.log('Produto atualizado.');
-      //       }
-      //       else {
-      //         alert(`Não foi possível fazer as alterações. result: ${JSON.stringify(res.body)}`);
-      //       }
-      //     })
-      //     .catch((err)=>{
-      //       alert(`erro: ${JSON.stringify(err)}`);
-      //       console.log(`err: ${JSON.stringify(err)}`);
-      //     });
-      // }
     },
     filters: {
       currencyBr(value){
@@ -113,10 +93,8 @@
 <style lang='stylus'>
   th.clickable, td.clickable
     cursor: pointer
-  /*comercialized but not available or not active*/
   tr.commercialize
     background-color: #F2DEDE
-  /*comercialized and available and active*/
   tr.commercialize.available-prd.active-prd.stock-prd
     background-color: #bdffbd
 </style>

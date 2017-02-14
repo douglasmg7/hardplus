@@ -67,7 +67,9 @@ router.put('/set-commercialize/:_id', function(req, res) {
           dealerProductCommercialize: product.commercialize
         },
         $setOnInsert: {
-          storeProductTitle: product.desc
+          storeProductTitle: product.desc,
+          storeProductDescPrimary: product.tecDesc,
+          storeProductDescComplete: product.tecDesc
         }
       },
       {upsert: true}

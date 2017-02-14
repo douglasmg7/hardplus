@@ -25,7 +25,6 @@ router.get('/', function (req, res) {
     console.log(`Error getting data, err: ${err}`);
   });
 });
-
 // // Get all products
 // router.get('/', function(req, res) {
 //   mongo.db.collection(dbConfig.collStoreProducts).find().limit(30).toArray((err, r)=>{
@@ -35,21 +34,20 @@ router.get('/', function (req, res) {
 //     res.json(r);
 //   });
 // });
-
 // update a store product
 router.put('/:id', function(req, res) {
   // error if try to update document id
   delete req.body._id;
 
-  mongo.db.collection(dbConfig.collStoreProducts).updateOne({_id: new ObjectId(req.params.id)}, {$set: req.body}, (err, r)=>{
-    if(err){
-      console.log(`Error updatting store poduct: ${err}`);
-      res.json('status: fail');
-    } else {
-      res.json({
-        'matchedCount': r.matchedCount
-      });
-    }
+  mongo.db.collection(dbConfig.collStoreProducts).updateOne(
+    {_id: new ObjectId(req.params.id)},
+    {$set: req.body}
+  )
+  .then(result=>{
+    res.json('status: success');
+  }).catch(err=>{
+    console.log(`saving store products detail - err: ${err}`);
+    res.json('status: fail');
   });
 });
 

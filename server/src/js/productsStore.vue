@@ -1,7 +1,7 @@
 <template lang='pug'>
   div
     menu-products(active='store' v-on:input='search=arguments[0]' v-on:search='getProducts()')
-    table.ui.compact.striped.table
+    table.ui.compact.table
       thead
         tr
           // th.text-capitalize id
@@ -13,7 +13,10 @@
           th.clickable(@click="selectColOrder('stockQtd')") estoque
           th.clickable(@click="selectColOrder('priceNum')") preço
       tbody
-        tr(v-for="product in products")
+        tr(
+          v-for="product in products"
+          v-bind:class='{"product-commercialize": product.storeProductCommercialize, "product-active": product.dealerProductActive && (product.dealerProductQtd > 5)}'
+        )
           // td {{$index + 1}}
           td.clickable(@click="showProductDetail(product)" v-bind:data-code="product.code" v-bind:title='product.dealerProductTitle') {{product.storeProductId}}
           td.clickable(@click="showProductDetail(product)") {{product.storeProductTitle}}
@@ -115,11 +118,9 @@
 </script>
 <style lang='stylus'>
   th.clickable, td.clickable
-     cursor: pointer
-  /*comercialized but not available or not active*/
-  tr.market
+    cursor: pointer
+  tr.product-commercialize
     background-color: #F2DEDE
-  /*comercialized and available and active*/
-  tr.market.available-prd.active-prd.stock-prd
+  tr.product-commercialize.product-active
     background-color: #bdffbd
 </style>

@@ -13,10 +13,10 @@
             input(type='file')
           .field
             label Descrição primária
-            textarea(v-model='product.storeProductDescPrimary ? product.storeProductDescPrimary : product.dealerProductDesc' rows='2')
+            textarea(v-model='product.storeProductDescPrimary' rows='2')
           .field
             label Descrição completa
-            textarea(v-model='product.storeProductDescComplete ? product.storeProductDescComplete : product.dealerProductDesc' rows='3')
+            textarea(v-model='product.storeProductDescComplete' rows='3')
           .two.fields
             .field
               label Fabricante
@@ -61,15 +61,19 @@
               label Preço final sem desconto
               .ui.labeled.input
                 .ui.label.basic R$
-                input(:value='finalPrice' readonly="")
+                input(:value='finalPrice' readonly='')
             .field
               label Preço final com desconto
               .ui.labeled.input
                 .ui.label.basic R$
-                input(:value='finalPriceDiscount' readonly="")
+                input(:value='finalPriceDiscount' readonly='')
             .field
               label Estoque
-              input(v-model='product.dealerProductQtd' readonly="")
+              input(v-model='product.dealerProductQtd' readonly='')
+          .field
+            .ui.disabled.checkbox
+              input(type='checkbox' disabled='disabled' v-model='product.dealerProductActive')
+              Label Produto ativo no revendedor
           .field
             .ui.checkbox
               input(type='checkbox' v-model='product.storeProductCommercialize')
@@ -90,46 +94,12 @@
     filters: { currencyBr(value){ return accounting.formatMoney(value, "R$ ", 2, ".", ","); }
     },
     methods: {
-      setCommercialize(product, commercialize){
-        commercialize = commercialize === true ? true : false;
-        console.log(`setCommercialize -> _id: ${product._id}, commercialize: ${commercialize}`);
-        this.$http.put(`${WS_STORE}/set-commercialize/${product._id}`, {commercialize: commercialize})
-          .then((res)=>{
-            // error
-            if (res.body.err) {
-              alert(`erro: ${res.body.err}`);
-            }
-            // success
-            else if (res.body.status && res.body.status === 'success'){
-              // update product
-              product.commercialize = commercialize;
-            }
-            else {
-              alert(`Não foi possível comercializar o produto _id: ${product._id}.`);
-            }
-          })
-          .catch((err)=>{
-            alert(`error: ${JSON.stringify(err)}`);
-            console.log(`err: ${JSON.stringify(err)}`);
-          });
-      },
       saveProduct(product){
         this.$http.put(`${WS_STORE}/${product._id}`, product)
           .then((res)=>{
-            // not could process params
-            if (res.body.err) {
-              alert(`erro: ${res.body.err}`);
-            }
-            // data modified
-            else if (res.body.matchedCount && (res.body.matchedCount > 0)){
-              console.log('Produto atualizado.');
-            }
-            else {
-              alert(`Não foi possível fazer as alterações. result: ${JSON.stringify(res.body)}`);
-            }
           })
           .catch((err)=>{
-            alert(`erro: ${JSON.stringify(err)}`);
+            alert(`error: ${JSON.stringify(err)}`);
             console.log(`err: ${JSON.stringify(err)}`);
           });
       }
