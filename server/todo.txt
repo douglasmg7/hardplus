@@ -10,6 +10,8 @@ erros
 mouserover
   view description
 
+num of products to not commercialize must be in to a config, not harded coded
+
 _id
   verificar se criar novo item no store product pode vim a ser igual ao recebido da all nations product
 

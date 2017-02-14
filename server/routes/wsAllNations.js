@@ -54,7 +54,7 @@ router.put('/set-commercialize/:_id', function(req, res) {
           dealerProductLastUpdate: product.ts,
           dealerProductTitle: product.desc,
           dealerProductDesc: product.tecDesc,
-          dealerProductWarrantyPeriodDays: product.warranty,
+          dealerProductWarrantyDays: product.warranty,
           dealerProductPrice: product.price,
           dealerProductPriceNoST: product.priceNoST,
           dealerProductLocation: product.stockLocation,
@@ -69,7 +69,8 @@ router.put('/set-commercialize/:_id', function(req, res) {
         $setOnInsert: {
           storeProductTitle: product.desc,
           storeProductDescPrimary: product.tecDesc,
-          storeProductDescComplete: product.tecDesc
+          storeProductDescComplete: product.tecDesc,
+          storeProductCommercialize: false
         }
       },
       {upsert: true}

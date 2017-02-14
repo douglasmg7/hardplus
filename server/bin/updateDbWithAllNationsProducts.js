@@ -106,7 +106,7 @@ function insertProductsStore(db, products, callback){
           dealerProductLastUpdate: product.ts,
           dealerProductTitle: product.desc,
           dealerProductDesc: product.tecDesc,
-          dealerProductWarrantyPeriodDays: product.warranty,
+          dealerProductWarrantyDays: product.warranty,
           dealerProductPrice: product.price,
           dealerProductLocation: product.stockLocation,
           dealerProductWeightG: product.weight * 1000,
@@ -115,8 +115,7 @@ function insertProductsStore(db, products, callback){
           dealerProductDeepMm: product.deep * 1000,
           dealerProductActive: (product.available && product.active),
           dealerProductQtd: product.stockQtd,
-          dealerProductCommercialize: product.commercialize,
-          storeProductId: product.storeProductId
+          dealerProductCommercialize: product.commercialize
         }
       });
   }

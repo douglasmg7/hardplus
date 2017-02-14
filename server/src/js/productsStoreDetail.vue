@@ -5,79 +5,90 @@
       .header {{product.storeProductTitle}}
       .content
         form.ui.form
-          .field
-            label Título
-            input(v-model='product.storeProductTitle')
-          .field
-            label Imagem
-            input(type='file')
-          .field
-            label Descrição primária
-            textarea(v-model='product.storeProductDescPrimary' rows='2')
-          .field
-            label Descrição completa
-            textarea(v-model='product.storeProductDescComplete' rows='3')
-          .two.fields
+          .ui.raised.segment
+            h3.ui.horizontal.divider Detalhes
             .field
-              label Fabricante
-              input(v-model='product.storeProductMaker')
+              label Hard Plus Id
+              input(v-model='product.storeProductId')
             .field
-              label Categoria
-              input(v-model='product.storeProductCategory')
-          .two.fields
+              label Título
+              input(v-model='product.storeProductTitle')
             .field
-              label Garantia
-              .ui.right.labeled.input
-                input(v-model='product.storeProductWarrantyDays')
-                .ui.label.basic Dias
+              label Imagem
+              input(type='file')
             .field
-              label Garantia - observação
-              input(v-model='product.storeProductWarrantyDetail')
-          .three.fields
+              label Descrição primária
+              textarea(v-model='product.storeProductDescPrimary' rows='2')
             .field
-              label Preço do fornecedor
-              .ui.labeled.input
-                .ui.label.basic R$
-                input(v-model='product.dealerProductPrice' readonly="")
-            .field
-              label Lucro
-              .ui.right.labeled.input
-                input(v-model='product.dealerProductPrice')
-                .ui.label.basic %
-            .field
-              label Desconto
-              .ui.action.input
-                input(v-model='product.dealerProductPrice')
-                select.ui.compact.selection.dropdown
-                  option(value='%') %
-                  option(value='R$') R$
-          .one.fields
+              label Descrição completa
+              textarea(v-model='product.storeProductDescComplete' rows='3')
+            .two.fields
+              .field
+                label Fabricante
+                input(v-model='product.storeProductMaker')
+              .field
+                label Categoria
+                input(v-model='product.storeProductCategory')
+          .ui.segment
+            h3.ui.header Garantia
+            .ui.section.divider
+            .three.fields
+              .field
+                label Fornecedor
+                .ui.large.label
+                   p {{product.dealerProductWarrantyDays}} dias
+              .field
+                label Loja
+                .ui.right.labeled.input
+                  input(v-model='product.storeProductWarrantyDays')
+                  .ui.label.basic Dias
+              .field
+                label Observação
+                input(v-model='product.storeProductWarrantyDetail')
+          .ui.segment
+            h3.ui.header Preço
+            .ui.section.divider
             .field
               .ui.checkbox
                 input(type='checkbox' v-model='product.storeProductDiscountEnable')
                 label Habilitar desconto
-          .three.fields
+            .four.fields
+              .field
+                label Fornecedor
+                .ui.large.label
+                  p R$ {{product.dealerProductPrice}}
+              .field
+                label Lucro
+                .ui.right.labeled.input
+                  input(v-model='product.dealerProductPrice')
+                  .ui.label.basic %
+              .field
+                label Desconto
+                .ui.action.input
+                  input(v-model='product.dealerProductPrice')
+                  select.ui.compact.selection.dropdown
+                    option(value='%') %
+                    option(value='R$') R$
+              .field
+                label Loja
+                .ui.large.label
+                  p R$ {{finalPrice}}
+          .ui.segment
+            h3.ui.header Status
+            .ui.section.divider
             .field
-              label Preço final sem desconto
-              .ui.labeled.input
-                .ui.label.basic R$
-                input(:value='finalPrice' readonly='')
-            .field
-              label Preço final com desconto
-              .ui.labeled.input
-                .ui.label.basic R$
-                input(:value='finalPriceDiscount' readonly='')
-            .field
-              label Estoque
-              input(v-model='product.dealerProductQtd' readonly='')
-          .field
-            .ui.disabled.checkbox
-              input(type='checkbox' disabled='disabled' v-model='product.dealerProductActive')
-              Label Produto ativo no revendedor
-          .field
-            .ui.checkbox
-              input(type='checkbox' v-model='product.storeProductCommercialize')
-              Label Comercializar produto
+              .ui.checkbox
+                input(type='checkbox' v-model='product.storeProductCommercialize')
+                Label Comercializar produto
+            .two.fields
+              .field
+                label Estoque
+                .ui.large.label
+                  p {{product.dealerProductQtd}} unidades
+              .field
+                label Status no fornecedor
+                .ui.large.label
+                  p {{product.dealerProductActive == true ? 'Produto ativo' : 'Produto inativo'}}
       .actions
         button.ui.positive.button(@click='saveProduct(product)') Salvar
         button.ui.black.deny.button Fechar
