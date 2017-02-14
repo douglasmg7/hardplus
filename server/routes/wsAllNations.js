@@ -39,37 +39,87 @@ router.put('/set-commercialize/:_id', function(req, res) {
   // mongodb formated _id product
   const _id = new ObjectId(req.params._id);
   // update all nations products db
-  mongo.db.collection(dbConfig.collAllNationProducts).findOneAndUpdate({_id: _id}, {$set: {commercialize: commercialize}}, {returnOriginal: false})
+  mongo.db.collection(dbConfig.collAllNationProducts).findOneAndUpdate({_id: _id},
+    {$set: {commercialize: commercialize}},
+    {returnOriginal: false})
+  // upsert store products db
   .then(result=>{
     const product = result.value;
-    // update store products db
-    return mongo.db.collection(dbConfig.collStoreProducts).updateOne({_id: _id},
-      {$set: {
-        dealer: 'AllNations',
-        dealerProductId: product.code,
-        dealerProductLastUpdate: product.ts,
-        dealerProductTitle: product.desc,
-        dealerProductDesc: product.tecDesc,
-        dealerProductWarrantyPeriodDays: product.warranty,
-        dealerProductPrice: product.price,
-        dealerProductPriceNoST: product.priceNoST,
-        dealerProductLocation: product.stockLocation,
-        dealerProductWeightG: product.weight * 1000,
-        dealerProductWidthMm: product.width * 1000,
-        dealerProductHeightMm: product.height * 1000,
-        dealerProductDeepMm: product.deep * 1000,
-        dealerProductActive: (product.available && product.active),
-        dealerProductQtd: product.stockQtd,
-        dealerProductCommercialize: product.commercialize
-      }}, {upsert: true});
+    return mongo.db.collection(dbConfig.collStoreProducts).findOneAndUpdate(
+      {_id: _id},
+      {
+        $set: {
+          dealer: 'AllNations',
+          dealerProductId: product.code,
+          dealerProductLastUpdate: product.ts,
+          dealerProductTitle: product.desc,
+          dealerProductDesc: product.tecDesc,
+          dealerProductWarrantyPeriodDays: product.warranty,
+          dealerProductPrice: product.price,
+          dealerProductPriceNoST: product.priceNoST,
+          dealerProductLocation: product.stockLocation,
+          dealerProductWeightG: product.weight * 1000,
+          dealerProductWidthMm: product.width * 1000,
+          dealerProductHeightMm: product.height * 1000,
+          dealerProductDeepMm: product.deep * 1000,
+          dealerProductActive: (product.available && product.active),
+          dealerProductQtd: product.stockQtd,
+          dealerProductCommercialize: product.commercialize
+        },
+        $setOnInsert: {
+          storeProductTitle: product.desc
+        }
+      },
+      {upsert: true}
+      // {returnOriginal: false, upsert: true, w: 1}
+    );
   }).then(result=>{
-    console.log(`set-commercialize -> _id: ${req.params._id}, commercialize: ${commercialize}`);
-    if (result.modifiedCount === 1 || result.upsertedCount === 1) {
-      res.json({'status': 'success'});
-    }
+    // console.log(JSON.stringify(result));
+    console.log(`set-commercialize: _id: ${req.params._id}, commercialize: ${commercialize}`);
+    res.json({'status': 'success'});
   }).catch((err)=>{
-    console.log(`Error: set-commercialize, _id: ${req.params._id}, err: ${err}`);
+    console.log(`error: set-commercialize, _id: ${req.params._id}, err: ${err}`);
     res.json({'status': 'fail'});
   });
 });
+// // commercialize product
+// router.put('/set-commercialize/:_id', function(req, res) {
+//   const commercialize = req.body.commercialize === true;
+//   // change product
+//   // mongodb formated _id product
+//   const _id = new ObjectId(req.params._id);
+//   // update all nations products db
+//   mongo.db.collection(dbConfig.collAllNationProducts).findOneAndUpdate({_id: _id}, {$set: {commercialize: commercialize}}, {returnOriginal: false})
+//   .then(result=>{
+//     const product = result.value;
+//     // update store products db
+//     return mongo.db.collection(dbConfig.collStoreProducts).updateOne({_id: _id},
+//       {$set: {
+//         dealer: 'AllNations',
+//         dealerProductId: product.code,
+//         dealerProductLastUpdate: product.ts,
+//         dealerProductTitle: product.desc,
+//         dealerProductDesc: product.tecDesc,
+//         dealerProductWarrantyPeriodDays: product.warranty,
+//         dealerProductPrice: product.price,
+//         dealerProductPriceNoST: product.priceNoST,
+//         dealerProductLocation: product.stockLocation,
+//         dealerProductWeightG: product.weight * 1000,
+//         dealerProductWidthMm: product.width * 1000,
+//         dealerProductHeightMm: product.height * 1000,
+//         dealerProductDeepMm: product.deep * 1000,
+//         dealerProductActive: (product.available && product.active),
+//         dealerProductQtd: product.stockQtd,
+//         dealerProductCommercialize: product.commercialize
+//       }}, {upsert: true});
+//   }).then(result=>{
+//     console.log(`set-commercialize -> _id: ${req.params._id}, commercialize: ${commercialize}`);
+//     if (result.modifiedCount === 1 || result.upsertedCount === 1) {
+//       res.json({'status': 'success'});
+//     }
+//   }).catch((err)=>{
+//     console.log(`Error: set-commercialize, _id: ${req.params._id}, err: ${err}`);
+//     res.json({'status': 'fail'});
+//   });
+// });
 module.exports = router;

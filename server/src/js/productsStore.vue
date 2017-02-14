@@ -6,20 +6,20 @@
         tr
           // th.text-capitalize id
           th.clickable(@click="selectColOrder('code-store')") Hardplus id
+          th.clickable(@click="selectColOrder('dealerCode')") Titulo
           th.clickable(@click="selectColOrder('dealer')") Revendedor
-          th.clickable(@click="selectColOrder('stockLocation')") local
           th.clickable(@click="selectColOrder('dealerCode')") Rev Id
-          th.clickable(@click="selectColOrder('dealerCode')") Rev Titulo
+          th.clickable(@click="selectColOrder('stockLocation')") local
           th.clickable(@click="selectColOrder('stockQtd')") estoque
           th.clickable(@click="selectColOrder('priceNum')") preço
       tbody
         tr(v-for="product in products")
           // td {{$index + 1}}
           td.clickable(@click="showProductDetail(product)" v-bind:data-code="product.code" v-bind:title='product.dealerProductTitle') {{product.storeProductId}}
+          td.clickable(@click="showProductDetail(product)") {{product.storeProductTitle}}
           td.clickable(@click="showProductDetail(product)") {{product.dealer}}
-          td.clickable(@click="showProductDetail(product)") {{product.dealerProductLocation}}
           td.clickable(@click="showProductDetail(product)") {{product.dealerProductId}}
-          td.clickable(@click="showProductDetail(product)") {{product.dealerProductTitle}}
+          td.clickable(@click="showProductDetail(product)") {{product.dealerProductLocation}}
           td.clickable(@click="showProductDetail(product)") {{product.dealerProductQtd}}
           //   td {{product.dealerProductPrice | currencyBr}}
           td.clickable(@click="showProductDetail(product)") {{product.dealerProductPrice}}

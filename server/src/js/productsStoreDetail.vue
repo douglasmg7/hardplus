@@ -2,12 +2,12 @@
   div
     .ui.small.modal
       i.close.icon
-      .header {{product.storeProductTitle ? product.storeProductTitle : product.dealerProductTitle}}
+      .header {{product.storeProductTitle}}
       .content
         form.ui.form
           .field
             label Título
-            input(v-model='product.storeProductTitle ? product.storeProductTitle : product.dealerProductTitle')
+            input(v-model='product.storeProductTitle')
           .field
             label Imagem
             input(type='file')

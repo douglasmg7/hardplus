@@ -15,7 +15,7 @@ router.get('/', function (req, res) {
     ? {'dealerProductCommercialize': true, 'desc': {$regex: req.query.search, $options: 'i'}}
     : {'dealerProductCommercialize': true};
     // : {'dealerProductCommercialize': {$exists: true, $eq: true}};
-  const cursor = mongo.db.collection(dbConfig.collStoreProducts).find(search).sort({'desc': 1}).skip(skip).limit(PAGE_SIZE);
+  const cursor = mongo.db.collection(dbConfig.collStoreProducts).find(search).sort({'storeProductTitle': 1}).skip(skip).limit(PAGE_SIZE);
   Promise.all([
     cursor.toArray(),
     cursor.count()
