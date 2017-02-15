@@ -79,8 +79,17 @@
       showProductDetail(product){
         this.productDetail = product;
         // open modal
-        $('.ui.small.modal').modal('setting', 'duration', 0).modal('show');
-        $('.ui.dropdown').dropdown({duration: 0});
+        $('.ui.small.modal')
+          // init and update dropdown
+          .modal({onShow: function (){
+            setTimeout(function () {
+              $('.ui.dropdown').dropdown({duration: 0});
+            }, 100);
+          }})
+          // fast open
+          .modal('setting', 'duration', 0)
+          // open modal
+          .modal('show');
       },
       saveProductStore(product){
         this.$http.put(`${WS_STORE}/${product._id}`, product)

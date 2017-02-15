@@ -6,6 +6,7 @@
       .content
         form.ui.form
           .ui.segment
+            //- detalhes
             h3.ui.dividing.header Detalhes
             .field
               label Hard Plus Id
@@ -72,6 +73,7 @@
                 .ui.action.input
                   input(v-model='product.storeProductDiscountValue')
                   select.ui.compact.selection.dropdown(v-model='product.storeProductDiscountType')
+                    input(v-model='product.storeProductDiscountType' type='hidden')
                     option(value='%') %
                     option(value='R$') R$
               .four.wide.field
