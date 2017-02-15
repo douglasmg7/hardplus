@@ -67,10 +67,15 @@ router.put('/set-commercialize/:_id', function(req, res) {
           dealerProductCommercialize: product.commercialize
         },
         $setOnInsert: {
+          storeProductId: '',
           storeProductTitle: product.desc,
           storeProductDescPrimary: product.tecDesc,
           storeProductDescComplete: product.tecDesc,
-          storeProductCommercialize: false
+          storeProductCommercialize: false,
+          storeProductMarkup: 0,
+          storeProductDiscountEnable: false,
+          storeProductDiscountType: '%',
+          storeProductDiscountValue: 0
         }
       },
       {upsert: true}

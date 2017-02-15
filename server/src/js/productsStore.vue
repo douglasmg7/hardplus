@@ -7,11 +7,11 @@
           // th.text-capitalize id
           th.clickable(@click="selectColOrder('code-store')") Hardplus id
           th.clickable(@click="selectColOrder('dealerCode')") Titulo
-          th.clickable(@click="selectColOrder('dealer')") Revendedor
-          th.clickable(@click="selectColOrder('dealerCode')") Rev Id
-          th.clickable(@click="selectColOrder('stockLocation')") local
-          th.clickable(@click="selectColOrder('stockQtd')") estoque
-          th.clickable(@click="selectColOrder('priceNum')") preço
+          th.clickable(@click="selectColOrder('dealer')") Fornecedor
+          th.clickable(@click="selectColOrder('dealerCode')") Forn. Id
+          th.clickable(@click="selectColOrder('stockLocation')") Local
+          th.clickable(@click="selectColOrder('stockQtd')") Estoque
+          th.clickable(@click="selectColOrder('priceNum')") Preço
       tbody
         tr(
           v-for="product in products"
@@ -42,11 +42,6 @@
   import menuProducts from './menuProducts.vue';
   import productsStoreDetail from './productsStoreDetail.vue';
   // let veeValidate = require('vee-validate');
-  $(document).ready(function(){
-    // initialize dropdown
-    $('.ui.dropdown')
-      .dropdown({duration: 0});
-  });
   const WS_STORE = '/ws/store';
   export default {
     components: {
@@ -84,9 +79,8 @@
       showProductDetail(product){
         this.productDetail = product;
         // open modal
-        $('.ui.small.modal')
-          .modal('setting', 'duration', 0)
-          .modal('show');
+        $('.ui.small.modal').modal('setting', 'duration', 0).modal('show');
+        $('.ui.dropdown').dropdown({duration: 0});
       },
       saveProductStore(product){
         this.$http.put(`${WS_STORE}/${product._id}`, product)

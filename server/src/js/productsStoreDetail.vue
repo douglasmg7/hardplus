@@ -21,10 +21,10 @@
               input(type='file')
             .field
               label Descrição primária
-              textarea(v-model='product.storeProductDescPrimary' rows='2')
+              textarea(v-model='product.storeProductDescPrimary' rows='15')
             .field
               label Descrição completa
-              textarea(v-model='product.storeProductDescComplete' rows='3')
+              textarea(v-model='product.storeProductDescComplete' rows='15')
             .two.fields
               .field
                 label Fabricante
@@ -32,6 +32,7 @@
               .field
                 label Categoria
                 input(v-model='product.storeProductCategory')
+          //- warranty
           .ui.segment
             h3.ui.dividing.header Garantia
             .fields
@@ -48,6 +49,7 @@
               .eight.wide.field
                 label Observação
                 input(v-model='product.storeProductWarrantyDetail')
+          //- price
           .ui.segment
             h3.ui.dividing.header Preço
             .field
@@ -63,13 +65,13 @@
               .four.wide.field
                 label Lucro
                 .ui.right.labeled.input
-                  input(v-model='product.dealerProductPrice')
+                  input(v-model='product.storeProductMarkup')
                   .ui.label.basic %
               .four.wide.field
                 label Desconto
                 .ui.action.input
-                  input(v-model='product.dealerProductPrice')
-                  select.ui.compact.selection.dropdown
+                  input(v-model='product.storeProductDiscountValue')
+                  select.ui.compact.selection.dropdown(v-model='product.storeProductDiscountType')
                     option(value='%') %
                     option(value='R$') R$
               .four.wide.field
@@ -77,6 +79,9 @@
                 .ui.labeled.disabled.input
                   .ui.label.basic R$
                   input(v-model='finalPrice')
+            .field
+              p discount type: {{product.storeProductDiscountType}}
+          //- status
           .ui.segment
             h3.ui.dividing.header Status
             .field
@@ -84,14 +89,18 @@
                 input(type='checkbox' v-model='product.storeProductCommercialize')
                 Label Comercializar produto
             .fields
-              .eight.wide.field
+              .one.wide.field
+              .six.wide.field
                 label Estoque
-                .ui.large.label
-                  p {{product.dealerProductQtd}} unidades
-              .eight.wide.field
+                .ui.small.visible.aligned.center.message(v-bind:class='{"warning": product.dealerProductQtd < 5}')
+                  .ui.center.aligned.container
+                    p {{product.dealerProductQtd}} {{product.dealerProductQtd > 1 ? 'unidades': 'unidade'}}
+              .two.wide.field
+              .six.wide.field
                 label Status fornecedor
-                .ui.large.label
-                  p {{product.dealerProductActive == true ? 'Produto ativo' : 'Produto inativo'}}
+                .ui.small.visible.message(v-bind:class='{"warning": !product.dealerProductActive}')
+                  .ui.center.aligned.container
+                    p {{product.dealerProductActive == true ? 'Produto ativo' : 'Produto inativo'}}
       .actions
         button.ui.positive.button(@click='saveProduct(product)') Salvar
         button.ui.black.deny.button Fechar
@@ -100,6 +109,12 @@
   'use strict';
   const WS_STORE = '/ws/store';
   import accounting from 'accounting';
+  // // initialize
+  // $(document).ready(function(){
+  //   // initialize dropdown
+  //   $('.ui.dropdown')
+  //     .dropdown({duration: 0});
+  // });
   export default {
     data: function(){
       return { msg: 'Products Detail Store' };
@@ -119,35 +134,18 @@
       }
     },
     computed: {
-      warranty_month() {
-        if(this.product.warranty === 0){
-          return 'Sem garantia';
-        } else if(this.product.warranty === 1){
-          return '1 mes';
-        } else{
-          return this.product.warranty + ' meses';
-        }
-      },
       finalPrice() {
         let result = this.product.dealerProductPrice;
-        // applay markup
+        // apply markup
         if (this.product.storeProductMarkup > 0) {
           result *= (1 + (this.product.storeProductMarkup / 100));
         }
-        return result;
+        // apply discount
+        if (this.product.storeProductDiscountEnable){
+          result -= result * (this.product.storeProductDiscountValue / 100);
+        }
+        return accounting.formatMoney(result, '', 2, '.', ',');
       },
-      finalPriceDiscount() {
-        let result = this.product.dealerProductPrice;
-        // applay markup
-        if (this.product.storeProductMarkup > 0) {
-          result *= (1 + (this.product.storeProductMarkup / 100));
-        }
-        // applay discount
-        if (this.product.storeProductDiscountEnable && this.product.storeProductDiscount > 0) {
-          result -= this.product.storeProductDiscount;
-        }
-        return result;
-      }
     },
   }
 </script>
