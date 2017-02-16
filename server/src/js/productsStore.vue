@@ -62,6 +62,7 @@
     },
     created() {
       this.getProducts();
+      this.getMakers();
     },
     methods: {
       // retrive products page
@@ -99,6 +100,15 @@
             return
           }
         });
+      },
+      getMakers(){
+        this.$http.get(`${WS_STORE}/makers`)
+          .then((res)=>{
+            console.log(`makers: ${res.body}`);
+          })
+          .catch((err)=>{
+            console.log(`Error - getProducts(), err: ${JSON.stringify(err)}`);
+          });
       }
     },
     filters: {

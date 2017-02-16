@@ -17,7 +17,9 @@ let dbConfig = {
   // All Nations products collections.
   collAllNationProducts: 'allNationsProducts',
   // Store products collections.
-  collStoreProducts: 'storeProducts'
+  collStoreProducts: 'storeProducts',
+  // makers list, use in drownbox
+  collProductMakers: 'productMakers'
 };
 
 module.exports = dbConfig;

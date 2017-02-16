@@ -25,20 +25,20 @@ router.get('/', function (req, res) {
     console.log(`Error getting data, err: ${err}`);
   });
 });
-// // Get all products
-// router.get('/', function(req, res) {
-//   mongo.db.collection(dbConfig.collStoreProducts).find().limit(30).toArray((err, r)=>{
-//     if(err){
-//       console.log('Error getting store products: ${err}');
-//     }
-//     res.json(r);
-//   });
-// });
+// Get all makers
+router.get('/makers', function(req, res) {
+  mongo.db.collection(dbConfig.collProductMakers).find().toArray()
+  .then((result)=>{
+    res.json(result);
+  })
+  .catch(err=>{
+    console.log(`Error getting makers: ${err}`);
+  });
+});
 // update a store product
 router.put('/:id', function(req, res) {
   // error if try to update document id
   delete req.body._id;
-
   mongo.db.collection(dbConfig.collStoreProducts).updateOne(
     {_id: new ObjectId(req.params.id)},
     {$set: req.body}
