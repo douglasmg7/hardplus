@@ -81,8 +81,6 @@
                 .ui.labeled.disabled.input
                   .ui.label.basic R$
                   input(v-model='finalPrice')
-            .field
-              p discount type: {{product.storeProductDiscountType}}
           //- status
           .ui.segment
             h3.ui.dividing.header Status
@@ -145,11 +143,18 @@
         }
         // apply discount
         if (this.product.storeProductDiscountEnable){
-          result -= result * (this.product.storeProductDiscountValue / 100);
+          // by value
+          if ('R$' === this.product.storeProductDiscountType) {
+            result -= this.product.storeProductDiscountValue;
+          // by percentage
+          } else {
+            result -= result * (this.product.storeProductDiscountValue / 100);
+          }
         }
+        this.product.storeProductPrice = result;
         return accounting.formatMoney(result, '', 2, '.', ',');
       },
-    },
+    }
   }
 </script>
 <style lang='stylus'>

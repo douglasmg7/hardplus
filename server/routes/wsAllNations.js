@@ -75,7 +75,8 @@ router.put('/set-commercialize/:_id', function(req, res) {
           storeProductMarkup: 0,
           storeProductDiscountEnable: false,
           storeProductDiscountType: '%',
-          storeProductDiscountValue: 0
+          storeProductDiscountValue: 0,
+          storeProductPrice: product.price
         }
       },
       {upsert: true}
