@@ -128,6 +128,7 @@
       saveProduct(product){
         this.$http.put(`${WS_STORE}/${product._id}`, product)
           .then((res)=>{
+            this.$emit('save');
           })
           .catch((err)=>{
             alert(`error: ${JSON.stringify(err)}`);

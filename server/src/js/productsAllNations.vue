@@ -27,7 +27,7 @@
         div(v-for='n in pageCount')
           a.item(@click='getProducts(n)' v-bind:class='{"active": n==page}') {{n}}
     .ui.hidden.divider
-    products-allnations-detail(v-bind:product='productDetail')
+    products-allnations-detail(:product='selectedProduct' @save='updateProduct')
 </template>
 <script>
   /* globals accounting */
@@ -49,7 +49,8 @@
       return {
         // All products.
         products: ['void'],
-        productDetail: {},
+        // deep clone of selected product
+        selectedProduct: {},
         // curret page for pagination
         page:1,
         // number of pages for pagination
@@ -75,13 +76,21 @@
           });
       },
       showProductDetail(product){
-        this.productDetail = product;
-
+        // deep clone
+        this.selectedProduct = JSON.parse(JSON.stringify(product));
         // open modal
         $('.ui.small.modal')
           .modal('setting', 'duration', 0)
           .modal('show');
       },
+      updateProduct(){
+        this.products.forEach((element, index)=>{
+          if (element._id === this.selectedProduct._id) {
+            this.$set(this.products, index, this.selectedProduct);
+            return
+          }
+        });
+      }
     },
     filters: {
       currencyBr(value){

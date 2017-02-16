@@ -125,18 +125,8 @@
         console.log(`setCommercialize -> _id: ${product._id}, commercialize: ${commercialize}`);
         this.$http.put(`${WS_ALL_NATIONS}/set-commercialize/${product._id}`, {commercialize: commercialize})
           .then((res)=>{
-            // error
-            if (res.body.err) {
-              alert(`erro: ${res.body.err}`);
-            }
-            // success
-            else if (res.body.status && res.body.status === 'success'){
-              // update product
-              product.commercialize = commercialize;
-            }
-            else {
-              alert(`Não foi possível comercializar o produto _id: ${product._id}.`);
-            }
+            this.product.commercialize = commercialize;
+            this.$emit('save');
           })
           .catch((err)=>{
             alert(`error: ${JSON.stringify(err)}`);

@@ -18,21 +18,21 @@
           v-bind:class='{"product-commercialize": product.storeProductCommercialize, "product-active": product.dealerProductActive && (product.dealerProductQtd > 5)}'
         )
           // td {{$index + 1}}
-          td.clickable(@click="showProductDetail(product)" v-bind:data-code="product.code" v-bind:title='product.dealerProductTitle') {{product.storeProductId}}
-          td.clickable(@click="showProductDetail(product)") {{product.storeProductTitle}}
-          td.clickable(@click="showProductDetail(product)") {{product.dealer}}
-          td.clickable(@click="showProductDetail(product)") {{product.dealerProductId}}
-          td.clickable(@click="showProductDetail(product)") {{product.dealerProductLocation}}
-          td.clickable(@click="showProductDetail(product)") {{product.dealerProductQtd}}
+          td.clickable(@click="showProduct(product)" v-bind:data-code="product.code" v-bind:title='product.dealerProductTitle') {{product.storeProductId}}
+          td.clickable(@click="showProduct(product)") {{product.storeProductTitle}}
+          td.clickable(@click="showProduct(product)") {{product.dealer}}
+          td.clickable(@click="showProduct(product)") {{product.dealerProductId}}
+          td.clickable(@click="showProduct(product)") {{product.dealerProductLocation}}
+          td.clickable(@click="showProduct(product)") {{product.dealerProductQtd}}
           //   td {{product.dealerProductPrice | currencyBr}}
-          td.clickable(@click="showProductDetail(product)") {{product.dealerProductPrice}}
+          td.clickable(@click="showProduct(product)") {{product.dealerProductPrice}}
     .ui.hidden.divider
     .ui.center.aligned.container
       .ui.pagination.menu
         div(v-for='n in pageCount')
           a.item(@click='getProducts(n)' v-bind:class='{"active": n==page}') {{n}}
     .ui.hidden.divider
-    products-store-detail(v-bind:product='productDetail')
+    products-store-detail(:product='selectedProduct' @save='updateProduct')
 </template>
 <script>
   /* globals accounting */
@@ -51,7 +51,8 @@
     data: function(){
       return {
         products: ['void'],
-        productDetail: {},
+        // deep clone of selected product
+        selectedProduct: {},
         // curret page for pagination
         page:1,
         // number of pages for pagination
@@ -76,8 +77,9 @@
             console.log(`Error - getProducts(), err: ${err}`);
           });
       },
-      showProductDetail(product){
-        this.productDetail = product;
+      showProduct(product){
+        // deep clone
+        this.selectedProduct = JSON.parse(JSON.stringify(product));
         // open modal
         $('.ui.small.modal')
           // init and update dropdown
@@ -91,25 +93,13 @@
           // open modal
           .modal('show');
       },
-      saveProductStore(product){
-        this.$http.put(`${WS_STORE}/${product._id}`, product)
-          .then((res)=>{
-            // not could process params
-            if (res.body.err) {
-              alert(`erro: ${res.body.err}`);
-            }
-            // data modified
-            else if (res.body.matchedCount && (res.body.matchedCount > 0)){
-              console.log('Produto atualizado.');
-            }
-            else {
-              alert(`Não foi possível fazer as alterações. result: ${JSON.stringify(res.body)}`);
-            }
-          })
-          .catch((err)=>{
-            alert(`erro: ${JSON.stringify(err)}`);
-            console.log(`err: ${JSON.stringify(err)}`);
-          });
+      updateProduct(){
+        this.products.forEach((element, index)=>{
+          if (element._id === this.selectedProduct._id) {
+            this.$set(this.products, index, this.selectedProduct);
+            return
+          }
+        });
       }
     },
     filters: {
