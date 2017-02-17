@@ -31,7 +31,7 @@
         div(v-for='n in pageCount')
           a.item(@click='getProducts(n)' v-bind:class='{"active": n==page}') {{n}}
     .ui.hidden.divider
-    products-store-detail(:product='selectedProduct' @save='updateProduct')
+    products-store-detail(:product='selectedProduct', :productMakers='productMakers', :productCategories='productCategories' @save='updateProduct')
 </template>
 <script>
   /* globals accounting */
@@ -52,6 +52,8 @@
         products: ['void'],
         // deep clone of selected product
         selectedProduct: {},
+        productMakers: ['void'],
+        productCategories: ['void'],
         // curret page for pagination
         page:1,
         // number of pages for pagination
@@ -62,7 +64,7 @@
     },
     created() {
       this.getProducts();
-      this.getMakers();
+      this.getDropdown();
     },
     methods: {
       // retrive products page
@@ -101,13 +103,14 @@
           }
         });
       },
-      getMakers(){
-        this.$http.get(`${WS_STORE}/makers`)
+      getDropdown(){
+        this.$http.get(`${WS_STORE}/dropdown`)
           .then((res)=>{
-            console.log(`makers: ${res.body}`);
+            this.productMakers = res.body.productMakers;
+            this.productCategories = res.body.productCategories;
           })
           .catch((err)=>{
-            console.log(`Error - getProducts(), err: ${JSON.stringify(err)}`);
+            console.log(`Error - getDropdown(), err: ${JSON.stringify(err)}`);
           });
       }
     },

@@ -25,16 +25,28 @@ router.get('/', function (req, res) {
     console.log(`Error getting data, err: ${err}`);
   });
 });
-// Get all makers
-router.get('/makers', function(req, res) {
-  mongo.db.collection(dbConfig.collProductMakers).find().toArray()
-  .then((result)=>{
-    res.json(result);
+// Get dropdown elements
+router.get('/dropdown', function(req, res) {
+  Promise.all([
+    mongo.db.collection(dbConfig.collProductMakers).find().sort({name: 1}).toArray(),
+    mongo.db.collection(dbConfig.collProductCategories).find().sort({name: 1}).toArray()
+  ]).then(([productMakers, productCategories])=>{
+    res.json({productMakers, productCategories});
   })
   .catch(err=>{
-    console.log(`Error getting makers: ${err}`);
+    console.log(`Error dropdwon: ${err}`);
   });
 });
+// // Get all makers
+// router.get('/makers', function(req, res) {
+//   mongo.db.collection(dbConfig.collProductMakers).find().sort({name: 1}).toArray()
+//   .then((result)=>{
+//     res.json({makers: result});
+//   })
+//   .catch(err=>{
+//     console.log(`Error getting makers: ${err}`);
+//   });
+// });
 // update a store product
 router.put('/:id', function(req, res) {
   // error if try to update document id

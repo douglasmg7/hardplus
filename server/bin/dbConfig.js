@@ -5,7 +5,7 @@ const DB_NAME = 'hardPlus';
 // Database name for test.
 const DB_NAME_TEST = DB_NAME + 'Test';
 
-let dbConfig = {
+const dbConfig = {
   // Database name.
   dbName: DB_NAME,
   // Database name for test.
@@ -18,8 +18,9 @@ let dbConfig = {
   collAllNationProducts: 'allNationsProducts',
   // Store products collections.
   collStoreProducts: 'storeProducts',
-  // makers list, use in drownbox
-  collProductMakers: 'productMakers'
+  // makers list, use in dropdown
+  collProductMakers: 'productMakers',
+  // product categories, use in dropdown
+  collProductCategories: 'productCategories'
 };
-
 module.exports = dbConfig;

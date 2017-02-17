@@ -9,7 +9,9 @@
     "start": "npm run livereload & npm run start-dev",
     "start-nodemon": "nodemon ./bin/www",
     "test": "mocha test -u bdd -R spec -t 2000",
-    "testCompile": "mocha test -u bdd --compilers js:babel-core/register"
+    "testCompile": "mocha test -u bdd --compilers js:babel-core/register",
+    "insertMakers": "bin/insertProductMakers.js",
+    "insertCategories": "bin/insertProductCategories.js"
   },
   "dependencies": {
     "body-parser": "~1.15.1",

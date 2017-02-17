@@ -27,12 +27,17 @@
               label Descrição completa
               textarea(v-model='product.storeProductDescComplete' rows='15')
             .two.fields
+              //- maker
               .field
                 label Fabricante
-                input(v-model='product.storeProductMaker')
+                select.ui.search.dropdown(v-model='product.storeProductMaker')
+                  input(v-model='product.storeProductMaker' type='hidden')
+                  option(v-for='maker in productMakers', :value='maker.name') {{maker.value}}
               .field
                 label Categoria
-                input(v-model='product.storeProductCategory')
+                select.ui.search.dropdown(v-model='product.storeProductCategory')
+                  input(v-model='product.storeProductCategory' type='hidden')
+                  option(v-for='category in productCategories', :value='category.name') {{category.value}}
           //- warranty
           .ui.segment
             h3.ui.dividing.header Garantia
@@ -119,7 +124,7 @@
     data: function(){
       return { msg: 'Products Detail Store' };
     },
-    props:['product'],
+    props:['product', 'productMakers', 'productCategories'],
     filters: { currencyBr(value){ return accounting.formatMoney(value, "R$ ", 2, ".", ","); }
     },
     methods: {
