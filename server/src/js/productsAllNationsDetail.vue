@@ -92,7 +92,7 @@
 </template>
 <script>
   'use strict';
-  const WS_ALL_NATIONS = '/ws/allnations';
+  import wsPath from '../../bin/wsPath';
   import accounting from 'accounting';
   export default {
     data: function(){
@@ -123,7 +123,7 @@
       setCommercialize(product, commercialize){
         commercialize = commercialize === true ? true : false;
         console.log(`setCommercialize -> _id: ${product._id}, commercialize: ${commercialize}`);
-        this.$http.put(`${WS_ALL_NATIONS}/set-commercialize/${product._id}`, {commercialize: commercialize})
+        this.$http.put(`${wsPath.allNations}/set-commercialize/${product._id}`, {commercialize: commercialize})
           .then((res)=>{
             this.product.commercialize = commercialize;
             this.$emit('save');

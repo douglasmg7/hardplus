@@ -36,12 +36,12 @@
 <script>
   /* globals accounting */
   'use strict';
+  import wsPath from '../../bin/wsPath';
   import accounting from 'accounting';
   // components
   import menuProducts from './menuProducts.vue';
   import productsStoreDetail from './productsStoreDetail.vue';
   // let veeValidate = require('vee-validate');
-  const WS_STORE = '/ws/store';
   export default {
     components: {
       menuProducts,
@@ -69,7 +69,7 @@
     methods: {
       // retrive products page
       getProducts(page=1){
-        this.$http.get(`${WS_STORE}?page=${page}&search=${this.search}`)
+        this.$http.get(`${wsPath.store}?page=${page}&search=${this.search}`)
           .then((res)=>{
             this.products = res.body.products;
             this.page = res.body.page;
@@ -85,11 +85,20 @@
         // open modal
         $('.ui.small.modal')
           // init and update dropdown
-          .modal({onShow: function (){
-            setTimeout(function () {
-              $('.ui.dropdown').dropdown({duration: 0});
-            }, 100);
-          }})
+          .modal({
+              onShow: function (){
+                setTimeout(function () {
+                  $('.ui.dropdown').dropdown({duration: 0});
+                }, 100);}
+              // onApprove: function (){
+              //   console.log('onApprove');
+              //   return false;
+              // },
+              // onDeny: function () {
+              //   console.log('onDeny');
+              //   return false;
+              // }
+          })
           // fast open
           .modal('setting', 'duration', 0)
           // open modal
@@ -104,7 +113,7 @@
         });
       },
       getDropdown(){
-        this.$http.get(`${WS_STORE}/dropdown`)
+        this.$http.get(`${wsPath.store}/dropdown`)
           .then((res)=>{
             this.productMakers = res.body.productMakers;
             this.productCategories = res.body.productCategories;

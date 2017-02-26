@@ -20,6 +20,8 @@
             .field
               label Imagem
               input(type='file')
+              //- button Carregar imagens do fornecedor
+              button.ui.button(@click='loadDealerImages(product)') Carregar imagens do fornecedor
             .field
               label Descrição primária
               textarea(v-model='product.storeProductDescPrimary' rows='15')
@@ -112,14 +114,19 @@
 </template>
 <script>
   'use strict';
-  const WS_STORE = '/ws/store';
   import accounting from 'accounting';
-  // // initialize
-  // $(document).ready(function(){
-  //   // initialize dropdown
-  //   $('.ui.dropdown')
-  //     .dropdown({duration: 0});
-  // });
+  import wsPath from '../../bin/wsPath';
+  // initialize
+  $(document).ready(function(){
+    // // initialize dropdown
+    // $('.ui.dropdown')
+    //   .dropdown({duration: 0});
+    $('.ui.form').form({
+      onSuccess: function (event, fields) {
+        event.preventDefault();
+      }
+    })
+  });
   export default {
     data: function(){
       return { msg: 'Products Detail Store' };
@@ -129,7 +136,7 @@
     },
     methods: {
       saveProduct(product){
-        this.$http.put(`${WS_STORE}/${product._id}`, product)
+        this.$http.put(`${wsPath.store}/${product._id}`, product)
           .then((res)=>{
             this.$emit('save');
           })
@@ -137,6 +144,15 @@
             alert(`error: ${JSON.stringify(err)}`);
             console.log(`err: ${JSON.stringify(err)}`);
           });
+      },
+      loadDealerImages(product){
+        this.$http.put(`${wsPath.allNations}/download-dealer-images/${product._id}`)
+          .then(()=>{
+          })
+          .catch(err=>{
+            alert(`error: ${JSON.stringify(err)}`);
+            console.log(`err: ${JSON.stringify(err)}`);
+          })
       }
     },
     computed: {

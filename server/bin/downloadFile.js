@@ -13,11 +13,12 @@ const download = function(uri, filename, callback){
     request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
   });
 };
+module.exports = download;
 
-download(
-  'http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0041767',
-  'temp/temp.jpeg',
-  function(){
-    console.log('done');
-  }
-);
+// download(
+//   'http://images.allnations.com.br/imagens/produtos/imagemSite.aspx?h=196&l=246&src=0041767-01',
+//   'temp/temp.jpeg',
+//   function(){
+//     console.log('done');
+//   }
+// );

@@ -3,6 +3,7 @@
 	  "ignore": [
       "*/*.log",
       "*/*.txt",
+      "*/*.jpeg",
       "bower.json",
       "test/*",
       "src/*",
@@ -16,6 +17,7 @@
   		"public/css/*",
   		"*/*.log",
       "bin/updateDbWithAllNationsProducts.js",
-      "bin/getAllNationsProducts.js"
+      "bin/getAllNationsProducts.js",
+      "bin/downloadFile.js"
 	  ]
 }

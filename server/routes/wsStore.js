@@ -62,5 +62,4 @@ router.put('/:id', function(req, res) {
     res.json('status: fail');
   });
 });
-
 module.exports = router;

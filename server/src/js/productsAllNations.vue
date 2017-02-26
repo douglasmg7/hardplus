@@ -32,6 +32,7 @@
 <script>
   /* globals accounting */
   'use strict';
+  import wsPath from '../../bin/wsPath';
   import accounting from 'accounting';
   // components
   import menuProducts from './menuProducts.vue';
@@ -39,7 +40,6 @@
   // let veeValidate = require('vee-validate');
   // $(document).ready(function(){
   // });
-  const WS_ALL_NATIONS = '/ws/allnations';
   export default {
     components: {
       menuProducts,
@@ -65,7 +65,7 @@
     methods: {
       // retrive products page
       getProducts(page=1){
-        this.$http.get(`${WS_ALL_NATIONS}?page=${page}&search=${this.search}`)
+        this.$http.get(`${wsPath.allNations}?page=${page}&search=${this.search}`)
           .then((res)=>{
             this.products = res.body.products;
             this.page = res.body.page;

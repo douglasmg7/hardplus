@@ -5,6 +5,7 @@ const router = express.Router();
 const mongo = require('../model/db');
 const dbConfig = mongo.config;
 const ObjectId = require('mongodb').ObjectId;
+const downloadFile = require('../bin/downloadFile');
 // page size for pagination
 const PAGE_SIZE = 50;
 // get products
@@ -64,7 +65,8 @@ router.put('/set-commercialize/:_id', function(req, res) {
           dealerProductDeepMm: product.deep * 1000,
           dealerProductActive: (product.available && product.active),
           dealerProductQtd: product.stockQtd,
-          dealerProductCommercialize: product.commercialize
+          dealerProductCommercialize: product.commercialize,
+          dealerProductUrlImage: product.urlImg
         },
         $setOnInsert: {
           storeProductId: '',
@@ -87,9 +89,32 @@ router.put('/set-commercialize/:_id', function(req, res) {
   }).then(result=>{
     console.log(`set-commercialize: _id: ${req.params._id}, commercialize: ${commercialize}`);
     res.json({'status': 'success'});
-  }).catch((err)=>{
+  })
+  .catch((err)=>{
     console.log(`error: set-commercialize, _id: ${req.params._id}, err: ${err}`);
     res.json({'status': 'fail'});
+  });
+});
+// get dealer images
+router.put('/download-dealer-images/:id', (req, res)=>{
+  mongo.db.collection(dbConfig.collStoreProducts).findOne(
+    {_id: new ObjectId(req.params.id)},
+    {dealerProductUrlImage: true}
+  )
+  .then(result=>{
+    console.log(JSON.stringify(`result: ${JSON.stringify(result)}`));
+    // load pictures from dealer
+    downloadFile(
+      `${result.dealerProductUrlImage}-01`,
+      `${result._id}.jpeg`,
+      function(){
+        console.log(`file from ${result._id} was load`);
+      }
+    );
+    res.json('status: success');
+  }).catch(err=>{
+    console.log(`error loading dealer images - err: ${err}`);
+    res.json('status: fail');
   });
 });
 module.exports = router;
