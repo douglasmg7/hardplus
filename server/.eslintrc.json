@@ -22,7 +22,8 @@
     "object-curly-spacing": "off",
     "arrow-spacing": "off",
     "keyword-spacing": "off",
-    "space-before-blocks": "off"
+    "space-before-blocks": "off",
+    "space-infix-ops": "off"
   },
   "parserOptions": {
       "sourceType": "module"

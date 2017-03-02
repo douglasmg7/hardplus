@@ -75,31 +75,6 @@ module.exports = {
         loader: 'url-loader',
         query: {limit: 10000}
       },
-      // {
-      //   test:/.eot$/,
-      //   loader:'url-loader',
-      //   query:{mimetype:'application/vnd.ms-fontobject',name:'./public/css/semantic/themes/default/assets/fonts/icons.eot'}
-      // },
-      // {
-      //   test:/.woff$/,
-      //   loader:'url-loader',
-      //   query:{mimetype:'application/font-woff',name:'./public/css/semantic/themes/default/assets/fonts/icons.woff'}
-      // },
-      // {
-      //   test:/.woff2$/,
-      //   loader:'url-loader',
-      //   query:{mimetype:'application/font-woff2',name:'./public/css/semantic/themes/default/assets/fonts/icons.woff2'}
-      // },
-      // {
-      //   test:/.[ot]tf$/,
-      //   loader:'url-loader',
-      //   query:{mimetype:'application/octet-stream',name:'./public/css/semantic/themes/default/assets/fonts/icons.ttf'}
-      // },
-      // {
-      //   test:/.svg$/,
-      //   loader:'url-loader',
-      //   query:{mimetype:'image/svg+xml',name:'./public/css/semantic/themes/default/assets/fonts/icons.svg'}
-      // },
       {
         test: /\.(jpg|gif)$/,
         loader: 'file-loader',
@@ -107,13 +82,6 @@ module.exports = {
           name: '[name].[ext]?[hash]'
         }
       }
-      // {
-      //   test: /\.(png|jpg|gif|svg)$/,
-      //   loader: 'file-loader',
-      //   options: {
-      //     name: '[name].[ext]?[hash]'
-      //   }
-      // }
     ]
   },
   devServer: {

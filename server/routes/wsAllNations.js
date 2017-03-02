@@ -1,13 +1,16 @@
 'use strict';
 // npm modules
 const express = require('express');
+const fs = require('fs');
+const path = require('path');
 const router = express.Router();
 const mongo = require('../model/db');
 const dbConfig = mongo.config;
 const ObjectId = require('mongodb').ObjectId;
-const downloadFile = require('../bin/downloadFile');
+const downloadAllNationsImage = require('../bin/downloadAllNationsImage');
 // page size for pagination
 const PAGE_SIZE = 50;
+const DIR_IMG_PRODUCTS = path.join(__dirname, '..', '/dist/img/allnations/products');
 // get products
 router.get('/', function (req, res) {
   const page = (req.query.page && (req.query.page > 0)) ? req.query.page : 1;
@@ -99,18 +102,35 @@ router.put('/set-commercialize/:_id', function(req, res) {
 router.put('/download-dealer-images/:id', (req, res)=>{
   mongo.db.collection(dbConfig.collStoreProducts).findOne(
     {_id: new ObjectId(req.params.id)},
-    {dealerProductUrlImage: true}
+    {dealerProductUrlImage: true, dealerProductId: true}
   )
   .then(result=>{
-    console.log(JSON.stringify(`result: ${JSON.stringify(result)}`));
-    // load pictures from dealer
-    downloadFile(
-      `${result.dealerProductUrlImage}-01`,
-      `${result._id}.jpeg`,
-      function(){
-        console.log(`file from ${result._id} was load`);
+    // console.log(JSON.stringify(`result: ${JSON.stringify(result)}`));
+    // create path
+    const DIR_IMG_PRODUCT = path.join(DIR_IMG_PRODUCTS, result.dealerProductId.toString());
+    fs.mkdir(DIR_IMG_PRODUCT, err=>{
+      // other erro than file alredy exist
+      if (err && err.code !== 'EEXIST') {
+        console.log(`error creating path loading dealer images - err: ${err}`);
+      // load pictures from dealer
+      } else {
+        for (let i = 1; i <= 4; i++) {
+          const imgSrc = `${result.dealerProductUrlImage}-0${i}`;
+          const imgDst = path.join(DIR_IMG_PRODUCT, `dealer-img-0${i}.jpeg`);
+          downloadAllNationsImage(imgSrc, imgDst, (msg)=>{
+            // image not loaded, probably not a product image
+            if (msg) {
+              console.log(msg);
+            // image loaded
+            } else {
+              console.log('AllNations images loaded');
+              console.log(`src: ${imgSrc}`);
+              console.log(`dst: ${imgDst}`);
+            }
+          });
+        }
       }
-    );
+    });
     res.json('status: success');
   }).catch(err=>{
     console.log(`error loading dealer images - err: ${err}`);

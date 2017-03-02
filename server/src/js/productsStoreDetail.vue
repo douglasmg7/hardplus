@@ -18,6 +18,10 @@
               label Título fornecedor
               input.ui.disabled.input(v-model='product.dealerProductTitle')
             .field
+              label Imagens fornecedor
+              .ui.tiny.images
+                img(:src='"img/allnations/products/" + product.dealerProductId + "/dealer-img-01.jpeg"')
+            .field
               label Imagem
               input(type='file')
               //- button Carregar imagens do fornecedor

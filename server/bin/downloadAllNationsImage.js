@@ -8,9 +8,13 @@ const download = function(uri, filename, callback){
     if (err) {
       console.log(`error: ${err}`);
     }
-    console.log('content-type:', res.headers['content-type']);
-    console.log('content-length:', res.headers['content-length']);
-    request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+    // console.log('content-type:', res.headers['content-type']);
+    // console.log('content-length:', res.headers['content-length']);
+    if (res.headers['content-length'] === '2163') {
+      callback('image not loaded, content-length: 2163, probably not a product image');
+    } else {
+      request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+    }
   });
 };
 module.exports = download;
