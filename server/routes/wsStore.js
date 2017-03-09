@@ -1,10 +1,32 @@
 'use strict';
-
 const express = require('express');
 const router = express.Router();
 const mongo = require('../model/db');
 const dbConfig = mongo.config;
 const ObjectId = require('mongodb').ObjectId;
+const path = require('path');
+const fs = require('fs');
+// file upload
+const multer = require('multer');
+const storage = multer.diskStorage({
+  destination(req, file, callback){
+    const DIR_IMG_PRODUCT = path.join(__dirname, '..', 'dist/img/allnations/products', req.params.id);
+    console.log(DIR_IMG_PRODUCT);
+    fs.mkdir(DIR_IMG_PRODUCT, err=>{
+      // other erro than file alredy exist
+      if (err && err.code !== 'EEXIST') {
+        console.log(`error creating path upload images - err: ${err}`);
+      } else {
+        callback(null, DIR_IMG_PRODUCT);
+      }
+    });
+  },
+  filename(req, file, callback){
+    callback(null, 'upload-img-' + Date.now() + path.extname(file.originalname));
+  }
+});
+// const upload = multer({dest: path.join(__dirname, '..', 'dist', 'uploads')});
+const upload = multer({storage: storage});
 // page size for pagination
 const PAGE_SIZE = 50;
 // get products
@@ -37,16 +59,6 @@ router.get('/dropdown', function(req, res) {
     console.log(`Error dropdwon: ${err}`);
   });
 });
-// // Get all makers
-// router.get('/makers', function(req, res) {
-//   mongo.db.collection(dbConfig.collProductMakers).find().sort({name: 1}).toArray()
-//   .then((result)=>{
-//     res.json({makers: result});
-//   })
-//   .catch(err=>{
-//     console.log(`Error getting makers: ${err}`);
-//   });
-// });
 // update a store product
 router.put('/:id', function(req, res) {
   // error if try to update document id
@@ -61,5 +73,10 @@ router.put('/:id', function(req, res) {
     console.log(`saving store products detail - err: ${err}`);
     res.json('status: fail');
   });
+});
+// upload product pictures
+router.put('/upload-product-images/:id', upload.array('pictures[]', 8), (req, res)=>{
+  console.log(`uploadPictures-${req.params.id}`);
+  res.json('status: success');
 });
 module.exports = router;

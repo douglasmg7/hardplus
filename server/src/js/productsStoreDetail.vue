@@ -20,12 +20,22 @@
             .field
               label Imagens fornecedor
               .ui.tiny.images
-                img(:src='"img/allnations/products/" + product.dealerProductId + "/dealer-img-01.jpeg"')
+                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-01.jpeg"')
+                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-02.jpeg"')
+                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-03.jpeg"')
+                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-04.jpeg"')
+              button.ui.button(@click='loadDealerImages(product)') Recarregar imagens do fornecedor
             .field
-              label Imagem
-              input(type='file')
+              label Imagens disponíveis
+              .ui.tiny.images
+                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-01.jpeg"')
+                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-02.jpeg"')
+                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-03.jpeg"')
+                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-04.jpeg"')
+              input.ui.input(type='file' multiple='multiple')
+              input.ui.input(@click='uploadProductPictures(product)' type='submit' value='Carregar foto' name='photos[]')
               //- button Carregar imagens do fornecedor
-              button.ui.button(@click='loadDealerImages(product)') Carregar imagens do fornecedor
+
             .field
               label Descrição primária
               textarea(v-model='product.storeProductDescPrimary' rows='15')
@@ -157,6 +167,26 @@
             alert(`error: ${JSON.stringify(err)}`);
             console.log(`err: ${JSON.stringify(err)}`);
           })
+      },
+      uploadProductPictures(product){
+        let files = $('input:file')[0].files;
+        // file selected
+        if (files.length > 0) {
+          let formData = new FormData();
+          for (var i = 0; i < files.length; i++) {
+            formData.append('pictures[]', files[i]);
+            // formData.append('photos[]', files[i], files[i].name);
+          }
+          this.$http.put(`${wsPath.store}/upload-product-images/${product.dealerProductId}`, formData)
+            .then(()=>{
+            })
+            .catch(err=>{
+              alert(`error: ${JSON.stringify(err)}`);
+              console.log(`err: ${JSON.stringify(err)}`);
+            })
+        } else {
+          alert('Nenhum foto para upload foi selecionada!');
+        }
       }
     },
     computed: {
