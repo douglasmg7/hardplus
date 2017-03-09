@@ -32,8 +32,9 @@
                 img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-02.jpeg"')
                 img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-03.jpeg"')
                 img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-04.jpeg"')
-              input.ui.input(type='file' multiple='multiple')
-              input.ui.input(@click='uploadProductPictures(product)' type='submit' value='Carregar foto' name='photos[]')
+              input.ui.input(type='file' multiple)
+              button.ui.button(@click='uploadProductPictures(product)') Upload foto(s)
+              //- input.ui.input(@click='uploadProductPictures(product)' type='submit' value='Carregar foto' name='photos[]')
               //- button Carregar imagens do fornecedor
 
             .field
@@ -170,8 +171,15 @@
       },
       uploadProductPictures(product){
         let files = $('input:file')[0].files;
-        // file selected
-        if (files.length > 0) {
+        // no files
+        if (files.length === 0) {
+          alert('Nenhuma imagem para upload foi selecionada.');
+        // too many files
+        } else if (files.length > 4) {
+          alert('Selecione no máximo 4 imagens por vez.')
+        }
+        // it's ok
+        else {
           let formData = new FormData();
           for (var i = 0; i < files.length; i++) {
             formData.append('pictures[]', files[i]);
@@ -184,8 +192,6 @@
               alert(`error: ${JSON.stringify(err)}`);
               console.log(`err: ${JSON.stringify(err)}`);
             })
-        } else {
-          alert('Nenhum foto para upload foi selecionada!');
         }
       }
     },

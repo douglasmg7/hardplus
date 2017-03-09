@@ -11,7 +11,6 @@ const multer = require('multer');
 const storage = multer.diskStorage({
   destination(req, file, callback){
     const DIR_IMG_PRODUCT = path.join(__dirname, '..', 'dist/img/allnations/products', req.params.id);
-    console.log(DIR_IMG_PRODUCT);
     fs.mkdir(DIR_IMG_PRODUCT, err=>{
       // other erro than file alredy exist
       if (err && err.code !== 'EEXIST') {
@@ -26,7 +25,21 @@ const storage = multer.diskStorage({
   }
 });
 // const upload = multer({dest: path.join(__dirname, '..', 'dist', 'uploads')});
-const upload = multer({storage: storage});
+const upload = multer({
+  storage: storage,
+  limits: {files: 4, fileSize: 2 * 1024 * 1024},
+  fileFilter(req, file, callback){
+    // const extName = path.extname(file.originalname).toLowerCase();
+    // console.log(extName);
+    if (path.extname(file.originalname).replace('.', '').toLowerCase().match(/^(png|jpg|jpeg)$/)) {
+      console.log(`uploaded image "${file.originalname}" to "${path.join(__dirname, '..', 'dist/img/allnations/products', req.params.id)}"`);
+      callback(null, true);
+    } else {
+      console.log(`${file.originalname} not uploaded, prohibited type`);
+      callback(null, false);
+    }
+  }
+});
 // page size for pagination
 const PAGE_SIZE = 50;
 // get products
@@ -76,7 +89,6 @@ router.put('/:id', function(req, res) {
 });
 // upload product pictures
 router.put('/upload-product-images/:id', upload.array('pictures[]', 8), (req, res)=>{
-  console.log(`uploadPictures-${req.params.id}`);
   res.json('status: success');
 });
 module.exports = router;
