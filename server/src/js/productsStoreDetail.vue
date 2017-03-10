@@ -24,7 +24,9 @@
                 img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-02.jpeg"')
                 img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-03.jpeg"')
                 img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-04.jpeg"')
-              button.ui.button(@click='loadDealerImages(product)') Recarregar imagens do fornecedor
+              .ui.left.aligned.container
+                label.ui.icon.button(@click='loadDealerImages(product)')
+                  i.large.upload.icon
             .field
               label Imagens disponíveis
               .ui.tiny.images
@@ -32,11 +34,13 @@
                 img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-02.jpeg"')
                 img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-03.jpeg"')
                 img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-04.jpeg"')
-              input.ui.input(type='file' multiple)
-              button.ui.button(@click='uploadProductPictures(product)') Upload foto(s)
+              .ui.left.aligned.container
+                label.ui.icon.button(for='file-upload')
+                  i.large.upload.icon
+                input(type='file' id='file-upload' accept='image/*' style='display:none' multiple @change='uploadProductPictures(product)')
+              //- button.ui.button(@click='uploadProductPictures(product)') Upload foto(s)
               //- input.ui.input(@click='uploadProductPictures(product)' type='submit' value='Carregar foto' name='photos[]')
               //- button Carregar imagens do fornecedor
-
             .field
               label Descrição primária
               textarea(v-model='product.storeProductDescPrimary' rows='15')
@@ -219,4 +223,6 @@
   }
 </script>
 <style lang='stylus'>
+  /*input[type='file']
+    display: none*/
 </style>
