@@ -7,39 +7,7 @@ const ObjectId = require('mongodb').ObjectId;
 const path = require('path');
 const fs = require('fs');
 // file upload
-const multer = require('multer');
-const storage = multer.diskStorage({
-  destination(req, file, callback){
-    const DIR_IMG_PRODUCT = path.join(__dirname, '..', 'dist/img/allnations/products', req.params.id);
-    fs.mkdir(DIR_IMG_PRODUCT, err=>{
-      // other erro than file alredy exist
-      if (err && err.code !== 'EEXIST') {
-        console.log(`error creating path upload images - err: ${err}`);
-      } else {
-        callback(null, DIR_IMG_PRODUCT);
-      }
-    });
-  },
-  filename(req, file, callback){
-    callback(null, 'upload-img-' + Date.now() + path.extname(file.originalname));
-  }
-});
-// const upload = multer({dest: path.join(__dirname, '..', 'dist', 'uploads')});
-const upload = multer({
-  storage: storage,
-  limits: {files: 4, fileSize: 2 * 1024 * 1024},
-  fileFilter(req, file, callback){
-    // const extName = path.extname(file.originalname).toLowerCase();
-    // console.log(extName);
-    if (path.extname(file.originalname).replace('.', '').toLowerCase().match(/^(png|jpg|jpeg)$/)) {
-      console.log(`uploaded image "${file.originalname}" to "${path.join(__dirname, '..', 'dist/img/allnations/products', req.params.id)}"`);
-      callback(null, true);
-    } else {
-      console.log(`${file.originalname} not uploaded, prohibited type`);
-      callback(null, false);
-    }
-  }
-});
+const formidable = require('formidable');
 // page size for pagination
 const PAGE_SIZE = 50;
 // get products
@@ -88,7 +56,43 @@ router.put('/:id', function(req, res) {
   });
 });
 // upload product pictures
-router.put('/upload-product-images/:id', upload.array('pictures[]', 8), (req, res)=>{
-  res.json('status: success');
+router.put('/upload-product-images/:id', (req, res)=>{
+  const form = formidable.IncomingForm();
+  const DIR_IMG_PRODUCT = path.join(__dirname, '..', 'dist/img/allnations/products', req.params.id);
+  const MAX_FILE_SIZE_UPLOAD = 10 * 1024 * 1024;
+  form.uploadDir = DIR_IMG_PRODUCT;
+  form.keepExtensions = true;
+  form.multiples = true;
+  // verifiy file size
+  form.on('fileBegin', function(name, file){
+    if (form.bytesExpected > MAX_FILE_SIZE_UPLOAD) {
+      this.emit('error', `"${file.name}" too big (${(form.bytesExpected / (1024 * 1024)).toFixed(1)}mb)`);
+    }
+  });
+  // name / file pair has been received
+  form.on('file', function(name, file) {
+    // fs.rename(file.path, path.join(form.uploadDir, file.name));
+    console.log(`"${file.name}" uploaded to "${file.path}"`);
+  });
+  // err
+  form.on('error', function(err) {
+    console.log(`error uploading file: ${err}`);
+    res.writeHead(413, {'connection': 'close', 'content-type': 'text/plain'});
+    res.end(err);
+    req.connection.destroy();
+  });
+  // all files have been uploaded
+  form.on('end', function() {
+    res.json('status: success');
+  });
+  // create folder and start upload
+  fs.mkdir(DIR_IMG_PRODUCT, err=>{
+    // other erro than file alredy exist
+    if (err && err.code !== 'EEXIST') {
+      console.log(`error creating path upload images - err: ${err}`);
+    } else {
+      form.parse(req);
+    }
+  });
 });
 module.exports = router;
