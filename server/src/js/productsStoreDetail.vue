@@ -135,6 +135,7 @@
   'use strict';
   import accounting from 'accounting';
   import wsPath from '../../bin/wsPath';
+  let self = this;
   // initialize
   $(document).ready(function(){
     // // initialize dropdown
@@ -145,14 +146,23 @@
         event.preventDefault();
       }
     })
+    // // update list of product images
+    // console.log(this.product.dealerProductId);
+    // this.updateImageslist(this.product);
   });
   export default {
     data: function(){
       return { msg: 'Products Detail Store' };
     },
-    props:['product', 'productMakers', 'productCategories'],
-    filters: { currencyBr(value){ return accounting.formatMoney(value, "R$ ", 2, ".", ","); }
+    created() {
+      //  modal opened
+      var self = this;
+      window.eventHub.$on('modal-onShow', function(){
+        self.updateImagesList(self.product);
+      });
     },
+    props:['product', 'productMakers', 'productCategories'],
+    filters: { currencyBr(value){ return accounting.formatMoney(value, "R$ ", 2, ".", ","); }},
     methods: {
       saveProduct(product){
         this.$http.put(`${wsPath.store}/${product._id}`, product)
@@ -197,6 +207,17 @@
               console.log(`err: ${JSON.stringify(err)}`);
             })
         }
+      },
+      updateImagesList(product){
+        // get list of images url
+        this.$http.get(`${wsPath.store}/get-product-images-url/${product.dealerProductId}`)
+          .then(result=>{
+            console.log(`${JSON.stringify(result.body)}`);
+          })
+          .catch(err=>{
+            alert(`error: ${err}`);
+            console.log(`error: ${err}`);
+          })
       }
     },
     computed: {
@@ -223,6 +244,4 @@
   }
 </script>
 <style lang='stylus'>
-  /*input[type='file']
-    display: none*/
 </style>

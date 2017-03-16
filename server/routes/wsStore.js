@@ -95,4 +95,19 @@ router.put('/upload-product-images/:id', (req, res)=>{
     }
   });
 });
+// get list of product images url
+router.get('/get-product-images-url/:id', function(req, res) {
+  const DIR_IMG_PRODUCT = path.join(__dirname, '..', 'dist/img/allnations/products', req.params.id);
+  // get list of files
+  fs.readdir(DIR_IMG_PRODUCT, (err, files)=>{
+    if (err) {
+      console.log(`error load list of files: ${err}`);
+      res.json('status: fail');
+    } else {
+      console.log(JSON.stringify(files));
+      res.json(files);
+      // res.json({a: 'asdf'});
+    }
+  });
+});
 module.exports = router;

@@ -89,6 +89,8 @@
               onShow: function (){
                 setTimeout(function () {
                   $('.ui.dropdown').dropdown({duration: 0});
+                  // modal opened event for product detail
+                  this.eventHub.$emit('modal-onShow');
                 }, 100);}
               // onApprove: function (){
               //   console.log('onApprove');

@@ -9,6 +9,9 @@ import vueResource from 'vue-resource';
 Vue.use(vueResource);
 // components
 import productsStore from './productsStore.vue';
+// event hub
+window.eventHub = new Vue({
+});
 // app
 window.appVue = new Vue({
   el: '#app',
