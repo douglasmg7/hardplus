@@ -18,29 +18,17 @@
               label Título fornecedor
               input.ui.disabled.input(v-model='product.dealerProductTitle')
             .field
-              label Imagens fornecedor
+              label Imagens
               .ui.tiny.images
-                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-01.jpeg"')
-                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-02.jpeg"')
-                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-03.jpeg"')
-                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-04.jpeg"')
+                img(v-for='image in loadedImages', :src='"/img/allnations/products/" + product.dealerProductId + "/" + image')
               .ui.left.aligned.container
-                label.ui.icon.button(@click='loadDealerImages(product)')
+                label.ui.labeled.icon.button(for='file-upload')
                   i.large.upload.icon
-            .field
-              label Imagens disponíveis
-              .ui.tiny.images
-                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-01.jpeg"')
-                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-02.jpeg"')
-                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-03.jpeg"')
-                img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-04.jpeg"')
-              .ui.left.aligned.container
-                label.ui.icon.button(for='file-upload')
-                  i.large.upload.icon
+                  | &nbsp&nbsp&nbsp&nbspCarregar imagem(s) local
                 input(type='file' id='file-upload' accept='image/*' style='display:none' multiple @change='uploadProductPictures(product)')
-              //- button.ui.button(@click='uploadProductPictures(product)') Upload foto(s)
-              //- input.ui.input(@click='uploadProductPictures(product)' type='submit' value='Carregar foto' name='photos[]')
-              //- button Carregar imagens do fornecedor
+                label.ui.labeled.icon.button(@click='loadDealerImages(product)')
+                  i.large.upload.icon
+                  | &nbsp&nbsp&nbsp&nbspCarregar imagem(s) do fornecedor
             .field
               label Descrição primária
               textarea(v-model='product.storeProductDescPrimary' rows='15')
@@ -146,13 +134,12 @@
         event.preventDefault();
       }
     })
-    // // update list of product images
-    // console.log(this.product.dealerProductId);
-    // this.updateImageslist(this.product);
   });
   export default {
     data: function(){
-      return { msg: 'Products Detail Store' };
+      return {
+        msg: 'Products Detail Store',
+        loadedImages: ['void']};
     },
     created() {
       //  modal opened
@@ -175,8 +162,10 @@
           });
       },
       loadDealerImages(product){
+        let self = this;
         this.$http.put(`${wsPath.allNations}/download-dealer-images/${product._id}`)
           .then(()=>{
+            self.updateImagesList(self.product);
           })
           .catch(err=>{
             alert(`error: ${JSON.stringify(err)}`);
@@ -199,8 +188,10 @@
             formData.append('pictures[]', files[i]);
             // formData.append('photos[]', files[i], files[i].name);
           }
+          let self = this;
           this.$http.put(`${wsPath.store}/upload-product-images/${product.dealerProductId}`, formData)
             .then(()=>{
+              this.updateImagesList(this.product);
             })
             .catch(err=>{
               alert(`error: ${JSON.stringify(err)}`);
@@ -213,6 +204,7 @@
         this.$http.get(`${wsPath.store}/get-product-images-url/${product.dealerProductId}`)
           .then(result=>{
             console.log(`${JSON.stringify(result.body)}`);
+            this.loadedImages = result.body;
           })
           .catch(err=>{
             alert(`error: ${err}`);

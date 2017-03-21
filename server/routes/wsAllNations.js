@@ -109,32 +109,82 @@ router.put('/download-dealer-images/:id', (req, res)=>{
     // create path
     const DIR_IMG_PRODUCT = path.join(DIR_IMG_PRODUCTS, result.dealerProductId.toString());
     fs.mkdir(DIR_IMG_PRODUCT, err=>{
+      const promiseArray = [];
       // other erro than file alredy exist
       if (err && err.code !== 'EEXIST') {
         console.log(`error creating path loading dealer images - err: ${err}`);
       // load pictures from dealer
       } else {
+        // try get 4 images
         for (let i = 1; i <= 4; i++) {
-          const imgSrc = `${result.dealerProductUrlImage}-0${i}`;
-          const imgDst = path.join(DIR_IMG_PRODUCT, `dealer-img-0${i}.jpeg`);
-          downloadAllNationsImage(imgSrc, imgDst, (msg)=>{
-            // image not loaded, probably not a product image
-            if (msg) {
-              console.log(msg);
-            // image loaded
-            } else {
-              console.log('AllNations images loaded');
-              console.log(`src: ${imgSrc}`);
-              console.log(`dst: ${imgDst}`);
-            }
+          // one promise for each image
+          const p = new Promise((resolve, reject)=>{
+            const imgSrc = `${result.dealerProductUrlImage}-0${i}`;
+            const imgDst = path.join(DIR_IMG_PRODUCT, `dealer-img-0${i}.jpeg`);
+            downloadAllNationsImage(imgSrc, imgDst, (msg)=>{
+              // image not loaded, probably not a product image
+              if (msg) {
+                console.log(msg);
+              // image loaded
+              } else {
+                console.log('AllNations images loaded');
+                console.log(`src: ${imgSrc}`);
+                console.log(`dst: ${imgDst}`);
+              }
+              resolve();
+            });
           });
+          promiseArray.push(p);
         }
+        // call all promises
+        Promise.all(promiseArray).then(()=>{
+          // return response when all promisse return
+          res.json('status: success');
+        });
       }
     });
-    res.json('status: success');
   }).catch(err=>{
     console.log(`error loading dealer images - err: ${err}`);
     res.json('status: fail');
   });
 });
+// // get dealer images
+// router.put('/download-dealer-images/:id', (req, res)=>{
+//   mongo.db.collection(dbConfig.collStoreProducts).findOne(
+//     {_id: new ObjectId(req.params.id)},
+//     {dealerProductUrlImage: true, dealerProductId: true}
+//   )
+//   .then(result=>{
+//     // console.log(JSON.stringify(`result: ${JSON.stringify(result)}`));
+//     // create path
+//     const DIR_IMG_PRODUCT = path.join(DIR_IMG_PRODUCTS, result.dealerProductId.toString());
+//     fs.mkdir(DIR_IMG_PRODUCT, err=>{
+//       // other erro than file alredy exist
+//       if (err && err.code !== 'EEXIST') {
+//         console.log(`error creating path loading dealer images - err: ${err}`);
+//       // load pictures from dealer
+//       } else {
+//         for (let i = 1; i <= 4; i++) {
+//           const imgSrc = `${result.dealerProductUrlImage}-0${i}`;
+//           const imgDst = path.join(DIR_IMG_PRODUCT, `dealer-img-0${i}.jpeg`);
+//           downloadAllNationsImage(imgSrc, imgDst, (msg)=>{
+//             // image not loaded, probably not a product image
+//             if (msg) {
+//               console.log(msg);
+//             // image loaded
+//             } else {
+//               console.log('AllNations images loaded');
+//               console.log(`src: ${imgSrc}`);
+//               console.log(`dst: ${imgDst}`);
+//             }
+//           });
+//         }
+//       }
+//     });
+//     res.json('status: success');
+//   }).catch(err=>{
+//     console.log(`error loading dealer images - err: ${err}`);
+//     res.json('status: fail');
+//   });
+// });
 module.exports = router;
