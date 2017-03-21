@@ -110,4 +110,22 @@ router.get('/get-product-images-url/:id', function(req, res) {
     }
   });
 });
+// get products to commercialize
+router.get('/products-commercialize', function (req, res) {
+  const page = (req.query.page && (req.query.page > 0)) ? req.query.page : 1;
+  const skip = (page - 1) * PAGE_SIZE;
+  const search = req.query.search
+    ? {'dealerProductCommercialize': true, 'desc': {$regex: req.query.search, $options: 'i'}}
+    : {'dealerProductCommercialize': true};
+    // : {'dealerProductCommercialize': {$exists: true, $eq: true}};
+  const cursor = mongo.db.collection(dbConfig.collStoreProducts).find(search).sort({'storeProductTitle': 1}).skip(skip).limit(PAGE_SIZE);
+  Promise.all([
+    cursor.toArray(),
+    cursor.count()
+  ]).then(([products, count])=>{
+    res.json({products, page, pageCount: Math.ceil(count / PAGE_SIZE)});
+  }).catch(err=>{
+    console.log(`Error getting data, err: ${err}`);
+  });
+});
 module.exports = router;

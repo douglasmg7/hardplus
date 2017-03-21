@@ -1,6 +1,32 @@
 <template lang='pug'>
   div
-    p Produtos
+    //- .ui.teal.inverted.top.attached.menu
+    .ui.teal.inverted.small.borderless.attached.menu
+      .ui.container
+        a.ui.label.item
+          i.big.home.icon Zunka
+        .right.item
+          .category.search.item
+            //- .ui.transparent.icon.input
+            .ui.icon.input
+              input.prompt(placeholder='O que você procura?')
+              i.large.search.link.icon
+          a.item
+            i.big.cart.icon
+    .segment
+      .ui.container
+        //- p(v-for='product in products') {{product.storeProductTitle}}
+        .ui.cards
+          .ui.card(v-for='product in products')
+            a.image(href='#')
+              img(src='a.jpg')
+            .content
+              a.header(href='#') {{product.storeProductTitle}}
+              .meta R$ {{product.storeProductPrice}}
+            //- .extra.content
+              .ui.two.buttons
+                .ui.basic.green.button Detalhe
+                .ui.basic.red.button Comprar
 </template>
 <script>
   /* globals accounting */
@@ -32,12 +58,12 @@
       }
     },
     created() {
-      // this.getProducts();
+      this.getProducts();
     },
     methods: {
       // retrive products page
       getProducts(page=1){
-        this.$http.get(`${wsPath.store}?page=${page}&search=${this.search}`)
+        this.$http.get(`${wsPath.store}/products-commercialize/?page=${page}&search=${this.search}`)
           .then((res)=>{
             this.products = res.body.products;
             this.page = res.body.page;
