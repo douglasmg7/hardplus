@@ -6,11 +6,13 @@ const DEVELOPMENT = process.env.NODE_ENV === 'development';
 const entry = DEVELOPMENT
   ? {
     bundleProductsAllNations: ['./src/js/productsAllNations.js', 'webpack-hot-middleware/client?reload=true'],
-    bundleProductsStore: ['./src/js/productsStore.js', 'webpack-hot-middleware/client?reload=true']
+    bundleProductsStore: ['./src/js/productsStore.js', 'webpack-hot-middleware/client?reload=true'],
+    bundleStore: ['./src/js/store.js', 'webpack-hot-middleware/client?reload=true']
   }
   : {
     bundleProductsAllNations: './src/js/productsAllNations.js',
-    bundleProductsStore: './src/js/productsStore.js'
+    bundleProductsStore: './src/js/productsStore.js',
+    bundleStore: './src/js/store.js'
   };
 const plugins = DEVELOPMENT
   ? [

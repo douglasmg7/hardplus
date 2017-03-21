@@ -17,7 +17,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware')(compiler);
 // personal modules
 const log = require('./bin/log');
 // routes
-var routes = require('./routes/index');
+var store = require('./routes/store');
 var users = require('./routes/users');
 var routeWsAllNations = require('./routes/wsAllNations');
 var routeWsStore = require('./routes/wsStore');
@@ -47,7 +47,7 @@ app.use(express.static(path.join(__dirname, 'dist/')));
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));
 app.use('/semantic', express.static(path.join(__dirname, 'semantic/')));
 // routes
-app.use('/', routes);
+app.use('/', store);
 app.use('/users', users);
 // web service
 app.use('/ws/allnations', routeWsAllNations);
