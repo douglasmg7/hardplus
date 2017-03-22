@@ -1,29 +1,34 @@
 <template lang='pug'>
   div
-    .ui.green.inverted.small.borderless.attached.menu
+    //- .ui.black.inverted.attached.stackable.menu
+    .ui.black.inverted.borderless.attached.stackable.menu
       .ui.container
-        a.ui.label.item
+        a.ui.link.item
           i.big.home.icon Zunka
-        .right.item
-          .category.search.item
-            //- .ui.transparent.icon.input
-            .ui.icon.input
-              input.prompt(placeholder='O que você procura?')
-              i.large.search.link.icon
-          a.item
-            i.big.cart.icon
+        .ui.right.item
+          .ui.small.icon.input
+            input(v-model='search' v-on:keyup.enter='getProducts()' placeholder='O que você procura?' type='text' size='40')
+            i.search.link.icon(v-on:click='getProducts()')
+        a.item
+          i.big.cart.icon
     .ui.center.aligned.container
       //- .ui.top.attached.segment
       //- .ui.vertical.very.padded.segment
       .ui.basic.padded.segment
         //- .ui.four.stackable.cards
-        .ui.four.doubling.cards
+        .ui.five.doubling.cards
           .ui.card(v-for='product in products')
             a.image(href='#')
               img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-01.jpeg"')
             .content
               a.header(href='#') {{product.storeProductTitle}}
               .meta R$ {{product.storeProductPrice}}
+    .ui.hidden.divider
+    .ui.center.aligned.container
+      .ui.pagination.menu
+        div(v-for='n in pageCount')
+          a.item(@click='getProducts(n)' v-bind:class='{"active": n==page}') {{n}}
+    .ui.hidden.divider
 </template>
 <script>
   /* globals accounting */
@@ -79,4 +84,9 @@
   }
 </script>
 <style lang='stylus'>
+  /*input#find
+    color: black*/
+    /*size: 40*/
+  /*body
+    background-color: #777*/
 </style>

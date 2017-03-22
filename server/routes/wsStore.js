@@ -8,22 +8,24 @@ const path = require('path');
 const fs = require('fs');
 // file upload
 const formidable = require('formidable');
-// page size for pagination
-const PAGE_SIZE = 50;
+// page size for admin pagination
+const PAGE_SIZE_ADMIN = 50;
+// page size for site pagination
+const PAGE_SIZE_STORE = 10;
 // get products
 router.get('/', function (req, res) {
   const page = (req.query.page && (req.query.page > 0)) ? req.query.page : 1;
-  const skip = (page - 1) * PAGE_SIZE;
+  const skip = (page - 1) * PAGE_SIZE_ADMIN;
   const search = req.query.search
     ? {'dealerProductCommercialize': true, 'desc': {$regex: req.query.search, $options: 'i'}}
     : {'dealerProductCommercialize': true};
     // : {'dealerProductCommercialize': {$exists: true, $eq: true}};
-  const cursor = mongo.db.collection(dbConfig.collStoreProducts).find(search).sort({'storeProductTitle': 1}).skip(skip).limit(PAGE_SIZE);
+  const cursor = mongo.db.collection(dbConfig.collStoreProducts).find(search).sort({'storeProductTitle': 1}).skip(skip).limit(PAGE_SIZE_ADMIN);
   Promise.all([
     cursor.toArray(),
     cursor.count()
   ]).then(([products, count])=>{
-    res.json({products, page, pageCount: Math.ceil(count / PAGE_SIZE)});
+    res.json({products, page, pageCount: Math.ceil(count / PAGE_SIZE_ADMIN)});
   }).catch(err=>{
     console.log(`Error getting data, err: ${err}`);
   });
@@ -113,17 +115,19 @@ router.get('/get-product-images-url/:id', function(req, res) {
 // get products to commercialize
 router.get('/products-commercialize', function (req, res) {
   const page = (req.query.page && (req.query.page > 0)) ? req.query.page : 1;
-  const skip = (page - 1) * PAGE_SIZE;
+  const skip = (page - 1) * PAGE_SIZE_STORE;
   const search = req.query.search
-    ? {'dealerProductCommercialize': true, 'desc': {$regex: req.query.search, $options: 'i'}}
-    : {'dealerProductCommercialize': true};
+    ? {'storeProductCommercialize': true, 'storeProductTitle': {$regex: req.query.search, $options: 'i'}}
+    : {'storeProductCommercialize': true};
     // : {'dealerProductCommercialize': {$exists: true, $eq: true}};
-  const cursor = mongo.db.collection(dbConfig.collStoreProducts).find(search).sort({'storeProductTitle': 1}).skip(skip).limit(PAGE_SIZE);
+  // console.log(`page: ${page}, search: ${JSON.stringify(search)}, skip: ${skip}`);
+  const cursor = mongo.db.collection(dbConfig.collStoreProducts).find(search).sort({'storeProductTitle': 1}).skip(skip).limit(PAGE_SIZE_STORE);
   Promise.all([
     cursor.toArray(),
     cursor.count()
   ]).then(([products, count])=>{
-    res.json({products, page, pageCount: Math.ceil(count / PAGE_SIZE)});
+    res.json({products, page, pageCount: Math.ceil(count / PAGE_SIZE_STORE)});
+    // console.log(`products: ${JSON.stringify(products)}, page: ${page}`);
   }).catch(err=>{
     console.log(`Error getting data, err: ${err}`);
   });
