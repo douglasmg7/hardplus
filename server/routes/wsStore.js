@@ -102,7 +102,7 @@ router.get('/get-product-images-url/:id', function(req, res) {
   fs.readdir(DIR_IMG_PRODUCT, (err, files)=>{
     if (err) {
       console.log(`error load list of files: ${err}`);
-      res.json('status: fail');
+      res.json([]);
     } else {
       console.log(JSON.stringify(files));
       res.json(files);

@@ -1,7 +1,6 @@
 <template lang='pug'>
   div
-    //- .ui.teal.inverted.top.attached.menu
-    .ui.teal.inverted.small.borderless.attached.menu
+    .ui.green.inverted.small.borderless.attached.menu
       .ui.container
         a.ui.label.item
           i.big.home.icon Zunka
@@ -13,20 +12,18 @@
               i.large.search.link.icon
           a.item
             i.big.cart.icon
-    .segment
-      .ui.container
-        //- p(v-for='product in products') {{product.storeProductTitle}}
-        .ui.cards
+    .ui.center.aligned.container
+      //- .ui.top.attached.segment
+      //- .ui.vertical.very.padded.segment
+      .ui.basic.padded.segment
+        //- .ui.four.stackable.cards
+        .ui.four.doubling.cards
           .ui.card(v-for='product in products')
             a.image(href='#')
-              img(src='a.jpg')
+              img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-01.jpeg"')
             .content
               a.header(href='#') {{product.storeProductTitle}}
               .meta R$ {{product.storeProductPrice}}
-            //- .extra.content
-              .ui.two.buttons
-                .ui.basic.green.button Detalhe
-                .ui.basic.red.button Comprar
 </template>
 <script>
   /* globals accounting */

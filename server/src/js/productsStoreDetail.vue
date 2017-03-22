@@ -203,11 +203,11 @@
         // get list of images url
         this.$http.get(`${wsPath.store}/get-product-images-url/${product.dealerProductId}`)
           .then(result=>{
-            console.log(`${JSON.stringify(result.body)}`);
+            // console.log(`${JSON.stringify(result.body)}`);
             this.loadedImages = result.body;
           })
           .catch(err=>{
-            alert(`error: ${err}`);
+            this.loadedImages = ['void'];
             console.log(`error: ${err}`);
           })
       }
