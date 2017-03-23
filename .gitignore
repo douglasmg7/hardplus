@@ -12,5 +12,12 @@ server/bower_components/
 server/public/js/bundle*
 server/bin/xml/
 server/dist/img/allnations/
-server/semantic/dist
+
+server/semantic/*.*
+server/semantic/tasks/
+server/semantic/dist/
+server/semantic/src/*.less
+server/semantic/src/themes/
+server/semantic/src/definitions/
+
 
