@@ -17,12 +17,15 @@
       .ui.basic.padded.segment
         //- .ui.four.stackable.cards
         .ui.five.doubling.cards
-          .ui.card(v-for='product in products')
-            a.image(href='#')
+          a.ui.card(v-for='product in products' href='#')
+            .image
               img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-01.jpeg"')
             .content
-              a.header(href='#') {{product.storeProductTitle}}
-              .meta R$ {{product.storeProductPrice}}
+              .description {{product.storeProductTitle}}
+              .price
+                sup R$
+                | {{product.storeProductPrice | currencyInt}}
+                sup {{product.storeProductPrice | currencyCents}}
     .ui.hidden.divider
     .ui.center.aligned.container
       .ui.pagination.menu
@@ -79,14 +82,27 @@
     filters: {
       currencyBr(value){
         return accounting.formatMoney(value, 'R$ ', 2, '.', ',');
+      },
+      currencyInt(value){
+        return accounting.formatMoney(value, '', 2, '.', ',').split(',')[0];
+      },
+      currencyCents(value){
+        return accounting.formatMoney(value, '', 2, '.', ',').split(',')[1];
       }
     }
   }
 </script>
 <style lang='stylus'>
-  /*input#find
-    color: black*/
-    /*size: 40*/
-  /*body
-    background-color: #777*/
+  .ui.cards > .card > .content > .price,
+  .ui.card > .content > .price
+    clear: both
+    color: rgb(0, 0, 0)
+    margin-top: 0.6em
+    font-size: 1.8em
+  .ui.cards > .card > .content > .price > sup,
+  .ui.card > .content > .price > sup
+    font-size: 0.5em
+    top: -0.6em
+    padding-right: 0.3em
+    padding-left: 0.1em
 </style>

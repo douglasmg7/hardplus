@@ -11,5 +11,6 @@ server/node_modules/
 server/bower_components/
 server/public/js/bundle*
 server/bin/xml/
-server/semantic
 server/dist/img/allnations/
+server/semantic/dist
+
