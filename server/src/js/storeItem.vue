@@ -2,7 +2,7 @@
   div
     .ui.black.inverted.borderless.attached.stackable.menu
       .ui.container
-        a.ui.link.item
+        a.ui.link.item(href='/')
           i.big.home.icon Zunka
         .ui.right.item
           .ui.small.icon.input
@@ -54,24 +54,11 @@
     },
     props:['product'],
     created() {
-      // console.log('created');
-      // console.log(`product: ${this.product}`);
-      // console.log(`product: ${typeof this.product}`);
-      // console.log(`product: ${this.product}`);
-      // this.getProducts();
     },
     methods: {
       // retrive products page
       getProducts(page=1){
-        this.$http.get(`${wsPath.store}/products-commercialize/?page=${page}&search=${this.search}`)
-          .then((res)=>{
-            this.products = res.body.products;
-            this.page = res.body.page;
-            this.pageCount = res.body.pageCount;
-          })
-          .catch((err)=>{
-            console.log(`Error - getProducts(), err: ${err}`);
-          });
+        window.location.href = `/?page=1&search=${this.search}`;
       }
     },
     filters: {

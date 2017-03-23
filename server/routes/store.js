@@ -6,7 +6,10 @@ const ObjectId = require('mongodb').ObjectId;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('store', { title: 'Produtos de informática' });
+  req.query.search = req.query.search || '';
+  console.log(`search: ${req.query.search}`);
+  // res.render('store', {initSearch: req.query.search});
+  res.render('store', {title: 'Produtos da loja', initSearch: req.query.search});
 });
 // get a specific product
 router.get('/product/:_id', function(req, res, next) {

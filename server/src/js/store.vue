@@ -3,7 +3,7 @@
     //- .ui.black.inverted.attached.stackable.menu
     .ui.black.inverted.borderless.attached.stackable.menu
       .ui.container
-        a.ui.link.item
+        a.ui.link.item(href='/')
           i.big.home.icon Zunka
         .ui.right.item
           .ui.small.icon.input
@@ -26,12 +26,12 @@
                 sup R$
                 | {{product.storeProductPrice | currencyInt}}
                 sup {{product.storeProductPrice | currencyCents}}
-    .ui.hidden.divider
-    .ui.center.aligned.container
-      .ui.pagination.menu
-        div(v-for='n in pageCount')
-          a.item(@click='getProducts(n)' v-bind:class='{"active": n==page}') {{n}}
-    .ui.hidden.divider
+    //- .ui.hidden.divider
+    //- .ui.center.aligned.container
+    //-   .ui.pagination.menu
+    //-     div(v-for='n in pageCount')
+    //-       a.item(@click='getProducts(n)' v-bind:class='{"active": n==page}') {{n}}
+    //- .ui.hidden.divider
 </template>
 <script>
   /* globals accounting */
@@ -51,9 +51,9 @@
       return {
         products: ['void'],
         // deep clone of selected product
-        selectedProduct: {},
-        productMakers: ['void'],
-        productCategories: ['void'],
+        // selectedProduct: {},
+        // productMakers: ['void'],
+        // productCategories: ['void'],
         // curret page for pagination
         page:1,
         // number of pages for pagination
@@ -62,7 +62,11 @@
         search: ''
       }
     },
+    // text for search products
+    props:['initSearch'],
     created() {
+      // search from a product item page, not from this store page
+      this.search = this.initSearch;
       this.getProducts();
     },
     methods: {
