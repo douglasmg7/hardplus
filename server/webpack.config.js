@@ -7,12 +7,14 @@ const entry = DEVELOPMENT
   ? {
     bundleProductsAllNations: ['./src/js/productsAllNations.js', 'webpack-hot-middleware/client?reload=true'],
     bundleProductsStore: ['./src/js/productsStore.js', 'webpack-hot-middleware/client?reload=true'],
-    bundleStore: ['./src/js/store.js', 'webpack-hot-middleware/client?reload=true']
+    bundleStore: ['./src/js/store.js', 'webpack-hot-middleware/client?reload=true'],
+    bundleStoreItem: ['./src/js/storeItem.js', 'webpack-hot-middleware/client?reload=true']
   }
   : {
     bundleProductsAllNations: './src/js/productsAllNations.js',
     bundleProductsStore: './src/js/productsStore.js',
-    bundleStore: './src/js/store.js'
+    bundleStore: './src/js/store.js',
+    bundleStoreItem: './src/js/storeItem.js'
   };
 const plugins = DEVELOPMENT
   ? [

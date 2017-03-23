@@ -1,6 +1,5 @@
 <template lang='pug'>
   div
-    //- .ui.black.inverted.attached.stackable.menu
     .ui.black.inverted.borderless.attached.stackable.menu
       .ui.container
         a.ui.link.item
@@ -11,27 +10,18 @@
             i.search.link.icon(v-on:click='getProducts()')
         a.item
           i.big.cart.icon
-    //- .ui.center.aligned.container
-    .ui.left.aligned.container
-      //- .ui.top.attached.segment
-      //- .ui.vertical.very.padded.segment
-      .ui.basic.padded.segment
-        .ui.five.doubling.cards
-          a.ui.card(v-for='product in products', :href='"product/" + product._id')
-            .image
-              img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-01.jpeg"')
-            .content
-              .description {{product.storeProductTitle}}
-              .price
-                sup R$
-                | {{product.storeProductPrice | currencyInt}}
-                sup {{product.storeProductPrice | currencyCents}}
-    .ui.hidden.divider
     .ui.center.aligned.container
-      .ui.pagination.menu
-        div(v-for='n in pageCount')
-          a.item(@click='getProducts(n)' v-bind:class='{"active": n==page}') {{n}}
-    .ui.hidden.divider
+      .ui.basic.padded.segment
+        .ui.item
+          .image
+            img(:src='"/img/allnations/products/" + product.dealerProductId + "/dealer-img-01.jpeg"')
+          .content
+            .header {{product.storeProductTitle}}
+            .description {{product.storeProductDescPrimary}}
+            .price
+              sup R$
+              | {{product.storeProductPrice | currencyInt}}
+              sup {{product.storeProductPrice | currencyCents}}
 </template>
 <script>
   /* globals accounting */
@@ -49,12 +39,12 @@
     },
     data: function(){
       return {
-        products: ['void'],
-        // deep clone of selected product
-        selectedProduct: {},
-        productMakers: ['void'],
-        productCategories: ['void'],
-        // curret page for pagination
+        // products: ['void'],
+        // // deep clone of selected product
+        // selectedProduct: {},
+        // productMakers: ['void'],
+        // productCategories: ['void'],
+        // // curret page for pagination
         page:1,
         // number of pages for pagination
         pageCount: 1,
@@ -62,8 +52,13 @@
         search: ''
       }
     },
+    props:['product'],
     created() {
-      this.getProducts();
+      // console.log('created');
+      // console.log(`product: ${this.product}`);
+      // console.log(`product: ${typeof this.product}`);
+      // console.log(`product: ${this.product}`);
+      // this.getProducts();
     },
     methods: {
       // retrive products page
@@ -93,14 +88,12 @@
   }
 </script>
 <style lang='stylus'>
-  .ui.cards > .card > .content > .price,
-  .ui.card > .content > .price
+  .ui.item > .content > .price
     clear: both
     color: rgb(0, 0, 0)
     margin-top: 0.6em
     font-size: 1.8em
-  .ui.cards > .card > .content > .price > sup,
-  .ui.card > .content > .price > sup
+  .ui.item > .content > .price > sup
     font-size: 0.5em
     top: -0.6em
     padding-right: 0.3em
