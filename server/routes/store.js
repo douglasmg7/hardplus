@@ -3,8 +3,7 @@ const router = express.Router();
 const mongo = require('../model/db');
 const dbConfig = mongo.config;
 const ObjectId = require('mongodb').ObjectId;
-
-/* GET home page. */
+// index
 router.get('/', function(req, res, next) {
   req.query.search = req.query.search || '';
   console.log(`search: ${req.query.search}`);

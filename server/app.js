@@ -1,11 +1,13 @@
 /* eslint no-unused-vars: 0 */
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var mongo = require('./model/db');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+// const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const mongo = require('./model/db');
 // webpack HMR - hot module reload
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
@@ -42,7 +44,21 @@ if (app.get('env') !== 'test') {
 }
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+// cookie
+// app.use(cookieParser('d7ga8gat3kaz0m'));
+// session
+// todo - change to alredy existing connection
+// app.use(session({
+//   secret: 'foo',
+//   store: new MongoStore({db: 'hardPlus', host: '127.0.0.1', port: '27017'})
+// }));
+var sess = { secret: 'd7ga8gat3kaz0m', cookie: { maxAge: 6000 }, resave: false, saveUninitialized: false};
+if (app.get('env') === 'production') {
+  app.set('trust proxy', 1); // trust first proxy
+  sess.cookie.secure = true; // serve secure cookies
+}
+app.use(session(sess));
+// statics
 app.use(express.static(path.join(__dirname, 'dist/')));
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));
 app.use('/semantic', express.static(path.join(__dirname, 'semantic/')));
