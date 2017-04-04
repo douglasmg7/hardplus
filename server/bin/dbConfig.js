@@ -21,6 +21,8 @@ const dbConfig = {
   // makers list, use in dropdown
   collProductMakers: 'productMakers',
   // product categories, use in dropdown
-  collProductCategories: 'productCategories'
+  collProductCategories: 'productCategories',
+  // users
+  collUsers: 'users'
 };
 module.exports = dbConfig;

@@ -5,8 +5,8 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 // const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+// const session = require('express-session');
+// const MongoStore = require('connect-mongo')(session);
 const mongo = require('./model/db');
 // webpack HMR - hot module reload
 const webpack = require('webpack');
@@ -18,14 +18,16 @@ const webpackDevMiddleware = require('webpack-dev-middleware')(compiler, {
 const webpackHotMiddleware = require('webpack-hot-middleware')(compiler);
 // personal modules
 const log = require('./bin/log');
+// app must be before routes
+const app = express();
 // routes
-var store = require('./routes/store');
-var users = require('./routes/users');
-var routeWsAllNations = require('./routes/wsAllNations');
-var routeWsStore = require('./routes/wsStore');
-var routeProducts = require('./routes/products');
-
-var app = express();
+const users = require('./routes/users');
+const store = require('./routes/store');
+const routeWsAllNations = require('./routes/wsAllNations');
+const routeWsStore = require('./routes/wsStore');
+const routeProducts = require('./routes/products');
+// for json web token
+app.set('secret', 'd7ga8gat3kaz0m');
 // webpack HMR
 app.use(webpackDevMiddleware);
 app.use(webpackHotMiddleware);
@@ -44,20 +46,13 @@ if (app.get('env') !== 'test') {
 }
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// cookie
-// app.use(cookieParser('d7ga8gat3kaz0m'));
 // session
-// todo - change to alredy existing connection
-// app.use(session({
-//   secret: 'foo',
-//   store: new MongoStore({db: 'hardPlus', host: '127.0.0.1', port: '27017'})
-// }));
-var sess = { secret: 'd7ga8gat3kaz0m', cookie: { maxAge: 6000 }, resave: false, saveUninitialized: false};
-if (app.get('env') === 'production') {
-  app.set('trust proxy', 1); // trust first proxy
-  sess.cookie.secure = true; // serve secure cookies
-}
-app.use(session(sess));
+// var sess = { secret: 'd7ga8gat3kaz0m', cookie: { maxAge: 6000 }, resave: false, saveUninitialized: false};
+// if (app.get('env') === 'production') {
+//   app.set('trust proxy', 1); // trust first proxy
+//   sess.cookie.secure = true; // serve secure cookies
+// }
+// app.use(session(sess));
 // statics
 app.use(express.static(path.join(__dirname, 'dist/')));
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));

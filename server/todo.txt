@@ -42,5 +42,7 @@ store products
   rimraf
   webpack-dev-server
 
-  music
-    fly - acoustic (meadowlark  )
+  remove
+    connect-mongo
+    cookieParser
+    express-session
