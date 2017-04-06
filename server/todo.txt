@@ -42,7 +42,6 @@ store products
   rimraf
   webpack-dev-server
 
-  remove
-    connect-mongo
-    cookieParser
-    express-session
+  create config file
+  config file define config db (test or production)
+  change dbConfig to config.db

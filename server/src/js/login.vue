@@ -5,6 +5,8 @@
       .ui.container
         a.ui.link.item(href='/')
           i.big.home.icon Zunka
+        .ui.right.item
+          label {{user}}
     //- .ui.center.aligned.container
     .ui.left.aligned.container
       .ui.basic.padded.segment
@@ -31,7 +33,8 @@
     data: function(){
       return {
         email:'',
-        password: ''
+        password: '',
+        user: 'no user'
       }
     },
     created() {
@@ -42,13 +45,13 @@
         this.$http.post(`login`, {email: email, password: password})
           .then(res=>{
             console.log(res.body);
-            console.log(res.body.token);
-            // sessionStorage.setItem('token', res.body.token);
-            if (res.body.success) {
-              sessionStorage.token = res.body.token
-            } else {
-              delete sessionStorage.token;
-            }
+            // if (res.body.success) {
+            //   sessionStorage.token = res.body.token
+            //   this.user = res.body.user;
+            // } else {
+            //   delete sessionStorage.token;
+            //   this.user = 'no user';
+            // }
           })
           .catch(err=>{
             console.log(`Error - login, err: ${JSON.stringify(err)}`);
