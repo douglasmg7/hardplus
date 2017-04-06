@@ -13,8 +13,8 @@ const mongo = require('./model/db');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-// const passport = require('passport');
-// const localStrategy = require('passport-local').Strategy;
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 // webpack HMR - hot module reload
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
@@ -83,8 +83,33 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // authentication
 app.use(cookieParser(app.get('secret')));
 app.use(session(sessionOpts));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(function (username, password, done) {
+  mongo.db.collection(dbConfig.collSession).findOne({username: username}).toArray((err, user)=>{
+    if (err) { return done(err); }
+    if (!user) { return done(null, false); }
+    if (user.username !== username) { return done(null, false); }
+    return done(null, user);
+  });
+}));
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+passport.deserializeUser(function(id, done) {
+  mongo.db.collection(dbConfig.collSession).findOne({id: id}).toArray((err, user)=>{
+    if (err) { return done(err); }
+    return done(null, user);
+  });
+});
+// function authenticationMiddleware () {
+//   return function (req, res, next) {
+//     if (req.isAuthenticated()) {
+//       return next();
+//     }
+//     res.redirect('/');
+//   };
+// }
 
 // webpack HMR
 app.use(webpackDevMiddleware);

@@ -22,7 +22,7 @@ const dbConfig = {
   collProductMakers: 'productMakers',
   // product categories, use in dropdown
   collProductCategories: 'productCategories',
-  // users
-  collUsers: 'users'
+  // sessions
+  collSession: 'sessions'
 };
 module.exports = dbConfig;
