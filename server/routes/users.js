@@ -2,15 +2,40 @@ const express = require('express');
 const router = express.Router();
 const mongo = require('../model/db');
 const dbConfig = mongo.config;
+const passport = require('passport');
+
 // login page
 router.get('/login', (req, res, next)=>{
-  console.log(`cookies: ${JSON.stringify(req.cookies)}`);
-  console.log(`session: ${JSON.stringify(req.session)}`);
-  console.log(`signed cookies: ${JSON.stringify(req.signedCookies)}`);
+  // console.log(`cookies: ${JSON.stringify(req.cookies)}`);
+  // console.log(`session: ${JSON.stringify(req.session)}`);
+  // console.log(`signed cookies: ${JSON.stringify(req.signedCookies)}`);
   res.render('login');
 });
+
 // login
+// router.post('/login', (req, res, next)=>{
+//   res.json({ success: false, message: 'Authentication failed. No user or password' });
+// });
+
 router.post('/login', (req, res, next)=>{
+  console.log('login-start');
+  passport.authenticate('local', (err, user, info)=>{
+    console.log('passport-start');
+    if (err) { return next(err); }
+    if (!user) { return res.json({ success: false, message: 'Authentication failed.' }); }
+    res.json({ success: true, message: 'Authentication success.' });
+  });
+});
+// router.post('/login', passport.authenticate('local'), (req, res)=>{
+//   res.json({ success: false, message: 'Authentication failed. No user or password' });
+// });
+
+// router.post('/login', passport.authenticate('local'), (req, res)=>{
+//   res.redirect('/user/' + req.user.username);
+// });
+
+// login-old
+router.post('/login-old', (req, res, next)=>{
   console.log(`cookies-1: ${req.cookies}`);
   if (req.body.email && req.body.password) {
     mongo.db.collection(dbConfig.collUsers).findOne({email: req.body.email})
@@ -95,5 +120,10 @@ router.get('/test', (req, res, next)=>{
   // }
   // res.render('test', {user: user});
   res.render('test', {email: req.session.email, password: req.session.password});
+});
+
+// user logged
+router.get('/user', (req, res, next)=>{
+  res.render('user');
 });
 module.exports = router;
