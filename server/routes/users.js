@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const mongo = require('../model/db');
-const dbConfig = mongo.config;
+const dbConfig = require('../bin/dbConfig');
 const passport = require('passport');
 
 // login page
 router.get('/login', (req, res, next)=>{
+  console.log(`req.isAuthenticated: ${req.isAuthenticated()}`);
   // console.log(`cookies: ${JSON.stringify(req.cookies)}`);
   // console.log(`session: ${JSON.stringify(req.session)}`);
   // console.log(`signed cookies: ${JSON.stringify(req.signedCookies)}`);
@@ -65,35 +66,27 @@ router.post('/login-old', (req, res, next)=>{
     res.json({ success: false, message: 'Authentication failed. No user or password' });
   }
 });
+
 // sign up
 router.post('/sign-up', (req, res, next)=>{
-  // console.log(`cookies: ${JSON.stringify(req.cookies)}`);
-  // console.log(`session: ${JSON.stringify(req.session)}`);
-  // console.log(`signed cookies: ${JSON.stringify(req.signedCookies)}`);
   if (req.body.username && req.body.password) {
-    // req.session.email = req.body.email;
-    // req.session.password = req.body.password;
-    // res.json({ success: true, message: 'User created.' });
     const user = {
       username: req.body.username,
+      id: req.body.username,
       password: req.body.password,
       admin: false
     };
-    mongo.db.collection(dbConfig.collUsers).insertOne(user)
-    .then(res=>{
-      res.json('result: true');
+    mongo.db.collection(dbConfig.collSession).insertOne(user)
+    .then(result=>{
+      res.json({ success: true, message: 'Sign up successfully accomplished' });
     })
     .catch(err=>{
-      res.json('result: false');
+      res.json({ success: false, message: 'Sign up failed' });
       console.log(`sign-up-error: ${err}`);
     });
   }
-  // req.session.email = req.body.email;
-  // console.log(`req.body: ${JSON.stringify(req.body)}`);
-  // console.log(`session: ${JSON.stringify(req.session)}`);
-  // console.log(`signed cookies: ${JSON.stringify(req.signedCookies)}`);
-  // res.json('status: success');
 });
+
 // token parse
 // router.use(function (req, res, next) {
 //   // check header or url parameters or post parameters for token

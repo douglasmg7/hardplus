@@ -88,7 +88,7 @@ app.use(passport.session());
 passport.use(new LocalStrategy(function (username, password, done) {
   console.log('passport-use-start');
   mongo.db.collection(dbConfig.collSession).findOne({username: username}, (err, user)=>{
-    console.log(`db-user: ${JSON.stringify(user)}`);
+    console.log(`local-strategy-db: ${JSON.stringify(user)}`);
     if (err) { console.log('passport-use-err'); return done(err); }
     if (!user) { console.log('passport-use-no-user'); return done(null, false); }
     if (user.username !== username) { console.log('passport-use-different-user'); return done(null, false); }
@@ -101,8 +101,7 @@ passport.serializeUser(function(user, done) {
 });
 passport.deserializeUser(function(id, done) {
   console.log('passport-deserialize');
-  mongo.db.collection(dbConfig.collSession).findOne({id: id}).toArray((err, user)=>{
-    // if (err) { return done(err); }
+  mongo.db.collection(dbConfig.collSession).findOne({id: id}, (err, user)=>{
     return done(err, user);
   });
 });
