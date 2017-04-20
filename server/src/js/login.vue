@@ -14,15 +14,20 @@
         .ui.basic.segment
           //- detalhes
           h3.ui.dividing.header Login
-          .field
-            label E-mail
-            input(v-model='email')
-          .field
-            label Senha
-            input(v-model='password')
-          .field
-            button.ui.positive.button(@click='login(email, password)') Logar
-            button.ui.positive.button(@click='signUp(email, password)') Criar conta
+          form.ui.form(action='/users/login' method='post')
+            .field
+              label username
+              input(type='text' name='username' v-model='username')
+              //- input(v-model='email')
+            .field
+              label password
+              input(type='password' name='password' v-model='password')
+              //- input(v-model='password')
+            .field
+              input.ui.button(type='submit' value='Log In')
+              button.ui.button(value='Sign up' @click='signUp(username, password)') Sign Up
+            //- button.ui.positive.button(@click='login(email, password)') Logar
+            //- button.ui.positive.button(@click='signUp(email, password)') Criar conta
 </template>
 <script>
   /* globals accounting */
@@ -32,7 +37,7 @@
     },
     data: function(){
       return {
-        email:'',
+        username:'',
         password: '',
         user: 'no user'
       }
@@ -57,11 +62,11 @@
             console.log(`Error - login, err: ${JSON.stringify(err)}`);
           });
       },
-      signUp(email, password){
-        this.$http.post(`sign-up`, {email: email, password: password})
+      signUp(username, password){
+        this.$http.post(`sign-up`, {username: username, password: password})
           .then((res)=>{
             console.log(res.body);
-            console.log(res.email);
+            console.log(res.username);
             console.log(res.password);
           })
           .catch((err)=>{

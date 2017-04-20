@@ -17,15 +17,19 @@ router.get('/login', (req, res, next)=>{
 //   res.json({ success: false, message: 'Authentication failed. No user or password' });
 // });
 
-router.post('/login', (req, res, next)=>{
-  console.log('login-start');
-  passport.authenticate('local', (err, user, info)=>{
-    console.log('passport-start');
-    if (err) { return next(err); }
-    if (!user) { return res.json({ success: false, message: 'Authentication failed.' }); }
-    res.json({ success: true, message: 'Authentication success.' });
-  });
-});
+router.post('/login', passport.authenticate('local', {successRedirect: '/', failureRedirect: 'login'}));
+
+// router.post('/login', function (req, res, next){
+//   console.log(`body: ${JSON.stringify(req.body)}`);
+//   console.log('login-start');
+//   passport.authenticate('local', function (err, user, info){
+//     console.log('passport-start');
+//     if (err) { return next(err); }
+//     if (!user) { return res.json({ success: false, message: 'Authentication failed.' }); }
+//     res.json({ success: true, message: 'Authentication success.' });
+//   });
+// });
+
 // router.post('/login', passport.authenticate('local'), (req, res)=>{
 //   res.json({ success: false, message: 'Authentication failed. No user or password' });
 // });
@@ -63,26 +67,26 @@ router.post('/login-old', (req, res, next)=>{
 });
 // sign up
 router.post('/sign-up', (req, res, next)=>{
-  console.log(`cookies: ${JSON.stringify(req.cookies)}`);
-  console.log(`session: ${JSON.stringify(req.session)}`);
-  console.log(`signed cookies: ${JSON.stringify(req.signedCookies)}`);
-  if (req.body.email && req.body.password) {
-    req.session.email = req.body.email;
-    req.session.password = req.body.password;
-    res.json({ success: true, message: 'User created.' });
-    // const user = {
-    //   email: req.body.email,
-    //   password: req.body.password,
-    //   admin: false
-    // };
-    // mongo.db.collection(dbConfig.collUsers).insertOne(user)
-    // .then(res=>{
-    //   res.json('result: true');
-    // })
-    // .catch(err=>{
-    //   res.json('result: false');
-    //   console.log(`sign-up-error: ${err}`);
-    // });
+  // console.log(`cookies: ${JSON.stringify(req.cookies)}`);
+  // console.log(`session: ${JSON.stringify(req.session)}`);
+  // console.log(`signed cookies: ${JSON.stringify(req.signedCookies)}`);
+  if (req.body.username && req.body.password) {
+    // req.session.email = req.body.email;
+    // req.session.password = req.body.password;
+    // res.json({ success: true, message: 'User created.' });
+    const user = {
+      username: req.body.username,
+      password: req.body.password,
+      admin: false
+    };
+    mongo.db.collection(dbConfig.collUsers).insertOne(user)
+    .then(res=>{
+      res.json('result: true');
+    })
+    .catch(err=>{
+      res.json('result: false');
+      console.log(`sign-up-error: ${err}`);
+    });
   }
   // req.session.email = req.body.email;
   // console.log(`req.body: ${JSON.stringify(req.body)}`);
