@@ -26,6 +26,7 @@
             .field
               input.ui.button(type='submit' value='Log In')
               button.ui.button(value='Sign up' @click='signUp(username, password)') Sign Up
+              button.ui.button(value='Log out' @click='LogOut()') Log Out
             //- button.ui.positive.button(@click='login(email, password)') Logar
             //- button.ui.positive.button(@click='signUp(email, password)') Criar conta
 </template>
@@ -71,6 +72,15 @@
           })
           .catch((err)=>{
             console.log(`Error - login(), err: ${err}`);
+          });
+      },
+      LogOut(){
+        this.$http.post(`logout`)
+          .then((res)=>{
+            console.log(res.body);
+          })
+          .catch((err)=>{
+            console.log(`Error - logout(), err: ${err}`);
           });
       }
     }

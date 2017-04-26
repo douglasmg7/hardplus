@@ -8,9 +8,24 @@ const passport = require('passport');
 router.get('/login', (req, res, next)=>{
   console.log(`req.isAuthenticated: ${req.isAuthenticated()}`);
   // console.log(`cookies: ${JSON.stringify(req.cookies)}`);
-  // console.log(`session: ${JSON.stringify(req.session)}`);
-  // console.log(`signed cookies: ${JSON.stringify(req.signedCookies)}`);
+  console.log(`session: ${JSON.stringify(req.session)}`);
+  if (!req.session.cart) {
+    req.session.cart = 1;
+  } else {
+    req.session.cart += 1;
+  }
+  console.log(`signed cookies: ${JSON.stringify(req.signedCookies)}`);
   res.render('login');
+});
+
+// logout
+router.post('/logout', (req, res, next)=>{
+  console.log(`req.isAuthenticated: ${req.isAuthenticated()}`);
+  console.log(`cookies: ${JSON.stringify(req.cookies)}`);
+  console.log(`session: ${JSON.stringify(req.session)}`);
+  req.logout();
+  console.log('logout');
+  res.json({ success: true, message: 'Logout.' });
 });
 
 // login
@@ -72,7 +87,7 @@ router.post('/sign-up', (req, res, next)=>{
   if (req.body.username && req.body.password) {
     const user = {
       username: req.body.username,
-      id: req.body.username,
+      id: '---' + req.body.username + '---',
       password: req.body.password,
       admin: false
     };
