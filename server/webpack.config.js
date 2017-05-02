@@ -9,14 +9,16 @@ const entry = DEVELOPMENT
     bundleProductsStore: ['./src/js/productsStore.js', 'webpack-hot-middleware/client?reload=true'],
     bundleStore: ['./src/js/store.js', 'webpack-hot-middleware/client?reload=true'],
     bundleStoreItem: ['./src/js/storeItem.js', 'webpack-hot-middleware/client?reload=true'],
-    bundleLogin: ['./src/js/login.js', 'webpack-hot-middleware/client?reload=true']
+    bundleLogin: ['./src/js/login.js', 'webpack-hot-middleware/client?reload=true'],
+    bundleSignUp: ['./src/js/signUp.js', 'webpack-hot-middleware/client?reload=true']
   }
   : {
     bundleProductsAllNations: './src/js/productsAllNations.js',
     bundleProductsStore: './src/js/productsStore.js',
     bundleStore: './src/js/store.js',
     bundleStoreItem: './src/js/storeItem.js',
-    bundleLogin: './src/js/login.js'
+    bundleLogin: './src/js/login.js',
+    bundleSignUp: './src/js/signUp.js'
   };
 const plugins = DEVELOPMENT
   ? [
